@@ -1,5 +1,7 @@
 # Experiments: Jev (TypeSafe System One) as a tool router and model router for Jido
 
+Three experiments: tool selection versus native LLM tool-calling, model-tier routing, and tool selection versus embeddings.
+
 **Question.** Can a calibrated judgment model pick the right Jido action from the
 metadata Jido already exposes (name + description via `Jido.Discovery`), and how
 does that compare with the native LLM tool-calling that `jido_ai`'s ReAct loop
@@ -156,6 +158,56 @@ as the tiers. Their wider price spread is where pre-routing should pay in dollar
 just latency. Needs a service account with `roles/aiplatform.user`; the script will take
 the project, region and model IDs as arguments.
 
+## Experiment 3: the cheap alternative for tool selection (embeddings, BM25)
+
+**Question.** If nearest-neighbour matching over action descriptions is as good as Jev,
+the tool-selection case shrinks to "Jev adds a confidence number". Same 34 queries,
+same 19 actions, each action embedded as `name: description`. Local ONNX models via
+`fastembed`, no API. Run on 2026-09-25; `embed_baseline.py`, results in
+`embed_baseline_results.json`.
+
+Nearest-neighbour has no native "none" answer, so the overall figure uses the single
+best similarity threshold found after the fact, an upper bound that favours the
+baseline. The margin between the top two scores stands in for confidence.
+
+| Router | Tool queries correct (of 29) | Overall incl. 5 no-action queries (of 34) | Precision at ~71 % coverage | Latency per query |
+| --- | --- | --- | --- | --- |
+| Jev 1.13, Choice only | 29 | 33 | 1.00 | 134 ms |
+| Jev 1.13, Noul gate + Choice | 29 | 34 | 1.00 | 134 ms |
+| bge-small-en-v1.5 (cosine) | 24 | 26 (best-case threshold) | 0.81 | 4 ms |
+| bge-base-en-v1.5 | 22 | 25 (best-case) | 0.86 | 14 ms |
+| bge-large-en-v1.5 | 21 | 24 (best-case) | 0.90 | 44 ms |
+| all-MiniLM-L6-v2 | 17 | 20 (best-case) | 0.62 | 2 ms |
+| BM25 (lexical) | 12 | 13 (best-case) | 0.48 | 0.1 ms |
+
+### What it shows
+
+- **Embeddings lose exactly where the tool test is hard.** Every embedding model missed
+  "Relay this to the agent named 'audit'" (forward), "Spin up three workers for the
+  crawl" (spawn_child), "Give up on waiting for the reply after two minutes"
+  (schedule_timeout, pulled toward `reply` by the word "reply"), and "Stop being idle,
+  get to work" (mark_working, pulled toward `mark_idle` by the word "idle"). Those are
+  paraphrases and negations, which is what a judgment model handles and a similarity
+  score does not.
+- **Bigger embedding models did not help.** bge-large scored below bge-small on this set;
+  with 29 queries the differences are noise, but there is no trend toward Jev's 29/29.
+- **Margin is a weak confidence.** At the coverage where Jev's confidence gave 100 %
+  precision, embedding margins gave 81 % to 90 %. Several embedding misses had margins
+  near zero, but so did several hits.
+- **Embeddings are 30x faster and free**, which matters for a pre-filter. A hybrid that
+  uses embeddings to cut 100 tools to 10 and Jev to choose among the 10 is the natural
+  shape for large registries, and would also stay under Jev's 255-option limit.
+- **BM25 is not a baseline worth keeping.** Jido's action descriptions are short and the
+  requests are paraphrases, so lexical overlap fails.
+
+### Caveats
+
+- Same 34 hand-written queries as experiment 1; one author's phrasing.
+- Documents were `name: description` only, the same information Jev received. Richer
+  documents (parameter docs, example phrasings) would help embeddings and were not tried.
+- The "none" threshold was tuned on the test set itself, so the overall column overstates
+  what embeddings would do in production.
+
 ## Files
 
 | File | What |
@@ -166,6 +218,8 @@ the project, region and model IDs as arguments.
 | `llm_baseline_default.json`, `llm_baseline_select.json` | Raw per-query results for Haiku 4.5 and Opus 5 under each prompt. |
 | `model_routing.py` | Experiment 2: 42 tasks on three tiers, outcome-based gold, Jev routing and verification, policy scoring. `--regrade` re-scores offline. |
 | `model_routing_results.json` | Raw replies, grades, Jev answers, and policy summary for experiment 2. |
+| `embed_baseline.py` | Experiment 3: BM25 and local embedding models (fastembed) on the experiment 1 queries. |
+| `embed_baseline_results.json` | Per-query top-2 matches, margins, and summaries for each model. |
 
 ## Running
 
@@ -175,7 +229,7 @@ python3 experiments/jev_routing/jev_eval.py
 
 # LLM baseline: key in ANTHROPIC_API_KEY or ~/.anthropic_key
 cd experiments/jev_routing
-uv venv && uv pip install anthropic
+uv venv && uv pip install anthropic fastembed rank-bm25
 .venv/bin/python llm_baseline.py                 # assistant prompt
 COND=select .venv/bin/python llm_baseline.py     # selection-only prompt
 .venv/bin/python llm_baseline.py claude-sonnet-5 # other models as args

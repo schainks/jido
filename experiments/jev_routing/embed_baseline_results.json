@@ -1,0 +1,2702 @@
+[
+ {
+  "model": "bm25",
+  "tool_accuracy": 0.41379310344827586,
+  "tool_n": 29,
+  "best_case_overall_accuracy": 0.38235294117647056,
+  "best_threshold": 1.7471520139844134,
+  "precision_by_coverage": [
+   {
+    "coverage": 0.97,
+    "precision": 0.39,
+    "margin_cut": 0.0
+   },
+   {
+    "coverage": 0.9,
+    "precision": 0.38,
+    "margin_cut": 0.0
+   },
+   {
+    "coverage": 0.79,
+    "precision": 0.43,
+    "margin_cut": 0.119
+   },
+   {
+    "coverage": 0.72,
+    "precision": 0.48,
+    "margin_cut": 0.231
+   },
+   {
+    "coverage": 0.66,
+    "precision": 0.47,
+    "margin_cut": 0.309
+   }
+  ],
+  "latency_ms_per_query": 0.07974849466015312,
+  "misses": [
+   {
+    "q": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "got": "cancel",
+    "second": "noop",
+    "margin": 0.0
+   },
+   {
+    "q": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "got": "spawn_child",
+    "second": "stop_child",
+    "margin": 0.0
+   },
+   {
+    "q": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "got": "stop_self",
+    "second": "reply",
+    "margin": 0.119
+   },
+   {
+    "q": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "got": "reply",
+    "second": "notify_parent",
+    "margin": 0.928
+   },
+   {
+    "q": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "got": "stop_self",
+    "second": "stop_child",
+    "margin": 2.616
+   },
+   {
+    "q": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "got": "reply",
+    "second": "set_status",
+    "margin": 0.393
+   },
+   {
+    "q": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "got": "stop_self",
+    "second": "reply",
+    "margin": 1.307
+   },
+   {
+    "q": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "got": "reply",
+    "second": "notify_parent",
+    "margin": 0.574
+   },
+   {
+    "q": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "got": "reply",
+    "second": "set_status",
+    "margin": 0.197
+   },
+   {
+    "q": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "got": "cancel",
+    "second": "noop",
+    "margin": 0.0
+   },
+   {
+    "q": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "got": "mark_working",
+    "second": "mark_idle",
+    "margin": 0.074
+   },
+   {
+    "q": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "got": "reply",
+    "second": "set_status",
+    "margin": 0.309
+   },
+   {
+    "q": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "got": "reply",
+    "second": "schedule_timeout",
+    "margin": 3.271
+   },
+   {
+    "q": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "got": "stop_self",
+    "second": "reply",
+    "margin": 0.231
+   },
+   {
+    "q": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "got": "schedule_timeout",
+    "second": "reply",
+    "margin": 0.631
+   },
+   {
+    "q": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "got": "mark_idle",
+    "second": "stop_self",
+    "margin": 1.643
+   },
+   {
+    "q": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "got": "set_status",
+    "second": "notify_pid",
+    "margin": 2.822
+   }
+  ],
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool": true,
+    "top": "cancel",
+    "second": "noop",
+    "top_score": 0.0,
+    "margin": 0.0,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool": true,
+    "top": "spawn_child",
+    "second": "stop_child",
+    "top_score": 2.6724946253120185,
+    "margin": 0.0,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool": true,
+    "top": "spawn_child",
+    "second": "stop_child",
+    "top_score": 3.7302444171604474,
+    "margin": 0.0,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "reply",
+    "top_score": 4.715852450325933,
+    "margin": 2.9687004363415195,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool": true,
+    "top": "notify_pid",
+    "second": "stop_self",
+    "top_score": 3.296289875658431,
+    "margin": 0.7839842516823161,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "reply",
+    "top_score": 3.0709297327960665,
+    "margin": 0.1187253067045142,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "notify_parent",
+    "top_score": 4.586586345927254,
+    "margin": 0.9276242047942764,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "stop_child",
+    "top_score": 4.458215773031428,
+    "margin": 2.615933975109238,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "set_status",
+    "top_score": 3.494304027968827,
+    "margin": 0.39310920314649334,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "reply",
+    "top_score": 2.512305623976115,
+    "margin": 1.307253211868976,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "notify_parent",
+    "top_score": 2.83943433194284,
+    "margin": 0.5742676176963051,
+    "correct_if_tool": false
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "schedule_timeout",
+    "second": "noop",
+    "top_score": 2.9073890961382873,
+    "margin": 0.24534340185896042,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "set_status",
+    "top_score": 1.7471520139844134,
+    "margin": 0.19655460157324667,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool": true,
+    "top": "cancel_cron",
+    "second": "stop_self",
+    "top_score": 2.662045694279327,
+    "margin": 0.7161355452240135,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool": true,
+    "top": "set_status",
+    "second": "reply",
+    "top_score": 7.178016068503185,
+    "margin": 6.085733750544758,
+    "correct_if_tool": true
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool": true,
+    "top": "mark_completed",
+    "second": "reply",
+    "top_score": 2.378514200214073,
+    "margin": 0.6313621862296595,
+    "correct_if_tool": true
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool": true,
+    "top": "mark_failed",
+    "second": "stop_self",
+    "top_score": 3.4503768226281406,
+    "margin": 0.9380711986520258,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool": true,
+    "top": "cancel",
+    "second": "noop",
+    "top_score": 0.0,
+    "margin": 0.0,
+    "correct_if_tool": false
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool": true,
+    "top": "mark_working",
+    "second": "mark_idle",
+    "top_score": 1.8407629799425886,
+    "margin": 0.0739592268726934,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "mark_failed",
+    "top_score": 4.715852450325933,
+    "margin": 2.33733825011186,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "set_status",
+    "top_score": 1.8599221081331259,
+    "margin": 0.3093246957219591,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "schedule_timeout",
+    "top_score": 5.649762692005563,
+    "margin": 3.27124849179149,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "reply",
+    "top_score": 3.0709297327960665,
+    "margin": 0.2314954008532264,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "notify_parent",
+    "top_score": 6.742045009963989,
+    "margin": 4.476878295717453,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool": true,
+    "top": "cancel_cron",
+    "second": "cancel",
+    "top_score": 2.8962383613846527,
+    "margin": 0.38538655615199024,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool": true,
+    "top": "schedule_timeout",
+    "second": "reply",
+    "top_score": 2.378514200214073,
+    "margin": 0.6313621862296595,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "stop_self",
+    "top_score": 3.5890080342515924,
+    "margin": 1.643097885196279,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "set_status",
+    "second": "notify_pid",
+    "top_score": 3.5890080342515924,
+    "margin": 2.821798957760672,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool": true,
+    "top": "cancel",
+    "second": "noop",
+    "top_score": 0.0,
+    "margin": 0.0,
+    "correct_if_tool": true
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "set_status",
+    "second": "reply",
+    "top_score": 4.062903036387281,
+    "margin": 2.3157510224028677,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "stop_self",
+    "second": "schedule_timeout",
+    "top_score": 2.512305623976115,
+    "margin": 0.1337914237620419,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "reply",
+    "second": "forward",
+    "top_score": 1.0922823179584265,
+    "margin": 0.06510291961341608,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "set_status",
+    "second": "reply",
+    "top_score": 4.062903036387281,
+    "margin": 2.3157510224028677,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "notify_pid",
+    "second": "forward",
+    "top_score": 1.684984751935279,
+    "margin": 0.06588576808568414,
+    "correct_if_tool": false
+   }
+  ]
+ },
+ {
+  "model": "BAAI/bge-small-en-v1.5",
+  "tool_accuracy": 0.8275862068965517,
+  "tool_n": 29,
+  "best_case_overall_accuracy": 0.7647058823529411,
+  "best_threshold": 0.5629568099975586,
+  "precision_by_coverage": [
+   {
+    "coverage": 0.97,
+    "precision": 0.86,
+    "margin_cut": 0.005
+   },
+   {
+    "coverage": 0.9,
+    "precision": 0.85,
+    "margin_cut": 0.006
+   },
+   {
+    "coverage": 0.79,
+    "precision": 0.83,
+    "margin_cut": 0.01
+   },
+   {
+    "coverage": 0.72,
+    "precision": 0.81,
+    "margin_cut": 0.015
+   },
+   {
+    "coverage": 0.66,
+    "precision": 0.79,
+    "margin_cut": 0.017
+   }
+  ],
+  "latency_ms_per_query": 3.9595646016738,
+  "misses": [
+   {
+    "q": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "got": "notify_parent",
+    "second": "reply",
+    "margin": 0.022
+   },
+   {
+    "q": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "got": "reply",
+    "second": "cancel",
+    "margin": 0.017
+   },
+   {
+    "q": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "got": "notify_parent",
+    "second": "forward",
+    "margin": 0.028
+   },
+   {
+    "q": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "got": "mark_working",
+    "second": "mark_idle",
+    "margin": 0.001
+   },
+   {
+    "q": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "got": "mark_idle",
+    "second": "mark_working",
+    "margin": 0.04
+   }
+  ],
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "stop_child",
+    "top_score": 0.715731143951416,
+    "margin": 0.08347809314727783,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool": true,
+    "top": "stop_child",
+    "second": "stop_self",
+    "top_score": 0.7533738613128662,
+    "margin": 0.05175447463989258,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool": true,
+    "top": "spawn_child",
+    "second": "stop_child",
+    "top_score": 0.7006396055221558,
+    "margin": 0.019308090209960938,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "notify_pid",
+    "top_score": 0.6519768834114075,
+    "margin": 0.06294715404510498,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool": true,
+    "top": "notify_pid",
+    "second": "schedule_signal",
+    "top_score": 0.6888502836227417,
+    "margin": 0.07006382942199707,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool": true,
+    "top": "forward",
+    "second": "notify_parent",
+    "top_score": 0.7420632839202881,
+    "margin": 0.006128787994384766,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "reply",
+    "top_score": 0.666297197341919,
+    "margin": 0.02154362201690674,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "cancel",
+    "top_score": 0.7515506744384766,
+    "margin": 0.03378105163574219,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool": true,
+    "top": "cancel",
+    "second": "stop_self",
+    "top_score": 0.7544792294502258,
+    "margin": 0.04805225133895874,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool": true,
+    "top": "noop",
+    "second": "reply",
+    "top_score": 0.6912223100662231,
+    "margin": 0.0747823715209961,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool": true,
+    "top": "schedule_signal",
+    "second": "mark_idle",
+    "top_score": 0.6581157445907593,
+    "margin": 0.014745116233825684,
+    "correct_if_tool": true
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "schedule_timeout",
+    "second": "schedule_signal",
+    "top_score": 0.7199656963348389,
+    "margin": 0.006375908851623535,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool": true,
+    "top": "schedule_cron",
+    "second": "mark_idle",
+    "top_score": 0.5629568099975586,
+    "margin": 0.004925072193145752,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool": true,
+    "top": "cancel_cron",
+    "second": "stop_self",
+    "top_score": 0.7429991364479065,
+    "margin": 0.043150365352630615,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool": true,
+    "top": "set_status",
+    "second": "schedule_signal",
+    "top_score": 0.7161800861358643,
+    "margin": 0.060053229331970215,
+    "correct_if_tool": true
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool": true,
+    "top": "mark_completed",
+    "second": "cancel",
+    "top_score": 0.6448013782501221,
+    "margin": 0.035907089710235596,
+    "correct_if_tool": true
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool": true,
+    "top": "mark_failed",
+    "second": "cancel",
+    "top_score": 0.6047687530517578,
+    "margin": 0.014232218265533447,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool": true,
+    "top": "mark_working",
+    "second": "schedule_timeout",
+    "top_score": 0.6686018109321594,
+    "margin": 0.009023129940032959,
+    "correct_if_tool": true
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "mark_working",
+    "top_score": 0.616787314414978,
+    "margin": 0.0443882942199707,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "stop_child",
+    "top_score": 0.6836084127426147,
+    "margin": 0.030605554580688477,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool": true,
+    "top": "schedule_cron",
+    "second": "schedule_signal",
+    "top_score": 0.7008713483810425,
+    "margin": 0.009637117385864258,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "cancel",
+    "top_score": 0.707308292388916,
+    "margin": 0.01748955249786377,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "forward",
+    "top_score": 0.7367113828659058,
+    "margin": 0.027797043323516846,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "cancel",
+    "top_score": 0.720215916633606,
+    "margin": 0.0894848108291626,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool": true,
+    "top": "cancel_cron",
+    "second": "cancel",
+    "top_score": 0.705874502658844,
+    "margin": 0.0163877010345459,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool": true,
+    "top": "mark_working",
+    "second": "mark_idle",
+    "top_score": 0.5304222106933594,
+    "margin": 0.0006241798400878906,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "mark_working",
+    "top_score": 0.6568130254745483,
+    "margin": 0.03991645574569702,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "schedule_signal",
+    "second": "forward",
+    "top_score": 0.6862407326698303,
+    "margin": 0.007356703281402588,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "stop_child",
+    "top_score": 0.6470389366149902,
+    "margin": 0.022616326808929443,
+    "correct_if_tool": true
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "reply",
+    "second": "set_status",
+    "top_score": 0.4469190835952759,
+    "margin": 0.021801888942718506,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "reply",
+    "second": "mark_idle",
+    "top_score": 0.6156314611434937,
+    "margin": 0.046785831451416016,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "mark_idle",
+    "second": "reply",
+    "top_score": 0.6196161508560181,
+    "margin": 0.0073018670082092285,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "stop_self",
+    "second": "cancel_cron",
+    "top_score": 0.65622478723526,
+    "margin": 0.007225453853607178,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "forward",
+    "second": "cancel",
+    "top_score": 0.5452221632003784,
+    "margin": 0.0006003379821777344,
+    "correct_if_tool": false
+   }
+  ]
+ },
+ {
+  "model": "BAAI/bge-base-en-v1.5",
+  "tool_accuracy": 0.7586206896551724,
+  "tool_n": 29,
+  "best_case_overall_accuracy": 0.7352941176470589,
+  "best_threshold": 0.595966637134552,
+  "precision_by_coverage": [
+   {
+    "coverage": 0.97,
+    "precision": 0.79,
+    "margin_cut": 0.004
+   },
+   {
+    "coverage": 0.9,
+    "precision": 0.81,
+    "margin_cut": 0.008
+   },
+   {
+    "coverage": 0.79,
+    "precision": 0.87,
+    "margin_cut": 0.014
+   },
+   {
+    "coverage": 0.72,
+    "precision": 0.86,
+    "margin_cut": 0.022
+   },
+   {
+    "coverage": 0.66,
+    "precision": 0.89,
+    "margin_cut": 0.026
+   }
+  ],
+  "latency_ms_per_query": 14.412349692600616,
+  "misses": [
+   {
+    "q": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "got": "schedule_timeout",
+    "second": "schedule_signal",
+    "margin": 0.008
+   },
+   {
+    "q": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "got": "stop_self",
+    "second": "stop_child",
+    "margin": 0.024
+   },
+   {
+    "q": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "got": "schedule_timeout",
+    "second": "cancel",
+    "margin": 0.004
+   },
+   {
+    "q": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "got": "reply",
+    "second": "cancel",
+    "margin": 0.029
+   },
+   {
+    "q": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "got": "mark_working",
+    "second": "notify_parent",
+    "margin": 0.011
+   },
+   {
+    "q": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "got": "forward",
+    "second": "spawn_child",
+    "margin": 0.003
+   },
+   {
+    "q": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "got": "mark_idle",
+    "second": "stop_self",
+    "margin": 0.037
+   }
+  ],
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "stop_child",
+    "top_score": 0.7145885229110718,
+    "margin": 0.08545303344726562,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool": true,
+    "top": "stop_child",
+    "second": "stop_self",
+    "top_score": 0.7257820963859558,
+    "margin": 0.059599339962005615,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool": true,
+    "top": "spawn_child",
+    "second": "stop_child",
+    "top_score": 0.6882028579711914,
+    "margin": 0.030511975288391113,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "mark_completed",
+    "top_score": 0.6904423236846924,
+    "margin": 0.0443422794342041,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool": true,
+    "top": "notify_pid",
+    "second": "broadcast",
+    "top_score": 0.6095396280288696,
+    "margin": 0.02640777826309204,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool": true,
+    "top": "forward",
+    "second": "notify_parent",
+    "top_score": 0.7299822568893433,
+    "margin": 0.03403210639953613,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool": true,
+    "top": "broadcast",
+    "second": "notify_parent",
+    "top_score": 0.6025325059890747,
+    "margin": 0.007875502109527588,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "cancel",
+    "top_score": 0.7261056900024414,
+    "margin": 0.11584413051605225,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool": true,
+    "top": "cancel",
+    "second": "stop_self",
+    "top_score": 0.7449464797973633,
+    "margin": 0.10032898187637329,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool": true,
+    "top": "noop",
+    "second": "reply",
+    "top_score": 0.6883809566497803,
+    "margin": 0.05088084936141968,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool": true,
+    "top": "schedule_timeout",
+    "second": "schedule_signal",
+    "top_score": 0.6054896116256714,
+    "margin": 0.007934331893920898,
+    "correct_if_tool": false
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "schedule_timeout",
+    "second": "cancel",
+    "top_score": 0.7085548043251038,
+    "margin": 0.04151296615600586,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool": true,
+    "top": "schedule_cron",
+    "second": "cancel_cron",
+    "top_score": 0.5192232131958008,
+    "margin": 0.042374998331069946,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "stop_child",
+    "top_score": 0.6636279821395874,
+    "margin": 0.023505985736846924,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool": true,
+    "top": "set_status",
+    "second": "mark_idle",
+    "top_score": 0.7176752090454102,
+    "margin": 0.04149121046066284,
+    "correct_if_tool": true
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool": true,
+    "top": "mark_completed",
+    "second": "stop_self",
+    "top_score": 0.6559016108512878,
+    "margin": 0.08812397718429565,
+    "correct_if_tool": true
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool": true,
+    "top": "mark_failed",
+    "second": "cancel",
+    "top_score": 0.5672528743743896,
+    "margin": 0.06142336130142212,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool": true,
+    "top": "schedule_timeout",
+    "second": "cancel",
+    "top_score": 0.6647051572799683,
+    "margin": 0.0037629008293151855,
+    "correct_if_tool": false
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "mark_completed",
+    "top_score": 0.595966637134552,
+    "margin": 0.01867467164993286,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool": true,
+    "top": "mark_failed",
+    "second": "stop_child",
+    "top_score": 0.6265023350715637,
+    "margin": 0.021581053733825684,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool": true,
+    "top": "schedule_cron",
+    "second": "schedule_signal",
+    "top_score": 0.6816457509994507,
+    "margin": 0.061788976192474365,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "cancel",
+    "top_score": 0.663896918296814,
+    "margin": 0.028733015060424805,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool": true,
+    "top": "mark_working",
+    "second": "notify_parent",
+    "top_score": 0.6332724094390869,
+    "margin": 0.011181116104125977,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "mark_completed",
+    "top_score": 0.659014880657196,
+    "margin": 0.09445726871490479,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool": true,
+    "top": "cancel_cron",
+    "second": "cancel",
+    "top_score": 0.655548095703125,
+    "margin": 0.008617699146270752,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool": true,
+    "top": "forward",
+    "second": "spawn_child",
+    "top_score": 0.45728927850723267,
+    "margin": 0.0027858316898345947,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "stop_self",
+    "top_score": 0.6631687879562378,
+    "margin": 0.0373346209526062,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "schedule_signal",
+    "second": "schedule_timeout",
+    "top_score": 0.6766470670700073,
+    "margin": 0.013641715049743652,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "stop_child",
+    "top_score": 0.6237257719039917,
+    "margin": 0.03706318140029907,
+    "correct_if_tool": true
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "set_status",
+    "second": "reply",
+    "top_score": 0.41482841968536377,
+    "margin": 0.0014715194702148438,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "reply",
+    "second": "forward",
+    "top_score": 0.5448357462882996,
+    "margin": 0.03592413663864136,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "reply",
+    "second": "forward",
+    "top_score": 0.5680274963378906,
+    "margin": 0.02921539545059204,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "stop_self",
+    "second": "stop_child",
+    "top_score": 0.5800376534461975,
+    "margin": 0.023129642009735107,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "schedule_signal",
+    "second": "cancel",
+    "top_score": 0.5339542031288147,
+    "margin": 0.0008843541145324707,
+    "correct_if_tool": false
+   }
+  ]
+ },
+ {
+  "model": "BAAI/bge-large-en-v1.5",
+  "tool_accuracy": 0.7241379310344828,
+  "tool_n": 29,
+  "best_case_overall_accuracy": 0.7058823529411765,
+  "best_threshold": 0.5678679347038269,
+  "precision_by_coverage": [
+   {
+    "coverage": 0.97,
+    "precision": 0.75,
+    "margin_cut": 0.005
+   },
+   {
+    "coverage": 0.9,
+    "precision": 0.77,
+    "margin_cut": 0.01
+   },
+   {
+    "coverage": 0.79,
+    "precision": 0.87,
+    "margin_cut": 0.014
+   },
+   {
+    "coverage": 0.72,
+    "precision": 0.9,
+    "margin_cut": 0.018
+   },
+   {
+    "coverage": 0.66,
+    "precision": 0.95,
+    "margin_cut": 0.02
+   }
+  ],
+  "latency_ms_per_query": 43.70290942161399,
+  "misses": [
+   {
+    "q": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "got": "schedule_timeout",
+    "second": "schedule_signal",
+    "margin": 0.005
+   },
+   {
+    "q": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "got": "stop_self",
+    "second": "cancel_cron",
+    "margin": 0.013
+   },
+   {
+    "q": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "got": "mark_idle",
+    "second": "set_status",
+    "margin": 0.017
+   },
+   {
+    "q": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "got": "mark_idle",
+    "second": "mark_working",
+    "margin": 0.058
+   },
+   {
+    "q": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "got": "reply",
+    "second": "stop_self",
+    "margin": 0.003
+   },
+   {
+    "q": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "got": "notify_parent",
+    "second": "forward",
+    "margin": 0.01
+   },
+   {
+    "q": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "got": "cancel",
+    "second": "cancel_cron",
+    "margin": 0.019
+   },
+   {
+    "q": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "got": "mark_idle",
+    "second": "mark_working",
+    "margin": 0.01
+   }
+  ],
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "stop_child",
+    "top_score": 0.7261956930160522,
+    "margin": 0.05007356405258179,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool": true,
+    "top": "stop_child",
+    "second": "stop_self",
+    "top_score": 0.7379282712936401,
+    "margin": 0.04973137378692627,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool": true,
+    "top": "spawn_child",
+    "second": "stop_child",
+    "top_score": 0.7149968147277832,
+    "margin": 0.024864137172698975,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "mark_completed",
+    "top_score": 0.6964802742004395,
+    "margin": 0.020004749298095703,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool": true,
+    "top": "notify_pid",
+    "second": "notify_parent",
+    "top_score": 0.7674793601036072,
+    "margin": 0.07533371448516846,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool": true,
+    "top": "forward",
+    "second": "notify_parent",
+    "top_score": 0.7195529341697693,
+    "margin": 0.013755857944488525,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool": true,
+    "top": "broadcast",
+    "second": "notify_parent",
+    "top_score": 0.6862114667892456,
+    "margin": 0.052306950092315674,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "notify_parent",
+    "top_score": 0.7536644339561462,
+    "margin": 0.13417112827301025,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool": true,
+    "top": "cancel",
+    "second": "stop_self",
+    "top_score": 0.7693997025489807,
+    "margin": 0.07846415042877197,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool": true,
+    "top": "noop",
+    "second": "reply",
+    "top_score": 0.6537809371948242,
+    "margin": 0.04059410095214844,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool": true,
+    "top": "schedule_timeout",
+    "second": "schedule_signal",
+    "top_score": 0.5841553807258606,
+    "margin": 0.004827320575714111,
+    "correct_if_tool": false
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "schedule_timeout",
+    "second": "schedule_signal",
+    "top_score": 0.6839209198951721,
+    "margin": 0.041321516036987305,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool": true,
+    "top": "schedule_cron",
+    "second": "cancel_cron",
+    "top_score": 0.5698622465133667,
+    "margin": 0.05706655979156494,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "cancel_cron",
+    "top_score": 0.6872521638870239,
+    "margin": 0.012887835502624512,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "set_status",
+    "top_score": 0.6830783486366272,
+    "margin": 0.016588449478149414,
+    "correct_if_tool": false
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool": true,
+    "top": "mark_completed",
+    "second": "reply",
+    "top_score": 0.660654604434967,
+    "margin": 0.10666924715042114,
+    "correct_if_tool": true
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool": true,
+    "top": "mark_failed",
+    "second": "cancel",
+    "top_score": 0.6215230822563171,
+    "margin": 0.05907469987869263,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "mark_working",
+    "top_score": 0.7331790924072266,
+    "margin": 0.05816447734832764,
+    "correct_if_tool": false
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "mark_working",
+    "top_score": 0.6003520488739014,
+    "margin": 0.026573896408081055,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool": true,
+    "top": "mark_failed",
+    "second": "stop_child",
+    "top_score": 0.6924331188201904,
+    "margin": 0.025467514991760254,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool": true,
+    "top": "schedule_cron",
+    "second": "broadcast",
+    "top_score": 0.6081622838973999,
+    "margin": 0.036589205265045166,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "stop_self",
+    "top_score": 0.6461924910545349,
+    "margin": 0.003030717372894287,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "forward",
+    "top_score": 0.7291364669799805,
+    "margin": 0.010024189949035645,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "mark_completed",
+    "top_score": 0.7295995950698853,
+    "margin": 0.15202462673187256,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool": true,
+    "top": "cancel",
+    "second": "cancel_cron",
+    "top_score": 0.650241494178772,
+    "margin": 0.01923680305480957,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool": true,
+    "top": "spawn_child",
+    "second": "forward",
+    "top_score": 0.524871826171875,
+    "margin": 0.018242716789245605,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "mark_working",
+    "top_score": 0.6680870056152344,
+    "margin": 0.009790420532226562,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "schedule_timeout",
+    "second": "schedule_signal",
+    "top_score": 0.6809540390968323,
+    "margin": 0.02177274227142334,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "stop_child",
+    "top_score": 0.5678679347038269,
+    "margin": 0.006227076053619385,
+    "correct_if_tool": true
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "reply",
+    "second": "cancel",
+    "top_score": 0.3941141664981842,
+    "margin": 0.0021809041500091553,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "reply",
+    "second": "mark_completed",
+    "top_score": 0.577710747718811,
+    "margin": 0.09054827690124512,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "reply",
+    "second": "notify_parent",
+    "top_score": 0.5597586631774902,
+    "margin": 0.06448331475257874,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "cancel",
+    "second": "stop_child",
+    "top_score": 0.5568280220031738,
+    "margin": 0.0074672698974609375,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "schedule_signal",
+    "second": "cancel",
+    "top_score": 0.5457780361175537,
+    "margin": 0.02734076976776123,
+    "correct_if_tool": false
+   }
+  ]
+ },
+ {
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "tool_accuracy": 0.5862068965517241,
+  "tool_n": 29,
+  "best_case_overall_accuracy": 0.5882352941176471,
+  "best_threshold": 0.18471337466529048,
+  "precision_by_coverage": [
+   {
+    "coverage": 0.97,
+    "precision": 0.61,
+    "margin_cut": 0.005
+   },
+   {
+    "coverage": 0.9,
+    "precision": 0.65,
+    "margin_cut": 0.014
+   },
+   {
+    "coverage": 0.79,
+    "precision": 0.61,
+    "margin_cut": 0.031
+   },
+   {
+    "coverage": 0.72,
+    "precision": 0.62,
+    "margin_cut": 0.044
+   },
+   {
+    "coverage": 0.66,
+    "precision": 0.68,
+    "margin_cut": 0.048
+   }
+  ],
+  "latency_ms_per_query": 2.276993959265597,
+  "misses": [
+   {
+    "q": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "got": "spawn_child",
+    "second": "notify_parent",
+    "margin": 0.009
+   },
+   {
+    "q": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "got": "notify_parent",
+    "second": "forward",
+    "margin": 0.003
+   },
+   {
+    "q": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "got": "reply",
+    "second": "noop",
+    "margin": 0.109
+   },
+   {
+    "q": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "got": "cancel_cron",
+    "second": "schedule_timeout",
+    "margin": 0.08
+   },
+   {
+    "q": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "got": "mark_idle",
+    "second": "schedule_timeout",
+    "margin": 0.005
+   },
+   {
+    "q": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "got": "stop_child",
+    "second": "notify_parent",
+    "margin": 0.05
+   },
+   {
+    "q": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "got": "schedule_signal",
+    "second": "schedule_cron",
+    "margin": 0.053
+   },
+   {
+    "q": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "got": "reply",
+    "second": "schedule_signal",
+    "margin": 0.032
+   },
+   {
+    "q": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "got": "notify_parent",
+    "second": "stop_child",
+    "margin": 0.044
+   },
+   {
+    "q": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "got": "cancel",
+    "second": "cancel_cron",
+    "margin": 0.048
+   },
+   {
+    "q": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "got": "mark_idle",
+    "second": "mark_working",
+    "margin": 0.197
+   },
+   {
+    "q": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "got": "cancel_cron",
+    "second": "stop_self",
+    "margin": 0.066
+   }
+  ],
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool": true,
+    "top": "stop_self",
+    "second": "cancel",
+    "top_score": 0.4178478286983238,
+    "margin": 0.02977535330408565,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool": true,
+    "top": "stop_child",
+    "second": "spawn_child",
+    "top_score": 0.529922618304287,
+    "margin": 0.13620050059142624,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool": true,
+    "top": "spawn_child",
+    "second": "stop_child",
+    "top_score": 0.4898842006104934,
+    "margin": 0.050789604508213126,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool": true,
+    "top": "spawn_child",
+    "second": "notify_parent",
+    "top_score": 0.3341880822340237,
+    "margin": 0.008553282621710512,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool": true,
+    "top": "notify_pid",
+    "second": "noop",
+    "top_score": 0.47765505274748643,
+    "margin": 0.20198741494268047,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "forward",
+    "top_score": 0.46084103897830336,
+    "margin": 0.003013980591665022,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool": true,
+    "top": "broadcast",
+    "second": "set_status",
+    "top_score": 0.222154496219716,
+    "margin": 0.02448239078872605,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "cancel",
+    "top_score": 0.3935582766239406,
+    "margin": 0.13090001179195088,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool": true,
+    "top": "cancel",
+    "second": "cancel_cron",
+    "top_score": 0.5900787132741326,
+    "margin": 0.1459620403959092,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "noop",
+    "top_score": 0.5360392665766087,
+    "margin": 0.1086158357967324,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool": true,
+    "top": "schedule_signal",
+    "second": "schedule_timeout",
+    "top_score": 0.36670075318615486,
+    "margin": 0.08116421638317967,
+    "correct_if_tool": true
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "schedule_timeout",
+    "second": "schedule_signal",
+    "top_score": 0.5321096796265086,
+    "margin": 0.06986428942319078,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool": true,
+    "top": "cancel_cron",
+    "second": "schedule_timeout",
+    "top_score": 0.3146228539472118,
+    "margin": 0.08003466594999803,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool": true,
+    "top": "cancel_cron",
+    "second": "stop_self",
+    "top_score": 0.36403758424131966,
+    "margin": 0.06187126053172204,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool": true,
+    "top": "set_status",
+    "second": "mark_idle",
+    "top_score": 0.36958246589972454,
+    "margin": 0.01424514398384652,
+    "correct_if_tool": true
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool": true,
+    "top": "mark_completed",
+    "second": "cancel",
+    "top_score": 0.39606780386459706,
+    "margin": 0.1050263700274604,
+    "correct_if_tool": true
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool": true,
+    "top": "mark_failed",
+    "second": "stop_self",
+    "top_score": 0.316219120761147,
+    "margin": 0.12455685312578446,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "schedule_timeout",
+    "top_score": 0.33401276106628885,
+    "margin": 0.004805627119015554,
+    "correct_if_tool": false
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "mark_working",
+    "top_score": 0.34294676905199023,
+    "margin": 0.11887592489989518,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool": true,
+    "top": "stop_child",
+    "second": "notify_parent",
+    "top_score": 0.3704267502115607,
+    "margin": 0.04958179298177262,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool": true,
+    "top": "schedule_signal",
+    "second": "schedule_cron",
+    "top_score": 0.45253906513900344,
+    "margin": 0.05257156953942432,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "schedule_signal",
+    "top_score": 0.32799713307383727,
+    "margin": 0.032215488196271236,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool": true,
+    "top": "notify_parent",
+    "second": "stop_child",
+    "top_score": 0.35300631896690127,
+    "margin": 0.04384003913828183,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool": true,
+    "top": "reply",
+    "second": "cancel",
+    "top_score": 0.18471337466529048,
+    "margin": 0.0693594688063668,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool": true,
+    "top": "cancel",
+    "second": "cancel_cron",
+    "top_score": 0.4401715818480458,
+    "margin": 0.047794417200202166,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool": true,
+    "top": "spawn_child",
+    "second": "mark_working",
+    "top_score": 0.24228528463305005,
+    "margin": 0.048434650817738956,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool": true,
+    "top": "mark_idle",
+    "second": "mark_working",
+    "top_score": 0.5021519226097102,
+    "margin": 0.19664040852115994,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool": true,
+    "top": "schedule_signal",
+    "second": "schedule_timeout",
+    "top_score": 0.32739761395182415,
+    "margin": 0.031391657024570085,
+    "correct_if_tool": true
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool": true,
+    "top": "cancel_cron",
+    "second": "stop_self",
+    "top_score": 0.2712833332526648,
+    "margin": 0.066401371239837,
+    "correct_if_tool": false
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "broadcast",
+    "second": "cancel_cron",
+    "top_score": 0.07270165741133298,
+    "margin": 0.012032920143099812,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "schedule_timeout",
+    "second": "reply",
+    "top_score": 0.11997548509014005,
+    "margin": 0.04896480864210047,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "reply",
+    "second": "set_status",
+    "top_score": 0.1915081989309642,
+    "margin": 0.051746993944281394,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "stop_self",
+    "second": "cancel",
+    "top_score": 0.24248860922632962,
+    "margin": 0.015957818673613205,
+    "correct_if_tool": false
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool": false,
+    "top": "schedule_signal",
+    "second": "schedule_timeout",
+    "top_score": 0.12400789166928938,
+    "margin": 0.0019367883130913394,
+    "correct_if_tool": false
+   }
+  ]
+ }
+]
