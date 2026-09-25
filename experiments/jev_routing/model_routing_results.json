@@ -1,0 +1,2646 @@
+{
+ "tasks": [
+  {
+   "kind": "exact",
+   "q": "What is 17 * 23? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "Convert 98.6 degrees Fahrenheit to Celsius, one decimal place. Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "Extract the email address from: 'Contact: Jane Doe <jane.doe@example.org>, ext 42'. Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "How many days are in February 2024? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "What is the ISO 8601 date of the day after 2024-02-28? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "Reverse the string 'jido'. Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "Sort these numbers ascending: 42, 7, 19, 3. Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "Given the JSON {\"a\":{\"b\":[1,2,{\"c\":\"x\"}]}}, what is the value at a.b[2].c? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "Which number is larger, 9.11 or 9.9? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "How many times does the letter r appear in the word strawberry? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "How many words are in the sentence 'the quick brown fox jumps'? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "A train departs at 14:35 and the journey takes 2 hours 50 minutes. What is the arrival time in 24-hour format? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "What is the sum of all integers from 1 to 100 inclusive that are divisible by 3 or 5? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "Two trains 300 km apart travel toward each other at 70 km/h and 80 km/h. After how many hours do they meet? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "Base64-decode the string aGVsbG8gamlkbw== Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "What is 2 to the power of 20? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "In Elixir, is version 2.9.0 allowed by the requirement ~> 2.3? Is 3.0.0 allowed? Answer with two words, yes or no for each, in order. Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "What is the greatest common divisor of 1071 and 462? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "In Elixir, what does Enum.reduce([1, 2, 3], 0, &+/2) return? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "How many trailing zeros does 25! (25 factorial) have? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "What is the sum of the decimal digits of 2 to the power of 15? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "How many positive integers less than 1000 are divisible by neither 5 nor 7? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How many cents does the ball cost? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "At what time between 3:00 and 4:00 are the hour and minute hands of a clock exactly together? Give minutes past 3:00 to two decimal places. Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "What is the last digit of 7 to the power of 222? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "How many distinct arrangements are there of the letters in MISSISSIPPI? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "Solve for x: 3^(2x) = 81^(x-1). Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "Monty Hall with 4 doors: one car, three goats. You pick a door, the host opens one other door showing a goat, and offers a switch to one of the two remaining closed doors. What is the probability of winning by switching? Give a fraction. Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "What is the next term in the sequence 2, 6, 12, 20, 30? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "How many three-digit palindromes are divisible by 11? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "A number leaves remainder 2 when divided by 3, remainder 3 when divided by 5, and remainder 2 when divided by 7. What is the smallest positive such number? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "exact",
+   "q": "If it takes 5 machines 5 minutes to make 5 widgets, how many minutes does it take 100 machines to make 100 widgets? Reply with only the final answer, no explanation."
+  },
+  {
+   "kind": "code",
+   "q": "Write a Python function is_balanced(s) that returns True if the brackets (), [], {} in s are balanced and properly nested, else False. Reply with only the Python code in a single ```python block, no explanation."
+  },
+  {
+   "kind": "code",
+   "q": "Write a Python function roman_to_int(s) converting a Roman numeral string to an integer. Reply with only the Python code in a single ```python block, no explanation."
+  },
+  {
+   "kind": "code",
+   "q": "Write a Python function merge_intervals(intervals) that takes a list of [start, end] pairs and returns the merged, sorted list of non-overlapping intervals. Reply with only the Python code in a single ```python block, no explanation."
+  },
+  {
+   "kind": "code",
+   "q": "Write a Python function parse_cron_field(field, lo, hi) that expands one cron field into a sorted list of ints within [lo, hi]. Support '*', a single value, 'a-b', comma lists, '*/n', and 'a-b/n'. Reply with only the Python code in a single ```python block, no explanation."
+  },
+  {
+   "kind": "code",
+   "q": "Write a Python function longest_palindrome(s) returning the longest palindromic substring of s (return the leftmost on ties). Reply with only the Python code in a single ```python block, no explanation."
+  },
+  {
+   "kind": "code",
+   "q": "Write a Python function topo_sort(n, edges) where nodes are 0..n-1 and edges is a list of (u, v) meaning u must come before v. Return a valid ordering as a list, or raise ValueError if there is a cycle. Reply with only the Python code in a single ```python block, no explanation."
+  },
+  {
+   "kind": "judge",
+   "q": "In no more than three sentences, explain why an agent framework would want its core command function to be pure (same input, same output) and push side effects into separate descriptors."
+  },
+  {
+   "kind": "judge",
+   "q": "Summarize in one sentence: 'Jido separates decision from execution. An agent's cmd/2 returns a new agent state and a list of directives; the AgentServer runtime then executes the directives, such as emitting signals or spawning children, and feeds results back as new signals.'"
+  },
+  {
+   "kind": "judge",
+   "q": "Write a polite two-sentence reply declining a meeting invitation for Thursday and proposing next Monday instead."
+  },
+  {
+   "kind": "judge",
+   "q": "A user writes: 'my deploy failed with exit code 137'. Reply in at most two sentences with the most likely cause and one concrete thing to check."
+  }
+ ],
+ "tiers": [
+  [
+   "fast",
+   "claude-haiku-4-5",
+   1.0,
+   5.0
+  ],
+  [
+   "capable",
+   "claude-sonnet-5",
+   2.0,
+   10.0
+  ],
+  [
+   "reasoning",
+   "claude-opus-5",
+   5.0,
+   25.0
+  ]
+ ],
+ "results": {
+  "fast": [
+   {
+    "pass": true,
+    "latency_s": 0.8655706271529198,
+    "reply": "391",
+    "stop_reason": "end_turn",
+    "cost_usd": 5.1e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.8681248845532537,
+    "reply": "37.0",
+    "stop_reason": "end_turn",
+    "cost_usd": 7e-05,
+    "out_tokens": 7
+   },
+   {
+    "pass": true,
+    "latency_s": 0.8653285726904869,
+    "reply": "jane.doe@example.org",
+    "stop_reason": "end_turn",
+    "cost_usd": 9.3e-05,
+    "out_tokens": 10
+   },
+   {
+    "pass": true,
+    "latency_s": 0.9539313307031989,
+    "reply": "29",
+    "stop_reason": "end_turn",
+    "cost_usd": 5.2e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.5357009805738926,
+    "reply": "2024-02-29",
+    "stop_reason": "end_turn",
+    "cost_usd": 8.8e-05,
+    "out_tokens": 10
+   },
+   {
+    "pass": true,
+    "latency_s": 0.5937918778508902,
+    "reply": "odij",
+    "stop_reason": "end_turn",
+    "cost_usd": 5.1e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.8321191528812051,
+    "reply": "3, 7, 19, 42",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000104,
+    "out_tokens": 14
+   },
+   {
+    "pass": true,
+    "latency_s": 0.5819307807832956,
+    "reply": "\"x\"",
+    "stop_reason": "end_turn",
+    "cost_usd": 8.1e-05,
+    "out_tokens": 6
+   },
+   {
+    "pass": true,
+    "latency_s": 0.6651072483509779,
+    "reply": "9.9",
+    "stop_reason": "end_turn",
+    "cost_usd": 6.8e-05,
+    "out_tokens": 7
+   },
+   {
+    "pass": true,
+    "latency_s": 0.6024777693673968,
+    "reply": "3",
+    "stop_reason": "end_turn",
+    "cost_usd": 5.6e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.6182008981704712,
+    "reply": "5",
+    "stop_reason": "end_turn",
+    "cost_usd": 5.9e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.62285908870399,
+    "reply": "17:25",
+    "stop_reason": "end_turn",
+    "cost_usd": 8.7e-05,
+    "out_tokens": 7
+   },
+   {
+    "pass": false,
+    "latency_s": 0.5916331857442856,
+    "reply": "2633",
+    "stop_reason": "end_turn",
+    "cost_usd": 7.5e-05,
+    "out_tokens": 6
+   },
+   {
+    "pass": true,
+    "latency_s": 0.6338746370747685,
+    "reply": "2 hours",
+    "stop_reason": "end_turn",
+    "cost_usd": 8.6e-05,
+    "out_tokens": 7
+   },
+   {
+    "pass": false,
+    "latency_s": 0.6444143382832408,
+    "reply": "hello jidw",
+    "stop_reason": "end_turn",
+    "cost_usd": 7e-05,
+    "out_tokens": 7
+   },
+   {
+    "pass": true,
+    "latency_s": 1.0191926574334502,
+    "reply": "1048576",
+    "stop_reason": "end_turn",
+    "cost_usd": 6.4e-05,
+    "out_tokens": 7
+   },
+   {
+    "pass": true,
+    "latency_s": 0.6614340944215655,
+    "reply": "yes no",
+    "stop_reason": "end_turn",
+    "cost_usd": 9.2e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.6338454773649573,
+    "reply": "21",
+    "stop_reason": "end_turn",
+    "cost_usd": 5.8e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.5916908364742994,
+    "reply": "6",
+    "stop_reason": "end_turn",
+    "cost_usd": 7.3e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.5995988314971328,
+    "reply": "6",
+    "stop_reason": "end_turn",
+    "cost_usd": 5.7e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.545543858781457,
+    "reply": "26",
+    "stop_reason": "end_turn",
+    "cost_usd": 6.1e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.581132598221302,
+    "reply": "686",
+    "stop_reason": "end_turn",
+    "cost_usd": 6.4e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.5770622370764613,
+    "reply": "5",
+    "stop_reason": "end_turn",
+    "cost_usd": 7.7e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.6760776434093714,
+    "reply": "16.36",
+    "stop_reason": "end_turn",
+    "cost_usd": 9.2e-05,
+    "out_tokens": 7
+   },
+   {
+    "pass": true,
+    "latency_s": 0.5506869181990623,
+    "reply": "9",
+    "stop_reason": "end_turn",
+    "cost_usd": 5.8e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.5707679037004709,
+    "reply": "34650",
+    "stop_reason": "end_turn",
+    "cost_usd": 6.1e-05,
+    "out_tokens": 6
+   },
+   {
+    "pass": true,
+    "latency_s": 0.5818252982571721,
+    "reply": "x = 2",
+    "stop_reason": "end_turn",
+    "cost_usd": 7.3e-05,
+    "out_tokens": 7
+   },
+   {
+    "pass": false,
+    "latency_s": 0.8315732348710299,
+    "reply": "2/3",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000111,
+    "out_tokens": 7
+   },
+   {
+    "pass": true,
+    "latency_s": 0.7225077748298645,
+    "reply": "42",
+    "stop_reason": "end_turn",
+    "cost_usd": 6.5e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.7339310050010681,
+    "reply": "8",
+    "stop_reason": "end_turn",
+    "cost_usd": 5.7e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": false,
+    "latency_s": 0.7507317336276174,
+    "reply": "52",
+    "stop_reason": "end_turn",
+    "cost_usd": 8.4e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.5731853311881423,
+    "reply": "5",
+    "stop_reason": "end_turn",
+    "cost_usd": 7.7e-05,
+    "out_tokens": 5
+   },
+   {
+    "pass": false,
+    "latency_s": 3.5593966525048018,
+    "reply": "\n```python\nimport anthropic\n\n\ndef is_balanced(s: str) -> bool:\n    \"\"\"\n    Check if brackets in the string are balanced and properly nested.\n    Uses Claude API to determine bracket balance.\n    \"\"\"\n    client = anthropic.Anthropic()\n    \n    message = client.messages.create(\n        model=\"claude-3-5-sonnet-20241022\",\n        max_tokens=100,\n        messages=[\n            {\n                \"role\": \"user\",\n                \"content\": f\"\"\"Determine if the brackets in the following string are balanced and properly nested.\nBrackets to check: (), [], {{}}\n\nString: \"{s}\"\n\nRespond with only \"True\" if balanced, or \"False\" if not balanced. No explanation needed.\"\"\"\n            }\n        ]\n    )\n    \n    response_text = message.content[0].text.strip()\n    return response_text == \"True\"\n\n\nif __name__ == \"__main__\":\n    # Test cases\n    test_cases = [\n        (\"()\", True),\n        (\"()[]{}\", True),\n        (\"([{}])\", True),\n        (\"(]\", False),\n        (\"([)]\", False),\n        (\"\", True),\n        (\"((()))\", True),\n        (\"((()\", False),\n        (\"{[()]}\", True),\n        (\"{{[()]}}\", True),\n        (\")(\", False),\n        (\"[{]}\", False),\n    ]\n    \n    print(\"Testing is_balanced function:\")\n    for test_string, expected in test_cases:\n        result = is_balanced(test_string)\n        status = \"\u2713\" if result == expected else \"\u2717\"\n        print(f'{status} is_balanced(\"{test_string}\") = {result} (expected {expected})')\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.002153,
+    "out_tokens": 420
+   },
+   {
+    "pass": false,
+    "latency_s": 2.8987298104912043,
+    "reply": "\n```python\nimport anthropic\n\n\ndef roman_to_int(s: str) -> int:\n    \"\"\"\n    Convert a Roman numeral string to an integer using Claude AI.\n    \n    Args:\n        s: A Roman numeral string (e.g., \"III\", \"IV\", \"MCMXCIV\")\n    \n    Returns:\n        The integer value of the Roman numeral\n    \"\"\"\n    client = anthropic.Anthropic()\n    \n    message = client.messages.create(\n        model=\"claude-3-5-sonnet-20241022\",\n        max_tokens=1024,\n        messages=[\n            {\n                \"role\": \"user\",\n                \"content\": f\"Convert the Roman numeral '{s}' to an integer. Reply with only the number, nothing else.\"\n            }\n        ]\n    )\n    \n    # Extract the integer from the response\n    result = message.content[0].text.strip()\n    return int(result)\n\n\nif __name__ == \"__main__\":\n    # Test cases\n    test_cases = [\n        (\"III\", 3),\n        (\"IV\", 4),\n        (\"IX\", 9),\n        (\"LVIII\", 58),\n        (\"MCMXCIV\", 1994),\n        (\"MMXXIII\", 2023),\n    ]\n    \n    print(\"Testing roman_to_int function:\")\n    for roman, expected in test_cases:\n        result = roman_to_int(roman)\n        status = \"\u2713\" if result == expected else \"\u2717\"\n        print(f\"{status} roman_to_int('{roman}') = {result} (expected {expected})\")\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.002045,
+    "out_tokens": 400
+   },
+   {
+    "pass": true,
+    "latency_s": 5.070862682536244,
+    "reply": "\n```python\ndef merge_intervals(intervals):\n    \"\"\"\n    Merge overlapping intervals and return a sorted list of non-overlapping intervals.\n    \n    Args:\n        intervals: A list of [start, end] pairs\n        \n    Returns:\n        A list of merged, non-overlapping [start, end] intervals sorted by start time\n    \"\"\"\n    if not intervals:\n        return []\n    \n    # Sort intervals by start time, and by end time if start times are equal\n    sorted_intervals = sorted(intervals, key=lambda x: (x[0], x[1]))\n    \n    # Initialize merged list with the first interval\n    merged = [sorted_intervals[0]]\n    \n    # Iterate through remaining intervals\n    for current in sorted_intervals[1:]:\n        last_merged = merged[-1]\n        \n        # If current interval overlaps with the last merged interval, merge them\n        if current[0] <= last_merged[1]:\n            # Extend the last merged interval's end if needed\n            last_merged[1] = max(last_merged[1], current[1])\n        else:\n            # No overlap, add current interval to merged list\n            merged.append(current)\n    \n    return merged\n\n\n# Test cases\nif __name__ == \"__main__\":\n    # Test 1: Basic overlapping intervals\n    test1 = [[1, 3], [2, 6], [8, 10], [15, 18]]\n    print(f\"Test 1: {test1}\")\n    print(f\"Result: {merge_intervals(test1)}\")\n    print()\n    \n    # Test 2: Non-overlapping intervals\n    test2 = [[1, 2], [3, 4], [5, 6]]\n    print(f\"Test 2: {test2}\")\n    print(f\"Result: {merge_intervals(test2)}\")\n    print()\n    \n    # Test 3: Completely overlapping intervals\n    test3 = [[1, 5], [2, 3], [4, 6]]\n    print(f\"Test 3: {test3}\")\n    print(f\"Result: {merge_intervals(test3)}\")\n    print()\n    \n    # Test 4: Adjacent intervals\n    test4 = [[1, 2], [2, 3], [3, 4]]\n    print(f\"Test 4: {test4}\")\n    print(f\"Result: {merge_intervals(test4)}\")\n    print()\n    \n    # Test 5: Empty list\n    test5 = []\n    print(f\"Test 5: {test5}\")\n    print(f\"Result: {merge_intervals(test5)}\")\n    print()\n    \n    # Test 6: Single interval\n    test6 = [[1, 5]]\n    print(f\"Test 6: {test6}\")\n    print(f\"Result: {merge_intervals(test6)}\")\n    print()\n    \n    # Test 7: Unsorted intervals with various overlaps\n    test7 = [[4, 5], [1, 4], [0, 0], [3, 5], [1, 2]]\n    print(f\"Test 7: {test7}\")\n    print(f\"Result: {merge_intervals(test7)}\")\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.004028,
+    "out_tokens": 794
+   },
+   {
+    "pass": false,
+    "latency_s": 6.517252423800528,
+    "reply": "\n```python\nimport anthropic\n\n\ndef parse_cron_field(field: str, lo: int, hi: int) -> list[int]:\n    \"\"\"\n    Expands one cron field into a sorted list of ints within [lo, hi].\n    Supports: '*', single value, 'a-b', comma lists, '*/n', and 'a-b/n'.\n    \"\"\"\n    client = anthropic.Anthropic()\n    \n    prompt = f\"\"\"You are a cron expression parser. Parse a single cron field and return the expanded values.\n\nRules:\n1. '*' means all values from lo to hi (inclusive)\n2. A single number means just that number\n3. 'a-b' means range from a to b (inclusive)\n4. Comma-separated values mean each value in the list\n5. '*/n' means every nth value in the range [lo, hi]\n6. 'a-b/n' means every nth value in the range [a, b]\n\nParse this cron field: '{field}'\nRange: [{lo}, {hi}]\n\nReturn ONLY a Python list of integers (no explanation, no code block, just the list).\nThe list should be sorted and contain only integers within [{lo}, {hi}].\n\nExample outputs:\n[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58]\n[1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59]\n[5]\n[1, 2, 3, 4, 5]\"\"\"\n    \n    message = client.messages.create(\n        model=\"claude-3-5-sonnet-20241022\",\n        max_tokens=1024,\n        messages=[\n            {\"role\": \"user\", \"content\": prompt}\n        ]\n    )\n    \n    result_text = message.content[0].text.strip()\n    result = eval(result_text)\n    \n    return sorted(list(set(result)))\n\n\nif __name__ == \"__main__\":\n    test_cases = [\n        (\"*\", 0, 59, list(range(0, 60))),\n        (\"5\", 0, 59, [5]),\n        (\"0-10\", 0, 59, list(range(0, 11))),\n        (\"0,15,30,45\", 0, 59, [0, 15, 30, 45]),\n        (\"*/15\", 0, 59, [0, 15, 30, 45]),\n        (\"0-30/10\", 0, 59, [0, 10, 20, 30]),\n        (\"*\", 1, 7, list(range(1, 8))),\n        (\"1-5\", 1, 7, [1, 2, 3, 4, 5]),\n        (\"1,3,5\", 1, 7, [1, 3, 5]),\n    ]\n    \n    for field, lo, hi, expected in test_cases:\n        result = parse_cron_field(field, lo, hi)\n        print(f\"Field: '{field}', Range: [{lo}, {hi}]\")\n        print(f\"Expected: {expected}\")\n        print(f\"Got:      {result}\")\n        print(f\"Match: {result == expected}\\n\")\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.004754,
+    "out_tokens": 933
+   },
+   {
+    "pass": true,
+    "latency_s": 4.13514079619199,
+    "reply": "\n```python\ndef longest_palindrome(s: str) -> str:\n    if not s:\n        return \"\"\n    \n    def expand_around_center(left: int, right: int) -> tuple[int, int]:\n        while left >= 0 and right < len(s) and s[left] == s[right]:\n            left -= 1\n            right += 1\n        return left + 1, right - 1\n    \n    start = 0\n    max_len = 0\n    \n    for i in range(len(s)):\n        # Check for odd-length palindromes (single character center)\n        left1, right1 = expand_around_center(i, i)\n        len1 = right1 - left1 + 1\n        if len1 > max_len:\n            max_len = len1\n            start = left1\n        \n        # Check for even-length palindromes (two character center)\n        if i < len(s) - 1:\n            left2, right2 = expand_around_center(i, i + 1)\n            len2 = right2 - left2 + 1\n            if len2 > max_len:\n                max_len = len2\n                start = left2\n    \n    return s[start:start + max_len]\n\n\n# Test cases\nif __name__ == \"__main__\":\n    print(longest_palindrome(\"babad\"))  # \"bab\" or \"aba\"\n    print(longest_palindrome(\"cbbd\"))   # \"bb\"\n    print(longest_palindrome(\"a\"))      # \"a\"\n    print(longest_palindrome(\"\"))       # \"\"\n    print(longest_palindrome(\"ac\"))     # \"a\" (leftmost)\n    print(longest_palindrome(\"racecar\"))  # \"racecar\"\n    print(longest_palindrome(\"abacabad\"))  # \"abacaba\"\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.002376,
+    "out_tokens": 465
+   },
+   {
+    "pass": false,
+    "latency_s": 7.187289076857269,
+    "reply": "\n```python\nimport anthropic\n\n\ndef topo_sort(n: int, edges: list[tuple[int, int]]) -> list[int]:\n    \"\"\"\n    Perform topological sort using Claude AI via Claude API.\n    \n    Args:\n        n: Number of nodes (0 to n-1)\n        edges: List of (u, v) tuples meaning u must come before v\n        \n    Returns:\n        A valid topological ordering as a list of nodes\n        \n    Raises:\n        ValueError: If there is a cycle in the graph\n    \"\"\"\n    client = anthropic.Anthropic()\n    \n    # Construct the prompt with the graph information\n    prompt = f\"\"\"You are given a directed graph with {n} nodes (labeled 0 to {n-1}) and the following edges:\n{edges}\n\nEach edge (u, v) means node u must come before node v in the topological ordering.\n\nPerform a topological sort on this graph and return:\n1. If there is a valid topological ordering: A Python list containing the nodes in topological order\n2. If there is a cycle: The string \"CYCLE\"\n\nReturn ONLY the result, nothing else. For a valid ordering, return it as a Python list like [0, 1, 2, 3]. For a cycle, return the exact string CYCLE.\"\"\"\n\n    message = client.messages.create(\n        model=\"claude-3-5-sonnet-20241022\",\n        max_tokens=1024,\n        messages=[\n            {\"role\": \"user\", \"content\": prompt}\n        ]\n    )\n    \n    response_text = message.content[0].text.strip()\n    \n    if response_text == \"CYCLE\":\n        raise ValueError(\"Cycle detected in the graph\")\n    \n    try:\n        result = eval(response_text)\n        if isinstance(result, list) and len(result) == n and set(result) == set(range(n)):\n            return result\n        else:\n            raise ValueError(f\"Invalid topological sort result: {result}\")\n    except Exception as e:\n        raise ValueError(f\"Failed to parse Claude's response: {response_text}\") from e\n\n\nif __name__ == \"__main__\":\n    # Test case 1: Simple DAG\n    print(\"Test 1: Simple DAG\")\n    result = topo_sort(4, [(0, 1), (1, 2), (2, 3)])\n    print(f\"Result: {result}\")\n    \n    # Test case 2: More complex DAG\n    print(\"\\nTest 2: Complex DAG\")\n    result = topo_sort(6, [(0, 1), (0, 2), (1, 3), (2, 3), (3, 4), (4, 5)])\n    print(f\"Result: {result}\")\n    \n    # Test case 3: Graph with cycle\n    print(\"\\nTest 3: Graph with cycle\")\n    try:\n        result = topo_sort(3, [(0, 1), (1, 2), (2, 0)])\n        print(f\"Result: {result}\")\n    except ValueError as e:\n        print(f\"Error: {e}\")\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.003881,
+    "out_tokens": 760
+   },
+   {
+    "pass": false,
+    "latency_s": 2.1922294357791543,
+    "reply": "# Pure Core Commands in Agent Frameworks\n\nA pure command function enables **reliable reasoning and planning** because the agent can reason about outcomes deterministically without worrying about hidden state changes or non-deterministic behavior. **Testability and debugging** improve dramatically since you can verify logic in isolation and replay scenarios exactly. Separating side effects into descriptors allows the **planning layer to be decoupled from execution**, so the agent can explore multiple action sequences, revise plans, or run simulations without triggering real-world consequences.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000609,
+    "out_tokens": 113
+   },
+   {
+    "pass": false,
+    "latency_s": 0.9211265565827489,
+    "reply": "# Summary\n\nJido decouples decision-making from execution by having agents return new state and directives, which a runtime then executes and feeds back as signals.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000269,
+    "out_tokens": 39
+   },
+   {
+    "pass": false,
+    "latency_s": 0.9362428169697523,
+    "reply": "# Reply to Meeting Invitation\n\nThank you for the invitation; unfortunately, I'm unable to attend on Thursday due to a prior commitment. Would next Monday work for you instead?",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000223,
+    "out_tokens": 39
+   },
+   {
+    "pass": true,
+    "latency_s": 1.4525058874860406,
+    "reply": "Exit code 137 typically indicates your process was killed by the OS, usually due to out-of-memory (OOM) conditions. Check your deployment environment's memory limits and logs (e.g., `dmesg` on Linux or container/platform logs) for OOM killer messages.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000365,
+    "out_tokens": 65
+   }
+  ],
+  "capable": [
+   {
+    "pass": true,
+    "latency_s": 1.1411544987931848,
+    "reply": "391",
+    "stop_reason": "end_turn",
+    "cost_usd": 9e-05,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 1.1971146184951067,
+    "reply": "37.0",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000152,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 1.1790342004969716,
+    "reply": "jane.doe@example.org",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000228,
+    "out_tokens": 11
+   },
+   {
+    "pass": true,
+    "latency_s": 1.1005687257274985,
+    "reply": "29",
+    "stop_reason": "end_turn",
+    "cost_usd": 9.2e-05,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 0.7996009420603514,
+    "reply": "2024-02-29",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000168,
+    "out_tokens": 8
+   },
+   {
+    "pass": true,
+    "latency_s": 1.1125055504962802,
+    "reply": "odij",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000106,
+    "out_tokens": 4
+   },
+   {
+    "pass": true,
+    "latency_s": 0.8647233685478568,
+    "reply": "3, 7, 19, 42",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000208,
+    "out_tokens": 12
+   },
+   {
+    "pass": true,
+    "latency_s": 1.1556658316403627,
+    "reply": "x",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00016,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 2.5631208335980773,
+    "reply": "9.9",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000128,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 0.9359674146398902,
+    "reply": "3",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000108,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 0.8075951151549816,
+    "reply": "5",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000118,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 0.8591113816946745,
+    "reply": "17:25",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000178,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 1.6949472771957517,
+    "reply": "2418",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00134,
+    "out_tokens": 123
+   },
+   {
+    "pass": true,
+    "latency_s": 1.0354347517713904,
+    "reply": "2",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000154,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 1.3159423358738422,
+    "reply": "hello jido",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000146,
+    "out_tokens": 6
+   },
+   {
+    "pass": true,
+    "latency_s": 0.9942210763692856,
+    "reply": "1048576",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000116,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 1.4012683490291238,
+    "reply": "Yes, no.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000764,
+    "out_tokens": 60
+   },
+   {
+    "pass": true,
+    "latency_s": 0.8940748730674386,
+    "reply": "21",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00011,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 2.1924647884443402,
+    "reply": "6",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00014,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 0.8112678062170744,
+    "reply": "6",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000114,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 1.2963640047237277,
+    "reply": "26",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000358,
+    "out_tokens": 27
+   },
+   {
+    "pass": true,
+    "latency_s": 1.4309577755630016,
+    "reply": "686",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000966,
+    "out_tokens": 87
+   },
+   {
+    "pass": true,
+    "latency_s": 1.337652301415801,
+    "reply": "5",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00016,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 1.1117219580337405,
+    "reply": "16.36",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000194,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 1.82368541136384,
+    "reply": "9",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000536,
+    "out_tokens": 46
+   },
+   {
+    "pass": true,
+    "latency_s": 1.0390249071642756,
+    "reply": "34650",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000134,
+    "out_tokens": 4
+   },
+   {
+    "pass": true,
+    "latency_s": 2.4067064318805933,
+    "reply": "x = 2",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000616,
+    "out_tokens": 53
+   },
+   {
+    "pass": false,
+    "latency_s": 1.0787706086412072,
+    "reply": "1/3",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000246,
+    "out_tokens": 5
+   },
+   {
+    "pass": true,
+    "latency_s": 1.311598464846611,
+    "reply": "42",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000122,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 3.612646458670497,
+    "reply": "**8**",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.003388,
+    "out_tokens": 331
+   },
+   {
+    "pass": true,
+    "latency_s": 2.1154716527089477,
+    "reply": "23",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.002164,
+    "out_tokens": 201
+   },
+   {
+    "pass": true,
+    "latency_s": 1.0891251787543297,
+    "reply": "5",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000164,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 1.6660297373309731,
+    "reply": "```python\ndef is_balanced(s):\n    stack = []\n    pairs = {')': '(', ']': '[', '}': '{'}\n    for char in s:\n        if char in '([{':\n            stack.append(char)\n        elif char in ')]}':\n            if not stack or stack.pop() != pairs[char]:\n                return False\n    return not stack\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001284,
+    "out_tokens": 114
+   },
+   {
+    "pass": true,
+    "latency_s": 1.7718986021354795,
+    "reply": "```python\ndef roman_to_int(s):\n    values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n    total = 0\n    prev = 0\n    for char in reversed(s):\n        curr = values[char]\n        if curr < prev:\n            total -= curr\n        else:\n            total += curr\n            prev = curr\n    return total\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001526,
+    "out_tokens": 141
+   },
+   {
+    "pass": true,
+    "latency_s": 2.129364898428321,
+    "reply": "```python\ndef merge_intervals(intervals):\n    if not intervals:\n        return []\n    intervals = sorted(intervals, key=lambda x: x[0])\n    merged = [intervals[0][:]]\n    for start, end in intervals[1:]:\n        if start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n    return merged\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001602,
+    "out_tokens": 144
+   },
+   {
+    "pass": true,
+    "latency_s": 2.4204582199454308,
+    "reply": "```python\ndef parse_cron_field(field, lo, hi):\n    result = set()\n    for part in field.split(','):\n        step = 1\n        if '/' in part:\n            base, step_str = part.split('/')\n            step = int(step_str)\n        else:\n            base = part\n\n        if base == '*':\n            start, end = lo, hi\n        elif '-' in base:\n            start_str, end_str = base.split('-')\n            start, end = int(start_str), int(end_str)\n        else:\n            start = end = int(base)\n\n        if start < lo or end > hi or start > end:\n            raise ValueError(f\"Invalid range in field: {part}\")\n\n        for val in range(start, end + 1, step):\n            result.add(val)\n\n    return sorted(result)\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00261,
+    "out_tokens": 239
+   },
+   {
+    "pass": true,
+    "latency_s": 2.46887285169214,
+    "reply": "```python\ndef longest_palindrome(s):\n    if not s:\n        return \"\"\n    \n    start, max_len = 0, 1\n    \n    def expand(left, right):\n        while left >= 0 and right < len(s) and s[left] == s[right]:\n            left -= 1\n            right += 1\n        return left + 1, right - left - 1\n    \n    for i in range(len(s)):\n        l1, len1 = expand(i, i)\n        if len1 > max_len:\n            start, max_len = l1, len1\n        \n        l2, len2 = expand(i, i + 1)\n        if len2 > max_len:\n            start, max_len = l2, len2\n    \n    return s[start:start + max_len]\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.002376,
+    "out_tokens": 224
+   },
+   {
+    "pass": true,
+    "latency_s": 2.236822599545121,
+    "reply": "```python\ndef topo_sort(n, edges):\n    graph = [[] for _ in range(n)]\n    in_degree = [0] * n\n\n    for u, v in edges:\n        graph[u].append(v)\n        in_degree[v] += 1\n\n    queue = [i for i in range(n) if in_degree[i] == 0]\n    order = []\n\n    while queue:\n        node = queue.pop()\n        order.append(node)\n        for neighbor in graph[node]:\n            in_degree[neighbor] -= 1\n            if in_degree[neighbor] == 0:\n                queue.append(neighbor)\n\n    if len(order) != n:\n        raise ValueError(\"Cycle detected in the graph\")\n\n    return order\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.0025,
+    "out_tokens": 229
+   },
+   {
+    "pass": false,
+    "latency_s": 3.250940683297813,
+    "reply": "Making the core command function pure means it's trivially testable and predictable\u2014given the same state and input, you always get the same decision, with no hidden dependencies on timing, network conditions, or execution order. By returning descriptors (data describing intended side effects) rather than performing the side effects directly, the framework can separately interpret, log, retry, mock, or replay those effects, decoupling *deciding what to do* from *actually doing it*. This separation also makes the system easier to reason about and debug, since side effects become inspectable data rather than opaque, already-executed actions buried inside the decision logic.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001976,
+    "out_tokens": 187
+   },
+   {
+    "pass": true,
+    "latency_s": 1.6198322642594576,
+    "reply": "Jido's architecture cleanly decouples decision-making from execution by having an agent's `cmd/2` produce a new state plus a list of directives, which the AgentServer runtime then carries out (e.g., emitting signals, spawning children) and feeds the results back into the system as new signals.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001128,
+    "out_tokens": 94
+   },
+   {
+    "pass": false,
+    "latency_s": 2.8066323585808277,
+    "reply": "Thank you for the invitation, but I'm unable to attend the meeting on Thursday due to a scheduling conflict. Would it be possible to reschedule for next Monday instead? I'd be happy to make that work.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000796,
+    "out_tokens": 71
+   },
+   {
+    "pass": true,
+    "latency_s": 1.8211778765544295,
+    "reply": "Exit code 137 typically means the process was killed by SIGKILL, most often due to running out of memory (OOM). Check your container/host memory limits and usage logs (e.g., `docker stats`, Kubernetes pod events, or your platform's resource metrics) around the time of the crash to confirm an OOM kill.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001158,
+    "out_tokens": 105
+   }
+  ],
+  "reasoning": [
+   {
+    "pass": true,
+    "latency_s": 1.486241695471108,
+    "reply": "391",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000225,
+    "out_tokens": 3
+   },
+   {
+    "pass": true,
+    "latency_s": 1.8292653011158109,
+    "reply": "37.0",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001205,
+    "out_tokens": 38
+   },
+   {
+    "pass": true,
+    "latency_s": 2.810602406039834,
+    "reply": "jane.doe@example.org",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00057,
+    "out_tokens": 11
+   },
+   {
+    "pass": true,
+    "latency_s": 1.1325247259810567,
+    "reply": "29",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000705,
+    "out_tokens": 22
+   },
+   {
+    "pass": true,
+    "latency_s": 1.8978254655376077,
+    "reply": "2024-02-29",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001295,
+    "out_tokens": 43
+   },
+   {
+    "pass": true,
+    "latency_s": 1.864085279405117,
+    "reply": "odij",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000665,
+    "out_tokens": 20
+   },
+   {
+    "pass": true,
+    "latency_s": 1.5471268370747566,
+    "reply": "3, 7, 19, 42",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00052,
+    "out_tokens": 12
+   },
+   {
+    "pass": true,
+    "latency_s": 3.7555981623008847,
+    "reply": "x",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00175,
+    "out_tokens": 57
+   },
+   {
+    "pass": true,
+    "latency_s": 2.2799717308953404,
+    "reply": "9.9",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000845,
+    "out_tokens": 26
+   },
+   {
+    "pass": true,
+    "latency_s": 1.8924111546948552,
+    "reply": "3",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00127,
+    "out_tokens": 43
+   },
+   {
+    "pass": true,
+    "latency_s": 1.367037646472454,
+    "reply": "5",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00137,
+    "out_tokens": 46
+   },
+   {
+    "pass": true,
+    "latency_s": 1.2145818872377276,
+    "reply": "17:25",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000895,
+    "out_tokens": 23
+   },
+   {
+    "pass": true,
+    "latency_s": 2.4473929554224014,
+    "reply": "**2418**",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.003225,
+    "out_tokens": 118
+   },
+   {
+    "pass": true,
+    "latency_s": 1.219388261437416,
+    "reply": "2 hours",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000785,
+    "out_tokens": 19
+   },
+   {
+    "pass": true,
+    "latency_s": 2.4875939348712564,
+    "reply": "hello jido",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.002065,
+    "out_tokens": 74
+   },
+   {
+    "pass": true,
+    "latency_s": 1.9509755177423358,
+    "reply": "1048576",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.000565,
+    "out_tokens": 16
+   },
+   {
+    "pass": true,
+    "latency_s": 2.0148590384051204,
+    "reply": "Yes, No",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001785,
+    "out_tokens": 55
+   },
+   {
+    "pass": true,
+    "latency_s": 1.3151728548109531,
+    "reply": "21",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.0014,
+    "out_tokens": 48
+   },
+   {
+    "pass": true,
+    "latency_s": 1.470363543368876,
+    "reply": "6",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001025,
+    "out_tokens": 30
+   },
+   {
+    "pass": true,
+    "latency_s": 1.2126533519476652,
+    "reply": "6",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00086,
+    "out_tokens": 26
+   },
+   {
+    "pass": true,
+    "latency_s": 1.7232981827110052,
+    "reply": "26",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001095,
+    "out_tokens": 35
+   },
+   {
+    "pass": true,
+    "latency_s": 1.9882112052291632,
+    "reply": "686",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00169,
+    "out_tokens": 58
+   },
+   {
+    "pass": true,
+    "latency_s": 1.5125780208036304,
+    "reply": "5 cents",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00065,
+    "out_tokens": 13
+   },
+   {
+    "pass": true,
+    "latency_s": 1.4956141924485564,
+    "reply": "**16.36 minutes past 3:00**",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00231,
+    "out_tokens": 78
+   },
+   {
+    "pass": true,
+    "latency_s": 1.8677026284858584,
+    "reply": "9",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00154,
+    "out_tokens": 54
+   },
+   {
+    "pass": true,
+    "latency_s": 1.3372372165322304,
+    "reply": "34650",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.001385,
+    "out_tokens": 46
+   },
+   {
+    "pass": true,
+    "latency_s": 1.814526486210525,
+    "reply": "x = 2",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00154,
+    "out_tokens": 53
+   },
+   {
+    "pass": true,
+    "latency_s": 1.5416514743119478,
+    "reply": "**3/8**",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00229,
+    "out_tokens": 72
+   },
+   {
+    "pass": true,
+    "latency_s": 1.292578655295074,
+    "reply": "42",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00133,
+    "out_tokens": 44
+   },
+   {
+    "pass": true,
+    "latency_s": 4.206239465624094,
+    "reply": "**8**",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00802,
+    "out_tokens": 313
+   },
+   {
+    "pass": true,
+    "latency_s": 1.7770543182268739,
+    "reply": "**23**",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00311,
+    "out_tokens": 109
+   },
+   {
+    "pass": true,
+    "latency_s": 1.1433514980599284,
+    "reply": "5",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00091,
+    "out_tokens": 23
+   },
+   {
+    "pass": true,
+    "latency_s": 6.188885022886097,
+    "reply": "```python\ndef is_balanced(s):\n    pairs = {')': '(', ']': '[', '}': '{'}\n    opening = set(pairs.values())\n    stack = []\n    for ch in s:\n        if ch in opening:\n            stack.append(ch)\n        elif ch in pairs:\n            if not stack or stack.pop() != pairs[ch]:\n                return False\n    return not stack\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00361,
+    "out_tokens": 130
+   },
+   {
+    "pass": true,
+    "latency_s": 2.9429779509082437,
+    "reply": "```python\ndef roman_to_int(s):\n    values = {\n        'I': 1,\n        'V': 5,\n        'X': 10,\n        'L': 50,\n        'C': 100,\n        'D': 500,\n        'M': 1000,\n    }\n\n    total = 0\n    prev = 0\n    for char in reversed(s.strip().upper()):\n        value = values[char]\n        if value < prev:\n            total -= value\n        else:\n            total += value\n            prev = value\n    return total\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00414,
+    "out_tokens": 154
+   },
+   {
+    "pass": true,
+    "latency_s": 2.0397595036774874,
+    "reply": "```python\ndef merge_intervals(intervals):\n    if not intervals:\n        return []\n\n    sorted_intervals = sorted(intervals, key=lambda x: (x[0], x[1]))\n\n    merged = []\n    for interval in sorted_intervals:\n        start, end = interval[0], interval[1]\n        if merged and start <= merged[-1][1]:\n            if end > merged[-1][1]:\n                merged[-1][1] = end\n        else:\n            merged.append([start, end])\n\n    return merged\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.004555,
+    "out_tokens": 166
+   },
+   {
+    "pass": false,
+    "latency_s": 1.84767503477633,
+    "reply": "```python\ndef parse_cron_field(field, lo, hi):\n    \"\"\"Expand a single cron field into a sorted",
+    "stop_reason": "refusal",
+    "cost_usd": 0.00145,
+    "out_tokens": 36
+   },
+   {
+    "pass": true,
+    "latency_s": 5.249304201453924,
+    "reply": "```python\ndef longest_palindrome(s):\n    if not s:\n        return \"\"\n\n    # Manacher's algorithm with sentinels\n    t = \"|\" + \"|\".join(s) + \"|\"\n    n = len(t)\n    p = [0] * n\n    center = 0\n    right = 0\n\n    for i in range(n):\n        if i < right:\n            mirror = 2 * center - i\n            p[i] = min(right - i, p[mirror])\n        # attempt to expand\n        a = i + p[i] + 1\n        b = i - p[i] - 1\n        while a < n and b >= 0 and t[a] == t[b]:\n            p[i] += 1\n            a += 1\n            b -= 1\n        if i + p[i] > right:\n            center = i\n            right = i + p[i]\n\n    best_len = 0\n    best_center = 0\n    for i in range(n):\n        if p[i] > best_len:\n            best_len = p[i]\n            best_center = i\n\n    start = (best_center - best_len) // 2\n    return s[start:start + best_len]\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.010115,
+    "out_tokens": 391
+   },
+   {
+    "pass": true,
+    "latency_s": 4.216376589611173,
+    "reply": "```python\nfrom collections import deque\n\n\ndef topo_sort(n, edges):\n    \"\"\"Return a topological ordering of nodes 0..n-1.\n\n    edges: iterable of (u, v) meaning u must come before v.\n    Raises ValueError if the graph contains a cycle.\n    \"\"\"\n    if n < 0:\n        raise ValueError(\"n must be non-negative\")\n\n    adj = [[] for _ in range(n)]\n    indeg = [0] * n\n\n    for u, v in edges:\n        if not (0 <= u < n) or not (0 <= v < n):\n            raise ValueError(\"edge endpoint out of range: (%r, %r)\" % (u, v))\n        adj[u].append(v)\n        indeg[v] += 1\n\n    queue = deque(node for node in range(n) if indeg[node] == 0)\n    order = []\n\n    while queue:\n        u = queue.popleft()\n        order.append(u)\n        for v in adj[u]:\n            indeg[v] -= 1\n            if indeg[v] == 0:\n                queue.append(v)\n\n    if len(order) != n:\n        raise ValueError(\"graph contains a cycle\")\n\n    return order\n```",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.009775,
+    "out_tokens": 370
+   },
+   {
+    "pass": false,
+    "latency_s": 5.6059020245447755,
+    "reply": "A pure command function means the agent's decision-making is fully determined by its inputs, so you can unit-test it, replay a session deterministically, and audit exactly why it chose what it did without spinning up real I/O. By returning side effects as inert descriptors (\"call this tool with these args\") rather than performing them, you separate *deciding* from *doing*, letting a surrounding interpreter inspect, permission-gate, dry-run, batch, retry, or mock each effect before it touches the world. That separation also keeps the core logic composable \u2014 you can swap the executor (production, sandbox, simulation) without changing a line of the agent's reasoning.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.008565,
+    "out_tokens": 332
+   },
+   {
+    "pass": true,
+    "latency_s": 2.4698047703132033,
+    "reply": "Jido decouples an agent's decision-making from execution: `cmd/2` purely returns updated state plus directives, which the AgentServer runtime then carries out (emitting signals, spawning children, etc.), looping the results back in as new signals.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.003195,
+    "out_tokens": 109
+   },
+   {
+    "pass": false,
+    "latency_s": 1.6035766554996371,
+    "reply": "Thank you so much for the invitation, but unfortunately I have a scheduling conflict on Thursday and won't be able to attend. Would next Monday work for you instead? I'm happy to meet at whatever time suits your schedule.",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.003115,
+    "out_tokens": 116
+   },
+   {
+    "pass": false,
+    "latency_s": 3.4787796419113874,
+    "reply": "Exit 137 means the process was SIGKILL'd (128 + 9), almost always the OOM killer hitting a container/build step that exceeded its memory limit. Check the container's termination reason for `OOMKilled` \u2014 e.g. `kubectl describe pod <pod>` under Last State, or your CI job's memory limit vs. peak usage (Node/webpack/Java builds are common culprits).",
+    "stop_reason": "end_turn",
+    "cost_usd": 0.00582,
+    "out_tokens": 222
+   }
+  ]
+ },
+ "gold": [
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "capable",
+  "fast",
+  "capable",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "fast",
+  "reasoning",
+  "fast",
+  "fast",
+  "capable",
+  "fast",
+  "capable",
+  "capable",
+  "fast",
+  "capable",
+  "fast",
+  "capable",
+  null,
+  "capable",
+  null,
+  "fast"
+ ],
+ "routes": [
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "fast": 1.0,
+    "reasoning": 0.0,
+    "capable": 0.0
+   },
+   "depth": 0.03,
+   "needs_code": 0.02,
+   "error_prone": 0.34,
+   "latency_s": 0.23612769041210413
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "capable": 0.0,
+    "fast": 1.0,
+    "reasoning": 0.0
+   },
+   "depth": 0.27,
+   "needs_code": 0.02,
+   "error_prone": 0.3,
+   "latency_s": 0.26212176494300365
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "capable": 0.0,
+    "reasoning": 0.0,
+    "fast": 1.0
+   },
+   "depth": 0.16,
+   "needs_code": 0.05,
+   "error_prone": 0.14,
+   "latency_s": 0.2797163426876068
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "reasoning": 0.0,
+    "capable": 0.0,
+    "fast": 1.0
+   },
+   "depth": 0.54,
+   "needs_code": 0.01,
+   "error_prone": 0.15,
+   "latency_s": 0.3075548280030489
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.98,
+   "tier_probs": {
+    "capable": 0.01,
+    "fast": 0.99,
+    "reasoning": 0.0
+   },
+   "depth": 0.78,
+   "needs_code": 0.02,
+   "error_prone": 0.35,
+   "latency_s": 0.35117082577198744
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "capable": 0.0,
+    "reasoning": 0.0,
+    "fast": 1.0
+   },
+   "depth": 0.01,
+   "needs_code": 0.05,
+   "error_prone": 0.08,
+   "latency_s": 0.3449795702472329
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "capable": 0.0,
+    "reasoning": 0.0,
+    "fast": 1.0
+   },
+   "depth": 0.3,
+   "needs_code": 0.02,
+   "error_prone": 0.13,
+   "latency_s": 0.3061150470748544
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "fast": 1.0,
+    "reasoning": 0.0,
+    "capable": 0.0
+   },
+   "depth": 0.42,
+   "needs_code": 0.03,
+   "error_prone": 0.12,
+   "latency_s": 0.383676134981215
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "fast": 1.0,
+    "reasoning": 0.0,
+    "capable": 0.0
+   },
+   "depth": 0.66,
+   "needs_code": 0.01,
+   "error_prone": 0.66,
+   "latency_s": 0.1361044915392995
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "fast": 1.0,
+    "capable": 0.0,
+    "reasoning": 0.0
+   },
+   "depth": 0.36,
+   "needs_code": 0.02,
+   "error_prone": 0.61,
+   "latency_s": 0.1589818513020873
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "fast": 1.0,
+    "capable": 0.0,
+    "reasoning": 0.0
+   },
+   "depth": 0.05,
+   "needs_code": 0.02,
+   "error_prone": 0.22,
+   "latency_s": 0.15042229555547237
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "reasoning": 0.0,
+    "capable": 0.0,
+    "fast": 1.0
+   },
+   "depth": 0.62,
+   "needs_code": 0.02,
+   "error_prone": 0.41,
+   "latency_s": 0.12107773590832949
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.32,
+   "tier_probs": {
+    "fast": 0.54,
+    "capable": 0.37,
+    "reasoning": 0.09
+   },
+   "depth": 1.53,
+   "needs_code": 0.02,
+   "error_prone": 0.73,
+   "latency_s": 0.1478652348741889
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "capable": 0.0,
+    "reasoning": 0.0,
+    "fast": 1.0
+   },
+   "depth": 0.56,
+   "needs_code": 0.01,
+   "error_prone": 0.33,
+   "latency_s": 0.1278605991974473
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "capable": 0.0,
+    "reasoning": 0.0,
+    "fast": 1.0
+   },
+   "depth": 0.0,
+   "needs_code": 0.07,
+   "error_prone": 0.22,
+   "latency_s": 0.1653121430426836
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 1.0,
+   "tier_probs": {
+    "capable": 0.0,
+    "reasoning": 0.0,
+    "fast": 1.0
+   },
+   "depth": 0.08,
+   "needs_code": 0.01,
+   "error_prone": 0.31,
+   "latency_s": 0.1496289847418666
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.85,
+   "tier_probs": {
+    "reasoning": 0.01,
+    "capable": 0.09,
+    "fast": 0.9
+   },
+   "depth": 0.78,
+   "needs_code": 0.02,
+   "error_prone": 0.47,
+   "latency_s": 0.16328522842377424
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.91,
+   "tier_probs": {
+    "reasoning": 0.01,
+    "capable": 0.05,
+    "fast": 0.94
+   },
+   "depth": 0.98,
+   "needs_code": 0.01,
+   "error_prone": 0.58,
+   "latency_s": 0.16601339355111122
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.99,
+   "tier_probs": {
+    "reasoning": 0.0,
+    "fast": 0.99,
+    "capable": 0.01
+   },
+   "depth": 0.46,
+   "needs_code": 0.05,
+   "error_prone": 0.29,
+   "latency_s": 0.1326290275901556
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.84,
+   "tier_probs": {
+    "fast": 0.89,
+    "reasoning": 0.04,
+    "capable": 0.07
+   },
+   "depth": 1.24,
+   "needs_code": 0.01,
+   "error_prone": 0.62,
+   "latency_s": 0.12784868385642767
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.8,
+   "tier_probs": {
+    "capable": 0.13,
+    "reasoning": 0.01,
+    "fast": 0.86
+   },
+   "depth": 1.01,
+   "needs_code": 0.02,
+   "error_prone": 0.62,
+   "latency_s": 0.15481860283762217
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.68,
+   "tier_probs": {
+    "reasoning": 0.02,
+    "capable": 0.19,
+    "fast": 0.79
+   },
+   "depth": 1.19,
+   "needs_code": 0.02,
+   "error_prone": 0.71,
+   "latency_s": 0.13935705553740263
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.32,
+   "tier_probs": {
+    "capable": 0.08,
+    "reasoning": 0.37,
+    "fast": 0.55
+   },
+   "depth": 1.89,
+   "needs_code": 0.01,
+   "error_prone": 0.89,
+   "latency_s": 0.16081491950899363
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.81,
+   "tier_probs": {
+    "fast": 0.88,
+    "reasoning": 0.02,
+    "capable": 0.1
+   },
+   "depth": 1.14,
+   "needs_code": 0.01,
+   "error_prone": 0.67,
+   "latency_s": 0.14065910503268242
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.85,
+   "tier_probs": {
+    "reasoning": 0.02,
+    "capable": 0.08,
+    "fast": 0.9
+   },
+   "depth": 1.09,
+   "needs_code": 0.01,
+   "error_prone": 0.74,
+   "latency_s": 0.17737014964222908
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.58,
+   "tier_probs": {
+    "capable": 0.24,
+    "fast": 0.71,
+    "reasoning": 0.05
+   },
+   "depth": 1.04,
+   "needs_code": 0.02,
+   "error_prone": 0.76,
+   "latency_s": 0.17683900520205498
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.79,
+   "tier_probs": {
+    "reasoning": 0.01,
+    "capable": 0.13,
+    "fast": 0.86
+   },
+   "depth": 0.99,
+   "needs_code": 0.02,
+   "error_prone": 0.38,
+   "latency_s": 0.16394758969545364
+  },
+  {
+   "tier": "reasoning",
+   "tier_conf": 0.23,
+   "tier_probs": {
+    "capable": 0.23,
+    "reasoning": 0.49,
+    "fast": 0.28
+   },
+   "depth": 1.59,
+   "needs_code": 0.01,
+   "error_prone": 0.89,
+   "latency_s": 0.13466517068445683
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.98,
+   "tier_probs": {
+    "capable": 0.01,
+    "reasoning": 0.01,
+    "fast": 0.98
+   },
+   "depth": 0.92,
+   "needs_code": 0.01,
+   "error_prone": 0.36,
+   "latency_s": 0.18320874962955713
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.63,
+   "tier_probs": {
+    "fast": 0.75,
+    "capable": 0.22,
+    "reasoning": 0.03
+   },
+   "depth": 1.11,
+   "needs_code": 0.02,
+   "error_prone": 0.72,
+   "latency_s": 0.24741214606910944
+  },
+  {
+   "tier": "capable",
+   "tier_conf": 0.2,
+   "tier_probs": {
+    "capable": 0.47,
+    "reasoning": 0.1,
+    "fast": 0.43
+   },
+   "depth": 1.41,
+   "needs_code": 0.02,
+   "error_prone": 0.84,
+   "latency_s": 0.178859056904912
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.67,
+   "tier_probs": {
+    "reasoning": 0.16,
+    "fast": 0.79,
+    "capable": 0.05
+   },
+   "depth": 1.73,
+   "needs_code": 0.01,
+   "error_prone": 0.67,
+   "latency_s": 0.16627390682697296
+  },
+  {
+   "tier": "capable",
+   "tier_conf": 0.38,
+   "tier_probs": {
+    "reasoning": 0.0,
+    "capable": 0.59,
+    "fast": 0.41
+   },
+   "depth": 1.09,
+   "needs_code": 0.99,
+   "error_prone": 0.49,
+   "latency_s": 0.18293814733624458
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.26,
+   "tier_probs": {
+    "capable": 0.49,
+    "fast": 0.51,
+    "reasoning": 0.0
+   },
+   "depth": 1.19,
+   "needs_code": 0.99,
+   "error_prone": 0.59,
+   "latency_s": 0.131349072791636
+  },
+  {
+   "tier": "capable",
+   "tier_conf": 0.69,
+   "tier_probs": {
+    "capable": 0.79,
+    "fast": 0.2,
+    "reasoning": 0.01
+   },
+   "depth": 1.25,
+   "needs_code": 0.99,
+   "error_prone": 0.53,
+   "latency_s": 0.14278814289718866
+  },
+  {
+   "tier": "capable",
+   "tier_conf": 0.93,
+   "tier_probs": {
+    "reasoning": 0.0,
+    "fast": 0.05,
+    "capable": 0.95
+   },
+   "depth": 1.37,
+   "needs_code": 0.99,
+   "error_prone": 0.8,
+   "latency_s": 0.1351379919797182
+  },
+  {
+   "tier": "capable",
+   "tier_conf": 0.79,
+   "tier_probs": {
+    "reasoning": 0.02,
+    "capable": 0.85,
+    "fast": 0.13
+   },
+   "depth": 1.32,
+   "needs_code": 0.99,
+   "error_prone": 0.67,
+   "latency_s": 0.15042678453028202
+  },
+  {
+   "tier": "capable",
+   "tier_conf": 0.89,
+   "tier_probs": {
+    "reasoning": 0.03,
+    "fast": 0.05,
+    "capable": 0.92
+   },
+   "depth": 1.33,
+   "needs_code": 0.99,
+   "error_prone": 0.72,
+   "latency_s": 0.1433585975319147
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.67,
+   "tier_probs": {
+    "capable": 0.22,
+    "reasoning": 0.0,
+    "fast": 0.78
+   },
+   "depth": 0.85,
+   "needs_code": 0.03,
+   "error_prone": 0.19,
+   "latency_s": 0.1362369218841195
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.98,
+   "tier_probs": {
+    "reasoning": 0.0,
+    "fast": 0.99,
+    "capable": 0.01
+   },
+   "depth": 0.48,
+   "needs_code": 0.02,
+   "error_prone": 0.11,
+   "latency_s": 0.13849036116153002
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.99,
+   "tier_probs": {
+    "capable": 0.0,
+    "reasoning": 0.0,
+    "fast": 1.0
+   },
+   "depth": 0.36,
+   "needs_code": 0.01,
+   "error_prone": 0.09,
+   "latency_s": 0.15182557981461287
+  },
+  {
+   "tier": "fast",
+   "tier_conf": 0.96,
+   "tier_probs": {
+    "fast": 0.97,
+    "capable": 0.03,
+    "reasoning": 0.0
+   },
+   "depth": 0.44,
+   "needs_code": 0.02,
+   "error_prone": 0.15,
+   "latency_s": 0.21679435018450022
+  }
+ ],
+ "verify_fast": [
+  {
+   "p_wrong": 0.04,
+   "latency_s": 0.18207454588264227
+  },
+  {
+   "p_wrong": 0.05,
+   "latency_s": 0.1624369379132986
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.15008555632084608
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.15282745845615864
+  },
+  {
+   "p_wrong": 0.07,
+   "latency_s": 0.17688203789293766
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.14445410016924143
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.1508818930014968
+  },
+  {
+   "p_wrong": 0.06,
+   "latency_s": 0.23308288492262363
+  },
+  {
+   "p_wrong": 0.02,
+   "latency_s": 0.1133031751960516
+  },
+  {
+   "p_wrong": 0.17,
+   "latency_s": 0.12239199690520763
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.15888631995767355
+  },
+  {
+   "p_wrong": 0.1,
+   "latency_s": 0.1312407748773694
+  },
+  {
+   "p_wrong": 0.45,
+   "latency_s": 0.15151908621191978
+  },
+  {
+   "p_wrong": 0.87,
+   "latency_s": 0.1596100740134716
+  },
+  {
+   "p_wrong": 0.55,
+   "latency_s": 0.1608637711033225
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.1316685974597931
+  },
+  {
+   "p_wrong": 0.1,
+   "latency_s": 0.12571325432509184
+  },
+  {
+   "p_wrong": 0.04,
+   "latency_s": 0.1326784072443843
+  },
+  {
+   "p_wrong": 0.04,
+   "latency_s": 0.1506613064557314
+  },
+  {
+   "p_wrong": 0.43,
+   "latency_s": 0.23172711580991745
+  },
+  {
+   "p_wrong": 0.28,
+   "latency_s": 0.15982469636946917
+  },
+  {
+   "p_wrong": 0.55,
+   "latency_s": 0.11345890071243048
+  },
+  {
+   "p_wrong": 0.69,
+   "latency_s": 0.14979240484535694
+  },
+  {
+   "p_wrong": 0.3,
+   "latency_s": 0.13150537107139826
+  },
+  {
+   "p_wrong": 0.35,
+   "latency_s": 0.18421281967312098
+  },
+  {
+   "p_wrong": 0.59,
+   "latency_s": 0.1394333615899086
+  },
+  {
+   "p_wrong": 0.07,
+   "latency_s": 0.16681021451950073
+  },
+  {
+   "p_wrong": 0.66,
+   "latency_s": 0.13823457807302475
+  },
+  {
+   "p_wrong": 0.04,
+   "latency_s": 0.2091380450874567
+  },
+  {
+   "p_wrong": 0.5,
+   "latency_s": 0.1270577274262905
+  },
+  {
+   "p_wrong": 0.19,
+   "latency_s": 0.12001523468643427
+  },
+  {
+   "p_wrong": 0.04,
+   "latency_s": 0.17741850204765797
+  },
+  {
+   "p_wrong": 0.95,
+   "latency_s": 0.16373433265835047
+  },
+  {
+   "p_wrong": 0.93,
+   "latency_s": 0.1738701518625021
+  },
+  {
+   "p_wrong": 0.82,
+   "latency_s": 0.16247880645096302
+  },
+  {
+   "p_wrong": 0.96,
+   "latency_s": 0.1570621384307742
+  },
+  {
+   "p_wrong": 0.68,
+   "latency_s": 0.12567760050296783
+  },
+  {
+   "p_wrong": 0.95,
+   "latency_s": 0.1413580747321248
+  },
+  {
+   "p_wrong": 0.32,
+   "latency_s": 0.25839727744460106
+  },
+  {
+   "p_wrong": 0.23,
+   "latency_s": 0.1615287959575653
+  },
+  {
+   "p_wrong": 0.24,
+   "latency_s": 0.12093800771981478
+  },
+  {
+   "p_wrong": 0.08,
+   "latency_s": 0.15708543919026852
+  }
+ ],
+ "verify_capable": [
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.15551949571818113
+  },
+  {
+   "p_wrong": 0.05,
+   "latency_s": 0.15063145942986012
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.21057373005896807
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.1137503469362855
+  },
+  {
+   "p_wrong": 0.06,
+   "latency_s": 0.12875824701040983
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.10887387488037348
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.19609276298433542
+  },
+  {
+   "p_wrong": 0.02,
+   "latency_s": 0.1560953352600336
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.179837710224092
+  },
+  {
+   "p_wrong": 0.2,
+   "latency_s": 0.13172709103673697
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.13443846628069878
+  },
+  {
+   "p_wrong": 0.11,
+   "latency_s": 0.14113422390073538
+  },
+  {
+   "p_wrong": 0.43,
+   "latency_s": 0.1995246335864067
+  },
+  {
+   "p_wrong": 0.79,
+   "latency_s": 0.18963926006108522
+  },
+  {
+   "p_wrong": 0.2,
+   "latency_s": 0.15650504641234875
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.13618296664208174
+  },
+  {
+   "p_wrong": 0.09,
+   "latency_s": 0.1388094574213028
+  },
+  {
+   "p_wrong": 0.03,
+   "latency_s": 0.144338583573699
+  },
+  {
+   "p_wrong": 0.05,
+   "latency_s": 0.19205149821937084
+  },
+  {
+   "p_wrong": 0.43,
+   "latency_s": 0.18115833681076765
+  },
+  {
+   "p_wrong": 0.22,
+   "latency_s": 0.15415922086685896
+  },
+  {
+   "p_wrong": 0.51,
+   "latency_s": 0.1449097665026784
+  },
+  {
+   "p_wrong": 0.6,
+   "latency_s": 0.16432908084243536
+  },
+  {
+   "p_wrong": 0.31,
+   "latency_s": 0.21896367892622948
+  },
+  {
+   "p_wrong": 0.41,
+   "latency_s": 0.15043147932738066
+  },
+  {
+   "p_wrong": 0.19,
+   "latency_s": 0.1321084387600422
+  },
+  {
+   "p_wrong": 0.08,
+   "latency_s": 0.18038871139287949
+  },
+  {
+   "p_wrong": 0.59,
+   "latency_s": 0.1624571979045868
+  },
+  {
+   "p_wrong": 0.04,
+   "latency_s": 0.22085892129689455
+  },
+  {
+   "p_wrong": 0.61,
+   "latency_s": 0.16655067913234234
+  },
+  {
+   "p_wrong": 0.13,
+   "latency_s": 0.16019909363240004
+  },
+  {
+   "p_wrong": 0.04,
+   "latency_s": 0.1616728762164712
+  },
+  {
+   "p_wrong": 0.1,
+   "latency_s": 0.11525706015527248
+  },
+  {
+   "p_wrong": 0.11,
+   "latency_s": 0.11933806072920561
+  },
+  {
+   "p_wrong": 0.07,
+   "latency_s": 0.14303428307175636
+  },
+  {
+   "p_wrong": 0.4,
+   "latency_s": 0.19156104139983654
+  },
+  {
+   "p_wrong": 0.11,
+   "latency_s": 0.14038755930960178
+  },
+  {
+   "p_wrong": 0.18,
+   "latency_s": 0.15800899546593428
+  },
+  {
+   "p_wrong": 0.28,
+   "latency_s": 0.1971476413309574
+  },
+  {
+   "p_wrong": 0.07,
+   "latency_s": 0.1331212678924203
+  },
+  {
+   "p_wrong": 0.42,
+   "latency_s": 0.15857158601284027
+  },
+  {
+   "p_wrong": 0.08,
+   "latency_s": 0.16141679883003235
+  }
+ ],
+ "policies": {
+  "always-fast": [
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast"
+  ],
+  "always-capable": [
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable"
+  ],
+  "always-reasoning": [
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning",
+   "reasoning"
+  ],
+  "heuristic": [
+   "capable",
+   "fast",
+   "capable",
+   "capable",
+   "capable",
+   "fast",
+   "fast",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "fast",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "fast",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable"
+  ],
+  "jev-choice": [
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "reasoning",
+   "fast",
+   "fast",
+   "capable",
+   "fast",
+   "capable",
+   "fast",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "fast",
+   "fast",
+   "fast",
+   "fast"
+  ],
+  "jev-choice+bump<0.6": [
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "capable",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "capable",
+   "fast",
+   "fast",
+   "capable",
+   "fast",
+   "reasoning",
+   "fast",
+   "fast",
+   "reasoning",
+   "fast",
+   "reasoning",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "fast",
+   "fast",
+   "fast",
+   "fast"
+  ],
+  "jev-composed(depth)": [
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "capable",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "reasoning",
+   "fast",
+   "fast",
+   "fast",
+   "capable",
+   "capable",
+   "fast",
+   "capable",
+   "capable",
+   "capable",
+   "reasoning",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "reasoning",
+   "capable",
+   "capable",
+   "capable",
+   "reasoning",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "capable",
+   "fast",
+   "fast",
+   "fast"
+  ],
+  "oracle(gold)": [
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "capable",
+   "fast",
+   "capable",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "fast",
+   "reasoning",
+   "fast",
+   "fast",
+   "capable",
+   "fast",
+   "capable",
+   "capable",
+   "fast",
+   "capable",
+   "fast",
+   "capable",
+   "reasoning",
+   "capable",
+   "reasoning",
+   "fast"
+  ]
+ },
+ "summary": {
+  "always-fast": {
+   "pass_rate": 0.7380952380952381,
+   "cost_per_task_usd": 0.000548047619047619,
+   "underroute": 0.21428571428571427,
+   "overroute": 0.0,
+   "mix": {
+    "fast": 42,
+    "capable": 0,
+    "reasoning": 0
+   }
+  },
+  "always-capable": {
+   "pass_rate": 0.9285714285714286,
+   "cost_per_task_usd": 0.0007291428571428571,
+   "underroute": 0.023809523809523808,
+   "overroute": 0.7380952380952381,
+   "mix": {
+    "fast": 0,
+    "capable": 42,
+    "reasoning": 0
+   }
+  },
+  "always-reasoning": {
+   "pass_rate": 0.9047619047619048,
+   "cost_per_task_usd": 0.00245797619047619,
+   "underroute": 0.047619047619047616,
+   "overroute": 0.9285714285714286,
+   "mix": {
+    "fast": 0,
+    "capable": 0,
+    "reasoning": 42
+   }
+  },
+  "heuristic": {
+   "pass_rate": 0.9047619047619048,
+   "cost_per_task_usd": 0.0007086666666666667,
+   "underroute": 0.047619047619047616,
+   "overroute": 0.6428571428571429,
+   "mix": {
+    "fast": 5,
+    "capable": 37,
+    "reasoning": 0
+   }
+  },
+  "jev-choice": {
+   "pass_rate": 0.8571428571428571,
+   "cost_per_task_usd": 0.00048707142857142856,
+   "underroute": 0.09523809523809523,
+   "overroute": 0.047619047619047616,
+   "mix": {
+    "fast": 35,
+    "capable": 6,
+    "reasoning": 1
+   }
+  },
+  "jev-choice+bump<0.6": {
+   "pass_rate": 0.9047619047619048,
+   "cost_per_task_usd": 0.000586452380952381,
+   "underroute": 0.047619047619047616,
+   "overroute": 0.14285714285714285,
+   "mix": {
+    "fast": 31,
+    "capable": 8,
+    "reasoning": 3
+   }
+  },
+  "jev-composed(depth)": {
+   "pass_rate": 0.9047619047619048,
+   "cost_per_task_usd": 0.0007739285714285715,
+   "underroute": 0.047619047619047616,
+   "overroute": 0.40476190476190477,
+   "mix": {
+    "fast": 18,
+    "capable": 20,
+    "reasoning": 4
+   }
+  },
+  "oracle(gold)": {
+   "pass_rate": 0.9523809523809523,
+   "cost_per_task_usd": 0.0008431428571428571,
+   "underroute": 0.0,
+   "overroute": 0.0,
+   "mix": {
+    "fast": 31,
+    "capable": 8,
+    "reasoning": 3
+   }
+  },
+  "jev-cascade>0.3": {
+   "pass_rate": 0.8809523809523809,
+   "cost_per_task_usd": 0.0015377619047619046,
+   "underroute": 0.07142857142857142,
+   "overroute": 0.2619047619047619,
+   "mix": {
+    "fast": 25,
+    "capable": 8,
+    "reasoning": 9
+   },
+   "threshold": 0.3
+  },
+  "jev-cascade>0.5": {
+   "pass_rate": 0.8809523809523809,
+   "cost_per_task_usd": 0.0010032619047619048,
+   "underroute": 0.07142857142857142,
+   "overroute": 0.14285714285714285,
+   "mix": {
+    "fast": 30,
+    "capable": 8,
+    "reasoning": 4
+   },
+   "threshold": 0.5
+  },
+  "jev-cascade>0.7": {
+   "pass_rate": 0.8333333333333334,
+   "cost_per_task_usd": 0.0007971190476190476,
+   "underroute": 0.11904761904761904,
+   "overroute": 0.047619047619047616,
+   "mix": {
+    "fast": 36,
+    "capable": 5,
+    "reasoning": 1
+   },
+   "threshold": 0.7
+  },
+  "jev-cascade>0.9": {
+   "pass_rate": 0.8333333333333334,
+   "cost_per_task_usd": 0.0007366190476190476,
+   "underroute": 0.11904761904761904,
+   "overroute": 0.0,
+   "mix": {
+    "fast": 38,
+    "capable": 4,
+    "reasoning": 0
+   },
+   "threshold": 0.9
+  }
+ },
+ "verify_quality": {
+  "fast": {
+   "n_wrong": 11,
+   "mean_p_wrong|wrong": 0.5845454545454546,
+   "mean_p_wrong|right": 0.23096774193548386,
+   "pairs_ordered": 0.8269794721407625
+  },
+  "capable": {
+   "n_wrong": 3,
+   "mean_p_wrong|wrong": 0.43,
+   "mean_p_wrong|right": 0.17846153846153845,
+   "pairs_ordered": 0.8461538461538461
+  }
+ }
+}
