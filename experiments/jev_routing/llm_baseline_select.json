@@ -1,0 +1,1435 @@
+{
+ "claude-haiku-4-5": {
+  "summary": {
+   "n": 34,
+   "accuracy": 0.8235294117647058,
+   "none_correct": 1.0,
+   "latency_ms": {
+    "median": 1054.387018084526,
+    "p95": 2133.966318331659
+   },
+   "tokens_in_mean": 1920.4411764705883,
+   "tokens_out_mean": 78.79411764705883,
+   "cost_per_call_usd": 0.0023144117647058825,
+   "misses": [
+    {
+     "q": "Terminate the worker child you spawned earlier.",
+     "gold": [
+      "stop_child"
+     ],
+     "got": "none",
+     "text": "I don't have information about which child agent you spawned earlier, as I don't have access to previous conversation history or state. To terminate a child age"
+    },
+    {
+     "q": "Send this event to process <0.123.0>.",
+     "gold": [
+      "notify_pid"
+     ],
+     "got": "none",
+     "text": "I need to know what signal/event you want to send. Could you please provide:\n\n1. **Signal type** - What type of signal is this? (e.g., \"start\", \"stop\", \"update\""
+    },
+    {
+     "q": "Pass this signal along to the billing agent.",
+     "gold": [
+      "forward"
+     ],
+     "got": "none",
+     "text": "I need more information to forward this signal to the billing agent. Please provide:\n\n1. **Target PID** - The process ID of the billing agent\n2. **Signal type**"
+    },
+    {
+     "q": "Announce the deploy to everyone subscribed on the topic.",
+     "gold": [
+      "broadcast"
+     ],
+     "got": "none",
+     "text": "I need a bit more information to broadcast the deploy announcement. Could you provide:\n\n1. **Signal type** - What type of signal should this be? (e.g., \"deploy\""
+    },
+    {
+     "q": "Relay this to the agent named 'audit'.",
+     "gold": [
+      "forward"
+     ],
+     "got": "none",
+     "text": "I can help relay a message to the 'audit' agent. However, I need a few more details:\n\n1. **Signal type**: What type of signal should be sent? (e.g., \"message\", "
+    },
+    {
+     "q": "Reply to whoever asked with the totals.",
+     "gold": [
+      "reply"
+     ],
+     "got": "none",
+     "text": "I don't have enough context to process this request. To reply with the totals, I would need to know:\n\n1. Who asked (the signal source/requester)\n2. What the tot"
+    }
+   ]
+  },
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_self",
+    "all_calls": [
+     "stop_self"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.9659024486318231,
+    "usage": {
+     "input_tokens": 1918,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002103
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "text": "I don't have information about which child agent you spawned earlier, as I don't have access to previous conversation history or state. To terminate a child age",
+    "stop_reason": "end_turn",
+    "latency_s": 1.6348155438899994,
+    "usage": {
+     "input_tokens": 1921,
+     "output_tokens": 89
+    },
+    "cost_usd": 0.002366
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "all_calls": [
+     "spawn_child"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.2557205688208342,
+    "usage": {
+     "input_tokens": 1922,
+     "output_tokens": 77
+    },
+    "cost_usd": 0.002307
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "all_calls": [
+     "notify_parent"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.1746533131226897,
+    "usage": {
+     "input_tokens": 1919,
+     "output_tokens": 58
+    },
+    "cost_usd": 0.002209
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "text": "I need to know what signal/event you want to send. Could you please provide:\n\n1. **Signal type** - What type of signal is this? (e.g., \"start\", \"stop\", \"update\"",
+    "stop_reason": "end_turn",
+    "latency_s": 1.1581417378038168,
+    "usage": {
+     "input_tokens": 1923,
+     "output_tokens": 90
+    },
+    "cost_usd": 0.002373
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "text": "I need more information to forward this signal to the billing agent. Please provide:\n\n1. **Target PID** - The process ID of the billing agent\n2. **Signal type**",
+    "stop_reason": "end_turn",
+    "latency_s": 1.3093372667208314,
+    "usage": {
+     "input_tokens": 1920,
+     "output_tokens": 101
+    },
+    "cost_usd": 0.002425
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "text": "I need a bit more information to broadcast the deploy announcement. Could you provide:\n\n1. **Signal type** - What type of signal should this be? (e.g., \"deploy\"",
+    "stop_reason": "end_turn",
+    "latency_s": 1.7577438466250896,
+    "usage": {
+     "input_tokens": 1923,
+     "output_tokens": 130
+    },
+    "cost_usd": 0.002573
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "reply",
+    "all_calls": [
+     "reply"
+    ],
+    "correct": true,
+    "text": "I'll reply to the signal source:",
+    "stop_reason": "tool_use",
+    "latency_s": 0.8785158758983016,
+    "usage": {
+     "input_tokens": 1919,
+     "output_tokens": 62
+    },
+    "cost_usd": 0.002229
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel",
+    "all_calls": [
+     "cancel"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.818548341281712,
+    "usage": {
+     "input_tokens": 1921,
+     "output_tokens": 35
+    },
+    "cost_usd": 0.002096
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool_gold": true,
+    "choice": "noop",
+    "all_calls": [
+     "noop"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.8064366886392236,
+    "usage": {
+     "input_tokens": 1922,
+     "output_tokens": 36
+    },
+    "cost_usd": 0.002102
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_signal",
+    "all_calls": [
+     "schedule_signal"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.3746578944846988,
+    "usage": {
+     "input_tokens": 1924,
+     "output_tokens": 100
+    },
+    "cost_usd": 0.002424
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.0745060537010431,
+    "usage": {
+     "input_tokens": 1928,
+     "output_tokens": 78
+    },
+    "cost_usd": 0.002318
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "all_calls": [
+     "schedule_cron"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.2897620480507612,
+    "usage": {
+     "input_tokens": 1919,
+     "output_tokens": 103
+    },
+    "cost_usd": 0.002434
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "all_calls": [
+     "cancel_cron"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.8424568120390177,
+    "usage": {
+     "input_tokens": 1918,
+     "output_tokens": 38
+    },
+    "cost_usd": 0.002108
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool_gold": true,
+    "choice": "set_status",
+    "all_calls": [
+     "set_status"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.7388635128736496,
+    "usage": {
+     "input_tokens": 1920,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002105
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_completed",
+    "all_calls": [
+     "mark_completed"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.8449220834299922,
+    "usage": {
+     "input_tokens": 1920,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002105
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_failed",
+    "all_calls": [
+     "mark_failed"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.7008223636075854,
+    "usage": {
+     "input_tokens": 1923,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002108
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "all_calls": [
+     "mark_working"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.663797196932137,
+    "usage": {
+     "input_tokens": 1919,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002104
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_idle",
+    "all_calls": [
+     "mark_idle"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.8858689777553082,
+    "usage": {
+     "input_tokens": 1920,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002105
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "all_calls": [
+     "notify_parent"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.9689205111935735,
+    "usage": {
+     "input_tokens": 1923,
+     "output_tokens": 77
+    },
+    "cost_usd": 0.002308
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "all_calls": [
+     "schedule_cron"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.034267982468009,
+    "usage": {
+     "input_tokens": 1922,
+     "output_tokens": 103
+    },
+    "cost_usd": 0.002437
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.818102840334177,
+    "usage": {
+     "input_tokens": 1922,
+     "output_tokens": 78
+    },
+    "cost_usd": 0.002312
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "text": "I can help relay a message to the 'audit' agent. However, I need a few more details:\n\n1. **Signal type**: What type of signal should be sent? (e.g., \"message\", ",
+    "stop_reason": "end_turn",
+    "latency_s": 2.569135786034167,
+    "usage": {
+     "input_tokens": 1922,
+     "output_tokens": 117
+    },
+    "cost_usd": 0.002507
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "text": "I don't have enough context to process this request. To reply with the totals, I would need to know:\n\n1. Who asked (the signal source/requester)\n2. What the tot",
+    "stop_reason": "end_turn",
+    "latency_s": 1.2622366482391953,
+    "usage": {
+     "input_tokens": 1920,
+     "output_tokens": 83
+    },
+    "cost_usd": 0.002335
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "all_calls": [
+     "cancel_cron"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.6980643505230546,
+    "usage": {
+     "input_tokens": 1917,
+     "output_tokens": 38
+    },
+    "cost_usd": 0.002107
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "all_calls": [
+     "spawn_child",
+     "spawn_child",
+     "spawn_child"
+    ],
+    "correct": true,
+    "text": "I'll spawn three worker agents for the crawl operation.",
+    "stop_reason": "tool_use",
+    "latency_s": 1.5988703984767199,
+    "usage": {
+     "input_tokens": 1921,
+     "output_tokens": 201
+    },
+    "cost_usd": 0.002926
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "all_calls": [
+     "mark_working"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.8273285645991564,
+    "usage": {
+     "input_tokens": 1919,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002104
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 0.9678343255072832,
+    "usage": {
+     "input_tokens": 1922,
+     "output_tokens": 78
+    },
+    "cost_usd": 0.002312
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_self",
+    "all_calls": [
+     "stop_self"
+    ],
+    "correct": true,
+    "text": "I'll stop the current agent for you.",
+    "stop_reason": "tool_use",
+    "latency_s": 0.8291327124461532,
+    "usage": {
+     "input_tokens": 1914,
+     "output_tokens": 46
+    },
+    "cost_usd": 0.002144
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "text": "I don't have a tool available to check the weather. The tools I have access to are designed for agent process management and signal handling within a Jido agent",
+    "stop_reason": "end_turn",
+    "latency_s": 2.256958448328078,
+    "usage": {
+     "input_tokens": 1919,
+     "output_tokens": 142
+    },
+    "cost_usd": 0.002629
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "text": "I don't have a tool available to fetch or summarize articles. The tools I have access to are specifically for agent management and signal handling in a Jido age",
+    "stop_reason": "end_turn",
+    "latency_s": 1.8377568889409304,
+    "usage": {
+     "input_tokens": 1919,
+     "output_tokens": 111
+    },
+    "cost_usd": 0.002474
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "text": "I don't have a translation tool available. However, I can tell you that 'hello' translates to **'bonjour'** in French (formal/general greeting) or **'salut'** (",
+    "stop_reason": "end_turn",
+    "latency_s": 1.3706823643296957,
+    "usage": {
+     "input_tokens": 1920,
+     "output_tokens": 75
+    },
+    "cost_usd": 0.002295
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "text": "I don't have a tool available to delete user accounts. The tools I have access to are designed for agent communication, task scheduling, and lifecycle managemen",
+    "stop_reason": "end_turn",
+    "latency_s": 2.133966318331659,
+    "usage": {
+     "input_tokens": 1918,
+     "output_tokens": 149
+    },
+    "cost_usd": 0.002663
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "text": "I don't have any tools available to book flights. The tools I have access to are designed for managing agent processes, signals, and workflows within a Jido age",
+    "stop_reason": "end_turn",
+    "latency_s": 1.5206517335027456,
+    "usage": {
+     "input_tokens": 1918,
+     "output_tokens": 125
+    },
+    "cost_usd": 0.002543
+   }
+  ]
+ },
+ "claude-opus-5": {
+  "summary": {
+   "n": 34,
+   "accuracy": 0.9705882352941176,
+   "none_correct": 1.0,
+   "latency_ms": {
+    "median": 2059.821391478181,
+    "p95": 6040.830530226231
+   },
+   "tokens_in_mean": 2205.5882352941176,
+   "tokens_out_mean": 103.1470588235294,
+   "cost_per_call_usd": 0.013606617647058823,
+   "misses": [
+    {
+     "q": "Send this event to process <0.123.0>.",
+     "gold": [
+      "notify_pid"
+     ],
+     "got": "forward",
+     "text": ""
+    }
+   ]
+  },
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_self",
+    "all_calls": [
+     "stop_self"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.5188981955870986,
+    "usage": {
+     "input_tokens": 2204,
+     "output_tokens": 27
+    },
+    "cost_usd": 0.011695
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_child",
+    "all_calls": [
+     "stop_child"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.4052767306566238,
+    "usage": {
+     "input_tokens": 2208,
+     "output_tokens": 50
+    },
+    "cost_usd": 0.01229
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "all_calls": [
+     "spawn_child"
+    ],
+    "correct": true,
+    "text": "I'll spawn a child agent for the import job.",
+    "stop_reason": "tool_use",
+    "latency_s": 1.7284201746806502,
+    "usage": {
+     "input_tokens": 2206,
+     "output_tokens": 97
+    },
+    "cost_usd": 0.013455
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "all_calls": [
+     "notify_parent"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.639138207770884,
+    "usage": {
+     "input_tokens": 2204,
+     "output_tokens": 83
+    },
+    "cost_usd": 0.013095
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool_gold": true,
+    "choice": "forward",
+    "all_calls": [
+     "forward"
+    ],
+    "correct": false,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 2.4418077636510134,
+    "usage": {
+     "input_tokens": 2206,
+     "output_tokens": 186
+    },
+    "cost_usd": 0.01568
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "forward",
+    "all_calls": [
+     "forward"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 2.16114972345531,
+    "usage": {
+     "input_tokens": 2206,
+     "output_tokens": 141
+    },
+    "cost_usd": 0.014555
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool_gold": true,
+    "choice": "broadcast",
+    "all_calls": [
+     "broadcast"
+    ],
+    "correct": true,
+    "text": "I'll broadcast a deploy announcement to the topic subscribers.",
+    "stop_reason": "tool_use",
+    "latency_s": 1.8201466724276543,
+    "usage": {
+     "input_tokens": 2212,
+     "output_tokens": 134
+    },
+    "cost_usd": 0.01441
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "reply",
+    "all_calls": [
+     "reply"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.93844869825989,
+    "usage": {
+     "input_tokens": 2204,
+     "output_tokens": 119
+    },
+    "cost_usd": 0.013995
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel",
+    "all_calls": [
+     "cancel"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.3030420234426856,
+    "usage": {
+     "input_tokens": 2207,
+     "output_tokens": 26
+    },
+    "cost_usd": 0.011685
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool_gold": true,
+    "choice": "noop",
+    "all_calls": [
+     "noop"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 2.3452219422906637,
+    "usage": {
+     "input_tokens": 2208,
+     "output_tokens": 25
+    },
+    "cost_usd": 0.011665
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_signal",
+    "all_calls": [
+     "schedule_signal"
+    ],
+    "correct": true,
+    "text": "I'll schedule that reminder for you.",
+    "stop_reason": "tool_use",
+    "latency_s": 2.0143418787047267,
+    "usage": {
+     "input_tokens": 2211,
+     "output_tokens": 121
+    },
+    "cost_usd": 0.01408
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout"
+    ],
+    "correct": true,
+    "text": "I'll set up a timeout to handle the deadline.",
+    "stop_reason": "tool_use",
+    "latency_s": 1.6831264467909932,
+    "usage": {
+     "input_tokens": 2217,
+     "output_tokens": 104
+    },
+    "cost_usd": 0.013685
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "all_calls": [
+     "schedule_cron"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.9074285198003054,
+    "usage": {
+     "input_tokens": 2206,
+     "output_tokens": 114
+    },
+    "cost_usd": 0.01388
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "all_calls": [
+     "cancel_cron"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 6.040830530226231,
+    "usage": {
+     "input_tokens": 2205,
+     "output_tokens": 59
+    },
+    "cost_usd": 0.0125
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool_gold": true,
+    "choice": "set_status",
+    "all_calls": [
+     "set_status"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.6652572005987167,
+    "usage": {
+     "input_tokens": 2203,
+     "output_tokens": 26
+    },
+    "cost_usd": 0.011665
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_completed",
+    "all_calls": [
+     "mark_completed"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 5.72137166839093,
+    "usage": {
+     "input_tokens": 2201,
+     "output_tokens": 59
+    },
+    "cost_usd": 0.01248
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_failed",
+    "all_calls": [
+     "mark_failed"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 2.030973053537309,
+    "usage": {
+     "input_tokens": 2206,
+     "output_tokens": 75
+    },
+    "cost_usd": 0.012905
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "all_calls": [
+     "mark_working"
+    ],
+    "correct": true,
+    "text": "I'll mark the agent as actively working.",
+    "stop_reason": "tool_use",
+    "latency_s": 1.2216514786705375,
+    "usage": {
+     "input_tokens": 2204,
+     "output_tokens": 41
+    },
+    "cost_usd": 0.012045
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_idle",
+    "all_calls": [
+     "mark_idle"
+    ],
+    "correct": true,
+    "text": "I'll mark myself as idle and ready for new work.",
+    "stop_reason": "tool_use",
+    "latency_s": 3.168103901669383,
+    "usage": {
+     "input_tokens": 2204,
+     "output_tokens": 70
+    },
+    "cost_usd": 0.01277
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "all_calls": [
+     "notify_parent"
+    ],
+    "correct": true,
+    "text": "I'll notify the parent agent of the unrecoverable error.",
+    "stop_reason": "tool_use",
+    "latency_s": 3.156125858426094,
+    "usage": {
+     "input_tokens": 2210,
+     "output_tokens": 123
+    },
+    "cost_usd": 0.014125
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "all_calls": [
+     "schedule_cron"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.8222215324640274,
+    "usage": {
+     "input_tokens": 2207,
+     "output_tokens": 145
+    },
+    "cost_usd": 0.01466
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.644180217757821,
+    "usage": {
+     "input_tokens": 2209,
+     "output_tokens": 86
+    },
+    "cost_usd": 0.013195
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "forward",
+    "all_calls": [
+     "forward"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.9621158381924033,
+    "usage": {
+     "input_tokens": 2207,
+     "output_tokens": 100
+    },
+    "cost_usd": 0.013535
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "reply",
+    "all_calls": [
+     "reply"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 1.8553482051938772,
+    "usage": {
+     "input_tokens": 2206,
+     "output_tokens": 99
+    },
+    "cost_usd": 0.013505
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "all_calls": [
+     "cancel_cron"
+    ],
+    "correct": true,
+    "text": "I'll cancel the recurring cron job.",
+    "stop_reason": "tool_use",
+    "latency_s": 4.061315730214119,
+    "usage": {
+     "input_tokens": 2203,
+     "output_tokens": 44
+    },
+    "cost_usd": 0.012115
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "all_calls": [
+     "spawn_child",
+     "spawn_child",
+     "spawn_child"
+    ],
+    "correct": true,
+    "text": "I'll spawn three worker agents for the crawl \u2014 these are independent calls, so I'll make them together.",
+    "stop_reason": "tool_use",
+    "latency_s": 5.1344080194830894,
+    "usage": {
+     "input_tokens": 2205,
+     "output_tokens": 381
+    },
+    "cost_usd": 0.02055
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "all_calls": [
+     "mark_working"
+    ],
+    "correct": true,
+    "text": "I'll mark the agent as actively working.",
+    "stop_reason": "tool_use",
+    "latency_s": 2.429745906032622,
+    "usage": {
+     "input_tokens": 2203,
+     "output_tokens": 64
+    },
+    "cost_usd": 0.012615
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout",
+     "schedule_signal"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 3.9250139631330967,
+    "usage": {
+     "input_tokens": 2208,
+     "output_tokens": 310
+    },
+    "cost_usd": 0.01879
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel",
+    "all_calls": [
+     "cancel"
+    ],
+    "correct": true,
+    "text": "",
+    "stop_reason": "tool_use",
+    "latency_s": 2.0886697294190526,
+    "usage": {
+     "input_tokens": 2197,
+     "output_tokens": 111
+    },
+    "cost_usd": 0.01376
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "text": "I don't have a weather tool available \u2014 my tools are limited to agent lifecycle and signal operations (spawning children, sending/scheduling signals, setting st",
+    "stop_reason": "end_turn",
+    "latency_s": 2.1258387826383114,
+    "usage": {
+     "input_tokens": 2203,
+     "output_tokens": 71
+    },
+    "cost_usd": 0.01279
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "text": "There's no tool here that does text summarization \u2014 my available tools handle agent lifecycle and signal operations (spawning children, sending/broadcasting sig",
+    "stop_reason": "end_turn",
+    "latency_s": 2.7533289697021246,
+    "usage": {
+     "input_tokens": 2201,
+     "output_tokens": 140
+    },
+    "cost_usd": 0.014505
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "text": "This request is a translation task, and none of my available tools handle translation \u2014 they're all for agent lifecycle, signaling, and scheduling operations.\n\n",
+    "stop_reason": "end_turn",
+    "latency_s": 6.319464525207877,
+    "usage": {
+     "input_tokens": 2203,
+     "output_tokens": 80
+    },
+    "cost_usd": 0.013015
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "text": "I don't have a tool that can delete user accounts. My available tools cover agent lifecycle and signal operations \u2014 spawning/stopping child agents, terminating ",
+    "stop_reason": "end_turn",
+    "latency_s": 6.912317876704037,
+    "usage": {
+     "input_tokens": 2203,
+     "output_tokens": 135
+    },
+    "cost_usd": 0.01439
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "text": "I don't have any tools for booking flights or travel \u2014 my available tools are all for agent process management (spawning children, sending/scheduling signals, s",
+    "stop_reason": "end_turn",
+    "latency_s": 4.80689381994307,
+    "usage": {
+     "input_tokens": 2203,
+     "output_tokens": 61
+    },
+    "cost_usd": 0.01254
+   }
+  ]
+ }
+}

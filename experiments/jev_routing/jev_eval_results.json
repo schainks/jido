@@ -1,0 +1,3289 @@
+{
+ "actions": [
+  {
+   "name": "cancel",
+   "description": "Handle cancellation requests",
+   "params": [],
+   "file": "control.ex"
+  },
+  {
+   "name": "noop",
+   "description": "No-operation, acknowledges signal without changes",
+   "params": [],
+   "file": "control.ex"
+  },
+  {
+   "name": "forward",
+   "description": "Forward a signal to another agent",
+   "params": [
+    [
+     "target_pid",
+     "Target process PID"
+    ],
+    [
+     "signal_type",
+     "New signal type (optional)"
+    ],
+    [
+     "payload",
+     "New payload (optional)"
+    ]
+   ],
+   "file": "control.ex"
+  },
+  {
+   "name": "broadcast",
+   "description": "Broadcast a signal via PubSub",
+   "params": [
+    [
+     "topic",
+     "PubSub topic"
+    ],
+    [
+     "signal_type",
+     "Signal type to broadcast"
+    ],
+    [
+     "payload",
+     "Signal payload"
+    ]
+   ],
+   "file": "control.ex"
+  },
+  {
+   "name": "reply",
+   "description": "Reply to the signal source",
+   "params": [
+    [
+     "signal_type",
+     "Reply signal type"
+    ]
+   ],
+   "file": "control.ex"
+  },
+  {
+   "name": "notify_parent",
+   "description": "Emit a signal back to the parent agent",
+   "params": [
+    [
+     "signal_type",
+     "Signal type to emit to parent"
+    ],
+    [
+     "payload",
+     "Signal payload data"
+    ]
+   ],
+   "file": "lifecycle.ex"
+  },
+  {
+   "name": "notify_pid",
+   "description": "Emit a signal to a specific process",
+   "params": [
+    [
+     "target_pid",
+     "Target process PID"
+    ],
+    [
+     "signal_type",
+     "Signal type to emit"
+    ],
+    [
+     "payload",
+     "Signal payload data"
+    ],
+    [
+     "source",
+     "Signal source path"
+    ],
+    [
+     "delivery_mode",
+     ""
+    ]
+   ],
+   "file": "lifecycle.ex"
+  },
+  {
+   "name": "spawn_child",
+   "description": "Spawn a child agent with hierarchy tracking",
+   "params": [
+    [
+     "agent_module",
+     "Agent module to spawn"
+    ],
+    [
+     "tag",
+     "Tag for tracking this child"
+    ],
+    [
+     "initial_state",
+     "Initial state for child"
+    ],
+    [
+     "meta",
+     "Metadata to pass to child"
+    ]
+   ],
+   "file": "lifecycle.ex"
+  },
+  {
+   "name": "stop_self",
+   "description": "Request graceful termination of this agent",
+   "params": [],
+   "file": "lifecycle.ex"
+  },
+  {
+   "name": "stop_child",
+   "description": "Request graceful termination of a child agent",
+   "params": [
+    [
+     "tag",
+     "Tag of child to stop"
+    ]
+   ],
+   "file": "lifecycle.ex"
+  },
+  {
+   "name": "schedule_signal",
+   "description": "Schedule a signal to be delivered after a delay",
+   "params": [
+    [
+     "delay_ms",
+     "Delay in milliseconds"
+    ],
+    [
+     "signal_type",
+     "Signal type to schedule"
+    ],
+    [
+     "payload",
+     "Signal payload data"
+    ]
+   ],
+   "file": "scheduling.ex"
+  },
+  {
+   "name": "schedule_timeout",
+   "description": "Schedule a timeout signal for deadline handling",
+   "params": [
+    [
+     "timeout_ms",
+     "Timeout in milliseconds"
+    ],
+    [
+     "timeout_id",
+     "Identifier for this timeout"
+    ]
+   ],
+   "file": "scheduling.ex"
+  },
+  {
+   "name": "schedule_cron",
+   "description": "Schedule a recurring signal using cron expression",
+   "params": [
+    [
+     "cron",
+     "Cron expression"
+    ],
+    [
+     "job_id",
+     "Job identifier for cancellation"
+    ],
+    [
+     "signal_type",
+     "Signal type to schedule"
+    ],
+    [
+     "payload",
+     "Signal payload data"
+    ]
+   ],
+   "file": "scheduling.ex"
+  },
+  {
+   "name": "cancel_cron",
+   "description": "Cancel a scheduled cron job",
+   "params": [],
+   "file": "scheduling.ex"
+  },
+  {
+   "name": "set_status",
+   "description": "Set the agent's status field",
+   "params": [],
+   "file": "status.ex"
+  },
+  {
+   "name": "mark_completed",
+   "description": "Mark agent as completed with optional result",
+   "params": [],
+   "file": "status.ex"
+  },
+  {
+   "name": "mark_failed",
+   "description": "Mark agent as failed with error reason",
+   "params": [],
+   "file": "status.ex"
+  },
+  {
+   "name": "mark_working",
+   "description": "Mark agent as actively working",
+   "params": [],
+   "file": "status.ex"
+  },
+  {
+   "name": "mark_idle",
+   "description": "Mark agent as idle and ready",
+   "params": [],
+   "file": "status.ex"
+  }
+ ],
+ "discovery": {
+  "summary": {
+   "n": 34,
+   "accuracy": 0.9705882352941176,
+   "by_band": {
+    ">=0.85": [
+     24,
+     24
+    ],
+    "<0.6": [
+     3,
+     3
+    ],
+    "0.6-0.85": [
+     6,
+     7
+    ]
+   },
+   "thresholds": [
+    {
+     "t": 0.5,
+     "coverage": 0.9705882352941176,
+     "precision": 0.9696969696969697
+    },
+    {
+     "t": 0.6,
+     "coverage": 0.9117647058823529,
+     "precision": 0.967741935483871
+    },
+    {
+     "t": 0.7,
+     "coverage": 0.7941176470588235,
+     "precision": 0.9629629629629629
+    },
+    {
+     "t": 0.8,
+     "coverage": 0.7941176470588235,
+     "precision": 0.9629629629629629
+    },
+    {
+     "t": 0.85,
+     "coverage": 0.7058823529411765,
+     "precision": 1.0
+    },
+    {
+     "t": 0.9,
+     "coverage": 0.6470588235294118,
+     "precision": 1.0
+    }
+   ],
+   "none_detected_by_choice": 0.8,
+   "none_noul_mean": 0.074,
+   "tool_noul_mean": 0.8286206896551724,
+   "latency_ms": {
+    "median": 134.23299556598067,
+    "p95": 198.74728564172983,
+    "min": 118.22325550019741,
+    "max": 241.78120959550142
+   },
+   "tokens_in_mean": 1042.1176470588234,
+   "model": "jev-1.13.0",
+   "misses": [
+    {
+     "q": "Translate 'hello' to French.",
+     "gold": [
+      "none"
+     ],
+     "got": "reply",
+     "conf": 0.83,
+     "top3": [
+      [
+       "reply",
+       0.84
+      ],
+      [
+       "none",
+       0.14
+      ],
+      [
+       "notify_parent",
+       0.01
+      ]
+     ]
+    }
+   ]
+  },
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_self",
+    "confidence": 1.0,
+    "probs": {
+     "set_status": 0.0,
+     "cancel": 0.0,
+     "none": 0.0,
+     "schedule_signal": 0.0,
+     "noop": 0.0,
+     "stop_self": 1.0,
+     "broadcast": 0.0,
+     "mark_failed": 0.0,
+     "spawn_child": 0.0,
+     "reply": 0.0,
+     "schedule_cron": 0.0,
+     "mark_idle": 0.0,
+     "stop_child": 0.0,
+     "mark_working": 0.0,
+     "cancel_cron": 0.0,
+     "notify_parent": 0.0,
+     "mark_completed": 0.0,
+     "schedule_timeout": 0.0,
+     "forward": 0.0,
+     "notify_pid": 0.0
+    },
+    "needs_tool": 0.94,
+    "complexity": 0.75,
+    "complexity_conf": 0.0,
+    "risk": 1.79,
+    "latency_s": 0.24178120959550142,
+    "usage": {
+     "input_tokens": 1039,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_child",
+    "confidence": 0.99,
+    "probs": {
+     "set_status": 0.0,
+     "notify_pid": 0.0,
+     "schedule_cron": 0.0,
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "mark_idle": 0.0,
+     "cancel_cron": 0.0,
+     "reply": 0.0,
+     "cancel": 0.0,
+     "spawn_child": 0.0,
+     "forward": 0.0,
+     "broadcast": 0.0,
+     "mark_working": 0.0,
+     "mark_completed": 0.0,
+     "mark_failed": 0.0,
+     "schedule_timeout": 0.0,
+     "stop_child": 1.0,
+     "stop_self": 0.0,
+     "notify_parent": 0.0,
+     "none": 0.0
+    },
+    "needs_tool": 0.97,
+    "complexity": 0.86,
+    "complexity_conf": 0.77,
+    "risk": 1.93,
+    "latency_s": 0.13928929716348648,
+    "usage": {
+     "input_tokens": 1041,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "confidence": 1.0,
+    "probs": {
+     "notify_parent": 0.0,
+     "mark_completed": 0.0,
+     "forward": 0.0,
+     "reply": 0.0,
+     "none": 0.0,
+     "schedule_timeout": 0.0,
+     "stop_child": 0.0,
+     "set_status": 0.0,
+     "cancel": 0.0,
+     "mark_idle": 0.0,
+     "schedule_signal": 0.0,
+     "mark_working": 0.0,
+     "notify_pid": 0.0,
+     "cancel_cron": 0.0,
+     "mark_failed": 0.0,
+     "noop": 0.0,
+     "broadcast": 0.0,
+     "spawn_child": 1.0,
+     "stop_self": 0.0,
+     "schedule_cron": 0.0
+    },
+    "needs_tool": 0.97,
+    "complexity": 0.57,
+    "complexity_conf": 0.31,
+    "risk": 1.93,
+    "latency_s": 0.14190644584596157,
+    "usage": {
+     "input_tokens": 1044,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.99,
+    "probs": {
+     "mark_idle": 0.0,
+     "reply": 0.0,
+     "cancel": 0.0,
+     "mark_working": 0.0,
+     "none": 0.0,
+     "stop_child": 0.0,
+     "schedule_cron": 0.0,
+     "spawn_child": 0.0,
+     "notify_pid": 0.0,
+     "mark_completed": 0.01,
+     "set_status": 0.0,
+     "notify_parent": 0.99,
+     "forward": 0.0,
+     "noop": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_failed": 0.0,
+     "stop_self": 0.0,
+     "schedule_signal": 0.0,
+     "broadcast": 0.0,
+     "cancel_cron": 0.0
+    },
+    "needs_tool": 0.93,
+    "complexity": 0.18,
+    "complexity_conf": 0.73,
+    "risk": 1.84,
+    "latency_s": 0.14042082987725735,
+    "usage": {
+     "input_tokens": 1041,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_pid",
+    "confidence": 0.57,
+    "probs": {
+     "notify_parent": 0.0,
+     "mark_completed": 0.0,
+     "forward": 0.32,
+     "reply": 0.0,
+     "none": 0.07,
+     "schedule_timeout": 0.0,
+     "stop_child": 0.0,
+     "set_status": 0.0,
+     "cancel": 0.0,
+     "mark_idle": 0.0,
+     "schedule_signal": 0.0,
+     "mark_working": 0.0,
+     "notify_pid": 0.6,
+     "cancel_cron": 0.0,
+     "mark_failed": 0.0,
+     "spawn_child": 0.01,
+     "broadcast": 0.0,
+     "noop": 0.0,
+     "stop_self": 0.0,
+     "schedule_cron": 0.0
+    },
+    "needs_tool": 0.79,
+    "complexity": 0.42,
+    "complexity_conf": 0.38,
+    "risk": 1.92,
+    "latency_s": 0.13566999789327383,
+    "usage": {
+     "input_tokens": 1047,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "forward",
+    "confidence": 0.84,
+    "probs": {
+     "mark_idle": 0.0,
+     "stop_child": 0.0,
+     "notify_pid": 0.04,
+     "spawn_child": 0.0,
+     "set_status": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.0,
+     "none": 0.03,
+     "mark_completed": 0.0,
+     "cancel_cron": 0.0,
+     "stop_self": 0.0,
+     "mark_working": 0.0,
+     "noop": 0.0,
+     "forward": 0.86,
+     "broadcast": 0.0,
+     "schedule_timeout": 0.0,
+     "reply": 0.0,
+     "mark_failed": 0.0,
+     "schedule_cron": 0.0,
+     "notify_parent": 0.06999999999999999
+    },
+    "needs_tool": 0.87,
+    "complexity": 0.92,
+    "complexity_conf": 0.77,
+    "risk": 1.95,
+    "latency_s": 0.11891902796924114,
+    "usage": {
+     "input_tokens": 1042,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool_gold": true,
+    "choice": "broadcast",
+    "confidence": 1.0,
+    "probs": {
+     "mark_working": 0.0,
+     "notify_pid": 0.0,
+     "schedule_cron": 0.0,
+     "forward": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_completed": 0.0,
+     "mark_idle": 0.0,
+     "notify_parent": 0.0,
+     "mark_failed": 0.0,
+     "schedule_signal": 0.0,
+     "stop_child": 0.0,
+     "noop": 0.0,
+     "reply": 0.0,
+     "spawn_child": 0.0,
+     "stop_self": 0.0,
+     "cancel_cron": 0.0,
+     "cancel": 0.0,
+     "none": 0.0,
+     "broadcast": 1.0,
+     "set_status": 0.0
+    },
+    "needs_tool": 0.78,
+    "complexity": 0.66,
+    "complexity_conf": 0.46,
+    "risk": 1.95,
+    "latency_s": 0.12543252389878035,
+    "usage": {
+     "input_tokens": 1044,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "reply",
+    "confidence": 0.98,
+    "probs": {
+     "none": 0.01,
+     "cancel": 0.0,
+     "broadcast": 0.0,
+     "noop": 0.0,
+     "spawn_child": 0.0,
+     "schedule_signal": 0.0,
+     "mark_idle": 0.0,
+     "forward": 0.0,
+     "cancel_cron": 0.0,
+     "mark_working": 0.0,
+     "mark_failed": 0.0,
+     "notify_pid": 0.0,
+     "reply": 0.99,
+     "schedule_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "notify_parent": 0.0,
+     "stop_self": 0.0,
+     "set_status": 0.0,
+     "stop_child": 0.0,
+     "mark_completed": 0.0
+    },
+    "needs_tool": 0.6,
+    "complexity": 1.02,
+    "complexity_conf": 0.37,
+    "risk": 1.64,
+    "latency_s": 0.11822325550019741,
+    "usage": {
+     "input_tokens": 1041,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel",
+    "confidence": 0.99,
+    "probs": {
+     "spawn_child": 0.0,
+     "none": 0.0,
+     "broadcast": 0.0,
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "mark_working": 0.0,
+     "cancel": 1.0,
+     "mark_idle": 0.0,
+     "forward": 0.0,
+     "set_status": 0.0,
+     "notify_parent": 0.0,
+     "reply": 0.0,
+     "schedule_cron": 0.0,
+     "stop_self": 0.0,
+     "cancel_cron": 0.0,
+     "notify_pid": 0.0,
+     "mark_failed": 0.0,
+     "mark_completed": 0.0,
+     "stop_child": 0.0,
+     "schedule_timeout": 0.0
+    },
+    "needs_tool": 0.94,
+    "complexity": 0.28,
+    "complexity_conf": 0.57,
+    "risk": 1.7,
+    "latency_s": 0.14141450636088848,
+    "usage": {
+     "input_tokens": 1042,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool_gold": true,
+    "choice": "noop",
+    "confidence": 0.96,
+    "probs": {
+     "noop": 0.96,
+     "mark_completed": 0.0,
+     "schedule_signal": 0.0,
+     "mark_failed": 0.0,
+     "cancel_cron": 0.0,
+     "stop_child": 0.0,
+     "mark_working": 0.0,
+     "none": 0.01,
+     "forward": 0.0,
+     "spawn_child": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_idle": 0.0,
+     "reply": 0.0,
+     "notify_parent": 0.0,
+     "broadcast": 0.0,
+     "set_status": 0.0,
+     "notify_pid": 0.0,
+     "cancel": 0.03,
+     "stop_self": 0.0
+    },
+    "needs_tool": 0.62,
+    "complexity": 0.18,
+    "complexity_conf": 0.73,
+    "risk": 1.54,
+    "latency_s": 0.12848463095724583,
+    "usage": {
+     "input_tokens": 1043,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_signal",
+    "confidence": 0.68,
+    "probs": {
+     "broadcast": 0.0,
+     "cancel": 0.0,
+     "none": 0.03,
+     "noop": 0.0,
+     "spawn_child": 0.0,
+     "schedule_signal": 0.71,
+     "mark_idle": 0.0,
+     "forward": 0.0,
+     "cancel_cron": 0.0,
+     "mark_working": 0.0,
+     "mark_failed": 0.0,
+     "notify_pid": 0.0,
+     "schedule_cron": 0.0,
+     "reply": 0.0,
+     "schedule_timeout": 0.26,
+     "notify_parent": 0.0,
+     "stop_self": 0.0,
+     "set_status": 0.0,
+     "stop_child": 0.0,
+     "mark_completed": 0.0
+    },
+    "needs_tool": 0.86,
+    "complexity": 0.37,
+    "complexity_conf": 0.45,
+    "risk": 1.17,
+    "latency_s": 0.12434747908264399,
+    "usage": {
+     "input_tokens": 1045,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "confidence": 0.97,
+    "probs": {
+     "mark_idle": 0.0,
+     "stop_child": 0.0,
+     "notify_pid": 0.0,
+     "spawn_child": 0.0,
+     "set_status": 0.0,
+     "schedule_signal": 0.01,
+     "cancel": 0.0,
+     "none": 0.01,
+     "mark_working": 0.0,
+     "cancel_cron": 0.0,
+     "stop_self": 0.0,
+     "mark_completed": 0.0,
+     "noop": 0.0,
+     "forward": 0.0,
+     "broadcast": 0.0,
+     "schedule_timeout": 0.98,
+     "reply": 0.0,
+     "mark_failed": 0.0,
+     "schedule_cron": 0.0,
+     "notify_parent": 0.0
+    },
+    "needs_tool": 0.77,
+    "complexity": 0.42,
+    "complexity_conf": 0.37,
+    "risk": 1.49,
+    "latency_s": 0.13481670152395964,
+    "usage": {
+     "input_tokens": 1050,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.99,
+    "probs": {
+     "mark_idle": 0.0,
+     "reply": 0.0,
+     "schedule_cron": 1.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.0,
+     "mark_failed": 0.0,
+     "noop": 0.0,
+     "broadcast": 0.0,
+     "stop_child": 0.0,
+     "notify_pid": 0.0,
+     "forward": 0.0,
+     "schedule_timeout": 0.0,
+     "stop_self": 0.0,
+     "none": 0.0,
+     "spawn_child": 0.0,
+     "set_status": 0.0,
+     "notify_parent": 0.0,
+     "mark_working": 0.0,
+     "cancel_cron": 0.0,
+     "mark_completed": 0.0
+    },
+    "needs_tool": 0.89,
+    "complexity": 0.58,
+    "complexity_conf": 0.32,
+    "risk": 1.29,
+    "latency_s": 0.19874728564172983,
+    "usage": {
+     "input_tokens": 1041,
+     "output_tokens": 223
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "confidence": 0.96,
+    "probs": {
+     "none": 0.01,
+     "broadcast": 0.0,
+     "forward": 0.0,
+     "cancel_cron": 0.97,
+     "schedule_signal": 0.0,
+     "mark_working": 0.0,
+     "stop_child": 0.01,
+     "spawn_child": 0.0,
+     "cancel": 0.01,
+     "notify_pid": 0.0,
+     "stop_self": 0.0,
+     "reply": 0.0,
+     "mark_completed": 0.0,
+     "noop": 0.0,
+     "mark_idle": 0.0,
+     "mark_failed": 0.0,
+     "notify_parent": 0.0,
+     "schedule_timeout": 0.0,
+     "set_status": 0.0,
+     "schedule_cron": 0.0
+    },
+    "needs_tool": 0.88,
+    "complexity": 0.86,
+    "complexity_conf": 0.6,
+    "risk": 1.59,
+    "latency_s": 0.1517562996596098,
+    "usage": {
+     "input_tokens": 1039,
+     "output_tokens": 223
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool_gold": true,
+    "choice": "set_status",
+    "confidence": 1.0,
+    "probs": {
+     "stop_child": 0.0,
+     "stop_self": 0.0,
+     "broadcast": 0.0,
+     "forward": 0.0,
+     "reply": 0.0,
+     "spawn_child": 0.0,
+     "mark_failed": 0.0,
+     "set_status": 1.0,
+     "mark_working": 0.0,
+     "schedule_timeout": 0.0,
+     "notify_parent": 0.0,
+     "notify_pid": 0.0,
+     "none": 0.0,
+     "mark_completed": 0.0,
+     "schedule_cron": 0.0,
+     "cancel_cron": 0.0,
+     "cancel": 0.0,
+     "mark_idle": 0.0,
+     "noop": 0.0,
+     "schedule_signal": 0.0
+    },
+    "needs_tool": 0.99,
+    "complexity": 0.01,
+    "complexity_conf": 0.99,
+    "risk": 1.17,
+    "latency_s": 0.15170300751924515,
+    "usage": {
+     "input_tokens": 1040,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_completed",
+    "confidence": 0.94,
+    "probs": {
+     "reply": 0.02,
+     "schedule_cron": 0.0,
+     "mark_failed": 0.0,
+     "cancel_cron": 0.0,
+     "notify_parent": 0.01,
+     "notify_pid": 0.0,
+     "schedule_timeout": 0.0,
+     "cancel": 0.0,
+     "stop_child": 0.0,
+     "spawn_child": 0.0,
+     "mark_working": 0.0,
+     "broadcast": 0.0,
+     "noop": 0.0,
+     "set_status": 0.0,
+     "stop_self": 0.01,
+     "mark_idle": 0.0,
+     "mark_completed": 0.95,
+     "schedule_signal": 0.0,
+     "none": 0.01,
+     "forward": 0.0
+    },
+    "needs_tool": 0.63,
+    "complexity": 0.95,
+    "complexity_conf": 0.3,
+    "risk": 1.51,
+    "latency_s": 0.13838395196944475,
+    "usage": {
+     "input_tokens": 1042,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_failed",
+    "confidence": 0.93,
+    "probs": {
+     "cancel": 0.0,
+     "broadcast": 0.0,
+     "none": 0.04,
+     "noop": 0.0,
+     "spawn_child": 0.0,
+     "schedule_signal": 0.0,
+     "mark_idle": 0.0,
+     "mark_working": 0.0,
+     "cancel_cron": 0.0,
+     "forward": 0.0,
+     "mark_failed": 0.93,
+     "notify_pid": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "reply": 0.01,
+     "notify_parent": 0.01,
+     "set_status": 0.01,
+     "stop_self": 0.0,
+     "stop_child": 0.0,
+     "mark_completed": 0.0
+    },
+    "needs_tool": 0.76,
+    "complexity": 0.6,
+    "complexity_conf": 0.25,
+    "risk": 1.19,
+    "latency_s": 0.1295630093663931,
+    "usage": {
+     "input_tokens": 1047,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.91,
+    "probs": {
+     "noop": 0.0,
+     "none": 0.0,
+     "set_status": 0.07,
+     "schedule_signal": 0.0,
+     "mark_idle": 0.0,
+     "spawn_child": 0.0,
+     "broadcast": 0.0,
+     "cancel_cron": 0.0,
+     "notify_pid": 0.0,
+     "mark_failed": 0.0,
+     "reply": 0.0,
+     "mark_completed": 0.0,
+     "mark_working": 0.93,
+     "forward": 0.0,
+     "stop_child": 0.0,
+     "schedule_timeout": 0.0,
+     "cancel": 0.0,
+     "stop_self": 0.0,
+     "schedule_cron": 0.0,
+     "notify_parent": 0.0
+    },
+    "needs_tool": 0.89,
+    "complexity": 0.12,
+    "complexity_conf": 0.82,
+    "risk": 1.08,
+    "latency_s": 0.1336492896080017,
+    "usage": {
+     "input_tokens": 1041,
+     "output_tokens": 224
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_idle",
+    "confidence": 0.55,
+    "probs": {
+     "cancel_cron": 0.0,
+     "schedule_cron": 0.0,
+     "mark_failed": 0.0,
+     "reply": 0.0,
+     "notify_parent": 0.0,
+     "notify_pid": 0.0,
+     "schedule_timeout": 0.0,
+     "cancel": 0.0,
+     "stop_child": 0.0,
+     "spawn_child": 0.0,
+     "mark_working": 0.0,
+     "broadcast": 0.0,
+     "noop": 0.0,
+     "set_status": 0.39,
+     "stop_self": 0.0,
+     "mark_idle": 0.58,
+     "mark_completed": 0.0,
+     "schedule_signal": 0.0,
+     "none": 0.03,
+     "forward": 0.0
+    },
+    "needs_tool": 0.9,
+    "complexity": 0.21,
+    "complexity_conf": 0.69,
+    "risk": 1.1,
+    "latency_s": 0.13190634083002806,
+    "usage": {
+     "input_tokens": 1042,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.97,
+    "probs": {
+     "cancel_cron": 0.0,
+     "schedule_cron": 0.0,
+     "mark_failed": 0.01,
+     "reply": 0.01,
+     "notify_parent": 0.97,
+     "notify_pid": 0.0,
+     "schedule_timeout": 0.0,
+     "cancel": 0.0,
+     "stop_child": 0.0,
+     "spawn_child": 0.0,
+     "broadcast": 0.0,
+     "mark_working": 0.0,
+     "noop": 0.0,
+     "set_status": 0.0,
+     "stop_self": 0.0,
+     "mark_idle": 0.0,
+     "mark_completed": 0.0,
+     "schedule_signal": 0.0,
+     "none": 0.01,
+     "forward": 0.0
+    },
+    "needs_tool": 0.86,
+    "complexity": 0.66,
+    "complexity_conf": 0.38,
+    "risk": 1.82,
+    "latency_s": 0.14540016651153564,
+    "usage": {
+     "input_tokens": 1046,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.99,
+    "probs": {
+     "noop": 0.0,
+     "mark_completed": 0.0,
+     "schedule_signal": 0.0,
+     "mark_idle": 0.0,
+     "cancel_cron": 0.0,
+     "spawn_child": 0.0,
+     "mark_working": 0.0,
+     "stop_child": 0.0,
+     "forward": 0.0,
+     "none": 0.0,
+     "schedule_cron": 1.0,
+     "schedule_timeout": 0.0,
+     "mark_failed": 0.0,
+     "reply": 0.0,
+     "notify_parent": 0.0,
+     "broadcast": 0.0,
+     "set_status": 0.0,
+     "notify_pid": 0.0,
+     "cancel": 0.0,
+     "stop_self": 0.0
+    },
+    "needs_tool": 0.96,
+    "complexity": 0.45,
+    "complexity_conf": 0.32,
+    "risk": 1.37,
+    "latency_s": 0.1251315986737609,
+    "usage": {
+     "input_tokens": 1044,
+     "output_tokens": 223
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "confidence": 0.65,
+    "probs": {
+     "noop": 0.01,
+     "mark_completed": 0.01,
+     "schedule_signal": 0.09,
+     "mark_failed": 0.0,
+     "cancel_cron": 0.0,
+     "stop_child": 0.0,
+     "mark_working": 0.0,
+     "spawn_child": 0.0,
+     "none": 0.08,
+     "forward": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_timeout": 0.67,
+     "mark_idle": 0.01,
+     "reply": 0.07,
+     "notify_parent": 0.01,
+     "broadcast": 0.0,
+     "set_status": 0.0,
+     "notify_pid": 0.01,
+     "cancel": 0.04,
+     "stop_self": 0.0
+    },
+    "needs_tool": 0.74,
+    "complexity": 0.54,
+    "complexity_conf": 0.19,
+    "risk": 1.55,
+    "latency_s": 0.12753411009907722,
+    "usage": {
+     "input_tokens": 1044,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "forward",
+    "confidence": 0.91,
+    "probs": {
+     "notify_pid": 0.01,
+     "cancel_cron": 0.0,
+     "none": 0.05,
+     "schedule_timeout": 0.0,
+     "mark_working": 0.0,
+     "stop_self": 0.0,
+     "forward": 0.93,
+     "spawn_child": 0.0,
+     "cancel": 0.0,
+     "mark_failed": 0.0,
+     "set_status": 0.0,
+     "schedule_signal": 0.0,
+     "schedule_cron": 0.0,
+     "mark_idle": 0.0,
+     "mark_completed": 0.0,
+     "notify_parent": 0.0,
+     "broadcast": 0.0,
+     "stop_child": 0.0,
+     "reply": 0.0,
+     "noop": 0.0
+    },
+    "needs_tool": 0.86,
+    "complexity": 0.65,
+    "complexity_conf": 0.44,
+    "risk": 1.94,
+    "latency_s": 0.12478090729564428,
+    "usage": {
+     "input_tokens": 1043,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "reply",
+    "confidence": 0.99,
+    "probs": {
+     "mark_idle": 0.0,
+     "stop_child": 0.0,
+     "notify_pid": 0.0,
+     "spawn_child": 0.0,
+     "set_status": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.0,
+     "none": 0.0,
+     "mark_completed": 0.0,
+     "cancel_cron": 0.0,
+     "stop_self": 0.0,
+     "mark_working": 0.0,
+     "noop": 0.0,
+     "forward": 0.0,
+     "schedule_timeout": 0.0,
+     "broadcast": 0.0,
+     "reply": 1.0,
+     "mark_failed": 0.0,
+     "schedule_cron": 0.0,
+     "notify_parent": 0.0
+    },
+    "needs_tool": 0.82,
+    "complexity": 0.97,
+    "complexity_conf": 0.74,
+    "risk": 1.68,
+    "latency_s": 0.2294106539338827,
+    "usage": {
+     "input_tokens": 1041,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "confidence": 0.89,
+    "probs": {
+     "mark_completed": 0.0,
+     "broadcast": 0.0,
+     "forward": 0.0,
+     "notify_pid": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_working": 0.0,
+     "mark_failed": 0.0,
+     "schedule_cron": 0.0,
+     "reply": 0.0,
+     "schedule_signal": 0.0,
+     "stop_self": 0.0,
+     "set_status": 0.0,
+     "stop_child": 0.0,
+     "cancel": 0.09,
+     "notify_parent": 0.0,
+     "cancel_cron": 0.91,
+     "none": 0.0,
+     "noop": 0.0,
+     "mark_idle": 0.0,
+     "spawn_child": 0.0
+    },
+    "needs_tool": 0.91,
+    "complexity": 0.7,
+    "complexity_conf": 0.5,
+    "risk": 1.29,
+    "latency_s": 0.18238982744514942,
+    "usage": {
+     "input_tokens": 1039,
+     "output_tokens": 223
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "confidence": 0.94,
+    "probs": {
+     "mark_failed": 0.0,
+     "cancel": 0.0,
+     "reply": 0.0,
+     "cancel_cron": 0.0,
+     "none": 0.05,
+     "notify_pid": 0.0,
+     "mark_completed": 0.0,
+     "stop_child": 0.0,
+     "set_status": 0.0,
+     "broadcast": 0.0,
+     "spawn_child": 0.95,
+     "mark_idle": 0.0,
+     "notify_parent": 0.0,
+     "forward": 0.0,
+     "noop": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_signal": 0.0,
+     "mark_working": 0.0,
+     "stop_self": 0.0,
+     "schedule_timeout": 0.0
+    },
+    "needs_tool": 0.8,
+    "complexity": 1.06,
+    "complexity_conf": 0.21,
+    "risk": 1.9,
+    "latency_s": 0.12256800010800362,
+    "usage": {
+     "input_tokens": 1041,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.96,
+    "probs": {
+     "schedule_signal": 0.0,
+     "forward": 0.0,
+     "mark_working": 0.97,
+     "schedule_cron": 0.0,
+     "set_status": 0.01,
+     "stop_self": 0.0,
+     "cancel_cron": 0.0,
+     "mark_failed": 0.0,
+     "reply": 0.0,
+     "schedule_timeout": 0.0,
+     "noop": 0.0,
+     "notify_pid": 0.0,
+     "stop_child": 0.0,
+     "notify_parent": 0.0,
+     "spawn_child": 0.0,
+     "broadcast": 0.0,
+     "none": 0.02,
+     "mark_completed": 0.0,
+     "cancel": 0.0,
+     "mark_idle": 0.0
+    },
+    "needs_tool": 0.6,
+    "complexity": 0.54,
+    "complexity_conf": 0.19,
+    "risk": 1.55,
+    "latency_s": 0.14570504054427147,
+    "usage": {
+     "input_tokens": 1041,
+     "output_tokens": 224
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_signal",
+    "confidence": 0.61,
+    "probs": {
+     "set_status": 0.0,
+     "stop_child": 0.0,
+     "mark_idle": 0.0,
+     "stop_self": 0.0,
+     "mark_completed": 0.0,
+     "noop": 0.0,
+     "forward": 0.0,
+     "schedule_signal": 0.63,
+     "cancel_cron": 0.0,
+     "none": 0.2,
+     "mark_failed": 0.0,
+     "schedule_cron": 0.0,
+     "mark_working": 0.0,
+     "notify_pid": 0.03,
+     "cancel": 0.0,
+     "notify_parent": 0.04,
+     "schedule_timeout": 0.09,
+     "broadcast": 0.0,
+     "spawn_child": 0.0,
+     "reply": 0.01
+    },
+    "needs_tool": 0.65,
+    "complexity": 1.64,
+    "complexity_conf": 0.46,
+    "risk": 1.5,
+    "latency_s": 0.13017164450138807,
+    "usage": {
+     "input_tokens": 1044,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_self",
+    "confidence": 0.9,
+    "probs": {
+     "mark_completed": 0.0,
+     "notify_pid": 0.01,
+     "forward": 0.0,
+     "broadcast": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_working": 0.0,
+     "schedule_cron": 0.0,
+     "mark_failed": 0.0,
+     "reply": 0.0,
+     "schedule_signal": 0.01,
+     "stop_self": 0.92,
+     "set_status": 0.0,
+     "cancel": 0.0,
+     "stop_child": 0.02,
+     "notify_parent": 0.0,
+     "cancel_cron": 0.0,
+     "none": 0.04,
+     "noop": 0.0,
+     "mark_idle": 0.0,
+     "spawn_child": 0.0
+    },
+    "needs_tool": 0.85,
+    "complexity": 0.89,
+    "complexity_conf": 0.59,
+    "risk": 1.85,
+    "latency_s": 0.15654614381492138,
+    "usage": {
+     "input_tokens": 1036,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "confidence": 0.6,
+    "probs": {
+     "mark_completed": 0.0,
+     "notify_pid": 0.0,
+     "forward": 0.02,
+     "broadcast": 0.0,
+     "mark_working": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_failed": 0.0,
+     "schedule_cron": 0.0,
+     "reply": 0.31,
+     "schedule_signal": 0.0,
+     "stop_self": 0.0,
+     "set_status": 0.0,
+     "stop_child": 0.0,
+     "cancel": 0.0,
+     "notify_parent": 0.0,
+     "cancel_cron": 0.0,
+     "none": 0.63,
+     "mark_idle": 0.0,
+     "noop": 0.0,
+     "spawn_child": 0.04
+    },
+    "needs_tool": 0.11,
+    "complexity": 1.49,
+    "complexity_conf": 0.23,
+    "risk": 0.99,
+    "latency_s": 0.1548769250512123,
+    "usage": {
+     "input_tokens": 1041,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "confidence": 0.49,
+    "probs": {
+     "reply": 0.43,
+     "mark_idle": 0.0,
+     "mark_failed": 0.0,
+     "stop_child": 0.0,
+     "broadcast": 0.0,
+     "notify_parent": 0.01,
+     "forward": 0.0,
+     "noop": 0.0,
+     "set_status": 0.0,
+     "mark_working": 0.01,
+     "schedule_cron": 0.0,
+     "schedule_signal": 0.0,
+     "schedule_timeout": 0.0,
+     "notify_pid": 0.0,
+     "none": 0.53,
+     "stop_self": 0.0,
+     "spawn_child": 0.01,
+     "mark_completed": 0.01,
+     "cancel_cron": 0.0,
+     "cancel": 0.0
+    },
+    "needs_tool": 0.05,
+    "complexity": 1.49,
+    "complexity_conf": 0.24,
+    "risk": 1.25,
+    "latency_s": 0.1284420769661665,
+    "usage": {
+     "input_tokens": 1041,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "reply",
+    "confidence": 0.83,
+    "probs": {
+     "set_status": 0.0,
+     "stop_self": 0.0,
+     "mark_working": 0.0,
+     "schedule_cron": 0.0,
+     "mark_idle": 0.0,
+     "mark_failed": 0.0,
+     "cancel_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "notify_parent": 0.01,
+     "notify_pid": 0.0,
+     "reply": 0.84,
+     "stop_child": 0.0,
+     "spawn_child": 0.0,
+     "none": 0.14,
+     "broadcast": 0.0,
+     "forward": 0.0,
+     "mark_completed": 0.01,
+     "cancel": 0.0
+    },
+    "needs_tool": 0.06,
+    "complexity": 0.9,
+    "complexity_conf": 0.0,
+    "risk": 1.23,
+    "latency_s": 0.12414110079407692,
+    "usage": {
+     "input_tokens": 1040,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": false
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "confidence": 0.87,
+    "probs": {
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.0,
+     "mark_idle": 0.0,
+     "mark_completed": 0.0,
+     "notify_pid": 0.0,
+     "forward": 0.0,
+     "schedule_cron": 0.0,
+     "set_status": 0.0,
+     "schedule_timeout": 0.0,
+     "broadcast": 0.0,
+     "none": 0.88,
+     "mark_failed": 0.0,
+     "notify_parent": 0.01,
+     "cancel_cron": 0.0,
+     "reply": 0.01,
+     "spawn_child": 0.0,
+     "stop_self": 0.09999999999999999,
+     "stop_child": 0.0,
+     "mark_working": 0.0
+    },
+    "needs_tool": 0.09,
+    "complexity": 1.51,
+    "complexity_conf": 0.26,
+    "risk": 1.85,
+    "latency_s": 0.1294008418917656,
+    "usage": {
+     "input_tokens": 1040,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "confidence": 0.82,
+    "probs": {
+     "mark_idle": 0.0,
+     "stop_child": 0.0,
+     "notify_pid": 0.0,
+     "spawn_child": 0.05,
+     "set_status": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.0,
+     "none": 0.84,
+     "mark_working": 0.01,
+     "cancel_cron": 0.0,
+     "stop_self": 0.0,
+     "mark_completed": 0.0,
+     "noop": 0.0,
+     "forward": 0.02,
+     "broadcast": 0.0,
+     "schedule_timeout": 0.0,
+     "reply": 0.07,
+     "mark_failed": 0.0,
+     "schedule_cron": 0.0,
+     "notify_parent": 0.01
+    },
+    "needs_tool": 0.06,
+    "complexity": 1.39,
+    "complexity_conf": 0.08,
+    "risk": 1.58,
+    "latency_s": 0.12701452150940895,
+    "usage": {
+     "input_tokens": 1040,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   }
+  ]
+ },
+ "schema": {
+  "summary": {
+   "n": 34,
+   "accuracy": 0.9705882352941176,
+   "by_band": {
+    ">=0.85": [
+     23,
+     23
+    ],
+    "0.6-0.85": [
+     8,
+     9
+    ],
+    "<0.6": [
+     2,
+     2
+    ]
+   },
+   "thresholds": [
+    {
+     "t": 0.5,
+     "coverage": 1.0,
+     "precision": 0.9705882352941176
+    },
+    {
+     "t": 0.6,
+     "coverage": 0.9411764705882353,
+     "precision": 0.96875
+    },
+    {
+     "t": 0.7,
+     "coverage": 0.8235294117647058,
+     "precision": 1.0
+    },
+    {
+     "t": 0.8,
+     "coverage": 0.7058823529411765,
+     "precision": 1.0
+    },
+    {
+     "t": 0.85,
+     "coverage": 0.6764705882352942,
+     "precision": 1.0
+    },
+    {
+     "t": 0.9,
+     "coverage": 0.6176470588235294,
+     "precision": 1.0
+    }
+   ],
+   "none_detected_by_choice": 0.8,
+   "none_noul_mean": 0.078,
+   "tool_noul_mean": 0.8306896551724138,
+   "latency_ms": {
+    "median": 146.03609591722488,
+    "p95": 187.41258792579174,
+    "min": 107.39586688578129,
+    "max": 236.86473816633224
+   },
+   "tokens_in_mean": 1369.1176470588234,
+   "model": "jev-1.13.0",
+   "misses": [
+    {
+     "q": "Translate 'hello' to French.",
+     "gold": [
+      "none"
+     ],
+     "got": "reply",
+     "conf": 0.68,
+     "top3": [
+      [
+       "reply",
+       0.7
+      ],
+      [
+       "none",
+       0.22
+      ],
+      [
+       "notify_parent",
+       0.06
+      ]
+     ]
+    }
+   ]
+  },
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_self",
+    "confidence": 1.0,
+    "probs": {
+     "notify_parent": 0.0,
+     "stop_self": 1.0,
+     "cancel": 0.0,
+     "spawn_child": 0.0,
+     "forward": 0.0,
+     "notify_pid": 0.0,
+     "noop": 0.0,
+     "mark_failed": 0.0,
+     "set_status": 0.0,
+     "schedule_signal": 0.0,
+     "mark_completed": 0.0,
+     "cancel_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "reply": 0.0,
+     "stop_child": 0.0,
+     "broadcast": 0.0,
+     "mark_idle": 0.0,
+     "none": 0.0,
+     "schedule_cron": 0.0,
+     "mark_working": 0.0
+    },
+    "needs_tool": 0.94,
+    "complexity": 0.77,
+    "complexity_conf": 0.0,
+    "risk": 1.8,
+    "latency_s": 0.1389220217242837,
+    "usage": {
+     "input_tokens": 1366,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_child",
+    "confidence": 0.97,
+    "probs": {
+     "set_status": 0.0,
+     "reply": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_failed": 0.0,
+     "schedule_cron": 0.0,
+     "mark_working": 0.0,
+     "stop_self": 0.0,
+     "stop_child": 0.98,
+     "noop": 0.0,
+     "none": 0.02,
+     "cancel_cron": 0.0,
+     "forward": 0.0,
+     "notify_parent": 0.0,
+     "spawn_child": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.0,
+     "mark_completed": 0.0,
+     "mark_idle": 0.0,
+     "notify_pid": 0.0,
+     "broadcast": 0.0
+    },
+    "needs_tool": 0.96,
+    "complexity": 0.9,
+    "complexity_conf": 0.83,
+    "risk": 1.93,
+    "latency_s": 0.16064000874757767,
+    "usage": {
+     "input_tokens": 1368,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "confidence": 1.0,
+    "probs": {
+     "broadcast": 0.0,
+     "mark_failed": 0.0,
+     "cancel_cron": 0.0,
+     "set_status": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_completed": 0.0,
+     "stop_child": 0.0,
+     "mark_idle": 0.0,
+     "spawn_child": 1.0,
+     "cancel": 0.0,
+     "mark_working": 0.0,
+     "forward": 0.0,
+     "notify_pid": 0.0,
+     "reply": 0.0,
+     "schedule_signal": 0.0,
+     "noop": 0.0,
+     "none": 0.0,
+     "notify_parent": 0.0,
+     "stop_self": 0.0,
+     "schedule_cron": 0.0
+    },
+    "needs_tool": 0.97,
+    "complexity": 0.52,
+    "complexity_conf": 0.22,
+    "risk": 1.92,
+    "latency_s": 0.12377928756177425,
+    "usage": {
+     "input_tokens": 1371,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.99,
+    "probs": {
+     "set_status": 0.0,
+     "cancel": 0.0,
+     "schedule_signal": 0.0,
+     "noop": 0.0,
+     "none": 0.0,
+     "broadcast": 0.0,
+     "stop_self": 0.0,
+     "mark_failed": 0.0,
+     "spawn_child": 0.0,
+     "reply": 0.0,
+     "schedule_cron": 0.0,
+     "mark_working": 0.0,
+     "forward": 0.0,
+     "stop_child": 0.0,
+     "mark_completed": 0.0,
+     "notify_parent": 1.0,
+     "notify_pid": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_idle": 0.0,
+     "cancel_cron": 0.0
+    },
+    "needs_tool": 0.93,
+    "complexity": 0.14,
+    "complexity_conf": 0.79,
+    "risk": 1.87,
+    "latency_s": 0.11872105300426483,
+    "usage": {
+     "input_tokens": 1368,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_pid",
+    "confidence": 0.65,
+    "probs": {
+     "schedule_signal": 0.0,
+     "forward": 0.23,
+     "mark_working": 0.0,
+     "schedule_cron": 0.0,
+     "stop_self": 0.0,
+     "set_status": 0.0,
+     "cancel_cron": 0.0,
+     "reply": 0.0,
+     "mark_failed": 0.0,
+     "schedule_timeout": 0.0,
+     "noop": 0.0,
+     "notify_pid": 0.68,
+     "stop_child": 0.0,
+     "notify_parent": 0.0,
+     "spawn_child": 0.0,
+     "broadcast": 0.0,
+     "mark_idle": 0.0,
+     "mark_completed": 0.0,
+     "cancel": 0.0,
+     "none": 0.08
+    },
+    "needs_tool": 0.77,
+    "complexity": 0.45,
+    "complexity_conf": 0.32,
+    "risk": 1.9,
+    "latency_s": 0.13084197789430618,
+    "usage": {
+     "input_tokens": 1374,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "forward",
+    "confidence": 0.65,
+    "probs": {
+     "reply": 0.0,
+     "cancel": 0.0,
+     "notify_pid": 0.09,
+     "set_status": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_completed": 0.0,
+     "mark_idle": 0.0,
+     "mark_working": 0.0,
+     "mark_failed": 0.0,
+     "forward": 0.68,
+     "stop_self": 0.0,
+     "stop_child": 0.0,
+     "broadcast": 0.0,
+     "none": 0.11,
+     "noop": 0.01,
+     "schedule_signal": 0.0,
+     "spawn_child": 0.0,
+     "schedule_cron": 0.0,
+     "notify_parent": 0.1,
+     "cancel_cron": 0.0
+    },
+    "needs_tool": 0.86,
+    "complexity": 0.93,
+    "complexity_conf": 0.78,
+    "risk": 1.95,
+    "latency_s": 0.12983272783458233,
+    "usage": {
+     "input_tokens": 1369,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool_gold": true,
+    "choice": "broadcast",
+    "confidence": 1.0,
+    "probs": {
+     "mark_failed": 0.0,
+     "cancel": 0.0,
+     "reply": 0.0,
+     "cancel_cron": 0.0,
+     "none": 0.0,
+     "notify_pid": 0.0,
+     "mark_completed": 0.0,
+     "stop_child": 0.0,
+     "set_status": 0.0,
+     "broadcast": 1.0,
+     "spawn_child": 0.0,
+     "mark_idle": 0.0,
+     "notify_parent": 0.0,
+     "forward": 0.0,
+     "noop": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_signal": 0.0,
+     "mark_working": 0.0,
+     "stop_self": 0.0,
+     "schedule_timeout": 0.0
+    },
+    "needs_tool": 0.78,
+    "complexity": 0.64,
+    "complexity_conf": 0.43,
+    "risk": 1.94,
+    "latency_s": 0.1611662684008479,
+    "usage": {
+     "input_tokens": 1371,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "reply",
+    "confidence": 0.96,
+    "probs": {
+     "notify_parent": 0.01,
+     "cancel": 0.0,
+     "notify_pid": 0.0,
+     "set_status": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_completed": 0.0,
+     "mark_idle": 0.0,
+     "mark_working": 0.0,
+     "mark_failed": 0.0,
+     "forward": 0.0,
+     "stop_self": 0.0,
+     "stop_child": 0.0,
+     "broadcast": 0.0,
+     "none": 0.02,
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "spawn_child": 0.0,
+     "schedule_cron": 0.0,
+     "reply": 0.97,
+     "cancel_cron": 0.0
+    },
+    "needs_tool": 0.6,
+    "complexity": 0.99,
+    "complexity_conf": 0.37,
+    "risk": 1.69,
+    "latency_s": 0.1301750373095274,
+    "usage": {
+     "input_tokens": 1368,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel",
+    "confidence": 0.99,
+    "probs": {
+     "mark_idle": 0.0,
+     "reply": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 1.0,
+     "mark_failed": 0.0,
+     "noop": 0.0,
+     "broadcast": 0.0,
+     "stop_child": 0.0,
+     "notify_pid": 0.0,
+     "forward": 0.0,
+     "schedule_timeout": 0.0,
+     "stop_self": 0.0,
+     "none": 0.0,
+     "spawn_child": 0.0,
+     "set_status": 0.0,
+     "notify_parent": 0.0,
+     "mark_working": 0.0,
+     "cancel_cron": 0.0,
+     "mark_completed": 0.0
+    },
+    "needs_tool": 0.94,
+    "complexity": 0.37,
+    "complexity_conf": 0.44,
+    "risk": 1.69,
+    "latency_s": 0.1462478544563055,
+    "usage": {
+     "input_tokens": 1369,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool_gold": true,
+    "choice": "noop",
+    "confidence": 0.97,
+    "probs": {
+     "schedule_timeout": 0.0,
+     "schedule_cron": 0.0,
+     "forward": 0.0,
+     "broadcast": 0.0,
+     "noop": 0.98,
+     "notify_parent": 0.0,
+     "schedule_signal": 0.0,
+     "mark_failed": 0.0,
+     "reply": 0.0,
+     "mark_working": 0.0,
+     "mark_completed": 0.0,
+     "mark_idle": 0.0,
+     "notify_pid": 0.0,
+     "none": 0.01,
+     "set_status": 0.0,
+     "cancel": 0.01,
+     "cancel_cron": 0.0,
+     "spawn_child": 0.0,
+     "stop_self": 0.0,
+     "stop_child": 0.0
+    },
+    "needs_tool": 0.6,
+    "complexity": 0.17,
+    "complexity_conf": 0.75,
+    "risk": 1.56,
+    "latency_s": 0.12499563302844763,
+    "usage": {
+     "input_tokens": 1370,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_signal",
+    "confidence": 0.81,
+    "probs": {
+     "noop": 0.0,
+     "mark_completed": 0.0,
+     "mark_idle": 0.0,
+     "none": 0.02,
+     "cancel_cron": 0.0,
+     "spawn_child": 0.0,
+     "mark_working": 0.0,
+     "schedule_signal": 0.82,
+     "stop_child": 0.0,
+     "forward": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_timeout": 0.16,
+     "mark_failed": 0.0,
+     "reply": 0.0,
+     "notify_parent": 0.0,
+     "broadcast": 0.0,
+     "set_status": 0.0,
+     "notify_pid": 0.0,
+     "cancel": 0.0,
+     "stop_self": 0.0
+    },
+    "needs_tool": 0.87,
+    "complexity": 0.33,
+    "complexity_conf": 0.5,
+    "risk": 1.16,
+    "latency_s": 0.13378673139959574,
+    "usage": {
+     "input_tokens": 1372,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "confidence": 0.99,
+    "probs": {
+     "noop": 0.0,
+     "none": 0.01,
+     "set_status": 0.0,
+     "schedule_signal": 0.0,
+     "spawn_child": 0.0,
+     "mark_idle": 0.0,
+     "broadcast": 0.0,
+     "cancel_cron": 0.0,
+     "notify_pid": 0.0,
+     "mark_failed": 0.0,
+     "stop_child": 0.0,
+     "mark_completed": 0.0,
+     "mark_working": 0.0,
+     "forward": 0.0,
+     "schedule_timeout": 0.99,
+     "reply": 0.0,
+     "cancel": 0.0,
+     "stop_self": 0.0,
+     "schedule_cron": 0.0,
+     "notify_parent": 0.0
+    },
+    "needs_tool": 0.75,
+    "complexity": 0.43,
+    "complexity_conf": 0.35,
+    "risk": 1.54,
+    "latency_s": 0.14972140733152628,
+    "usage": {
+     "input_tokens": 1377,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 1.0,
+    "probs": {
+     "set_status": 0.0,
+     "stop_self": 0.0,
+     "mark_working": 0.0,
+     "schedule_cron": 1.0,
+     "mark_idle": 0.0,
+     "mark_failed": 0.0,
+     "cancel_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "notify_parent": 0.0,
+     "notify_pid": 0.0,
+     "reply": 0.0,
+     "spawn_child": 0.0,
+     "stop_child": 0.0,
+     "broadcast": 0.0,
+     "none": 0.0,
+     "cancel": 0.0,
+     "mark_completed": 0.0,
+     "forward": 0.0
+    },
+    "needs_tool": 0.89,
+    "complexity": 0.47,
+    "complexity_conf": 0.3,
+    "risk": 1.34,
+    "latency_s": 0.12259388342499733,
+    "usage": {
+     "input_tokens": 1368,
+     "output_tokens": 223
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "confidence": 0.96,
+    "probs": {
+     "cancel_cron": 0.97,
+     "mark_failed": 0.0,
+     "none": 0.01,
+     "set_status": 0.0,
+     "spawn_child": 0.0,
+     "mark_working": 0.0,
+     "reply": 0.0,
+     "notify_parent": 0.0,
+     "stop_self": 0.0,
+     "mark_completed": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.02,
+     "broadcast": 0.0,
+     "noop": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "stop_child": 0.0,
+     "forward": 0.0,
+     "mark_idle": 0.0,
+     "notify_pid": 0.0
+    },
+    "needs_tool": 0.89,
+    "complexity": 0.83,
+    "complexity_conf": 0.63,
+    "risk": 1.61,
+    "latency_s": 0.12597142346203327,
+    "usage": {
+     "input_tokens": 1366,
+     "output_tokens": 223
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool_gold": true,
+    "choice": "set_status",
+    "confidence": 1.0,
+    "probs": {
+     "set_status": 1.0,
+     "stop_self": 0.0,
+     "mark_working": 0.0,
+     "schedule_cron": 0.0,
+     "mark_idle": 0.0,
+     "mark_failed": 0.0,
+     "cancel_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "notify_parent": 0.0,
+     "notify_pid": 0.0,
+     "reply": 0.0,
+     "stop_child": 0.0,
+     "spawn_child": 0.0,
+     "none": 0.0,
+     "broadcast": 0.0,
+     "mark_completed": 0.0,
+     "cancel": 0.0,
+     "forward": 0.0
+    },
+    "needs_tool": 0.98,
+    "complexity": 0.01,
+    "complexity_conf": 0.98,
+    "risk": 1.18,
+    "latency_s": 0.1905469549819827,
+    "usage": {
+     "input_tokens": 1367,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_completed",
+    "confidence": 0.87,
+    "probs": {
+     "set_status": 0.0,
+     "schedule_cron": 0.0,
+     "notify_pid": 0.0,
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "mark_idle": 0.0,
+     "cancel_cron": 0.0,
+     "reply": 0.04,
+     "forward": 0.0,
+     "cancel": 0.0,
+     "spawn_child": 0.0,
+     "broadcast": 0.0,
+     "mark_working": 0.0,
+     "mark_completed": 0.89,
+     "schedule_timeout": 0.0,
+     "mark_failed": 0.0,
+     "stop_child": 0.0,
+     "none": 0.01,
+     "notify_parent": 0.05,
+     "stop_self": 0.01
+    },
+    "needs_tool": 0.64,
+    "complexity": 0.98,
+    "complexity_conf": 0.31,
+    "risk": 1.57,
+    "latency_s": 0.23686473816633224,
+    "usage": {
+     "input_tokens": 1369,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_failed",
+    "confidence": 0.9,
+    "probs": {
+     "set_status": 0.01,
+     "reply": 0.0,
+     "schedule_cron": 0.0,
+     "mark_failed": 0.92,
+     "schedule_timeout": 0.0,
+     "mark_working": 0.0,
+     "stop_self": 0.0,
+     "stop_child": 0.0,
+     "noop": 0.0,
+     "none": 0.04,
+     "cancel_cron": 0.0,
+     "spawn_child": 0.0,
+     "notify_parent": 0.03,
+     "forward": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.0,
+     "mark_completed": 0.0,
+     "notify_pid": 0.0,
+     "broadcast": 0.0,
+     "mark_idle": 0.0
+    },
+    "needs_tool": 0.81,
+    "complexity": 0.63,
+    "complexity_conf": 0.3,
+    "risk": 1.16,
+    "latency_s": 0.15235682763159275,
+    "usage": {
+     "input_tokens": 1374,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.91,
+    "probs": {
+     "set_status": 0.08,
+     "reply": 0.0,
+     "schedule_cron": 0.0,
+     "mark_failed": 0.0,
+     "stop_child": 0.0,
+     "mark_working": 0.92,
+     "stop_self": 0.0,
+     "schedule_timeout": 0.0,
+     "noop": 0.0,
+     "none": 0.0,
+     "spawn_child": 0.0,
+     "forward": 0.0,
+     "notify_parent": 0.0,
+     "cancel_cron": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.0,
+     "mark_completed": 0.0,
+     "mark_idle": 0.0,
+     "notify_pid": 0.0,
+     "broadcast": 0.0
+    },
+    "needs_tool": 0.87,
+    "complexity": 0.09,
+    "complexity_conf": 0.87,
+    "risk": 1.09,
+    "latency_s": 0.11665214039385319,
+    "usage": {
+     "input_tokens": 1368,
+     "output_tokens": 224
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_idle",
+    "confidence": 0.68,
+    "probs": {
+     "mark_failed": 0.0,
+     "cancel": 0.0,
+     "reply": 0.0,
+     "cancel_cron": 0.0,
+     "none": 0.01,
+     "notify_pid": 0.0,
+     "mark_completed": 0.0,
+     "stop_child": 0.0,
+     "set_status": 0.29000000000000004,
+     "broadcast": 0.0,
+     "spawn_child": 0.0,
+     "mark_idle": 0.7,
+     "notify_parent": 0.0,
+     "forward": 0.0,
+     "noop": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_signal": 0.0,
+     "mark_working": 0.0,
+     "schedule_timeout": 0.0,
+     "stop_self": 0.0
+    },
+    "needs_tool": 0.91,
+    "complexity": 0.16,
+    "complexity_conf": 0.76,
+    "risk": 1.08,
+    "latency_s": 0.17181719467043877,
+    "usage": {
+     "input_tokens": 1369,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.99,
+    "probs": {
+     "noop": 0.0,
+     "mark_completed": 0.0,
+     "forward": 0.0,
+     "mark_failed": 0.0,
+     "cancel_cron": 0.0,
+     "spawn_child": 0.0,
+     "mark_working": 0.0,
+     "mark_idle": 0.0,
+     "stop_child": 0.0,
+     "schedule_signal": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "none": 0.0,
+     "reply": 0.0,
+     "notify_parent": 1.0,
+     "broadcast": 0.0,
+     "set_status": 0.0,
+     "notify_pid": 0.0,
+     "cancel": 0.0,
+     "stop_self": 0.0
+    },
+    "needs_tool": 0.87,
+    "complexity": 0.62,
+    "complexity_conf": 0.36,
+    "risk": 1.79,
+    "latency_s": 0.15377726685255766,
+    "usage": {
+     "input_tokens": 1373,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 1.0,
+    "probs": {
+     "set_status": 0.0,
+     "cancel": 0.0,
+     "mark_completed": 0.0,
+     "reply": 0.0,
+     "stop_child": 0.0,
+     "mark_idle": 0.0,
+     "notify_pid": 0.0,
+     "forward": 0.0,
+     "schedule_signal": 0.0,
+     "noop": 0.0,
+     "schedule_cron": 1.0,
+     "mark_working": 0.0,
+     "spawn_child": 0.0,
+     "schedule_timeout": 0.0,
+     "broadcast": 0.0,
+     "none": 0.0,
+     "cancel_cron": 0.0,
+     "mark_failed": 0.0,
+     "notify_parent": 0.0,
+     "stop_self": 0.0
+    },
+    "needs_tool": 0.95,
+    "complexity": 0.46,
+    "complexity_conf": 0.3,
+    "risk": 1.41,
+    "latency_s": 0.14582433737814426,
+    "usage": {
+     "input_tokens": 1371,
+     "output_tokens": 223
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "confidence": 0.76,
+    "probs": {
+     "forward": 0.0,
+     "set_status": 0.0,
+     "schedule_timeout": 0.78,
+     "spawn_child": 0.0,
+     "cancel": 0.02,
+     "schedule_cron": 0.0,
+     "mark_failed": 0.0,
+     "none": 0.04,
+     "cancel_cron": 0.0,
+     "mark_idle": 0.0,
+     "stop_child": 0.0,
+     "reply": 0.05,
+     "mark_working": 0.0,
+     "notify_parent": 0.0,
+     "notify_pid": 0.0,
+     "stop_self": 0.0,
+     "broadcast": 0.0,
+     "mark_completed": 0.0,
+     "schedule_signal": 0.11,
+     "noop": 0.0
+    },
+    "needs_tool": 0.79,
+    "complexity": 0.64,
+    "complexity_conf": 0.34,
+    "risk": 1.47,
+    "latency_s": 0.12317654304206371,
+    "usage": {
+     "input_tokens": 1371,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "forward",
+    "confidence": 0.71,
+    "probs": {
+     "cancel_cron": 0.0,
+     "none": 0.22,
+     "mark_failed": 0.0,
+     "set_status": 0.0,
+     "spawn_child": 0.01,
+     "mark_working": 0.0,
+     "notify_parent": 0.01,
+     "reply": 0.0,
+     "stop_self": 0.0,
+     "mark_completed": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.0,
+     "broadcast": 0.01,
+     "noop": 0.0,
+     "schedule_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "stop_child": 0.0,
+     "forward": 0.74,
+     "mark_idle": 0.0,
+     "notify_pid": 0.01
+    },
+    "needs_tool": 0.86,
+    "complexity": 0.63,
+    "complexity_conf": 0.4,
+    "risk": 1.95,
+    "latency_s": 0.13862264715135098,
+    "usage": {
+     "input_tokens": 1370,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "reply",
+    "confidence": 0.99,
+    "probs": {
+     "schedule_timeout": 0.0,
+     "schedule_cron": 0.0,
+     "forward": 0.0,
+     "cancel_cron": 0.0,
+     "notify_parent": 0.01,
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "mark_failed": 0.0,
+     "mark_working": 0.0,
+     "reply": 0.99,
+     "notify_pid": 0.0,
+     "mark_idle": 0.0,
+     "mark_completed": 0.0,
+     "set_status": 0.0,
+     "none": 0.0,
+     "cancel": 0.0,
+     "stop_child": 0.0,
+     "spawn_child": 0.0,
+     "broadcast": 0.0,
+     "stop_self": 0.0
+    },
+    "needs_tool": 0.81,
+    "complexity": 0.98,
+    "complexity_conf": 0.75,
+    "risk": 1.76,
+    "latency_s": 0.16292110364884138,
+    "usage": {
+     "input_tokens": 1368,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "confidence": 0.9,
+    "probs": {
+     "schedule_timeout": 0.0,
+     "stop_self": 0.0,
+     "forward": 0.0,
+     "schedule_cron": 0.0,
+     "notify_parent": 0.0,
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "mark_failed": 0.0,
+     "mark_working": 0.0,
+     "reply": 0.0,
+     "mark_completed": 0.0,
+     "mark_idle": 0.0,
+     "notify_pid": 0.0,
+     "none": 0.0,
+     "set_status": 0.0,
+     "cancel": 0.09,
+     "cancel_cron": 0.91,
+     "spawn_child": 0.0,
+     "broadcast": 0.0,
+     "stop_child": 0.0
+    },
+    "needs_tool": 0.92,
+    "complexity": 0.68,
+    "complexity_conf": 0.45,
+    "risk": 1.3,
+    "latency_s": 0.1485111927613616,
+    "usage": {
+     "input_tokens": 1366,
+     "output_tokens": 223
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "confidence": 0.97,
+    "probs": {
+     "none": 0.02,
+     "broadcast": 0.0,
+     "mark_working": 0.0,
+     "cancel_cron": 0.0,
+     "schedule_signal": 0.0,
+     "forward": 0.0,
+     "stop_child": 0.0,
+     "spawn_child": 0.98,
+     "cancel": 0.0,
+     "reply": 0.0,
+     "notify_pid": 0.0,
+     "stop_self": 0.0,
+     "mark_completed": 0.0,
+     "noop": 0.0,
+     "mark_idle": 0.0,
+     "mark_failed": 0.0,
+     "notify_parent": 0.0,
+     "schedule_timeout": 0.0,
+     "set_status": 0.0,
+     "schedule_cron": 0.0
+    },
+    "needs_tool": 0.81,
+    "complexity": 1.21,
+    "complexity_conf": 0.0,
+    "risk": 1.9,
+    "latency_s": 0.1693302160128951,
+    "usage": {
+     "input_tokens": 1368,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.95,
+    "probs": {
+     "broadcast": 0.0,
+     "mark_failed": 0.0,
+     "cancel_cron": 0.0,
+     "set_status": 0.01,
+     "schedule_timeout": 0.0,
+     "mark_completed": 0.0,
+     "mark_working": 0.96,
+     "mark_idle": 0.0,
+     "cancel": 0.0,
+     "stop_child": 0.0,
+     "spawn_child": 0.0,
+     "forward": 0.0,
+     "notify_pid": 0.0,
+     "reply": 0.0,
+     "schedule_signal": 0.0,
+     "noop": 0.0,
+     "none": 0.03,
+     "notify_parent": 0.0,
+     "stop_self": 0.0,
+     "schedule_cron": 0.0
+    },
+    "needs_tool": 0.59,
+    "complexity": 0.57,
+    "complexity_conf": 0.15,
+    "risk": 1.6,
+    "latency_s": 0.17626193910837173,
+    "usage": {
+     "input_tokens": 1368,
+     "output_tokens": 224
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_signal",
+    "confidence": 0.79,
+    "probs": {
+     "notify_pid": 0.02,
+     "cancel_cron": 0.0,
+     "none": 0.1,
+     "forward": 0.0,
+     "mark_working": 0.0,
+     "reply": 0.01,
+     "schedule_timeout": 0.05,
+     "spawn_child": 0.0,
+     "cancel": 0.0,
+     "mark_failed": 0.0,
+     "set_status": 0.0,
+     "mark_completed": 0.0,
+     "schedule_cron": 0.0,
+     "mark_idle": 0.0,
+     "schedule_signal": 0.8,
+     "notify_parent": 0.01,
+     "broadcast": 0.0,
+     "stop_self": 0.0,
+     "noop": 0.0,
+     "stop_child": 0.0
+    },
+    "needs_tool": 0.67,
+    "complexity": 1.58,
+    "complexity_conf": 0.36,
+    "risk": 1.52,
+    "latency_s": 0.1577520053833723,
+    "usage": {
+     "input_tokens": 1371,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_self",
+    "confidence": 0.93,
+    "probs": {
+     "notify_pid": 0.01,
+     "mark_working": 0.0,
+     "none": 0.04,
+     "forward": 0.0,
+     "schedule_timeout": 0.0,
+     "cancel_cron": 0.0,
+     "noop": 0.0,
+     "spawn_child": 0.0,
+     "cancel": 0.0,
+     "mark_failed": 0.0,
+     "set_status": 0.0,
+     "mark_completed": 0.0,
+     "schedule_cron": 0.0,
+     "mark_idle": 0.0,
+     "schedule_signal": 0.01,
+     "notify_parent": 0.0,
+     "broadcast": 0.0,
+     "stop_child": 0.0,
+     "reply": 0.0,
+     "stop_self": 0.93
+    },
+    "needs_tool": 0.86,
+    "complexity": 0.85,
+    "complexity_conf": 0.49,
+    "risk": 1.84,
+    "latency_s": 0.13977369852364063,
+    "usage": {
+     "input_tokens": 1363,
+     "output_tokens": 222
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "confidence": 0.56,
+    "probs": {
+     "broadcast": 0.0,
+     "cancel": 0.0,
+     "none": 0.58,
+     "noop": 0.0,
+     "spawn_child": 0.2,
+     "schedule_signal": 0.0,
+     "mark_idle": 0.0,
+     "forward": 0.01,
+     "cancel_cron": 0.0,
+     "mark_working": 0.0,
+     "mark_failed": 0.0,
+     "notify_pid": 0.0,
+     "schedule_cron": 0.0,
+     "reply": 0.19,
+     "schedule_timeout": 0.0,
+     "notify_parent": 0.02,
+     "set_status": 0.0,
+     "stop_self": 0.0,
+     "stop_child": 0.0,
+     "mark_completed": 0.0
+    },
+    "needs_tool": 0.12,
+    "complexity": 1.55,
+    "complexity_conf": 0.32,
+    "risk": 1.02,
+    "latency_s": 0.18741258792579174,
+    "usage": {
+     "input_tokens": 1368,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "confidence": 0.51,
+    "probs": {
+     "none": 0.54,
+     "forward": 0.0,
+     "broadcast": 0.0,
+     "schedule_signal": 0.0,
+     "cancel_cron": 0.0,
+     "mark_working": 0.01,
+     "stop_child": 0.0,
+     "spawn_child": 0.07,
+     "stop_self": 0.0,
+     "notify_pid": 0.0,
+     "reply": 0.32,
+     "cancel": 0.0,
+     "mark_completed": 0.01,
+     "noop": 0.0,
+     "mark_idle": 0.0,
+     "mark_failed": 0.0,
+     "notify_parent": 0.04,
+     "schedule_timeout": 0.0,
+     "set_status": 0.0,
+     "schedule_cron": 0.0
+    },
+    "needs_tool": 0.06,
+    "complexity": 1.42,
+    "complexity_conf": 0.26,
+    "risk": 1.3,
+    "latency_s": 0.1783043071627617,
+    "usage": {
+     "input_tokens": 1368,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "reply",
+    "confidence": 0.68,
+    "probs": {
+     "notify_parent": 0.06,
+     "mark_failed": 0.0,
+     "stop_self": 0.0,
+     "cancel": 0.0,
+     "mark_working": 0.0,
+     "reply": 0.7,
+     "spawn_child": 0.01,
+     "noop": 0.0,
+     "forward": 0.0,
+     "schedule_cron": 0.0,
+     "stop_child": 0.0,
+     "set_status": 0.0,
+     "cancel_cron": 0.0,
+     "schedule_timeout": 0.0,
+     "schedule_signal": 0.0,
+     "mark_completed": 0.01,
+     "mark_idle": 0.0,
+     "notify_pid": 0.0,
+     "none": 0.22,
+     "broadcast": 0.0
+    },
+    "needs_tool": 0.06,
+    "complexity": 0.97,
+    "complexity_conf": 0.0,
+    "risk": 1.24,
+    "latency_s": 0.10739586688578129,
+    "usage": {
+     "input_tokens": 1367,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": false
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "confidence": 0.85,
+    "probs": {
+     "reply": 0.03,
+     "cancel": 0.0,
+     "notify_pid": 0.0,
+     "set_status": 0.0,
+     "schedule_timeout": 0.0,
+     "mark_completed": 0.0,
+     "mark_idle": 0.0,
+     "mark_working": 0.0,
+     "mark_failed": 0.0,
+     "forward": 0.0,
+     "stop_self": 0.06999999999999999,
+     "stop_child": 0.0,
+     "broadcast": 0.0,
+     "none": 0.87,
+     "noop": 0.0,
+     "schedule_signal": 0.0,
+     "spawn_child": 0.0,
+     "schedule_cron": 0.0,
+     "notify_parent": 0.03,
+     "cancel_cron": 0.0
+    },
+    "needs_tool": 0.08,
+    "complexity": 1.55,
+    "complexity_conf": 0.33,
+    "risk": 1.87,
+    "latency_s": 0.12060050386935472,
+    "usage": {
+     "input_tokens": 1367,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "confidence": 0.7,
+    "probs": {
+     "noop": 0.0,
+     "none": 0.72,
+     "broadcast": 0.0,
+     "spawn_child": 0.18,
+     "mark_working": 0.0,
+     "schedule_signal": 0.0,
+     "cancel": 0.0,
+     "mark_idle": 0.0,
+     "forward": 0.01,
+     "set_status": 0.0,
+     "notify_parent": 0.03,
+     "reply": 0.06,
+     "schedule_cron": 0.0,
+     "stop_self": 0.0,
+     "mark_failed": 0.0,
+     "notify_pid": 0.0,
+     "cancel_cron": 0.0,
+     "mark_completed": 0.0,
+     "stop_child": 0.0,
+     "schedule_timeout": 0.0
+    },
+    "needs_tool": 0.07,
+    "complexity": 1.47,
+    "complexity_conf": 0.2,
+    "risk": 1.63,
+    "latency_s": 0.14718832913786173,
+    "usage": {
+     "input_tokens": 1367,
+     "output_tokens": 221
+    },
+    "model": "jev-1.13.0",
+    "correct": true
+   }
+  ]
+ },
+ "parallel8": {
+  "wall_s": 0.8339008595794439,
+  "n": 34,
+  "rps": 40.77223282531092,
+  "median_ms": 162.43686992675066,
+  "accuracy": 0.9705882352941176
+ }
+}
