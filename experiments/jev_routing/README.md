@@ -150,6 +150,12 @@ includes the wasted cheaper attempts.
 - Gemini tiers were not run (need Google ADC). Tier names are what jido_ai's
   `model_aliases` would map to Vertex model IDs.
 
+**Pending: Google Cloud leg.** The harness this is for runs on Google Cloud, so the
+next run should use Gemini Flash-Lite / Flash / Pro (and optionally Claude via Vertex)
+as the tiers. Their wider price spread is where pre-routing should pay in dollars, not
+just latency. Needs a service account with `roles/aiplatform.user`; the script will take
+the project, region and model IDs as arguments.
+
 ## Files
 
 | File | What |
