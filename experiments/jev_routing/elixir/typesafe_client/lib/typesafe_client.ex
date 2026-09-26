@@ -18,6 +18,19 @@ defmodule TypesafeClient do
 
   @valid_types ~w(noul choice score)
 
+  @doc "Evaluates questions with the configured client (`opts[:client]`, else app env `:client`, else HTTP)."
+  @spec evaluate(term(), map(), keyword()) :: {:ok, answers(), meta()} | {:error, term()}
+  def evaluate(state, questions, opts \\ []) do
+    {client, opts} =
+      Keyword.pop(
+        opts,
+        :client,
+        Application.get_env(:typesafe_client, :client, TypesafeClient.HTTP)
+      )
+
+    client.evaluate(state, questions, opts)
+  end
+
   @doc "Checks every question has a known `type`. Ids may be atoms or strings."
   @spec validate_questions(map()) ::
           :ok | {:error, {:invalid_question, String.t(), :unknown_type | :not_a_map}}
