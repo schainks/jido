@@ -1,0 +1,3679 @@
+{
+  "rows": [
+    {
+      "reply": "8.05 km",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 99,
+        "input_tokens": 6512,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6611,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t01",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.014014,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 3694
+    },
+    {
+      "reply": "2025-01-04",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 81,
+        "input_tokens": 6494,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6575,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t02",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.013798,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2551
+    },
+    {
+      "reply": "366",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 82,
+        "input_tokens": 6505,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6587,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t03",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.01383,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2865
+    },
+    {
+      "reply": "9",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 73,
+        "input_tokens": 6504,
+        "reasoning_tokens": 6,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6577,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t04",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.013738,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2474
+    },
+    {
+      "reply": "3",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 116,
+        "input_tokens": 6531,
+        "reasoning_tokens": 40,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6647,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t05",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.014222,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2757
+    },
+    {
+      "reply": "amlkbyBhZ2VudA==",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 68,
+        "input_tokens": 6479,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6547,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t06",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.013638,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2959
+    },
+    {
+      "reply": "system one",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 68,
+        "input_tokens": 6495,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6563,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t07",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.01367,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 3201
+    },
+    {
+      "reply": "evitcerid",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 69,
+        "input_tokens": 6473,
+        "reasoning_tokens": 12,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6542,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t08",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.013636,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2545
+    },
+    {
+      "reply": "21",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 72,
+        "input_tokens": 6487,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6559,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t09",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.013694,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 4176
+    },
+    {
+      "reply": "3, 7, 19, 42, 88",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 78,
+        "input_tokens": 6501,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6579,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t10",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.013782,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 3990
+    },
+    {
+      "reply": "x",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 117,
+        "input_tokens": 6580,
+        "reasoning_tokens": 16,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6697,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t11",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.01433,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 3020
+    },
+    {
+      "reply": "Nairobi",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 58,
+        "input_tokens": 6459,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6517,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t12",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.013498,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 3307
+    },
+    {
+      "reply": "7006652",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 76,
+        "input_tokens": 6481,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6557,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t13",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.013722,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2606
+    },
+    {
+      "reply": "42",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 51,
+        "input_tokens": 6450,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 6501,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t14",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.01341,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2673
+    },
+    {
+      "reply": "258.89",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 162,
+        "input_tokens": 9952,
+        "reasoning_tokens": 17,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 10114,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t15",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.021524,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 4130
+    },
+    {
+      "reply": "897",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 151,
+        "input_tokens": 9922,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 10073,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t16",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.021354,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 4140
+    },
+    {
+      "reply": "107",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 123,
+        "input_tokens": 9841,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 9964,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t17",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.020912,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 4827
+    },
+    {
+      "reply": "7.46",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 190,
+        "input_tokens": 9982,
+        "reasoning_tokens": 24,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 10172,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t18",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.021864,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 4522
+    },
+    {
+      "reply": "1",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 138,
+        "input_tokens": 9905,
+        "reasoning_tokens": 7,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 10043,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t19",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.02119,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 4755
+    },
+    {
+      "reply": "90",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 252,
+        "input_tokens": 13507,
+        "reasoning_tokens": 31,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 13759,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t20",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.029534,
+      "iterations": 4,
+      "jev_ms": 0,
+      "wall_ms": 5251
+    },
+    {
+      "reply": "2",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 130,
+        "input_tokens": 9867,
+        "reasoning_tokens": 27,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 9997,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t21",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.021034,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 3735
+    },
+    {
+      "reply": "2024-03-02, which is 61 days from 2024-01-01.",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 176,
+        "input_tokens": 9938,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 10114,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t22",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.021636,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 3992
+    },
+    {
+      "reply": "Mars",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 5,
+        "input_tokens": 3193,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 3198,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t23",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.006436,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 1385
+    },
+    {
+      "reply": "Au",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 4,
+        "input_tokens": 3192,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 3196,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t24",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.006424,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 1380
+    },
+    {
+      "reply": "mice",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 4,
+        "input_tokens": 3196,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 3200,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t25",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.006432,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 1167
+    },
+    {
+      "reply": "Jane Austen",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 8,
+        "input_tokens": 3197,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 3205,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t26",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.006474,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 1161
+    },
+    {
+      "reply": "Gracias",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 6,
+        "input_tokens": 3194,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 3200,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t27",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.006448,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 1301
+    },
+    {
+      "reply": "Ran",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 5,
+        "input_tokens": 3191,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 3196,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t28",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.006432,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 1313
+    },
+    {
+      "reply": "Elixir",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 6,
+        "input_tokens": 3189,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 3195,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t29",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.006438,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 1332
+    },
+    {
+      "reply": "Decline",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 5,
+        "input_tokens": 3203,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 3208,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": false,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t30",
+      "condition": "baseline-capable",
+      "cost_tier": "capable",
+      "cost_usd": 0.006456,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 1206
+    },
+    {
+      "reply": "8.05 km",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 96,
+        "input_tokens": 5472,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5568,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t01",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.005952,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1764
+    },
+    {
+      "reply": "2025-01-04",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 85,
+        "input_tokens": 5473,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5558,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t02",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.005898,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1980
+    },
+    {
+      "reply": "366",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 85,
+        "input_tokens": 5485,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5570,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t03",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.00591,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1602
+    },
+    {
+      "reply": "9",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 67,
+        "input_tokens": 5461,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5528,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t04",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.005796,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2605
+    },
+    {
+      "reply": "3",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 76,
+        "input_tokens": 5460,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5536,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t05",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.00584,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1510
+    },
+    {
+      "reply": "amlkbyBhZ2VudA==",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 72,
+        "input_tokens": 5450,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5522,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t06",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.00581,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1645
+    },
+    {
+      "reply": "system one",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 72,
+        "input_tokens": 5464,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5536,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t07",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.005824,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1656
+    },
+    {
+      "reply": "evitcerid",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 61,
+        "input_tokens": 5431,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5492,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t08",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.005736,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1666
+    },
+    {
+      "reply": "21",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 75,
+        "input_tokens": 5461,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5536,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t09",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.005836,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1525
+    },
+    {
+      "reply": "3, 7, 19, 42, 88",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 84,
+        "input_tokens": 5471,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5555,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t10",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.005891,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2870
+    },
+    {
+      "reply": "x",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 97,
+        "input_tokens": 5519,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5616,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t11",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.006004,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 2597
+    },
+    {
+      "reply": "Nairobi",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 61,
+        "input_tokens": 5429,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5490,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t12",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.005734,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1499
+    },
+    {
+      "reply": "7006652",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 77,
+        "input_tokens": 5455,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5532,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t13",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.00584,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1653
+    },
+    {
+      "reply": "42",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 58,
+        "input_tokens": 5432,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 5490,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [],
+      "task_id": "t14",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.005722,
+      "iterations": 2,
+      "jev_ms": 0,
+      "wall_ms": 1692
+    },
+    {
+      "reply": "258.89",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 155,
+        "input_tokens": 8368,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 8523,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t15",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.009143,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 3463
+    },
+    {
+      "reply": "897",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 165,
+        "input_tokens": 8401,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 8566,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t16",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.009226,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 3203
+    },
+    {
+      "reply": "107",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 145,
+        "input_tokens": 8336,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 8481,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t17",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.009061,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 2683
+    },
+    {
+      "reply": "7.46",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 175,
+        "input_tokens": 8386,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 8561,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t18",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.009261,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 3199
+    },
+    {
+      "reply": "1",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 151,
+        "input_tokens": 8360,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 8511,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t19",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.009115,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 3529
+    },
+    {
+      "reply": "90.0",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 236,
+        "input_tokens": 11357,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 11593,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t20",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.012537,
+      "iterations": 4,
+      "jev_ms": 0,
+      "wall_ms": 4299
+    },
+    {
+      "reply": "2",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 126,
+        "input_tokens": 8299,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 8425,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t21",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.008929,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 3128
+    },
+    {
+      "reply": "The date 30 days after 2024-02-01 is 2024-03-02, which is 61 days from 2024-01-01.",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 288,
+        "input_tokens": 8690,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 8978,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [],
+      "task_id": "t22",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.01013,
+      "iterations": 3,
+      "jev_ms": 0,
+      "wall_ms": 3190
+    },
+    {
+      "reply": "Mars",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 4,
+        "input_tokens": 2676,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2680,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t23",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.002696,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 903
+    },
+    {
+      "reply": "Au",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 4,
+        "input_tokens": 2675,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2679,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t24",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.002695,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 549
+    },
+    {
+      "reply": "Mice",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 5,
+        "input_tokens": 2679,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2684,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t25",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.002704,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 720
+    },
+    {
+      "reply": "Jane Austen wrote 'Pride and Prejudice'.",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 16,
+        "input_tokens": 2678,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2694,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t26",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.002758,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 706
+    },
+    {
+      "reply": "The Spanish translation of \"thank you\" is **gracias**.",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 16,
+        "input_tokens": 2677,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2693,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t27",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.002757,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 1033
+    },
+    {
+      "reply": "The past tense of 'run' is 'ran'.",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 17,
+        "input_tokens": 2679,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2696,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t28",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.002764,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 766
+    },
+    {
+      "reply": "I don't have access to a tool that can search for information about \"Jido\" or what language it's written in. Based on my knowledge, I'm not immediately certain what \"Jido\" refers to - it could be a programming language, a software project, a document, or something else entirely.\n\nCould you provide m",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 89,
+        "input_tokens": 2676,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2765,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": false,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t29",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.003121,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 1325
+    },
+    {
+      "reply": "Unattending",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 7,
+        "input_tokens": 2686,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2693,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": false,
+      "kind": "no_tool",
+      "decisions": [],
+      "task_id": "t30",
+      "condition": "baseline-fast",
+      "cost_tier": "fast",
+      "cost_usd": 0.002721,
+      "iterations": 1,
+      "jev_ms": 0,
+      "wall_ms": 694
+    },
+    {
+      "reply": "8.05 km",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 96,
+        "input_tokens": 1070,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1166,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.11,
+          "latency_ms": 207,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.96,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "convert_unit"
+          ]
+        },
+        {
+          "depth": 0.06,
+          "latency_ms": 91,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.16,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t01",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.00155,
+      "iterations": 2,
+      "jev_ms": 298,
+      "wall_ms": 1881
+    },
+    {
+      "reply": "2025-01-04",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 85,
+        "input_tokens": 1045,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1130,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.0,
+          "latency_ms": 167,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "date_add"
+          ]
+        },
+        {
+          "depth": 0.03,
+          "latency_ms": 96,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.13,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t02",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.00147,
+      "iterations": 2,
+      "jev_ms": 263,
+      "wall_ms": 1880
+    },
+    {
+      "reply": "366",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 85,
+        "input_tokens": 1038,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1123,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.09,
+          "latency_ms": 112,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.9,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "date_diff"
+          ]
+        },
+        {
+          "depth": 0.48,
+          "latency_ms": 110,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.12,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t03",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001463,
+      "iterations": 2,
+      "jev_ms": 222,
+      "wall_ms": 1791
+    },
+    {
+      "reply": "9",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 67,
+        "input_tokens": 988,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1055,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.01,
+          "latency_ms": 134,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.9,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "count_words"
+          ]
+        },
+        {
+          "depth": 0.14,
+          "latency_ms": 68,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.18,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t04",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001323,
+      "iterations": 2,
+      "jev_ms": 202,
+      "wall_ms": 1942
+    },
+    {
+      "reply": "3",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 76,
+        "input_tokens": 1011,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1087,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.04,
+          "latency_ms": 85,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.93,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "count_chars"
+          ]
+        },
+        {
+          "depth": 0.11,
+          "latency_ms": 119,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.14,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t05",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001391,
+      "iterations": 2,
+      "jev_ms": 204,
+      "wall_ms": 1678
+    },
+    {
+      "reply": "amlkbyBhZ2VudA==",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 72,
+        "input_tokens": 975,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1047,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.0,
+          "latency_ms": 68,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "base64_encode"
+          ]
+        },
+        {
+          "depth": 0.02,
+          "latency_ms": 151,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.12,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t06",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001335,
+      "iterations": 2,
+      "jev_ms": 219,
+      "wall_ms": 1560
+    },
+    {
+      "reply": "system one",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 72,
+        "input_tokens": 989,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1061,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.0,
+          "latency_ms": 71,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "base64_encode"
+          ]
+        },
+        {
+          "depth": 0.01,
+          "latency_ms": 116,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.16,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t07",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001349,
+      "iterations": 2,
+      "jev_ms": 187,
+      "wall_ms": 2031
+    },
+    {
+      "reply": "evitcerid",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 61,
+        "input_tokens": 956,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1017,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.0,
+          "latency_ms": 89,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.93,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "reverse_string"
+          ]
+        },
+        {
+          "depth": 0.01,
+          "latency_ms": 85,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.11,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t08",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001261,
+      "iterations": 2,
+      "jev_ms": 174,
+      "wall_ms": 1481
+    },
+    {
+      "reply": "21",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 75,
+        "input_tokens": 1003,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1078,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.0,
+          "latency_ms": 80,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "gcd"
+          ]
+        },
+        {
+          "depth": 0.01,
+          "latency_ms": 74,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.09,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t09",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001378,
+      "iterations": 2,
+      "jev_ms": 154,
+      "wall_ms": 1564
+    },
+    {
+      "reply": "3, 7, 19, 42, 88",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 84,
+        "input_tokens": 1007,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1091,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.01,
+          "latency_ms": 111,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.93,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "sort_numbers"
+          ]
+        },
+        {
+          "depth": 0.02,
+          "latency_ms": 79,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.12,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t10",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001427,
+      "iterations": 2,
+      "jev_ms": 190,
+      "wall_ms": 1676
+    },
+    {
+      "reply": "x",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 97,
+        "input_tokens": 1086,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1183,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.01,
+          "latency_ms": 71,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.94,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "json_get"
+          ]
+        },
+        {
+          "depth": 0.03,
+          "latency_ms": 115,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.15,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t11",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001571,
+      "iterations": 2,
+      "jev_ms": 186,
+      "wall_ms": 2385
+    },
+    {
+      "reply": "Nairobi",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 61,
+        "input_tokens": 957,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1018,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.0,
+          "latency_ms": 118,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.89,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "capital_of"
+          ]
+        },
+        {
+          "depth": 0.01,
+          "latency_ms": 112,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.09,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t12",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001262,
+      "iterations": 2,
+      "jev_ms": 230,
+      "wall_ms": 1883
+    },
+    {
+      "reply": "7006652",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 77,
+        "input_tokens": 1000,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1077,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.0,
+          "latency_ms": 83,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "multiply"
+          ]
+        },
+        {
+          "depth": 0.01,
+          "latency_ms": 142,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.12,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t13",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001385,
+      "iterations": 2,
+      "jev_ms": 225,
+      "wall_ms": 1608
+    },
+    {
+      "reply": "42",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 58,
+        "input_tokens": 957,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 1015,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "one_tool",
+      "decisions": [
+        {
+          "depth": 0.0,
+          "latency_ms": 140,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.91,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "increment_action"
+          ]
+        },
+        {
+          "depth": 0.01,
+          "latency_ms": 106,
+          "chosen_model": "fast",
+          "turn": 2,
+          "needs_tool": 0.18,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t14",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 0.001247,
+      "iterations": 2,
+      "jev_ms": 246,
+      "wall_ms": 2145
+    },
+    {
+      "reply": "258.89",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 162,
+        "input_tokens": 2161,
+        "reasoning_tokens": 17,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2323,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [
+        {
+          "depth": 1.01,
+          "latency_ms": 122,
+          "chosen_model": "capable",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "convert_unit"
+          ]
+        },
+        {
+          "depth": 1.01,
+          "latency_ms": 109,
+          "chosen_model": "capable",
+          "turn": 2,
+          "needs_tool": 0.97,
+          "chosen_tools": [
+            "add",
+            "convert_unit",
+            "square"
+          ]
+        },
+        {
+          "depth": 1.01,
+          "latency_ms": 78,
+          "chosen_model": "capable",
+          "turn": 3,
+          "needs_tool": 0.34,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t15",
+      "condition": "jev",
+      "cost_tier": "capable",
+      "cost_usd": 0.005942,
+      "iterations": 3,
+      "jev_ms": 309,
+      "wall_ms": 3958
+    },
+    {
+      "reply": "897",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 170,
+        "input_tokens": 2093,
+        "reasoning_tokens": 18,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2263,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [
+        {
+          "depth": 1.0,
+          "latency_ms": 107,
+          "chosen_model": "capable",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "date_diff"
+          ]
+        },
+        {
+          "depth": 1.01,
+          "latency_ms": 101,
+          "chosen_model": "capable",
+          "turn": 2,
+          "needs_tool": 0.97,
+          "chosen_tools": [
+            "add",
+            "date_diff",
+            "multiply"
+          ]
+        },
+        {
+          "depth": 1.0,
+          "latency_ms": 83,
+          "chosen_model": "capable",
+          "turn": 3,
+          "needs_tool": 0.12,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t16",
+      "condition": "jev",
+      "cost_tier": "capable",
+      "cost_usd": 0.005886,
+      "iterations": 3,
+      "jev_ms": 291,
+      "wall_ms": 4050
+    },
+    {
+      "reply": "107",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 123,
+        "input_tokens": 1882,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2005,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [
+        {
+          "depth": 1.0,
+          "latency_ms": 143,
+          "chosen_model": "capable",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "count_words"
+          ]
+        },
+        {
+          "depth": 0.99,
+          "latency_ms": 127,
+          "chosen_model": "capable",
+          "turn": 2,
+          "needs_tool": 0.97,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "count_words"
+          ]
+        },
+        {
+          "depth": 1.0,
+          "latency_ms": 123,
+          "chosen_model": "capable",
+          "turn": 3,
+          "needs_tool": 0.11,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t17",
+      "condition": "jev",
+      "cost_tier": "capable",
+      "cost_usd": 0.004994,
+      "iterations": 3,
+      "jev_ms": 393,
+      "wall_ms": 4606
+    },
+    {
+      "reply": "7.46",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 212,
+        "input_tokens": 2181,
+        "reasoning_tokens": 46,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2393,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [
+        {
+          "depth": 1.01,
+          "latency_ms": 93,
+          "chosen_model": "capable",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "gcd"
+          ]
+        },
+        {
+          "depth": 0.99,
+          "latency_ms": 87,
+          "chosen_model": "capable",
+          "turn": 2,
+          "needs_tool": 0.97,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "convert_unit"
+          ]
+        },
+        {
+          "depth": 1.01,
+          "latency_ms": 128,
+          "chosen_model": "capable",
+          "turn": 3,
+          "needs_tool": 0.14,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t18",
+      "condition": "jev",
+      "cost_tier": "capable",
+      "cost_usd": 0.006482,
+      "iterations": 3,
+      "jev_ms": 308,
+      "wall_ms": 4339
+    },
+    {
+      "reply": "1",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 153,
+        "input_tokens": 2002,
+        "reasoning_tokens": 22,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2155,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [
+        {
+          "depth": 1.01,
+          "latency_ms": 85,
+          "chosen_model": "capable",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "base64_encode"
+          ]
+        },
+        {
+          "depth": 1.0,
+          "latency_ms": 165,
+          "chosen_model": "capable",
+          "turn": 2,
+          "needs_tool": 0.96,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "count_chars"
+          ]
+        },
+        {
+          "depth": 1.0,
+          "latency_ms": 112,
+          "chosen_model": "capable",
+          "turn": 3,
+          "needs_tool": 0.1,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t19",
+      "condition": "jev",
+      "cost_tier": "capable",
+      "cost_usd": 0.005534,
+      "iterations": 3,
+      "jev_ms": 362,
+      "wall_ms": 4605
+    },
+    {
+      "reply": "90",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 243,
+        "input_tokens": 3234,
+        "reasoning_tokens": 25,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 3477,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [
+        {
+          "depth": 1.04,
+          "latency_ms": 98,
+          "chosen_model": "capable",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "exchange_rate",
+            "multiply"
+          ]
+        },
+        {
+          "depth": 1.02,
+          "latency_ms": 87,
+          "chosen_model": "capable",
+          "turn": 2,
+          "needs_tool": 0.96,
+          "chosen_tools": [
+            "exchange_rate",
+            "multiply",
+            "subtract"
+          ]
+        },
+        {
+          "depth": 1.02,
+          "latency_ms": 114,
+          "chosen_model": "capable",
+          "turn": 3,
+          "needs_tool": 0.97,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "subtract"
+          ]
+        },
+        {
+          "depth": 1.04,
+          "latency_ms": 96,
+          "chosen_model": "capable",
+          "turn": 4,
+          "needs_tool": 0.13,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t20",
+      "condition": "jev",
+      "cost_tier": "capable",
+      "cost_usd": 0.008898,
+      "iterations": 4,
+      "jev_ms": 395,
+      "wall_ms": 5374
+    },
+    {
+      "reply": "2",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 129,
+        "input_tokens": 1903,
+        "reasoning_tokens": 27,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2032,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [
+        {
+          "depth": 1.01,
+          "latency_ms": 75,
+          "chosen_model": "capable",
+          "turn": 1,
+          "needs_tool": 0.97,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "reverse_string"
+          ]
+        },
+        {
+          "depth": 1.0,
+          "latency_ms": 81,
+          "chosen_model": "capable",
+          "turn": 2,
+          "needs_tool": 0.96,
+          "chosen_tools": [
+            "add",
+            "count_words",
+            "reverse_string"
+          ]
+        },
+        {
+          "depth": 1.0,
+          "latency_ms": 94,
+          "chosen_model": "capable",
+          "turn": 3,
+          "needs_tool": 0.12,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t21",
+      "condition": "jev",
+      "cost_tier": "capable",
+      "cost_usd": 0.005096,
+      "iterations": 3,
+      "jev_ms": 250,
+      "wall_ms": 5732
+    },
+    {
+      "reply": "2024-03-02, which is 61 days from 2024-01-01.",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 411,
+        "input_tokens": 2322,
+        "reasoning_tokens": 232,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 2733,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "two_tool",
+      "decisions": [
+        {
+          "depth": 1.03,
+          "latency_ms": 76,
+          "chosen_model": "capable",
+          "turn": 1,
+          "needs_tool": 0.98,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "date_add"
+          ]
+        },
+        {
+          "depth": 1.02,
+          "latency_ms": 157,
+          "chosen_model": "capable",
+          "turn": 2,
+          "needs_tool": 0.96,
+          "chosen_tools": [
+            "add",
+            "base64_decode",
+            "date_diff"
+          ]
+        },
+        {
+          "depth": 1.03,
+          "latency_ms": 129,
+          "chosen_model": "capable",
+          "turn": 3,
+          "needs_tool": 0.12,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t22",
+      "condition": "jev",
+      "cost_tier": "capable",
+      "cost_usd": 0.008754,
+      "iterations": 3,
+      "jev_ms": 362,
+      "wall_ms": 6948
+    },
+    {
+      "reply": "Mars",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 4,
+        "input_tokens": 71,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 75,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [
+        {
+          "depth": 0.02,
+          "latency_ms": 113,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.05,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t23",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 9.1e-5,
+      "iterations": 1,
+      "jev_ms": 113,
+      "wall_ms": 617
+    },
+    {
+      "reply": "Au",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 4,
+        "input_tokens": 70,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 74,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [
+        {
+          "depth": 0.03,
+          "latency_ms": 75,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.05,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t24",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 9.0e-5,
+      "iterations": 1,
+      "jev_ms": 75,
+      "wall_ms": 609
+    },
+    {
+      "reply": "Mice",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 5,
+        "input_tokens": 74,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 79,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [
+        {
+          "depth": 0.18,
+          "latency_ms": 79,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.05,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t25",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 9.9e-5,
+      "iterations": 1,
+      "jev_ms": 79,
+      "wall_ms": 1809
+    },
+    {
+      "reply": "Jane Austen",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 7,
+        "input_tokens": 73,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 80,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [
+        {
+          "depth": 0.05,
+          "latency_ms": 104,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.05,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t26",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 1.08e-4,
+      "iterations": 1,
+      "jev_ms": 104,
+      "wall_ms": 689
+    },
+    {
+      "reply": "Gracias",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 6,
+        "input_tokens": 72,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 78,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [
+        {
+          "depth": 0.04,
+          "latency_ms": 96,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.05,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t27",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 1.02e-4,
+      "iterations": 1,
+      "jev_ms": 96,
+      "wall_ms": 678
+    },
+    {
+      "reply": "Ran",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 5,
+        "input_tokens": 74,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 79,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": true,
+      "kind": "no_tool",
+      "decisions": [
+        {
+          "depth": 0.04,
+          "latency_ms": 71,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.05,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t28",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 9.9e-5,
+      "iterations": 1,
+      "jev_ms": 71,
+      "wall_ms": 725
+    },
+    {
+      "reply": "I don't have a tool to look up information about \"Jido,\" and this term is not clearly defined in my knowledge base. It could refer to several things (a programming language, a document, a software project, etc.), but without more context, I cannot provide a reliable answer.\n\nCould you provide more d",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 76,
+        "input_tokens": 71,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 147,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": false,
+      "kind": "no_tool",
+      "decisions": [
+        {
+          "depth": 0.32,
+          "latency_ms": 105,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.07,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t29",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 4.51e-4,
+      "iterations": 1,
+      "jev_ms": 105,
+      "wall_ms": 1400
+    },
+    {
+      "reply": "Abstaining",
+      "status": "ok",
+      "usage": {
+        "output_tokens": 6,
+        "input_tokens": 81,
+        "reasoning_tokens": 0,
+        "pricing": {
+          "status": "unknown"
+        },
+        "tool_usage": {},
+        "cached_tokens": 0,
+        "cache_creation_tokens": 0,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "image_usage": {},
+        "total_tokens": 87,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "pass": false,
+      "kind": "no_tool",
+      "decisions": [
+        {
+          "depth": 0.12,
+          "latency_ms": 88,
+          "chosen_model": "fast",
+          "turn": 1,
+          "needs_tool": 0.06,
+          "chosen_tools": []
+        }
+      ],
+      "task_id": "t30",
+      "condition": "jev",
+      "cost_tier": "fast",
+      "cost_usd": 1.11e-4,
+      "iterations": 1,
+      "jev_ms": 88,
+      "wall_ms": 682
+    }
+  ],
+  "summary": {
+    "baseline-capable": {
+      "errors": 0,
+      "n": 30,
+      "mean_cost_usd": 0.014119,
+      "mean_iterations": 2.033333333333333,
+      "mean_jev_ms": 0.0,
+      "median_wall_ms": 2959,
+      "p95_wall_ms": 4827,
+      "pass_by_kind": {
+        "one_tool": "14/14",
+        "two_tool": "8/8",
+        "no_tool": "7/8"
+      },
+      "pass_rate": 0.9666666666666667,
+      "tier_mix": {
+        "capable": 30
+      }
+    },
+    "baseline-fast": {
+      "errors": 0,
+      "n": 30,
+      "mean_cost_usd": 0.006047033333333335,
+      "mean_iterations": 2.033333333333333,
+      "mean_jev_ms": 0.0,
+      "median_wall_ms": 1666,
+      "p95_wall_ms": 3529,
+      "pass_by_kind": {
+        "one_tool": "14/14",
+        "two_tool": "8/8",
+        "no_tool": "6/8"
+      },
+      "pass_rate": 0.9333333333333333,
+      "tier_mix": {
+        "fast": 30
+      }
+    },
+    "jev": {
+      "errors": 0,
+      "n": 30,
+      "mean_cost_usd": 0.0024049666666666673,
+      "mean_iterations": 2.033333333333333,
+      "mean_jev_ms": 213.36666666666667,
+      "median_wall_ms": 1880,
+      "p95_wall_ms": 5732,
+      "pass_by_kind": {
+        "one_tool": "14/14",
+        "two_tool": "8/8",
+        "no_tool": "6/8"
+      },
+      "pass_rate": 0.9333333333333333,
+      "tier_mix": {
+        "fast": 22,
+        "capable": 8
+      }
+    }
+  },
+  "models": {
+    "fast": "\"anthropic:claude-haiku-4-5\"",
+    "capable": "\"anthropic:claude-sonnet-5\"",
+    "reasoning": "\"anthropic:claude-opus-5\""
+  },
+  "ran_at": "2026-09-26T16:19:37.773264Z"
+}

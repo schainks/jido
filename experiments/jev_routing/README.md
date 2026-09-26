@@ -1,6 +1,6 @@
 # Experiments: Jev (TypeSafe System One) as a tool router and model router for Jido
 
-Three experiments: tool selection versus native LLM tool-calling, model-tier routing, and tool selection versus embeddings.
+Four experiments: tool selection versus native LLM tool-calling, model-tier routing, tool selection versus embeddings, and a live Jido AI agent with a Jev request transformer (Elixir).
 
 **Question.** Can a calibrated judgment model pick the right Jido action from the
 metadata Jido already exposes (name + description via `Jido.Discovery`), and how
@@ -208,6 +208,88 @@ baseline. The margin between the top two scores stands in for confidence.
 - The "none" threshold was tuned on the test set itself, so the overall column overstates
   what embeddings would do in production.
 
+## Experiment 4: inside the loop (Elixir, live `Jido.AI.Agent`)
+
+**Question.** Single-call accuracy is not the claim that matters. Does a Jev-backed
+`request_transformer` change what a whole `Jido.AI.Agent` ReAct run costs and returns?
+
+**Setup.** `elixir/` holds two Mix projects run in the `hexpm/elixir:1.20.4` image via
+`run.sh`: `typesafe_client` (a standalone, publishable client for TypeSafe System One with
+typed answers, a stub, and Req-based HTTP with retry) and `jev_routing` (the transformer,
+24 pure tools, 30 graded tasks, and the bench). Resolved deps: jido_ai 2.3.0, jido 2.3.3,
+jido_action 2.3.2, req_llm 1.25.0. Design in `elixir/SPEC.md`, plan in `elixir/PLAN.md`.
+
+Three agents share the same 24 tools (9 jido_action built-ins plus 15 synthetic pure
+actions with deliberate confusable pairs) and the same prompt, `max_iterations: 6`,
+streaming off. `baseline-fast` runs Haiku 4.5 with all tools; `baseline-capable` runs
+Sonnet 5 with all tools; `jev` starts on Haiku and before every LLM turn asks Jev three
+questions in one call (does the next step need a tool, which one, how deep is the
+reasoning), then overrides that turn's `tools` to the top 3 by probability (or none) and
+its `model` to `:fast` / `:capable` / `:reasoning` by depth (0.75 / 1.5). Any Jev error
+fails open to the baseline behaviour. 30 tasks (14 one-tool, 8 two-tool chains, 8 no-tool),
+one fresh agent process per run, graded by normalized exact match. Run on 2026-09-26.
+
+| condition | pass | one / two / no-tool | mean turns | median ms | p95 ms | mean input tokens | $/task | Jev ms/task | tier mix |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| baseline-fast (Haiku 4.5, 24 tools) | 0.93 | 14/14 / 8/8 / 6/8 | 2.03 | 1,666 | 3,529 | 5,602 | $0.00605 | 0 | 30 fast |
+| baseline-capable (Sonnet 5, 24 tools) | 0.97 | 14/14 / 8/8 / 7/8 | 2.03 | 2,959 | 4,827 | 6,647 | $0.01412 | 0 | 30 capable |
+| jev (transformer) | 0.93 | 14/14 / 8/8 / 6/8 | 2.03 | 1,880 | 5,732 | 1,081 | $0.00240 | 213 | 22 fast, 8 capable |
+
+Cost for `jev` is priced at the most expensive tier chosen during that run (an upper
+bound). Model IDs used: `anthropic:claude-haiku-4-5`, `anthropic:claude-sonnet-5`,
+`anthropic:claude-opus-5` (never chosen). Raw rows with every per-turn decision are in
+`bench_results_elixir.json`.
+
+### What it shows
+
+- **Tool gating is the cost lever, not model choice.** Every tool schema goes into every
+  LLM turn. Cutting 24 tools to 3 (or 0) took mean input tokens per task from 5,602 to
+  1,081, a 5.2x reduction, which is why `jev` costs 40 % of `baseline-fast` even though it
+  sent 8 of 30 tasks to Sonnet. With larger registries this gap widens; with 5 tools it
+  would mostly vanish.
+- **Same pass rate as Haiku, same number of turns.** 28/30 for both; the two misses are
+  the same two no-tool tasks (one asks what language Jido is written in, the other has a
+  too-narrow gold answer) and both are task-quality problems, not routing. Gating never
+  removed a tool the agent needed: all 14 one-tool and 8 two-tool tasks passed.
+- **Jev's per-turn behaviour is legible.** On one-tool tasks it gates to ~2-3 tools, then
+  on the follow-up turn reports "needs_tool" near 0.1 and empties the tool list so the
+  model answers directly. On all 8 two-tool chains the depth Score landed near 1.0 and
+  routed to Sonnet; on all 22 others it stayed on Haiku. On no-tool tasks it emptied the
+  tool list from turn 1 (8/8).
+- **Latency is a wash overall, split by kind.** Jev adds ~100 ms per turn (213 ms/task
+  over 2 turns). No-tool tasks got faster (689 vs 766 ms median) because the prompt shrank;
+  one-tool tasks were 13 % slower; two-tool tasks were 44 % slower because they ran on
+  Sonnet. Whether the depth-to-Sonnet routing is worth it is a policy question; the two
+  baselines show Haiku passed all 8 two-tool chains on its own here.
+- **Two things for the maintainer.** (1) jido_ai's `use Jido.AI.Agent` reads `tools:` and
+  `system_prompt:` from the raw AST, so they must be literals; a shared function call does
+  not compile. (2) Every run logged 2-3 `[routing]: No route for signal` errors from the
+  agent; the runs still completed. The signal type is not in the log line, so this is
+  unexplained noise worth a look (see the jido core note about unmatched signals in the doc).
+
+### Caveats
+
+- 30 tasks, one run each. Pass-rate differences of one task are noise.
+- Tasks were chosen so the fast model can do them; nothing here needed Opus. That makes
+  this a test of gating and overhead, not of rescuing hard tasks.
+- Cost for `jev` is an upper bound (all turns priced at the max tier chosen).
+- Three bugs were found and fixed during the smoke tests, all on my side: a tool schema
+  that rejected numbers the LLM passed as strings, a wrong gold answer that ignored the
+  tool's rounding, and a request-id lookup that missed the decision log until the bench
+  switched to `ask/3` + `await/2`.
+
+### Running it
+
+```sh
+cd experiments/jev_routing/elixir
+./run.sh typesafe_client test          # client suite (16 tests, Req.Test, no network)
+./run.sh . test                         # transformer, tools, tasks (22 tests, stubbed Jev)
+./run.sh . run -e 'JevRouting.Bench.main([])'                       # full bench, ~90 runs
+./run.sh . run -e 'JevRouting.Bench.main(["--tasks","t01,t15","--conditions","jev"])'
+```
+
+Needs Docker with passwordless sudo, `~/.typesafe_key`, and `~/.anthropic_key`.
+
 ## Files
 
 | File | What |
@@ -220,6 +302,8 @@ baseline. The margin between the top two scores stands in for confidence.
 | `model_routing_results.json` | Raw replies, grades, Jev answers, and policy summary for experiment 2. |
 | `embed_baseline.py` | Experiment 3: BM25 and local embedding models (fastembed) on the experiment 1 queries. |
 | `embed_baseline_results.json` | Per-query top-2 matches, margins, and summaries for each model. |
+| `elixir/` | Experiment 4: `typesafe_client` package, `jev_routing` transformer + bench, `SPEC.md`, `PLAN.md`, `run.sh`. |
+| `bench_results_elixir.json` | Raw per-run rows for experiment 4 including every per-turn Jev decision. |
 
 ## Running
 

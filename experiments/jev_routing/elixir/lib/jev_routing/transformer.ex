@@ -151,7 +151,10 @@ defmodule JevRouting.Transformer do
   defp content_text(%{content: c}), do: content_text(c)
   defp content_text(%{"content" => c}), do: content_text(c)
   defp content_text(c) when is_binary(c), do: c
-  defp content_text(list) when is_list(list), do: list |> Enum.map(&content_text/1) |> Enum.join(" ")
+
+  defp content_text(list) when is_list(list),
+    do: list |> Enum.map(&content_text/1) |> Enum.join(" ")
+
   defp content_text(%{text: t}) when is_binary(t), do: t
   defp content_text(%{"text" => t}) when is_binary(t), do: t
   defp content_text(other), do: inspect(other, limit: 50, printable_limit: 300)

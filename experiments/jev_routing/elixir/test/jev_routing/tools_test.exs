@@ -9,10 +9,20 @@ defmodule JevRouting.ToolsTest do
     assert length(Enum.uniq(names)) == 24
   end
 
+  test "the agents' literal tool list matches Tools.all/0" do
+    assert JevRouting.Agents.Define.tools() == T.all()
+  end
+
   test "convert_unit" do
     assert {:ok, %{result: 8.05}} = T.ConvertUnit.run(%{value: 5, from: "mi", to: "km"}, %{})
     assert {:ok, %{result: 37.0}} = T.ConvertUnit.run(%{value: 98.6, from: "f", to: "c"}, %{})
     assert {:error, _} = T.ConvertUnit.run(%{value: 1, from: "mi", to: "kg"}, %{})
+  end
+
+  test "numeric params arriving as strings from an LLM tool call are coerced" do
+    assert {:ok, %{result: 8.05}} = T.ConvertUnit.run(%{value: "5", from: "mi", to: "km"}, %{})
+    assert {:ok, %{result: [3, 7.5, 19]}} = T.SortNumbers.run(%{numbers: ["19", 3, "7.5"]}, %{})
+    assert {:error, _} = T.ConvertUnit.run(%{value: "five", from: "mi", to: "km"}, %{})
   end
 
   test "date_add and date_diff" do
@@ -47,6 +57,8 @@ defmodule JevRouting.ToolsTest do
     assert {:ok, %{result: "Canberra"}} = T.CapitalOf.run(%{country: "Australia"}, %{})
     assert {:error, _} = T.CapitalOf.run(%{country: "Atlantis"}, %{})
     assert {:ok, %{result: 0.92}} = T.ExchangeRate.run(%{from: "USD", to: "EUR"}, %{})
-    assert {:ok, %{result: ["42", "7"]}} = T.RegexMatch.run(%{text: "a42b7", pattern: "\\d+"}, %{})
+
+    assert {:ok, %{result: ["42", "7"]}} =
+             T.RegexMatch.run(%{text: "a42b7", pattern: "\\d+"}, %{})
   end
 end

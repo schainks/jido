@@ -47,7 +47,12 @@ defmodule TypesafeClient.Answer do
       when is_number(s) and is_map(p) and is_number(conf),
       do:
         {:ok,
-         %Score{score: s / 1, legend: Map.get(a, "legend"), probabilities: p, confidence: conf / 1}}
+         %Score{
+           score: s / 1,
+           legend: Map.get(a, "legend"),
+           probabilities: p,
+           confidence: conf / 1
+         }}
 
   def parse(%{"type" => type}) when type in ["choice", "noul", "score"],
     do: {:error, {:malformed_answer, type}}

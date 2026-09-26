@@ -11,7 +11,12 @@ defmodule TypesafeClient.HTTP do
   def evaluate(state, questions, opts \\ []) do
     with :ok <- TypesafeClient.validate_questions(questions),
          {:ok, key} <- api_key(opts) do
-      body = %{state: state, model: Keyword.get(opts, :model, @default_model), questions: questions}
+      body = %{
+        state: state,
+        model: Keyword.get(opts, :model, @default_model),
+        questions: questions
+      }
+
       max_retries = Keyword.get(opts, :max_retries, 2)
       delay = Keyword.get(opts, :retry_delay_ms, 250)
 

@@ -41,13 +41,31 @@ defmodule JevRouting.Tools do
 
   def all, do: @builtins ++ synthetic()
 
+  @doc "Coerces a number that an LLM may have passed as a string. Returns {:ok, number} | :error."
+  def num(n) when is_number(n), do: {:ok, n}
+
+  def num(s) when is_binary(s) do
+    case Integer.parse(s) do
+      {i, ""} ->
+        {:ok, i}
+
+      _ ->
+        case Float.parse(s) do
+          {f, ""} -> {:ok, f}
+          _ -> :error
+        end
+    end
+  end
+
+  def num(_), do: :error
+
   defmodule ConvertUnit do
     @moduledoc false
     use Jido.Action,
       name: "convert_unit",
       description: "Converts a quantity between units: mi/km, kg/lb, c/f, m/ft",
       schema: [
-        value: [type: {:or, [:integer, :float]}, required: true, doc: "Quantity to convert"],
+        value: [type: :any, required: true, doc: "Quantity to convert (number)"],
         from: [type: :string, required: true, doc: "Source unit: mi, km, kg, lb, c, f, m, ft"],
         to: [type: :string, required: true, doc: "Target unit"]
       ]
@@ -61,9 +79,16 @@ defmodule JevRouting.Tools do
       {"ft", "m"} => 0.3048
     }
 
-    def run(%{value: v, from: from, to: to}, _ctx) do
+    def run(%{value: raw, from: from, to: to}, _ctx) do
       key = {String.downcase(from), String.downcase(to)}
 
+      case {JevRouting.Tools.num(raw), key} do
+        {:error, _} -> {:error, "value must be a number, got #{inspect(raw)}"}
+        {{:ok, v}, key} -> convert(v, key, from, to)
+      end
+    end
+
+    defp convert(v, key, from, to) do
       case key do
         {"c", "f"} ->
           {:ok, %{result: Float.round(v * 9 / 5 + 32, 2)}}
@@ -191,10 +216,16 @@ defmodule JevRouting.Tools do
       name: "sort_numbers",
       description: "Sorts a list of numbers in ascending order",
       schema: [
-        numbers: [type: {:list, {:or, [:integer, :float]}}, required: true, doc: "Numbers to sort"]
+        numbers: [type: {:list, :any}, required: true, doc: "Numbers to sort"]
       ]
 
-    def run(%{numbers: ns}, _ctx), do: {:ok, %{result: Enum.sort(ns)}}
+    def run(%{numbers: ns}, _ctx) do
+      coerced = Enum.map(ns, &JevRouting.Tools.num/1)
+
+      if Enum.all?(coerced, &match?({:ok, _}, &1)),
+        do: {:ok, %{result: coerced |> Enum.map(fn {:ok, n} -> n end) |> Enum.sort()}},
+        else: {:error, "numbers must all be numeric"}
+    end
   end
 
   defmodule JsonGet do

@@ -30,7 +30,9 @@ defmodule TypesafeClient.StubTest do
         else: %{"a" => %Noul{noul: map_size(questions) / 1}}
     end
 
-    assert {:ok, %{"a" => %Noul{noul: 1.0}}, _} = TypesafeClient.Stub.evaluate(:ok, @q, answers: fun)
+    assert {:ok, %{"a" => %Noul{noul: 1.0}}, _} =
+             TypesafeClient.Stub.evaluate(:ok, @q, answers: fun)
+
     assert {:error, :down} = TypesafeClient.Stub.evaluate(:boom, @q, answers: fun)
   end
 

@@ -24,7 +24,7 @@ defmodule JevRouting.Tasks do
     {"t14", "Increment the value 41 by one.", ["42"], :one_tool},
     # two_tool (8): each needs two dependent tool calls
     {"t15", "Convert 10 miles to kilometers, then square the result. Two decimals.",
-     ["258.99", "259.0", "259"], :two_tool},
+     ["258.89", "258.99", "259.0", "259"], :two_tool},
     {"t16", "How many days from 2024-03-01 to 2024-12-25, then multiply that by 3?", ["897"],
      :two_tool},
     {"t17", "Count the words in 'a b c d e f g' and then add 100.", ["107"], :two_tool},
@@ -53,7 +53,8 @@ defmodule JevRouting.Tasks do
 
   @spec all() :: [map()]
   def all do
-    for {id, q, expect, kind} <- @tasks, do: %{id: id, q: q <> @suffix, expect: expect, kind: kind}
+    for {id, q, expect, kind} <- @tasks,
+        do: %{id: id, q: q <> @suffix, expect: expect, kind: kind}
   end
 
   @spec normalize(String.t()) :: String.t()

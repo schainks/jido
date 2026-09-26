@@ -132,7 +132,10 @@ defmodule JevRouting.TransformerTest do
   test "questions include every tool name and none as choice criteria" do
     q = Transformer.questions([{"add", "Adds two numbers"}, {"gcd", "Greatest common divisor"}])
 
-    assert %{"type" => "choice", "criteria" => %{"add" => "Adds two numbers", "gcd" => _, "none" => _}} =
+    assert %{
+             "type" => "choice",
+             "criteria" => %{"add" => "Adds two numbers", "gcd" => _, "none" => _}
+           } =
              q["tool"]
 
     assert q["needs_tool"]["type"] == "noul" and q["depth"]["type"] == "score"
