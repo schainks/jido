@@ -37,14 +37,18 @@ defmodule TypesafeClient.Answer do
 
   @spec parse(map()) :: {:ok, t()} | {:error, term()}
   def parse(%{"type" => "choice", "choice" => c, "probabilities" => p, "confidence" => conf})
-      when is_binary(c) and is_map(p) and is_number(conf),
-      do: {:ok, %Choice{choice: c, probabilities: p, confidence: conf / 1}}
+      when is_binary(c) and is_map(p) and is_number(conf) do
+    if numeric_map?(p),
+      do: {:ok, %Choice{choice: c, probabilities: p, confidence: conf / 1}},
+      else: {:error, {:malformed_answer, "choice"}}
+  end
 
   def parse(%{"type" => "noul", "noul" => n}) when is_number(n),
     do: {:ok, %Noul{noul: n / 1}}
 
   def parse(%{"type" => "score", "score" => s, "probabilities" => p, "confidence" => conf} = a)
-      when is_number(s) and is_map(p) and is_number(conf),
+      when is_number(s) and is_map(p) and is_number(conf) do
+    if numeric_map?(p),
       do:
         {:ok,
          %Score{
@@ -52,7 +56,9 @@ defmodule TypesafeClient.Answer do
            legend: Map.get(a, "legend"),
            probabilities: p,
            confidence: conf / 1
-         }}
+         }},
+      else: {:error, {:malformed_answer, "score"}}
+  end
 
   def parse(%{"type" => type}) when type in ["choice", "noul", "score"],
     do: {:error, {:malformed_answer, type}}
@@ -60,8 +66,12 @@ defmodule TypesafeClient.Answer do
   def parse(%{"type" => type}), do: {:error, {:unknown_answer_type, type}}
   def parse(_), do: {:error, :malformed_answer}
 
+  defp numeric_map?(p), do: Enum.all?(p, fn {_, v} -> is_number(v) end)
+
   @spec parse_all(%{String.t() => map()}) ::
-          {:ok, %{String.t() => t()}} | {:error, {String.t(), term()}}
+          {:ok, %{String.t() => t()}} | {:error, {String.t(), term()} | :answers_not_a_map}
+  def parse_all(answers) when not is_map(answers), do: {:error, :answers_not_a_map}
+
   def parse_all(answers) when is_map(answers) do
     Enum.reduce_while(answers, {:ok, %{}}, fn {id, raw}, {:ok, acc} ->
       case parse(raw) do

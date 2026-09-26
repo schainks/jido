@@ -82,6 +82,38 @@ defmodule JevRouting.TransformerTest do
     assert Map.keys(tools) |> Enum.sort() == ["add", "gcd"]
   end
 
+  test "drops zero-probability tools instead of filling top-k with alphabetical ties" do
+    probs = %{
+      "add" => 0.0,
+      "count_words" => 0.0,
+      "gcd" => 0.9,
+      "increment_action" => 0.1,
+      "none" => 0.0
+    }
+
+    assert {:ok, %{tools: tools}} = run(answers(0.9, probs, 0.3))
+    assert Map.keys(tools) |> Enum.sort() == ["gcd", "increment_action"]
+  end
+
+  test "leaves tools untouched when every named tool is unknown but a tool is needed" do
+    probs = %{"ghost" => 0.7, "phantom" => 0.3}
+    assert {:ok, overrides} = run(answers(0.9, probs, 0.3))
+    refute Map.has_key?(overrides, :tools)
+    assert overrides.model == :fast
+  end
+
+  test "fails open when the client raises" do
+    assert {:ok, overrides} = run(fn _s, _q -> raise "boom" end)
+    assert overrides == %{}
+  end
+
+  test "records tool probabilities and the state it sent" do
+    run(answers(0.9, %{"add" => 1.0}, 0.3))
+
+    assert [%{tool_probs: %{"add" => 1.0}, request: "add 2 and 3", progress: nil}] =
+             Decisions.take("req-1")
+  end
+
   test "fails open on client error" do
     assert {:ok, overrides} = run(fn _s, _q -> {:error, {:http, 529, ""}} end)
     assert overrides == %{}
@@ -124,6 +156,21 @@ defmodule JevRouting.TransformerTest do
     assert state.request == "second"
     assert [p] = state.progress
     assert p =~ "5"
+
+    # ReqLLM-style tool result: a content-part list carrying tool_name and output
+    req2 = %{
+      @request
+      | messages: [
+          %{role: :user, content: "q"},
+          %{
+            role: :tool,
+            content: [%{type: :tool_result, tool_name: "gcd", output: %{result: 21}}]
+          }
+        ]
+    }
+
+    assert [p2] = Transformer.build_state(req2).progress
+    assert p2 =~ "gcd" and p2 =~ "21"
 
     assert Enum.map(state.available_actions, & &1.name) |> Enum.sort() ==
              ["add", "count_words", "gcd", "increment_action"]

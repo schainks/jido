@@ -224,55 +224,75 @@ actions with deliberate confusable pairs) and the same prompt, `max_iterations: 
 streaming off. `baseline-fast` runs Haiku 4.5 with all tools; `baseline-capable` runs
 Sonnet 5 with all tools; `jev` starts on Haiku and before every LLM turn asks Jev three
 questions in one call (does the next step need a tool, which one, how deep is the
-reasoning), then overrides that turn's `tools` to the top 3 by probability (or none) and
-its `model` to `:fast` / `:capable` / `:reasoning` by depth (0.75 / 1.5). Any Jev error
-fails open to the baseline behaviour. 30 tasks (14 one-tool, 8 two-tool chains, 8 no-tool),
-one fresh agent process per run, graded by normalized exact match. Run on 2026-09-26.
+reasoning), then overrides that turn's `tools` to the tools Jev scored above zero, at most
+3 (or none when no tool is needed), and its `model` to `:fast` / `:capable` / `:reasoning`
+by depth (0.75 / 1.5). Any Jev error fails open to the baseline behaviour. 30 tasks
+(14 one-tool, 8 two-tool chains, 8 no-tool), one fresh agent process per run, graded by
+normalized exact match. Final run on 2026-09-26 after the code review below.
 
 | condition | pass | one / two / no-tool | mean turns | median ms | p95 ms | mean input tokens | $/task | Jev ms/task | tier mix |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| baseline-fast (Haiku 4.5, 24 tools) | 0.93 | 14/14 / 8/8 / 6/8 | 2.03 | 1,666 | 3,529 | 5,602 | $0.00605 | 0 | 30 fast |
-| baseline-capable (Sonnet 5, 24 tools) | 0.97 | 14/14 / 8/8 / 7/8 | 2.03 | 2,959 | 4,827 | 6,647 | $0.01412 | 0 | 30 capable |
-| jev (transformer) | 0.93 | 14/14 / 8/8 / 6/8 | 2.03 | 1,880 | 5,732 | 1,081 | $0.00240 | 213 | 22 fast, 8 capable |
+| baseline-fast (Haiku 4.5, 24 tools) | 0.93 | 14/14 / 8/8 / 6/8 | 2.03 | 1,630 | 3,189 | 5,603 | $0.00605 | 0 | 30 fast |
+| baseline-capable (Sonnet 5, 24 tools) | 1.00 | 14/14 / 8/8 / 8/8 | 2.00 | 2,621 | 6,146 | 6,536 | $0.01390 | 0 | 30 capable |
+| jev (transformer) | 0.93 | 14/14 / 8/8 / 6/8 | 2.00 | 1,789 | 5,548 | 903 | $0.00210 | 209 | 22 fast, 8 capable |
 
-Cost for `jev` is priced at the most expensive tier chosen during that run (an upper
-bound). Model IDs used: `anthropic:claude-haiku-4-5`, `anthropic:claude-sonnet-5`,
-`anthropic:claude-opus-5` (never chosen). Raw rows with every per-turn decision are in
-`bench_results_elixir.json`.
+Cost uses the notional per-MTok table from the spec (fast 1/5, capable 2/10, reasoning
+5/25), not provider list prices, and prices every `jev` turn at the most expensive tier
+chosen in that run (an upper bound). Models actually resolved by ReqLLM's registry:
+`anthropic:claude-haiku-4-5-20251001`, `anthropic:claude-sonnet-5`, `anthropic:claude-opus-5`
+(never chosen). Raw rows with every per-turn decision, including Jev's full tool
+probability map and the state it was sent, are in `bench_results_elixir.json`.
 
 ### What it shows
 
 - **Tool gating is the cost lever, not model choice.** Every tool schema goes into every
-  LLM turn. Cutting 24 tools to 3 (or 0) took mean input tokens per task from 5,602 to
-  1,081, a 5.2x reduction, which is why `jev` costs 40 % of `baseline-fast` even though it
+  LLM turn. Cutting 24 tools to 1 (or 0) took mean input tokens per task from 5,603 to
+  903, a 6.2x reduction, which is why `jev` costs 35 % of `baseline-fast` even though it
   sent 8 of 30 tasks to Sonnet. With larger registries this gap widens; with 5 tools it
   would mostly vanish.
 - **Same pass rate as Haiku, same number of turns.** 28/30 for both; the two misses are
   the same two no-tool tasks (one asks what language Jido is written in, the other has a
   too-narrow gold answer) and both are task-quality problems, not routing. Gating never
-  removed a tool the agent needed: all 14 one-tool and 8 two-tool tasks passed.
-- **Jev's per-turn behaviour is legible.** On one-tool tasks it gates to ~2-3 tools, then
-  on the follow-up turn reports "needs_tool" near 0.1 and empties the tool list so the
-  model answers directly. On all 8 two-tool chains the depth Score landed near 1.0 and
-  routed to Sonnet; on all 22 others it stayed on Haiku. On no-tool tasks it emptied the
-  tool list from turn 1 (8/8).
-- **Latency is a wash overall, split by kind.** Jev adds ~100 ms per turn (213 ms/task
-  over 2 turns). No-tool tasks got faster (689 vs 766 ms median) because the prompt shrank;
-  one-tool tasks were 13 % slower; two-tool tasks were 44 % slower because they ran on
-  Sonnet. Whether the depth-to-Sonnet routing is worth it is a policy question; the two
-  baselines show Haiku passed all 8 two-tool chains on its own here.
+  removed a tool the agent needed: all 14 one-tool and 8 two-tool tasks passed with a
+  one-tool list on the first turn in 21 of 30 runs.
+- **Jev's per-turn behaviour is legible and now auditable.** On the first turn it named
+  exactly one tool 21 times, two tools once, and none 8 times (all 8 no-tool tasks). On 21
+  of 30 later turns it reported "needs_tool" below 0.5 and emptied the tool list so the
+  model answered directly. On all 8 two-tool chains the depth Score landed near 1.0 and
+  routed to Sonnet; on all 22 others it stayed on Haiku.
+- **Latency is a wash overall, split by kind.** Jev adds ~100 ms per turn (209 ms/task).
+  No-tool tasks got faster (738 vs 786 ms median) because the prompt shrank; one-tool tasks
+  were 10 % slower; two-tool tasks were 92 % slower because they ran on Sonnet. Whether the
+  depth-to-Sonnet routing is worth it is a policy question; Haiku passed all 8 two-tool
+  chains on its own here, so on this task set the answer is no.
 - **Two things for the maintainer.** (1) jido_ai's `use Jido.AI.Agent` reads `tools:` and
   `system_prompt:` from the raw AST, so they must be literals; a shared function call does
   not compile. (2) Every run logged 2-3 `[routing]: No route for signal` errors from the
   agent; the runs still completed. The signal type is not in the log line, so this is
   unexplained noise worth a look (see the jido core note about unmatched signals in the doc).
 
+### What the code review caught
+
+A fresh-context review of the branch found, among other things, that the first version of
+the gate sorted a probability map in which most tools scored exactly 0.0, so "top 3" was
+really the argmax plus two alphabetical tie-fillers (`add` appeared in 30 of 30 gated
+turns). The gate now drops zero-probability tools, and the numbers above are from the
+re-run. The first run's results were 28/30 at $0.00240 and 1,081 input tokens, so the
+conclusion did not change, but the "gates to 2-3 tools" description did. The review also
+had the runner stop putting API keys on the `sudo docker run` command line (now a
+mode-600 env file), made `run.sh <proj> test` actually use the test env, isolated bench
+crashes to a failed row instead of losing the batch, and closed two fail-open gaps
+(a 200 with a null `answers` body; a client raise).
+
 ### Caveats
 
-- 30 tasks, one run each. Pass-rate differences of one task are noise.
+- 30 tasks, one run each. Pass-rate differences of one task are noise (Sonnet went 29/30
+  then 30/30 across the two runs).
 - Tasks were chosen so the fast model can do them; nothing here needed Opus. That makes
   this a test of gating and overhead, not of rescuing hard tasks.
 - Cost for `jev` is an upper bound (all turns priced at the max tier chosen).
+- The bench does not independently confirm which model served a turn; the routing claim
+  rests on jido_ai honouring the `model` override, which the two-tool latency supports.
 - Three bugs were found and fixed during the smoke tests, all on my side: a tool schema
   that rejected numbers the LLM passed as strings, a wrong gold answer that ignored the
   tool's rounding, and a request-id lookup that missed the decision log until the bench
@@ -282,13 +302,14 @@ bound). Model IDs used: `anthropic:claude-haiku-4-5`, `anthropic:claude-sonnet-5
 
 ```sh
 cd experiments/jev_routing/elixir
-./run.sh typesafe_client test          # client suite (16 tests, Req.Test, no network)
-./run.sh . test                         # transformer, tools, tasks (22 tests, stubbed Jev)
+./run.sh typesafe_client test          # client suite (20 tests, Req.Test, no network)
+./run.sh . test                         # transformer, tools, tasks, bench helpers (28 tests, stubbed Jev)
 ./run.sh . run -e 'JevRouting.Bench.main([])'                       # full bench, ~90 runs
 ./run.sh . run -e 'JevRouting.Bench.main(["--tasks","t01,t15","--conditions","jev"])'
 ```
 
-Needs Docker with passwordless sudo, `~/.typesafe_key`, and `~/.anthropic_key`.
+Needs Docker with passwordless sudo, `~/.typesafe_key`, and `~/.anthropic_key` (read into
+a temporary mode-600 env file; never on the command line).
 
 ## Files
 

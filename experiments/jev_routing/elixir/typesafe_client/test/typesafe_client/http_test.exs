@@ -74,6 +74,25 @@ defmodule TypesafeClient.HTTPTest do
              )
   end
 
+  test "returns an error, not a crash, when answers is null" do
+    Req.Test.stub(__MODULE__, fn conn -> Req.Test.json(conn, %{"answers" => nil}) end)
+
+    assert {:error, {:malformed_answers, :answers_not_a_map}} =
+             TypesafeClient.HTTP.evaluate("s", @questions, @opts)
+  end
+
+  test "retries 529 like 429" do
+    {:ok, counter} = Agent.start_link(fn -> 0 end)
+
+    Req.Test.stub(__MODULE__, fn conn ->
+      Agent.update(counter, &(&1 + 1))
+      Plug.Conn.send_resp(conn, 529, "overloaded")
+    end)
+
+    assert {:error, {:http, 529, _}} = TypesafeClient.HTTP.evaluate("s", @questions, @opts)
+    assert Agent.get(counter, & &1) == 3
+  end
+
   test "surfaces malformed answers" do
     Req.Test.stub(__MODULE__, fn conn ->
       Req.Test.json(conn, %{"answers" => %{"q" => %{"type" => "choice"}}})

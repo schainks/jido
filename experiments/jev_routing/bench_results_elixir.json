@@ -1,10 +1,10 @@
 {
   "rows": [
     {
-      "reply": "8.05 km",
+      "reply": "8.05",
       "status": "ok",
       "usage": {
-        "output_tokens": 99,
+        "output_tokens": 97,
         "input_tokens": 6512,
         "reasoning_tokens": 0,
         "pricing": {
@@ -18,7 +18,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 6611,
+        "total_tokens": 6609,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -28,10 +28,10 @@
       "task_id": "t01",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.014014,
+      "cost_usd": 0.013994,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 3694
+      "wall_ms": 2456
     },
     {
       "reply": "2025-01-04",
@@ -64,7 +64,7 @@
       "cost_usd": 0.013798,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2551
+      "wall_ms": 3105
     },
     {
       "reply": "366",
@@ -97,15 +97,15 @@
       "cost_usd": 0.01383,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2865
+      "wall_ms": 3609
     },
     {
       "reply": "9",
       "status": "ok",
       "usage": {
-        "output_tokens": 73,
-        "input_tokens": 6504,
-        "reasoning_tokens": 6,
+        "output_tokens": 66,
+        "input_tokens": 6497,
+        "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
         },
@@ -117,7 +117,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 6577,
+        "total_tokens": 6563,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -127,18 +127,18 @@
       "task_id": "t04",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.013738,
+      "cost_usd": 0.013654,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2474
+      "wall_ms": 2481
     },
     {
       "reply": "3",
       "status": "ok",
       "usage": {
-        "output_tokens": 116,
-        "input_tokens": 6531,
-        "reasoning_tokens": 40,
+        "output_tokens": 131,
+        "input_tokens": 6546,
+        "reasoning_tokens": 55,
         "pricing": {
           "status": "unknown"
         },
@@ -150,7 +150,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 6647,
+        "total_tokens": 6677,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -160,10 +160,10 @@
       "task_id": "t05",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.014222,
+      "cost_usd": 0.014402,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2757
+      "wall_ms": 2679
     },
     {
       "reply": "amlkbyBhZ2VudA==",
@@ -196,7 +196,7 @@
       "cost_usd": 0.013638,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2959
+      "wall_ms": 2434
     },
     {
       "reply": "system one",
@@ -229,15 +229,15 @@
       "cost_usd": 0.01367,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 3201
+      "wall_ms": 3272
     },
     {
       "reply": "evitcerid",
       "status": "ok",
       "usage": {
-        "output_tokens": 69,
-        "input_tokens": 6473,
-        "reasoning_tokens": 12,
+        "output_tokens": 68,
+        "input_tokens": 6471,
+        "reasoning_tokens": 10,
         "pricing": {
           "status": "unknown"
         },
@@ -249,7 +249,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 6542,
+        "total_tokens": 6539,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -259,10 +259,10 @@
       "task_id": "t08",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.013636,
+      "cost_usd": 0.013622,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2545
+      "wall_ms": 2272
     },
     {
       "reply": "21",
@@ -295,7 +295,7 @@
       "cost_usd": 0.013694,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 4176
+      "wall_ms": 2621
     },
     {
       "reply": "3, 7, 19, 42, 88",
@@ -328,15 +328,15 @@
       "cost_usd": 0.013782,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 3990
+      "wall_ms": 2390
     },
     {
       "reply": "x",
       "status": "ok",
       "usage": {
-        "output_tokens": 117,
-        "input_tokens": 6580,
-        "reasoning_tokens": 16,
+        "output_tokens": 124,
+        "input_tokens": 6587,
+        "reasoning_tokens": 23,
         "pricing": {
           "status": "unknown"
         },
@@ -348,7 +348,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 6697,
+        "total_tokens": 6711,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -358,10 +358,10 @@
       "task_id": "t11",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.01433,
+      "cost_usd": 0.014414,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 3020
+      "wall_ms": 2770
     },
     {
       "reply": "Nairobi",
@@ -394,15 +394,15 @@
       "cost_usd": 0.013498,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 3307
+      "wall_ms": 4827
     },
     {
       "reply": "7006652",
       "status": "ok",
       "usage": {
-        "output_tokens": 76,
-        "input_tokens": 6481,
-        "reasoning_tokens": 0,
+        "output_tokens": 95,
+        "input_tokens": 6500,
+        "reasoning_tokens": 18,
         "pricing": {
           "status": "unknown"
         },
@@ -414,7 +414,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 6557,
+        "total_tokens": 6595,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -424,10 +424,10 @@
       "task_id": "t13",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.013722,
+      "cost_usd": 0.01395,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2606
+      "wall_ms": 2478
     },
     {
       "reply": "42",
@@ -460,7 +460,7 @@
       "cost_usd": 0.01341,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2673
+      "wall_ms": 3241
     },
     {
       "reply": "258.89",
@@ -493,15 +493,15 @@
       "cost_usd": 0.021524,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 4130
+      "wall_ms": 4303
     },
     {
       "reply": "897",
       "status": "ok",
       "usage": {
-        "output_tokens": 151,
-        "input_tokens": 9922,
-        "reasoning_tokens": 0,
+        "output_tokens": 163,
+        "input_tokens": 9946,
+        "reasoning_tokens": 11,
         "pricing": {
           "status": "unknown"
         },
@@ -513,7 +513,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 10073,
+        "total_tokens": 10109,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -523,18 +523,18 @@
       "task_id": "t16",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.021354,
+      "cost_usd": 0.021522,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 4140
+      "wall_ms": 3763
     },
     {
       "reply": "107",
       "status": "ok",
       "usage": {
-        "output_tokens": 123,
-        "input_tokens": 9841,
-        "reasoning_tokens": 0,
+        "output_tokens": 134,
+        "input_tokens": 9863,
+        "reasoning_tokens": 10,
         "pricing": {
           "status": "unknown"
         },
@@ -546,7 +546,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 9964,
+        "total_tokens": 9997,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -556,10 +556,10 @@
       "task_id": "t17",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.020912,
+      "cost_usd": 0.021066,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 4827
+      "wall_ms": 4222
     },
     {
       "reply": "7.46",
@@ -592,15 +592,15 @@
       "cost_usd": 0.021864,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 4522
+      "wall_ms": 4192
     },
     {
       "reply": "1",
       "status": "ok",
       "usage": {
-        "output_tokens": 138,
-        "input_tokens": 9905,
-        "reasoning_tokens": 7,
+        "output_tokens": 141,
+        "input_tokens": 9911,
+        "reasoning_tokens": 10,
         "pricing": {
           "status": "unknown"
         },
@@ -612,7 +612,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 10043,
+        "total_tokens": 10052,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -622,18 +622,18 @@
       "task_id": "t19",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.02119,
+      "cost_usd": 0.021232,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 4755
+      "wall_ms": 6146
     },
     {
       "reply": "90",
       "status": "ok",
       "usage": {
-        "output_tokens": 252,
-        "input_tokens": 13507,
-        "reasoning_tokens": 31,
+        "output_tokens": 245,
+        "input_tokens": 13463,
+        "reasoning_tokens": 25,
         "pricing": {
           "status": "unknown"
         },
@@ -645,7 +645,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 13759,
+        "total_tokens": 13708,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -655,18 +655,18 @@
       "task_id": "t20",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.029534,
+      "cost_usd": 0.029376,
       "iterations": 4,
       "jev_ms": 0,
-      "wall_ms": 5251
+      "wall_ms": 7615
     },
     {
       "reply": "2",
       "status": "ok",
       "usage": {
-        "output_tokens": 130,
-        "input_tokens": 9867,
-        "reasoning_tokens": 27,
+        "output_tokens": 94,
+        "input_tokens": 6496,
+        "reasoning_tokens": 41,
         "pricing": {
           "status": "unknown"
         },
@@ -678,7 +678,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 9997,
+        "total_tokens": 6590,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -688,10 +688,10 @@
       "task_id": "t21",
       "condition": "baseline-capable",
       "cost_tier": "capable",
-      "cost_usd": 0.021034,
-      "iterations": 3,
+      "cost_usd": 0.013932,
+      "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 3735
+      "wall_ms": 2448
     },
     {
       "reply": "2024-03-02, which is 61 days from 2024-01-01.",
@@ -724,7 +724,7 @@
       "cost_usd": 0.021636,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 3992
+      "wall_ms": 4797
     },
     {
       "reply": "Mars",
@@ -757,7 +757,7 @@
       "cost_usd": 0.006436,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 1385
+      "wall_ms": 1408
     },
     {
       "reply": "Au",
@@ -790,7 +790,7 @@
       "cost_usd": 0.006424,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 1380
+      "wall_ms": 2543
     },
     {
       "reply": "mice",
@@ -823,7 +823,7 @@
       "cost_usd": 0.006432,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 1167
+      "wall_ms": 1181
     },
     {
       "reply": "Jane Austen",
@@ -856,7 +856,7 @@
       "cost_usd": 0.006474,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 1161
+      "wall_ms": 1296
     },
     {
       "reply": "Gracias",
@@ -889,7 +889,7 @@
       "cost_usd": 0.006448,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 1301
+      "wall_ms": 1818
     },
     {
       "reply": "Ran",
@@ -922,7 +922,7 @@
       "cost_usd": 0.006432,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 1313
+      "wall_ms": 1241
     },
     {
       "reply": "Elixir",
@@ -955,10 +955,10 @@
       "cost_usd": 0.006438,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 1332
+      "wall_ms": 1247
     },
     {
-      "reply": "Decline",
+      "reply": "Declining",
       "status": "ok",
       "usage": {
         "output_tokens": 5,
@@ -979,7 +979,7 @@
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
-      "pass": false,
+      "pass": true,
       "kind": "no_tool",
       "decisions": [],
       "task_id": "t30",
@@ -988,7 +988,7 @@
       "cost_usd": 0.006456,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 1206
+      "wall_ms": 1227
     },
     {
       "reply": "8.05 km",
@@ -1021,7 +1021,7 @@
       "cost_usd": 0.005952,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1764
+      "wall_ms": 1630
     },
     {
       "reply": "2025-01-04",
@@ -1054,7 +1054,7 @@
       "cost_usd": 0.005898,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1980
+      "wall_ms": 1675
     },
     {
       "reply": "366",
@@ -1087,7 +1087,7 @@
       "cost_usd": 0.00591,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1602
+      "wall_ms": 1619
     },
     {
       "reply": "9",
@@ -1120,7 +1120,7 @@
       "cost_usd": 0.005796,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2605
+      "wall_ms": 1612
     },
     {
       "reply": "3",
@@ -1153,7 +1153,7 @@
       "cost_usd": 0.00584,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1510
+      "wall_ms": 1536
     },
     {
       "reply": "amlkbyBhZ2VudA==",
@@ -1186,7 +1186,7 @@
       "cost_usd": 0.00581,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1645
+      "wall_ms": 1438
     },
     {
       "reply": "system one",
@@ -1219,7 +1219,7 @@
       "cost_usd": 0.005824,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1656
+      "wall_ms": 1678
     },
     {
       "reply": "evitcerid",
@@ -1252,7 +1252,7 @@
       "cost_usd": 0.005736,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1666
+      "wall_ms": 1540
     },
     {
       "reply": "21",
@@ -1285,7 +1285,7 @@
       "cost_usd": 0.005836,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1525
+      "wall_ms": 2453
     },
     {
       "reply": "3, 7, 19, 42, 88",
@@ -1318,7 +1318,7 @@
       "cost_usd": 0.005891,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2870
+      "wall_ms": 2059
     },
     {
       "reply": "x",
@@ -1351,7 +1351,7 @@
       "cost_usd": 0.006004,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 2597
+      "wall_ms": 2066
     },
     {
       "reply": "Nairobi",
@@ -1384,7 +1384,7 @@
       "cost_usd": 0.005734,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1499
+      "wall_ms": 1710
     },
     {
       "reply": "7006652",
@@ -1417,7 +1417,7 @@
       "cost_usd": 0.00584,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1653
+      "wall_ms": 1504
     },
     {
       "reply": "42",
@@ -1450,7 +1450,7 @@
       "cost_usd": 0.005722,
       "iterations": 2,
       "jev_ms": 0,
-      "wall_ms": 1692
+      "wall_ms": 1409
     },
     {
       "reply": "258.89",
@@ -1483,7 +1483,7 @@
       "cost_usd": 0.009143,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 3463
+      "wall_ms": 2602
     },
     {
       "reply": "897",
@@ -1516,7 +1516,7 @@
       "cost_usd": 0.009226,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 3203
+      "wall_ms": 2607
     },
     {
       "reply": "107",
@@ -1549,7 +1549,7 @@
       "cost_usd": 0.009061,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 2683
+      "wall_ms": 2597
     },
     {
       "reply": "7.46",
@@ -1582,7 +1582,7 @@
       "cost_usd": 0.009261,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 3199
+      "wall_ms": 2507
     },
     {
       "reply": "1",
@@ -1615,7 +1615,7 @@
       "cost_usd": 0.009115,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 3529
+      "wall_ms": 3050
     },
     {
       "reply": "90.0",
@@ -1648,7 +1648,7 @@
       "cost_usd": 0.012537,
       "iterations": 4,
       "jev_ms": 0,
-      "wall_ms": 4299
+      "wall_ms": 4041
     },
     {
       "reply": "2",
@@ -1681,7 +1681,7 @@
       "cost_usd": 0.008929,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 3128
+      "wall_ms": 2265
     },
     {
       "reply": "The date 30 days after 2024-02-01 is 2024-03-02, which is 61 days from 2024-01-01.",
@@ -1714,7 +1714,7 @@
       "cost_usd": 0.01013,
       "iterations": 3,
       "jev_ms": 0,
-      "wall_ms": 3190
+      "wall_ms": 3189
     },
     {
       "reply": "Mars",
@@ -1747,7 +1747,7 @@
       "cost_usd": 0.002696,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 903
+      "wall_ms": 607
     },
     {
       "reply": "Au",
@@ -1780,7 +1780,7 @@
       "cost_usd": 0.002695,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 549
+      "wall_ms": 1115
     },
     {
       "reply": "Mice",
@@ -1813,7 +1813,7 @@
       "cost_usd": 0.002704,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 720
+      "wall_ms": 786
     },
     {
       "reply": "Jane Austen wrote 'Pride and Prejudice'.",
@@ -1846,7 +1846,7 @@
       "cost_usd": 0.002758,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 706
+      "wall_ms": 686
     },
     {
       "reply": "The Spanish translation of \"thank you\" is **gracias**.",
@@ -1879,7 +1879,7 @@
       "cost_usd": 0.002757,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 1033
+      "wall_ms": 844
     },
     {
       "reply": "The past tense of 'run' is 'ran'.",
@@ -1912,13 +1912,13 @@
       "cost_usd": 0.002764,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 766
+      "wall_ms": 684
     },
     {
-      "reply": "I don't have access to a tool that can search for information about \"Jido\" or what language it's written in. Based on my knowledge, I'm not immediately certain what \"Jido\" refers to - it could be a programming language, a software project, a document, or something else entirely.\n\nCould you provide m",
+      "reply": "I don't have access to a tool that can look up information about programming languages or software projects. Based on my knowledge, Jido is a Python-based framework/library, but I cannot verify this with the available tools.\n\nIf you're asking about a specific project called Jido, could you provide m",
       "status": "ok",
       "usage": {
-        "output_tokens": 89,
+        "output_tokens": 79,
         "input_tokens": 2676,
         "reasoning_tokens": 0,
         "pricing": {
@@ -1932,7 +1932,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 2765,
+        "total_tokens": 2755,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -1942,10 +1942,10 @@
       "task_id": "t29",
       "condition": "baseline-fast",
       "cost_tier": "fast",
-      "cost_usd": 0.003121,
+      "cost_usd": 0.003071,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 1325
+      "wall_ms": 1316
     },
     {
       "reply": "Unattending",
@@ -1978,14 +1978,14 @@
       "cost_usd": 0.002721,
       "iterations": 1,
       "jev_ms": 0,
-      "wall_ms": 694
+      "wall_ms": 664
     },
     {
       "reply": "8.05 km",
       "status": "ok",
       "usage": {
         "output_tokens": 96,
-        "input_tokens": 1070,
+        "input_tokens": 903,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -1998,7 +1998,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1166,
+        "total_tokens": 999,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2006,40 +2006,98 @@
       "kind": "one_tool",
       "decisions": [
         {
-          "depth": 0.11,
-          "latency_ms": 207,
+          "request": "Convert 5 miles to kilometers, two decimals. Reply with only the final answer.",
+          "progress": null,
+          "depth": 0.1,
+          "latency_ms": 242,
           "chosen_model": "fast",
           "turn": 1,
-          "needs_tool": 0.96,
+          "needs_tool": 0.95,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "convert_unit"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 1.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 0.06,
-          "latency_ms": 91,
+          "request": "Convert 5 miles to kilometers, two decimals. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":8.05}}"
+          ],
+          "depth": 0.07,
+          "latency_ms": 73,
           "chosen_model": "fast",
           "turn": 2,
-          "needs_tool": 0.16,
-          "chosen_tools": []
+          "needs_tool": 0.15,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.21,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.03,
+            "multiply": 0.0,
+            "none": 0.71,
+            "noop_action": 0.05,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t01",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.00155,
+      "cost_usd": 0.001383,
       "iterations": 2,
-      "jev_ms": 298,
-      "wall_ms": 1881
+      "jev_ms": 315,
+      "wall_ms": 1789
     },
     {
       "reply": "2025-01-04",
       "status": "ok",
       "usage": {
         "output_tokens": 85,
-        "input_tokens": 1045,
+        "input_tokens": 878,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2052,7 +2110,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1130,
+        "total_tokens": 963,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2060,40 +2118,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "What is the date 45 days after 2024-11-20? Reply with only the final answer.",
+          "progress": null,
           "depth": 0.0,
-          "latency_ms": 167,
+          "latency_ms": 198,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "date_add"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 1.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "What is the date 45 days after 2024-11-20? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"2025-01-04\"}}"
+          ],
           "depth": 0.03,
-          "latency_ms": 96,
+          "latency_ms": 95,
           "chosen_model": "fast",
           "turn": 2,
           "needs_tool": 0.13,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.28,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.01,
+            "multiply": 0.0,
+            "none": 0.68,
+            "noop_action": 0.02,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t02",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.00147,
+      "cost_usd": 0.001303,
       "iterations": 2,
-      "jev_ms": 263,
-      "wall_ms": 1880
+      "jev_ms": 293,
+      "wall_ms": 2074
     },
     {
       "reply": "366",
       "status": "ok",
       "usage": {
         "output_tokens": 85,
-        "input_tokens": 1038,
+        "input_tokens": 871,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2106,7 +2222,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1123,
+        "total_tokens": 956,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2114,40 +2230,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "How many days are there from 2024-01-01 to 2025-01-01? Reply with only the final answer.",
+          "progress": null,
           "depth": 0.09,
-          "latency_ms": 112,
+          "latency_ms": 165,
           "chosen_model": "fast",
           "turn": 1,
-          "needs_tool": 0.9,
+          "needs_tool": 0.91,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "date_diff"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 1.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 0.48,
-          "latency_ms": 110,
+          "request": "How many days are there from 2024-01-01 to 2025-01-01? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":366}}"
+          ],
+          "depth": 0.42,
+          "latency_ms": 96,
           "chosen_model": "fast",
           "turn": 2,
           "needs_tool": 0.12,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.26,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.03,
+            "multiply": 0.0,
+            "none": 0.67,
+            "noop_action": 0.04,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t03",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001463,
+      "cost_usd": 0.001296,
       "iterations": 2,
-      "jev_ms": 222,
-      "wall_ms": 1791
+      "jev_ms": 261,
+      "wall_ms": 2269
     },
     {
       "reply": "9",
       "status": "ok",
       "usage": {
         "output_tokens": 67,
-        "input_tokens": 988,
+        "input_tokens": 821,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2160,7 +2334,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1055,
+        "total_tokens": 888,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2168,40 +2342,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "How many words are in: 'the quick brown fox jumps over the lazy dog'? Reply with only the final answer.",
+          "progress": null,
           "depth": 0.01,
-          "latency_ms": 134,
+          "latency_ms": 95,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.9,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "count_words"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 1.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "How many words are in: 'the quick brown fox jumps over the lazy dog'? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":9}}"
+          ],
           "depth": 0.14,
-          "latency_ms": 68,
+          "latency_ms": 102,
           "chosen_model": "fast",
           "turn": 2,
-          "needs_tool": 0.18,
-          "chosen_tools": []
+          "needs_tool": 0.17,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.34,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.01,
+            "multiply": 0.0,
+            "none": 0.61,
+            "noop_action": 0.04,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t04",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001323,
+      "cost_usd": 0.001156,
       "iterations": 2,
-      "jev_ms": 202,
-      "wall_ms": 1942
+      "jev_ms": 197,
+      "wall_ms": 2362
     },
     {
       "reply": "3",
       "status": "ok",
       "usage": {
         "output_tokens": 76,
-        "input_tokens": 1011,
+        "input_tokens": 844,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2214,7 +2446,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1087,
+        "total_tokens": 920,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2222,40 +2454,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "How many times does the letter r appear in 'strawberry'? Reply with only the final answer.",
+          "progress": null,
           "depth": 0.04,
-          "latency_ms": 85,
+          "latency_ms": 122,
           "chosen_model": "fast",
           "turn": 1,
-          "needs_tool": 0.93,
+          "needs_tool": 0.9,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "count_chars"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 1.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 0.11,
-          "latency_ms": 119,
+          "request": "How many times does the letter r appear in 'strawberry'? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":3}}"
+          ],
+          "depth": 0.12,
+          "latency_ms": 93,
           "chosen_model": "fast",
           "turn": 2,
-          "needs_tool": 0.14,
-          "chosen_tools": []
+          "needs_tool": 0.15,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.48,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.03,
+            "multiply": 0.0,
+            "none": 0.45,
+            "noop_action": 0.04,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t05",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001391,
+      "cost_usd": 0.001224,
       "iterations": 2,
-      "jev_ms": 204,
-      "wall_ms": 1678
+      "jev_ms": 215,
+      "wall_ms": 1905
     },
     {
       "reply": "amlkbyBhZ2VudA==",
       "status": "ok",
       "usage": {
         "output_tokens": 72,
-        "input_tokens": 975,
+        "input_tokens": 808,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2268,7 +2558,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1047,
+        "total_tokens": 880,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2276,40 +2566,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "Base64-encode the text 'jido agent'. Reply with only the final answer.",
+          "progress": null,
           "depth": 0.0,
-          "latency_ms": 68,
+          "latency_ms": 76,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "base64_encode"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 1.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Base64-encode the text 'jido agent'. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"amlkbyBhZ2VudA==\"}}"
+          ],
           "depth": 0.02,
-          "latency_ms": 151,
+          "latency_ms": 89,
           "chosen_model": "fast",
           "turn": 2,
           "needs_tool": 0.12,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.07,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.07,
+            "multiply": 0.0,
+            "none": 0.83,
+            "noop_action": 0.03,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t06",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001335,
+      "cost_usd": 0.001168,
       "iterations": 2,
-      "jev_ms": 219,
-      "wall_ms": 1560
+      "jev_ms": 165,
+      "wall_ms": 1596
     },
     {
       "reply": "system one",
       "status": "ok",
       "usage": {
         "output_tokens": 72,
-        "input_tokens": 989,
+        "input_tokens": 828,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2322,7 +2670,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1061,
+        "total_tokens": 900,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2330,40 +2678,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "Decode this Base64: c3lzdGVtIG9uZQ== Reply with only the final answer.",
+          "progress": null,
           "depth": 0.0,
-          "latency_ms": 71,
+          "latency_ms": 123,
           "chosen_model": "fast",
           "turn": 1,
-          "needs_tool": 0.98,
+          "needs_tool": 0.97,
           "chosen_tools": [
-            "add",
-            "base64_decode",
-            "base64_encode"
-          ]
+            "base64_decode"
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 1.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Decode this Base64: c3lzdGVtIG9uZQ== Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"system one\"}}"
+          ],
           "depth": 0.01,
-          "latency_ms": 116,
+          "latency_ms": 90,
           "chosen_model": "fast",
           "turn": 2,
-          "needs_tool": 0.16,
-          "chosen_tools": []
+          "needs_tool": 0.17,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.27,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.08,
+            "multiply": 0.0,
+            "none": 0.62,
+            "noop_action": 0.03,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t07",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001349,
+      "cost_usd": 0.001188,
       "iterations": 2,
-      "jev_ms": 187,
-      "wall_ms": 2031
+      "jev_ms": 213,
+      "wall_ms": 1679
     },
     {
       "reply": "evitcerid",
       "status": "ok",
       "usage": {
         "output_tokens": 61,
-        "input_tokens": 956,
+        "input_tokens": 789,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2376,7 +2782,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1017,
+        "total_tokens": 850,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2384,40 +2790,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "Reverse the string 'directive'. Reply with only the final answer.",
+          "progress": null,
           "depth": 0.0,
-          "latency_ms": 89,
+          "latency_ms": 76,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.93,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "reverse_string"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 1.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Reverse the string 'directive'. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"evitcerid\"}}"
+          ],
           "depth": 0.01,
-          "latency_ms": 85,
+          "latency_ms": 131,
           "chosen_model": "fast",
           "turn": 2,
-          "needs_tool": 0.11,
-          "chosen_tools": []
+          "needs_tool": 0.12,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.02,
+            "multiply": 0.0,
+            "none": 0.88,
+            "noop_action": 0.03,
+            "regex_match": 0.0,
+            "reverse_string": 0.07,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t08",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001261,
+      "cost_usd": 0.001094,
       "iterations": 2,
-      "jev_ms": 174,
-      "wall_ms": 1481
+      "jev_ms": 207,
+      "wall_ms": 1571
     },
     {
       "reply": "21",
       "status": "ok",
       "usage": {
         "output_tokens": 75,
-        "input_tokens": 1003,
+        "input_tokens": 836,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2430,7 +2894,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1078,
+        "total_tokens": 911,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2438,40 +2902,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "What is the greatest common divisor of 1071 and 462? Reply with only the final answer.",
+          "progress": null,
           "depth": 0.0,
-          "latency_ms": 80,
+          "latency_ms": 93,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "gcd"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 1.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 0.01,
-          "latency_ms": 74,
+          "request": "What is the greatest common divisor of 1071 and 462? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":21}}"
+          ],
+          "depth": 0.02,
+          "latency_ms": 109,
           "chosen_model": "fast",
           "turn": 2,
           "needs_tool": 0.09,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.14,
+            "increment_action": 0.0,
+            "json_get": 0.03,
+            "multiply": 0.0,
+            "none": 0.8,
+            "noop_action": 0.03,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t09",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001378,
+      "cost_usd": 0.001211,
       "iterations": 2,
-      "jev_ms": 154,
-      "wall_ms": 1564
+      "jev_ms": 202,
+      "wall_ms": 2152
     },
     {
       "reply": "3, 7, 19, 42, 88",
       "status": "ok",
       "usage": {
         "output_tokens": 84,
-        "input_tokens": 1007,
+        "input_tokens": 840,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2484,7 +3006,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1091,
+        "total_tokens": 924,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2492,40 +3014,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "Sort ascending: 42, 7, 19, 3, 88. Reply with only the final answer.",
+          "progress": null,
           "depth": 0.01,
-          "latency_ms": 111,
+          "latency_ms": 82,
           "chosen_model": "fast",
           "turn": 1,
-          "needs_tool": 0.93,
+          "needs_tool": 0.94,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "sort_numbers"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 1.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Sort ascending: 42, 7, 19, 3, 88. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":[3,7,19,42,88]}}"
+          ],
           "depth": 0.02,
-          "latency_ms": 79,
+          "latency_ms": 73,
           "chosen_model": "fast",
           "turn": 2,
           "needs_tool": 0.12,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.04,
+            "multiply": 0.0,
+            "none": 0.86,
+            "noop_action": 0.03,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.07,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t10",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001427,
+      "cost_usd": 0.00126,
       "iterations": 2,
-      "jev_ms": 190,
-      "wall_ms": 1676
+      "jev_ms": 155,
+      "wall_ms": 1632
     },
     {
       "reply": "x",
       "status": "ok",
       "usage": {
         "output_tokens": 97,
-        "input_tokens": 1086,
+        "input_tokens": 919,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2538,7 +3118,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1183,
+        "total_tokens": 1016,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2546,40 +3126,98 @@
       "kind": "one_tool",
       "decisions": [
         {
-          "depth": 0.01,
-          "latency_ms": 71,
+          "request": "In the JSON {\"a\":{\"b\":[1,2,{\"c\":\"x\"}]}} what is the value at a.b[2].c? Reply with only the final answer.",
+          "progress": null,
+          "depth": 0.0,
+          "latency_ms": 104,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.94,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "json_get"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 1.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 0.03,
-          "latency_ms": 115,
+          "request": "In the JSON {\"a\":{\"b\":[1,2,{\"c\":\"x\"}]}} what is the value at a.b[2].c? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"x\"}}"
+          ],
+          "depth": 0.02,
+          "latency_ms": 106,
           "chosen_model": "fast",
           "turn": 2,
           "needs_tool": 0.15,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.4,
+            "multiply": 0.0,
+            "none": 0.56,
+            "noop_action": 0.03,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t11",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001571,
+      "cost_usd": 0.001404,
       "iterations": 2,
-      "jev_ms": 186,
-      "wall_ms": 2385
+      "jev_ms": 210,
+      "wall_ms": 1802
     },
     {
       "reply": "Nairobi",
       "status": "ok",
       "usage": {
         "output_tokens": 61,
-        "input_tokens": 957,
+        "input_tokens": 790,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2592,7 +3230,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1018,
+        "total_tokens": 851,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2600,40 +3238,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "What is the capital of Kenya? Reply with only the final answer.",
+          "progress": null,
           "depth": 0.0,
-          "latency_ms": 118,
+          "latency_ms": 104,
           "chosen_model": "fast",
           "turn": 1,
-          "needs_tool": 0.89,
+          "needs_tool": 0.91,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "capital_of"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 1.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "What is the capital of Kenya? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"Nairobi\"}}"
+          ],
           "depth": 0.01,
-          "latency_ms": 112,
+          "latency_ms": 68,
           "chosen_model": "fast",
           "turn": 2,
-          "needs_tool": 0.09,
-          "chosen_tools": []
+          "needs_tool": 0.08,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.15,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.03,
+            "multiply": 0.0,
+            "none": 0.77,
+            "noop_action": 0.05,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t12",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001262,
+      "cost_usd": 0.001095,
       "iterations": 2,
-      "jev_ms": 230,
-      "wall_ms": 1883
+      "jev_ms": 172,
+      "wall_ms": 1569
     },
     {
       "reply": "7006652",
       "status": "ok",
       "usage": {
         "output_tokens": 77,
-        "input_tokens": 1000,
+        "input_tokens": 833,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2646,7 +3342,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1077,
+        "total_tokens": 910,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2654,40 +3350,98 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "Multiply 1234 by 5678. Reply with only the final answer.",
+          "progress": null,
           "depth": 0.0,
-          "latency_ms": 83,
+          "latency_ms": 79,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "multiply"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 1.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Multiply 1234 by 5678. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":7006652.0}}"
+          ],
           "depth": 0.01,
-          "latency_ms": 142,
+          "latency_ms": 82,
           "chosen_model": "fast",
           "turn": 2,
-          "needs_tool": 0.12,
-          "chosen_tools": []
+          "needs_tool": 0.11,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.01,
+            "multiply": 0.07,
+            "none": 0.88,
+            "noop_action": 0.04,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t13",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001385,
+      "cost_usd": 0.001218,
       "iterations": 2,
-      "jev_ms": 225,
-      "wall_ms": 1608
+      "jev_ms": 161,
+      "wall_ms": 1577
     },
     {
       "reply": "42",
       "status": "ok",
       "usage": {
         "output_tokens": 58,
-        "input_tokens": 957,
+        "input_tokens": 790,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2700,7 +3454,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 1015,
+        "total_tokens": 848,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2708,41 +3462,99 @@
       "kind": "one_tool",
       "decisions": [
         {
+          "request": "Increment the value 41 by one. Reply with only the final answer.",
+          "progress": null,
           "depth": 0.0,
-          "latency_ms": 140,
+          "latency_ms": 132,
           "chosen_model": "fast",
           "turn": 1,
-          "needs_tool": 0.91,
+          "needs_tool": 0.92,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "increment_action"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 1.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Increment the value 41 by one. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"value\":42}}"
+          ],
           "depth": 0.01,
-          "latency_ms": 106,
+          "latency_ms": 86,
           "chosen_model": "fast",
           "turn": 2,
-          "needs_tool": 0.18,
-          "chosen_tools": []
+          "needs_tool": 0.2,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.01,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.44,
+            "json_get": 0.01,
+            "multiply": 0.0,
+            "none": 0.52,
+            "noop_action": 0.02,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t14",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 0.001247,
+      "cost_usd": 0.00108,
       "iterations": 2,
-      "jev_ms": 246,
-      "wall_ms": 2145
+      "jev_ms": 218,
+      "wall_ms": 1480
     },
     {
       "reply": "258.89",
       "status": "ok",
       "usage": {
-        "output_tokens": 162,
-        "input_tokens": 2161,
-        "reasoning_tokens": 17,
+        "output_tokens": 159,
+        "input_tokens": 1830,
+        "reasoning_tokens": 14,
         "pricing": {
           "status": "unknown"
         },
@@ -2754,7 +3566,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 2323,
+        "total_tokens": 1989,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2762,53 +3574,142 @@
       "kind": "two_tool",
       "decisions": [
         {
+          "request": "Convert 10 miles to kilometers, then square the result. Two decimals. Reply with only the final answer.",
+          "progress": null,
           "depth": 1.01,
-          "latency_ms": 122,
+          "latency_ms": 87,
           "chosen_model": "capable",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "convert_unit"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 1.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 1.01,
-          "latency_ms": 109,
+          "request": "Convert 10 miles to kilometers, then square the result. Two decimals. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":16.09}}"
+          ],
+          "depth": 1.02,
+          "latency_ms": 98,
           "chosen_model": "capable",
           "turn": 2,
           "needs_tool": 0.97,
           "chosen_tools": [
-            "add",
             "convert_unit",
             "square"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.04,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.96,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Convert 10 miles to kilometers, then square the result. Two decimals. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":16.09}}",
+            "{\"ok\":true,\"result\":{\"result\":258.8881}}"
+          ],
           "depth": 1.01,
-          "latency_ms": 78,
+          "latency_ms": 120,
           "chosen_model": "capable",
           "turn": 3,
-          "needs_tool": 0.34,
-          "chosen_tools": []
+          "needs_tool": 0.28,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.01,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.01,
+            "none": 0.84,
+            "noop_action": 0.07,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.07,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t15",
       "condition": "jev",
       "cost_tier": "capable",
-      "cost_usd": 0.005942,
+      "cost_usd": 0.00525,
       "iterations": 3,
-      "jev_ms": 309,
-      "wall_ms": 3958
+      "jev_ms": 305,
+      "wall_ms": 3842
     },
     {
       "reply": "897",
       "status": "ok",
       "usage": {
-        "output_tokens": 170,
-        "input_tokens": 2093,
-        "reasoning_tokens": 18,
+        "output_tokens": 174,
+        "input_tokens": 1772,
+        "reasoning_tokens": 20,
         "pricing": {
           "status": "unknown"
         },
@@ -2820,7 +3721,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 2263,
+        "total_tokens": 1946,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2828,52 +3729,141 @@
       "kind": "two_tool",
       "decisions": [
         {
+          "request": "How many days from 2024-03-01 to 2024-12-25, then multiply that by 3? Reply with only the final answer.",
+          "progress": null,
           "depth": 1.0,
-          "latency_ms": 107,
+          "latency_ms": 90,
           "chosen_model": "capable",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "date_diff"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 1.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "How many days from 2024-03-01 to 2024-12-25, then multiply that by 3? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":299}}"
+          ],
           "depth": 1.01,
-          "latency_ms": 101,
+          "latency_ms": 162,
           "chosen_model": "capable",
           "turn": 2,
           "needs_tool": 0.97,
           "chosen_tools": [
-            "add",
             "date_diff",
             "multiply"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.11,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.88,
+            "none": 0.01,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "How many days from 2024-03-01 to 2024-12-25, then multiply that by 3? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":299}}",
+            "{\"ok\":true,\"result\":{\"result\":897.0}}"
+          ],
           "depth": 1.0,
-          "latency_ms": 83,
+          "latency_ms": 100,
           "chosen_model": "capable",
           "turn": 3,
-          "needs_tool": 0.12,
-          "chosen_tools": []
+          "needs_tool": 0.11,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.05,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.02,
+            "none": 0.87,
+            "noop_action": 0.06,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t16",
       "condition": "jev",
       "cost_tier": "capable",
-      "cost_usd": 0.005886,
+      "cost_usd": 0.005284,
       "iterations": 3,
-      "jev_ms": 291,
-      "wall_ms": 4050
+      "jev_ms": 352,
+      "wall_ms": 5548
     },
     {
       "reply": "107",
       "status": "ok",
       "usage": {
         "output_tokens": 123,
-        "input_tokens": 1882,
+        "input_tokens": 1571,
         "reasoning_tokens": 0,
         "pricing": {
           "status": "unknown"
@@ -2886,7 +3876,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 2005,
+        "total_tokens": 1694,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2894,53 +3884,142 @@
       "kind": "two_tool",
       "decisions": [
         {
+          "request": "Count the words in 'a b c d e f g' and then add 100. Reply with only the final answer.",
+          "progress": null,
           "depth": 1.0,
-          "latency_ms": 143,
+          "latency_ms": 84,
           "chosen_model": "capable",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "count_words"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 1.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Count the words in 'a b c d e f g' and then add 100. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":7}}"
+          ],
           "depth": 0.99,
-          "latency_ms": 127,
+          "latency_ms": 89,
           "chosen_model": "capable",
           "turn": 2,
           "needs_tool": 0.97,
           "chosen_tools": [
             "add",
-            "base64_decode",
             "count_words"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.99,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.01,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Count the words in 'a b c d e f g' and then add 100. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":7}}",
+            "{\"ok\":true,\"result\":{\"result\":107.0}}"
+          ],
           "depth": 1.0,
-          "latency_ms": 123,
+          "latency_ms": 111,
           "chosen_model": "capable",
           "turn": 3,
-          "needs_tool": 0.11,
-          "chosen_tools": []
+          "needs_tool": 0.1,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.01,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.01,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.92,
+            "noop_action": 0.06,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t17",
       "condition": "jev",
       "cost_tier": "capable",
-      "cost_usd": 0.004994,
+      "cost_usd": 0.004372,
       "iterations": 3,
-      "jev_ms": 393,
-      "wall_ms": 4606
+      "jev_ms": 284,
+      "wall_ms": 4527
     },
     {
       "reply": "7.46",
       "status": "ok",
       "usage": {
-        "output_tokens": 212,
-        "input_tokens": 2181,
-        "reasoning_tokens": 46,
+        "output_tokens": 311,
+        "input_tokens": 1851,
+        "reasoning_tokens": 145,
         "pricing": {
           "status": "unknown"
         },
@@ -2952,7 +4031,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 2393,
+        "total_tokens": 2162,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -2960,53 +4039,141 @@
       "kind": "two_tool",
       "decisions": [
         {
+          "request": "Take the gcd of 84 and 36, then convert that many kilometers to miles. Two decimals. Reply with only the final answer.",
+          "progress": null,
           "depth": 1.01,
-          "latency_ms": 93,
+          "latency_ms": 86,
           "chosen_model": "capable",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "gcd"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 1.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 0.99,
-          "latency_ms": 87,
+          "request": "Take the gcd of 84 and 36, then convert that many kilometers to miles. Two decimals. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":12}}"
+          ],
+          "depth": 0.98,
+          "latency_ms": 72,
           "chosen_model": "capable",
           "turn": 2,
           "needs_tool": 0.97,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "convert_unit"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 1.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 1.01,
-          "latency_ms": 128,
+          "request": "Take the gcd of 84 and 36, then convert that many kilometers to miles. Two decimals. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":12}}",
+            "{\"ok\":true,\"result\":{\"result\":7.46}}"
+          ],
+          "depth": 1.0,
+          "latency_ms": 95,
           "chosen_model": "capable",
           "turn": 3,
           "needs_tool": 0.14,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.05,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.91,
+            "noop_action": 0.04,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t18",
       "condition": "jev",
       "cost_tier": "capable",
-      "cost_usd": 0.006482,
+      "cost_usd": 0.006812,
       "iterations": 3,
-      "jev_ms": 308,
-      "wall_ms": 4339
+      "jev_ms": 253,
+      "wall_ms": 5009
     },
     {
       "reply": "1",
       "status": "ok",
       "usage": {
-        "output_tokens": 153,
-        "input_tokens": 2002,
-        "reasoning_tokens": 22,
+        "output_tokens": 168,
+        "input_tokens": 1599,
+        "reasoning_tokens": 36,
         "pricing": {
           "status": "unknown"
         },
@@ -3018,7 +4185,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 2155,
+        "total_tokens": 1767,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -3026,53 +4193,141 @@
       "kind": "two_tool",
       "decisions": [
         {
-          "depth": 1.01,
-          "latency_ms": 85,
+          "request": "Decode the Base64 'Zm9ydHk=' and then count its characters that are the letter o. Reply with only the final answer.",
+          "progress": null,
+          "depth": 1.0,
+          "latency_ms": 102,
           "chosen_model": "capable",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
-            "base64_decode",
-            "base64_encode"
-          ]
+            "base64_decode"
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 1.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Decode the Base64 'Zm9ydHk=' and then count its characters that are the letter o. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"forty\"}}"
+          ],
           "depth": 1.0,
-          "latency_ms": 165,
+          "latency_ms": 80,
           "chosen_model": "capable",
           "turn": 2,
           "needs_tool": 0.96,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "count_chars"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 1.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "Decode the Base64 'Zm9ydHk=' and then count its characters that are the letter o. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"forty\"}}",
+            "{\"ok\":true,\"result\":{\"result\":1}}"
+          ],
           "depth": 1.0,
-          "latency_ms": 112,
+          "latency_ms": 103,
           "chosen_model": "capable",
           "turn": 3,
           "needs_tool": 0.1,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.03,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.92,
+            "noop_action": 0.05,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t19",
       "condition": "jev",
       "cost_tier": "capable",
-      "cost_usd": 0.005534,
+      "cost_usd": 0.004878,
       "iterations": 3,
-      "jev_ms": 362,
-      "wall_ms": 4605
+      "jev_ms": 285,
+      "wall_ms": 4942
     },
     {
       "reply": "90",
       "status": "ok",
       "usage": {
-        "output_tokens": 243,
-        "input_tokens": 3234,
-        "reasoning_tokens": 25,
+        "output_tokens": 269,
+        "input_tokens": 3112,
+        "reasoning_tokens": 49,
         "pricing": {
           "status": "unknown"
         },
@@ -3084,7 +4339,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 3477,
+        "total_tokens": 3381,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -3092,20 +4347,52 @@
       "kind": "two_tool",
       "decisions": [
         {
-          "depth": 1.04,
-          "latency_ms": 98,
+          "request": "Convert 100 USD to EUR using the exchange rate tool, then subtract 2. Reply with only the final answer.",
+          "progress": null,
+          "depth": 1.06,
+          "latency_ms": 78,
           "chosen_model": "capable",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
             "exchange_rate",
             "multiply"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.98,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.02,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 1.02,
-          "latency_ms": 87,
+          "request": "Convert 100 USD to EUR using the exchange rate tool, then subtract 2. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":0.92}}"
+          ],
+          "depth": 1.03,
+          "latency_ms": 89,
           "chosen_model": "capable",
           "turn": 2,
           "needs_tool": 0.96,
@@ -3113,44 +4400,135 @@
             "exchange_rate",
             "multiply",
             "subtract"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.04,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.01,
+            "multiply": 0.88,
+            "none": 0.01,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.06,
+            "today": 0.0
+          }
         },
         {
-          "depth": 1.02,
-          "latency_ms": 114,
+          "request": "Convert 100 USD to EUR using the exchange rate tool, then subtract 2. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":0.92}}",
+            "{\"ok\":true,\"result\":{\"result\":92.0}}"
+          ],
+          "depth": 1.03,
+          "latency_ms": 124,
           "chosen_model": "capable",
           "turn": 3,
-          "needs_tool": 0.97,
+          "needs_tool": 0.96,
           "chosen_tools": [
-            "add",
-            "base64_decode",
+            "multiply",
             "subtract"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.01,
+            "none": 0.01,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.98,
+            "today": 0.0
+          }
         },
         {
-          "depth": 1.04,
-          "latency_ms": 96,
+          "request": "Convert 100 USD to EUR using the exchange rate tool, then subtract 2. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":0.92}}",
+            "{\"ok\":true,\"result\":{\"result\":92.0}}",
+            "{\"ok\":true,\"result\":{\"result\":90.0}}"
+          ],
+          "depth": 1.03,
+          "latency_ms": 123,
           "chosen_model": "capable",
           "turn": 4,
           "needs_tool": 0.13,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.01,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.89,
+            "noop_action": 0.07,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.03,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t20",
       "condition": "jev",
       "cost_tier": "capable",
-      "cost_usd": 0.008898,
+      "cost_usd": 0.008914,
       "iterations": 4,
-      "jev_ms": 395,
-      "wall_ms": 5374
+      "jev_ms": 414,
+      "wall_ms": 5725
     },
     {
       "reply": "2",
       "status": "ok",
       "usage": {
-        "output_tokens": 129,
-        "input_tokens": 1903,
-        "reasoning_tokens": 27,
+        "output_tokens": 86,
+        "input_tokens": 1306,
+        "reasoning_tokens": 33,
         "pricing": {
           "status": "unknown"
         },
@@ -3162,7 +4540,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 2032,
+        "total_tokens": 1392,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -3170,53 +4548,102 @@
       "kind": "two_tool",
       "decisions": [
         {
-          "depth": 1.01,
-          "latency_ms": 75,
+          "request": "Reverse the string 'level up' and then count its words. Reply with only the final answer.",
+          "progress": null,
+          "depth": 1.0,
+          "latency_ms": 83,
           "chosen_model": "capable",
           "turn": 1,
           "needs_tool": 0.97,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "reverse_string"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 1.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 1.0,
-          "latency_ms": 81,
+          "request": "Reverse the string 'level up' and then count its words. Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"pu level\"}}"
+          ],
+          "depth": 1.01,
+          "latency_ms": 122,
           "chosen_model": "capable",
           "turn": 2,
           "needs_tool": 0.96,
           "chosen_tools": [
-            "add",
             "count_words",
             "reverse_string"
-          ]
-        },
-        {
-          "depth": 1.0,
-          "latency_ms": 94,
-          "chosen_model": "capable",
-          "turn": 3,
-          "needs_tool": 0.12,
-          "chosen_tools": []
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.98,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.01,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.01,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t21",
       "condition": "jev",
       "cost_tier": "capable",
-      "cost_usd": 0.005096,
-      "iterations": 3,
-      "jev_ms": 250,
-      "wall_ms": 5732
+      "cost_usd": 0.003472,
+      "iterations": 2,
+      "jev_ms": 205,
+      "wall_ms": 2497
     },
     {
       "reply": "2024-03-02, which is 61 days from 2024-01-01.",
       "status": "ok",
       "usage": {
-        "output_tokens": 411,
-        "input_tokens": 2322,
-        "reasoning_tokens": 232,
+        "output_tokens": 224,
+        "input_tokens": 1710,
+        "reasoning_tokens": 44,
         "pricing": {
           "status": "unknown"
         },
@@ -3228,7 +4655,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 2733,
+        "total_tokens": 1934,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -3236,45 +4663,133 @@
       "kind": "two_tool",
       "decisions": [
         {
-          "depth": 1.03,
-          "latency_ms": 76,
+          "request": "What is the date 30 days after 2024-02-01, and how many days is that from 2024-01-01? Reply with only the final answer.",
+          "progress": null,
+          "depth": 1.02,
+          "latency_ms": 82,
           "chosen_model": "capable",
           "turn": 1,
           "needs_tool": 0.98,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "date_add"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 1.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.0,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
+          "request": "What is the date 30 days after 2024-02-01, and how many days is that from 2024-01-01? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"2024-03-02\"}}"
+          ],
           "depth": 1.02,
-          "latency_ms": 157,
+          "latency_ms": 109,
           "chosen_model": "capable",
           "turn": 2,
           "needs_tool": 0.96,
           "chosen_tools": [
-            "add",
-            "base64_decode",
             "date_diff"
-          ]
+          ],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.99,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.01,
+            "noop_action": 0.0,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         },
         {
-          "depth": 1.03,
-          "latency_ms": 129,
+          "request": "What is the date 30 days after 2024-02-01, and how many days is that from 2024-01-01? Reply with only the final answer.",
+          "progress": [
+            "{\"ok\":true,\"result\":{\"result\":\"2024-03-02\"}}",
+            "{\"ok\":true,\"result\":{\"result\":61}}"
+          ],
+          "depth": 1.01,
+          "latency_ms": 127,
           "chosen_model": "capable",
           "turn": 3,
-          "needs_tool": 0.12,
-          "chosen_tools": []
+          "needs_tool": 0.13,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.01,
+            "date_diff": 0.08,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.01,
+            "multiply": 0.0,
+            "none": 0.86,
+            "noop_action": 0.04,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t22",
       "condition": "jev",
       "cost_tier": "capable",
-      "cost_usd": 0.008754,
+      "cost_usd": 0.00566,
       "iterations": 3,
-      "jev_ms": 362,
-      "wall_ms": 6948
+      "jev_ms": 318,
+      "wall_ms": 5139
     },
     {
       "reply": "Mars",
@@ -3302,12 +4817,41 @@
       "kind": "no_tool",
       "decisions": [
         {
+          "request": "Which planet is known as the Red Planet? Reply with only the final answer.",
+          "progress": null,
           "depth": 0.02,
-          "latency_ms": 113,
+          "latency_ms": 77,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.05,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.94,
+            "noop_action": 0.06,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t23",
@@ -3315,8 +4859,8 @@
       "cost_tier": "fast",
       "cost_usd": 9.1e-5,
       "iterations": 1,
-      "jev_ms": 113,
-      "wall_ms": 617
+      "jev_ms": 77,
+      "wall_ms": 631
     },
     {
       "reply": "Au",
@@ -3344,12 +4888,41 @@
       "kind": "no_tool",
       "decisions": [
         {
-          "depth": 0.03,
-          "latency_ms": 75,
+          "request": "What is the chemical symbol for gold? Reply with only the final answer.",
+          "progress": null,
+          "depth": 0.02,
+          "latency_ms": 136,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.05,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.96,
+            "noop_action": 0.04,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t24",
@@ -3357,8 +4930,8 @@
       "cost_tier": "fast",
       "cost_usd": 9.0e-5,
       "iterations": 1,
-      "jev_ms": 75,
-      "wall_ms": 609
+      "jev_ms": 136,
+      "wall_ms": 668
     },
     {
       "reply": "Mice",
@@ -3386,12 +4959,41 @@
       "kind": "no_tool",
       "decisions": [
         {
+          "request": "Give the plural of 'mouse' (the animal). Reply with only the final answer.",
+          "progress": null,
           "depth": 0.18,
-          "latency_ms": 79,
+          "latency_ms": 138,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.05,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.95,
+            "noop_action": 0.05,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t25",
@@ -3399,8 +5001,8 @@
       "cost_tier": "fast",
       "cost_usd": 9.9e-5,
       "iterations": 1,
-      "jev_ms": 79,
-      "wall_ms": 1809
+      "jev_ms": 138,
+      "wall_ms": 738
     },
     {
       "reply": "Jane Austen",
@@ -3428,12 +5030,41 @@
       "kind": "no_tool",
       "decisions": [
         {
-          "depth": 0.05,
-          "latency_ms": 104,
+          "request": "Who wrote 'Pride and Prejudice'? Reply with only the final answer.",
+          "progress": null,
+          "depth": 0.04,
+          "latency_ms": 78,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.05,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.95,
+            "noop_action": 0.05,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t26",
@@ -3441,8 +5072,8 @@
       "cost_tier": "fast",
       "cost_usd": 1.08e-4,
       "iterations": 1,
-      "jev_ms": 104,
-      "wall_ms": 689
+      "jev_ms": 78,
+      "wall_ms": 613
     },
     {
       "reply": "Gracias",
@@ -3470,12 +5101,41 @@
       "kind": "no_tool",
       "decisions": [
         {
-          "depth": 0.04,
-          "latency_ms": 96,
+          "request": "Translate 'thank you' into Spanish. Reply with only the final answer.",
+          "progress": null,
+          "depth": 0.05,
+          "latency_ms": 124,
           "chosen_model": "fast",
           "turn": 1,
           "needs_tool": 0.05,
-          "chosen_tools": []
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.94,
+            "noop_action": 0.06,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t27",
@@ -3483,8 +5143,8 @@
       "cost_tier": "fast",
       "cost_usd": 1.02e-4,
       "iterations": 1,
-      "jev_ms": 96,
-      "wall_ms": 678
+      "jev_ms": 124,
+      "wall_ms": 1047
     },
     {
       "reply": "Ran",
@@ -3512,12 +5172,41 @@
       "kind": "no_tool",
       "decisions": [
         {
+          "request": "What is the past tense of 'run'? Reply with only the final answer.",
+          "progress": null,
           "depth": 0.04,
-          "latency_ms": 71,
+          "latency_ms": 102,
           "chosen_model": "fast",
           "turn": 1,
-          "needs_tool": 0.05,
-          "chosen_tools": []
+          "needs_tool": 0.04,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.95,
+            "noop_action": 0.05,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t28",
@@ -3525,14 +5214,14 @@
       "cost_tier": "fast",
       "cost_usd": 9.9e-5,
       "iterations": 1,
-      "jev_ms": 71,
-      "wall_ms": 725
+      "jev_ms": 102,
+      "wall_ms": 786
     },
     {
-      "reply": "I don't have a tool to look up information about \"Jido,\" and this term is not clearly defined in my knowledge base. It could refer to several things (a programming language, a document, a software project, etc.), but without more context, I cannot provide a reliable answer.\n\nCould you provide more d",
+      "reply": "I don't have a tool to look up information about \"Jido,\" and this term is not clearly identifiable in my knowledge base without additional context. \"Jido\" could refer to several things (a person, a work, a place, etc.), and I cannot provide a reliable answer without more information.\n\nCould you prov",
       "status": "ok",
       "usage": {
-        "output_tokens": 76,
+        "output_tokens": 81,
         "input_tokens": 71,
         "reasoning_tokens": 0,
         "pricing": {
@@ -3546,7 +5235,7 @@
           "ephemeral_5m_input_tokens": 0
         },
         "image_usage": {},
-        "total_tokens": 147,
+        "total_tokens": 152,
         "cache_read_input_tokens": 0,
         "cache_creation_input_tokens": 0
       },
@@ -3554,21 +5243,50 @@
       "kind": "no_tool",
       "decisions": [
         {
-          "depth": 0.32,
-          "latency_ms": 105,
+          "request": "Which language is Jido written in? Reply with only the final answer.",
+          "progress": null,
+          "depth": 0.34,
+          "latency_ms": 106,
           "chosen_model": "fast",
           "turn": 1,
-          "needs_tool": 0.07,
-          "chosen_tools": []
+          "needs_tool": 0.08,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.01,
+            "multiply": 0.0,
+            "none": 0.95,
+            "noop_action": 0.03,
+            "regex_match": 0.01,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t29",
       "condition": "jev",
       "cost_tier": "fast",
-      "cost_usd": 4.51e-4,
+      "cost_usd": 4.76e-4,
       "iterations": 1,
-      "jev_ms": 105,
-      "wall_ms": 1400
+      "jev_ms": 106,
+      "wall_ms": 1370
     },
     {
       "reply": "Abstaining",
@@ -3596,12 +5314,41 @@
       "kind": "no_tool",
       "decisions": [
         {
-          "depth": 0.12,
-          "latency_ms": 88,
+          "request": "Rewrite 'we will not be attending' as a single word meaning the same. Reply with only the final answer.",
+          "progress": null,
+          "depth": 0.11,
+          "latency_ms": 99,
           "chosen_model": "fast",
           "turn": 1,
-          "needs_tool": 0.06,
-          "chosen_tools": []
+          "needs_tool": 0.05,
+          "chosen_tools": [],
+          "tool_probs": {
+            "add": 0.0,
+            "base64_decode": 0.0,
+            "base64_encode": 0.0,
+            "capital_of": 0.0,
+            "convert_unit": 0.0,
+            "count_chars": 0.0,
+            "count_words": 0.0,
+            "date_add": 0.0,
+            "date_diff": 0.0,
+            "decrement_action": 0.0,
+            "divide": 0.0,
+            "exchange_rate": 0.0,
+            "gcd": 0.0,
+            "increment_action": 0.0,
+            "json_get": 0.0,
+            "multiply": 0.0,
+            "none": 0.94,
+            "noop_action": 0.06,
+            "regex_match": 0.0,
+            "reverse_string": 0.0,
+            "sha256": 0.0,
+            "sort_numbers": 0.0,
+            "square": 0.0,
+            "subtract": 0.0,
+            "today": 0.0
+          }
         }
       ],
       "task_id": "t30",
@@ -3609,25 +5356,26 @@
       "cost_tier": "fast",
       "cost_usd": 1.11e-4,
       "iterations": 1,
-      "jev_ms": 88,
-      "wall_ms": 682
+      "jev_ms": 99,
+      "wall_ms": 667
     }
   ],
   "summary": {
     "baseline-capable": {
       "errors": 0,
       "n": 30,
-      "mean_cost_usd": 0.014119,
-      "mean_iterations": 2.033333333333333,
+      "mean_cost_usd": 0.013901600000000002,
+      "mean_input_tokens": 6536.3,
+      "mean_iterations": 2.0,
       "mean_jev_ms": 0.0,
-      "median_wall_ms": 2959,
-      "p95_wall_ms": 4827,
+      "median_wall_ms": 2621,
+      "p95_wall_ms": 6146,
       "pass_by_kind": {
         "one_tool": "14/14",
         "two_tool": "8/8",
-        "no_tool": "7/8"
+        "no_tool": "8/8"
       },
-      "pass_rate": 0.9666666666666667,
+      "pass_rate": 1.0,
       "tier_mix": {
         "capable": 30
       }
@@ -3635,11 +5383,12 @@
     "baseline-fast": {
       "errors": 0,
       "n": 30,
-      "mean_cost_usd": 0.006047033333333335,
+      "mean_cost_usd": 0.006045366666666667,
+      "mean_input_tokens": 5602.866666666667,
       "mean_iterations": 2.033333333333333,
       "mean_jev_ms": 0.0,
-      "median_wall_ms": 1666,
-      "p95_wall_ms": 3529,
+      "median_wall_ms": 1630,
+      "p95_wall_ms": 3189,
       "pass_by_kind": {
         "one_tool": "14/14",
         "two_tool": "8/8",
@@ -3653,11 +5402,12 @@
     "jev": {
       "errors": 0,
       "n": 30,
-      "mean_cost_usd": 0.0024049666666666673,
-      "mean_iterations": 2.033333333333333,
-      "mean_jev_ms": 213.36666666666667,
-      "median_wall_ms": 1880,
-      "p95_wall_ms": 5732,
+      "mean_cost_usd": 0.0020965999999999997,
+      "mean_input_tokens": 902.9,
+      "mean_iterations": 2.0,
+      "mean_jev_ms": 208.66666666666666,
+      "median_wall_ms": 1789,
+      "p95_wall_ms": 5548,
       "pass_by_kind": {
         "one_tool": "14/14",
         "two_tool": "8/8",
@@ -3671,9 +5421,18 @@
     }
   },
   "models": {
-    "fast": "\"anthropic:claude-haiku-4-5\"",
-    "capable": "\"anthropic:claude-sonnet-5\"",
-    "reasoning": "\"anthropic:claude-opus-5\""
+    "fast": {
+      "alias": "\"anthropic:claude-haiku-4-5\"",
+      "resolved": "anthropic:claude-haiku-4-5-20251001"
+    },
+    "capable": {
+      "alias": "\"anthropic:claude-sonnet-5\"",
+      "resolved": "anthropic:claude-sonnet-5"
+    },
+    "reasoning": {
+      "alias": "\"anthropic:claude-opus-5\"",
+      "resolved": "anthropic:claude-opus-5"
+    }
   },
-  "ran_at": "2026-09-26T16:19:37.773264Z"
+  "ran_at": "2026-09-26T16:38:05.960064Z"
 }

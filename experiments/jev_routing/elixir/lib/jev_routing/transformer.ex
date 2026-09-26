@@ -15,22 +15,29 @@ defmodule JevRouting.Transformer do
     cfg = config(ctx)
     tools = Map.get(request, :tools) || %{}
 
-    pairs =
-      tools |> Enum.map(fn {name, mod} -> {to_string(name), description(mod)} end) |> Enum.sort()
+    pairs = Enum.map(tools, fn {name, mod} -> {to_string(name), description(mod)} end)
 
     client_opts = Map.get(ctx, :client_opts, Application.get_env(:jev_routing, :client_opts, []))
 
-    case TypesafeClient.evaluate(build_state(request), questions(pairs), client_opts) do
+    jev_state = build_state(request)
+
+    case safe_evaluate(jev_state, questions(pairs), client_opts) do
       {:ok,
        %{
          "needs_tool" => %Noul{noul: needs},
          "tool" => %Choice{probabilities: probs},
          "depth" => %Score{score: depth}
        }, meta} ->
-        chosen_tools =
-          if needs < cfg.needs_tool_threshold, do: %{}, else: top_k(tools, probs, cfg.top_k)
-
         model = tier(depth, cfg.depth_thresholds)
+
+        # tools override: %{} when no tool is needed; top-k of the tools Jev actually
+        # scored above zero; no override at all if Jev named only unknown tools.
+        overrides =
+          cond do
+            needs < cfg.needs_tool_threshold -> %{tools: %{}, model: model}
+            (gated = top_k(tools, probs, cfg.top_k)) != %{} -> %{tools: gated, model: model}
+            true -> %{model: model}
+          end
 
         Decisions.record(Map.get(ctx, :request_id), %{
           turn: Map.get(state, :iteration, 0),
@@ -38,11 +45,13 @@ defmodule JevRouting.Transformer do
           needs_tool: needs,
           tool_probs: probs,
           depth: depth,
-          chosen_tools: Map.keys(chosen_tools) |> Enum.sort(),
-          chosen_model: model
+          chosen_tools: overrides |> Map.get(:tools, tools) |> Map.keys() |> Enum.sort(),
+          chosen_model: model,
+          request: jev_state.request,
+          progress: jev_state.progress
         })
 
-        {:ok, %{tools: chosen_tools, model: model}}
+        {:ok, overrides}
 
       {:ok, _partial, _meta} ->
         Logger.warning("jev_routing: incomplete answers, no overrides")
@@ -105,9 +114,18 @@ defmodule JevRouting.Transformer do
     }
   end
 
+  # Never let the client take the agent down: any raise becomes a fail-open.
+  defp safe_evaluate(state, questions, opts) do
+    TypesafeClient.evaluate(state, questions, opts)
+  rescue
+    e -> {:error, {:raised, Exception.message(e)}}
+  catch
+    kind, reason -> {:error, {kind, reason}}
+  end
+
   defp top_k(tools, probs, k) do
     probs
-    |> Enum.reject(fn {name, _} -> name == "none" end)
+    |> Enum.reject(fn {name, p} -> name == "none" or not is_number(p) or p <= 0 end)
     |> Enum.sort_by(fn {_, p} -> -p end)
     |> Enum.map(fn {name, _} -> name end)
     |> Enum.filter(&Map.has_key?(tools, &1))
@@ -157,5 +175,13 @@ defmodule JevRouting.Transformer do
 
   defp content_text(%{text: t}) when is_binary(t), do: t
   defp content_text(%{"text" => t}) when is_binary(t), do: t
+
+  # ReqLLM-style content parts: name the tool and show its output
+  defp content_text(%{} = part) when is_map_key(part, :tool_name) or is_map_key(part, :output) do
+    name = Map.get(part, :tool_name) || Map.get(part, :name) || "tool"
+    out = Map.get(part, :output) || Map.get(part, :result)
+    "#{name} -> #{inspect(out, limit: 50, printable_limit: 300)}"
+  end
+
   defp content_text(other), do: inspect(other, limit: 50, printable_limit: 300)
 end

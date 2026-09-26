@@ -40,6 +40,21 @@ defmodule TypesafeClient.AnswerTest do
     assert {:error, {:malformed_answer, "choice"}} = Answer.parse(%{"type" => "choice"})
   end
 
+  test "rejects non-numeric probabilities" do
+    assert {:error, {:malformed_answer, "choice"}} =
+             Answer.parse(%{
+               "type" => "choice",
+               "choice" => "a",
+               "probabilities" => %{"a" => "high"},
+               "confidence" => 0.9
+             })
+  end
+
+  test "parse_all rejects a non-map answers payload" do
+    assert {:error, :answers_not_a_map} = Answer.parse_all(nil)
+    assert {:error, :answers_not_a_map} = Answer.parse_all([])
+  end
+
   test "parse_all keeps ids and fails on the first bad answer" do
     good = %{"a" => %{"type" => "noul", "noul" => 0.1}, "b" => %{"type" => "noul", "noul" => 0.9}}
     assert {:ok, %{"a" => %Noul{noul: 0.1}, "b" => %Noul{noul: 0.9}}} = Answer.parse_all(good)

@@ -22,7 +22,11 @@ defmodule JevRouting.Bench do
         strict: [conditions: :string, tasks: :string, concurrency: :integer]
       )
 
-    conds = (opts[:conditions] || Enum.join(Map.keys(@conditions), ",")) |> String.split(",")
+    {:ok, conds} =
+      (opts[:conditions] || Enum.join(Map.keys(@conditions), ","))
+      |> String.split(",")
+      |> validate_conditions()
+
     tasks = Tasks.all() |> filter_tasks(opts[:tasks])
     Decisions.ensure()
     ensure_instance()
@@ -30,19 +34,34 @@ defmodule JevRouting.Bench do
     rows =
       for c <- conds do
         tasks
-        |> Task.async_stream(&run_one(c, &1),
+        |> Task.async_stream(&safe_run_one(c, &1),
           max_concurrency: opts[:concurrency] || 2,
           timeout: @timeout + 30_000,
+          on_timeout: :kill_task,
           ordered: true
         )
-        |> Enum.map(fn {:ok, r} -> r end)
+        |> Enum.zip(tasks)
+        |> Enum.map(fn
+          {{:ok, r}, _task} -> r
+          {{:exit, reason}, task} -> error_row(c, task, {:exit, reason})
+        end)
       end
       |> List.flatten()
 
     summary = Map.new(conds, fn c -> {c, summarize(Enum.filter(rows, &(&1.condition == c)))} end)
 
     models =
-      Map.new([:fast, :capable, :reasoning], fn a -> {a, inspect(Jido.AI.resolve_model(a))} end)
+      Map.new([:fast, :capable, :reasoning], fn a ->
+        spec = Jido.AI.resolve_model(a)
+
+        resolved =
+          case LLMDB.model(spec) do
+            {:ok, m} -> "#{m.provider}:#{m.id}"
+            _ -> "unresolved"
+          end
+
+        {a, %{alias: inspect(spec), resolved: resolved}}
+      end)
 
     File.write!(
       "bench_results.json",
@@ -53,6 +72,41 @@ defmodule JevRouting.Bench do
 
     IO.puts(table(summary))
     :ok
+  end
+
+  @doc "Accepts only known condition names."
+  def validate_conditions(names) do
+    case Enum.reject(names, &Map.has_key?(@conditions, &1)) do
+      [] -> {:ok, names}
+      bad -> {:error, {:unknown_conditions, bad}}
+    end
+  end
+
+  @doc "A failed row standing in for a run that crashed or timed out, so one crash cannot lose the batch."
+  def error_row(condition, task, reason) do
+    %{
+      condition: condition,
+      task_id: task.id,
+      kind: task.kind,
+      status: :error,
+      reply: inspect(reason, limit: 50, printable_limit: 300),
+      pass: false,
+      iterations: 0,
+      usage: %{},
+      wall_ms: 0,
+      cost_usd: 0.0,
+      cost_tier: :fast,
+      jev_ms: 0,
+      decisions: []
+    }
+  end
+
+  defp safe_run_one(condition, task) do
+    run_one(condition, task)
+  rescue
+    e -> error_row(condition, task, {:raised, Exception.message(e)})
+  catch
+    kind, reason -> error_row(condition, task, {kind, reason})
   end
 
   def run_one(condition, task) do
@@ -101,7 +155,17 @@ defmodule JevRouting.Bench do
       decisions:
         Enum.map(
           decisions,
-          &Map.take(&1, [:turn, :needs_tool, :depth, :chosen_tools, :chosen_model, :latency_ms])
+          &Map.take(&1, [
+            :turn,
+            :needs_tool,
+            :depth,
+            :chosen_tools,
+            :chosen_model,
+            :latency_ms,
+            :tool_probs,
+            :request,
+            :progress
+          ])
         )
     }
   end
@@ -166,6 +230,8 @@ defmodule JevRouting.Bench do
       median_wall_ms: Enum.at(walls, div(n, 2)) || 0,
       p95_wall_ms: Enum.at(walls, min(n - 1, round(0.95 * (n - 1)))) || 0,
       mean_cost_usd: mean(Enum.map(rows, & &1.cost_usd)),
+      mean_input_tokens:
+        mean(Enum.map(rows, &(&1.usage[:input_tokens] || &1.usage["input_tokens"] || 0))),
       mean_jev_ms: mean(Enum.map(rows, & &1.jev_ms)),
       tier_mix: rows |> Enum.frequencies_by(& &1.cost_tier),
       pass_by_kind:
@@ -180,15 +246,15 @@ defmodule JevRouting.Bench do
 
   defp table(summary) do
     header =
-      "| condition | pass | one/two/no-tool | mean turns | median ms | p95 ms | $/task | jev ms | tier mix |\n" <>
-        "| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n"
+      "| condition | pass | one/two/no-tool | mean turns | median ms | p95 ms | mean input tokens | $/task | jev ms | tier mix |\n" <>
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n"
 
     header <>
       Enum.map_join(summary, "\n", fn {c, s} ->
         k = s.pass_by_kind
 
         "| #{c} | #{Float.round(s.pass_rate / 1, 2)} | #{k[:one_tool]} / #{k[:two_tool]} / #{k[:no_tool]} | " <>
-          "#{Float.round(s.mean_iterations / 1, 2)} | #{s.median_wall_ms} | #{s.p95_wall_ms} | " <>
+          "#{Float.round(s.mean_iterations / 1, 2)} | #{s.median_wall_ms} | #{s.p95_wall_ms} | #{round(s.mean_input_tokens)} | " <>
           "#{:erlang.float_to_binary(s.mean_cost_usd / 1, decimals: 5)} | #{round(s.mean_jev_ms)} | #{inspect(s.tier_mix)} |"
       end)
   end
