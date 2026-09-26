@@ -22,4 +22,4 @@ exec sudo -n docker run --rm \
   -v jev_routing_mix:/root/.mix \
   -v jev_routing_hex:/root/.hex \
   -e TYPESAFE_API_KEY="$TS_KEY" -e ANTHROPIC_API_KEY="$AN_KEY" -e MIX_ENV="${MIX_ENV:-dev}" \
-  "$IMAGE" sh -c "mix local.hex --force >/dev/null && mix local.rebar --force >/dev/null && mix deps.get >/dev/null && mix $*"
+  "$IMAGE" sh -c 'mix local.hex --force >/dev/null && mix local.rebar --force >/dev/null && mix deps.get >/dev/null && mix "$@"' sh "$@"
