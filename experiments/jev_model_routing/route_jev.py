@@ -17,8 +17,8 @@ import argparse, time, urllib.error
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+from common import HERE, TIER_CRITERIA, append_jsonl, read_jsonl  # first: puts ../jev_routing on sys.path
 import jev_eval
-from common import HERE, TIER_CRITERIA, append_jsonl, read_jsonl
 from tasks import load_tasks
 
 

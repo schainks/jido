@@ -14,7 +14,7 @@
 Run: python3 selftest.py              (parts 1-3)
      .venv/bin/python selftest.py     (all four)
 """
-import csv, datetime as dt, heapq, io, itertools, json, re, statistics, tempfile, threading, unittest
+import csv, datetime as dt, heapq, io, itertools, json, re, statistics, subprocess, sys, tempfile, threading, unittest
 from fractions import Fraction
 from pathlib import Path
 from types import SimpleNamespace
@@ -338,6 +338,12 @@ class EndToEnd(unittest.TestCase):
         row = route_jev.route_one(broken, BY_ID["tool01"])
         self.assertFalse(row["ok"])
         self.assertIn("unexpected response shape", row["error"])
+
+    def test_every_script_starts_on_its_own(self):
+        for script in ("label_models.py", "route_jev.py", "route_llm.py", "analyze.py"):
+            with self.subTest(script=script):
+                r = subprocess.run([sys.executable, script, "--help"], cwd=Path(__file__).parent, capture_output=True, text=True)
+                self.assertEqual(r.returncode, 0, r.stderr)
 
 
 @unittest.skipUnless(anthropic, "anthropic SDK not installed")
