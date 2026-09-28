@@ -10,12 +10,15 @@ with the current graders, so fixing a grader needs no new API calls.
 Run: python3 analyze.py              # README tables to stdout, summary.json next to the data
      python3 analyze.py --pilot      # the pilot table, from ../jev_routing's existing results
      python3 analyze.py --jev-cost X # assumed $ per Jev call; the API did not report one last time
+     JEV_MODEL=clm-latest python3 analyze.py   # the Jev rows from jev_routes_clm-latest.jsonl, into
+                                               # summary_clm-latest.json (--pilot: jev_eval_results_clm-latest.json)
 """
 import argparse, json, re, statistics
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from common import CONFIGS, HERE, MAPPINGS, TIERS, TOOL_EXPERIMENT, read_jsonl
+from common import CONFIGS, HERE, MAPPINGS, TIERS, TOOL_EXPERIMENT, read_jsonl  # first: puts ../jev_routing on sys.path
+import jev_eval
 from tasks import grade, load_tasks
 
 PASS_BAR = 2 / 3
@@ -283,7 +286,7 @@ def analyze(out, jev_cost=None, log=print):
     errors = {key(r) for r in raw if not r.get("ok")} - set(runs)
     changed = regrade(runs, by_id)
     agg = aggregate(runs)
-    jev = latest_ok(read_jsonl(out / "jev_routes.jsonl"), lambda r: r["task"])
+    jev = latest_ok(read_jsonl(out / jev_eval.model_file("jev_routes", ".jsonl")), lambda r: r["task"])
     llm = latest_ok(read_jsonl(out / "llm_routes.jsonl"), lambda r: r["task"])
 
     summary = {"regraded_changes": changed, "unresolved_errors": len(errors), "mappings": {}}
@@ -315,6 +318,7 @@ def analyze(out, jev_cost=None, log=print):
     report = [f"Calls: {len(runs)} graded, {len(errors)} unresolved errors, {changed} grades changed on regrading.",
               "", "### Labels", "", label_table(labels_by_mapping, tasks),
               "", "### Per config", "", config_table(runs, errors, tasks, ("tool", "open"))] + sections
+    report = other_model_note("jev_routes", ".jsonl") + report
     report += ["", "Pass rate: mean over tasks of the share of samples that passed. Cost: mean per task, times 1,000. "
                "Latency: the chosen config's median on each task plus the router's own call. Under- and over-routed: "
                "share of labeled tasks sent below or above their label (unsolved tasks excluded). Perfect routing takes "
@@ -324,18 +328,25 @@ def analyze(out, jev_cost=None, log=print):
         report += ["", "Jev rows exclude Jev's own per-call price (pass --jev-cost to include it); their latency includes it."]
     text = "\n".join(report)
     log(text)
-    (out / "summary.json").write_text(json.dumps(summary, indent=1, default=str))
+    (out / jev_eval.model_file("summary")).write_text(json.dumps(summary, indent=1, default=str))
     return summary
+
+
+def other_model_note(stem, ext=".json"):
+    """With JEV_MODEL set to another System One model, say whose answers the "Jev" rows are."""
+    if jev_eval.MODEL == "jev-latest":
+        return []
+    return [f"Every Jev row below is {jev_eval.MODEL}, from {jev_eval.model_file(stem, ext)}.", ""]
 
 
 # ---------------------------------------------------------------- pilot
 def pilot(log=print):
     sel = json.loads((TOOL_EXPERIMENT / "llm_baseline_select.json").read_text())
-    jev = {r["query"]: r for r in json.loads((TOOL_EXPERIMENT / "jev_eval_results.json").read_text())["discovery"]["rows"]}
+    jev = {r["query"]: r for r in json.loads((TOOL_EXPERIMENT / jev_eval.model_file("jev_eval_results")).read_text())["discovery"]["rows"]}
     H, O = sel["claude-haiku-4-5"]["rows"], sel["claude-opus-5"]["rows"]
     assert [h["query"] for h in H] == [o["query"] for o in O]
     perfect = [h if h["correct"] else o for h, o in zip(H, O)]
-    lines = ["| Router | Correct | Cost per 1k calls |", "| --- | --- | --- |"]
+    lines = other_model_note("jev_eval_results") + ["| Router | Correct | Cost per 1k calls |", "| --- | --- | --- |"]
     for name, rows in (("Always Haiku 4.5", H), ("Always Opus 5", O), ("Perfect routing (Haiku unless it fails)", perfect)):
         lines.append(f"| {name} | {sum(r['correct'] for r in rows)}/{len(rows)} | ${1000 * statistics.mean(r['cost_usd'] for r in rows):.2f} |")
     needs = [h["query"] for h, o in zip(H, O) if o["correct"] and not h["correct"]]

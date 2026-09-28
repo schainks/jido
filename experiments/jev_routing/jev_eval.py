@@ -9,8 +9,12 @@ Each query is sent once per variant with four questions in a single request:
   complexity  (score)  - 3 levels
   risk        (score)  - 3 levels
 Run: python3 jev_eval.py   (stdlib only)
+     JEV_API=http://127.0.0.1:8700/v1/systemone JEV_MODEL=clm-latest python3 jev_eval.py
+       (any TypeSafe-compatible endpoint, e.g. a local CLM server; see the README)
 Results: accuracy per variant, accuracy by confidence band, coverage/precision
-per threshold, none-detection, latency, token usage. Key: TYPESAFE_API_KEY env var or ~/.typesafe_key. Nothing here prints the key.
+per threshold, none-detection, latency, token usage. Key: TYPESAFE_API_KEY env var or ~/.typesafe_key,
+sent only to the TypeSafe API; JEV_API_KEY for any other endpoint (optional). Nothing here prints a key.
+Any model but jev-latest writes jev_eval_results_<model>.json (JEV_RESULTS overrides the path).
 """
 import json, os, re, statistics, sys, time, urllib.request, urllib.error
 from concurrent.futures import ThreadPoolExecutor
@@ -18,9 +22,16 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]  # repo root
 OUT = Path(__file__).parent
-API = "https://api.typesafe.ai/v1/systemone"
-MODEL = "jev-latest"
+TYPESAFE_API = "https://api.typesafe.ai/v1/systemone"
+API = os.environ.get("JEV_API", TYPESAFE_API)
+MODEL = os.environ.get("JEV_MODEL", "jev-latest")
+def model_file(stem, ext=".json"):
+    """`stem`.json for Jev; any other model gets its own file, so a local run never overwrites Jev's results."""
+    return stem + ext if MODEL == "jev-latest" else f"{stem}_{re.sub(r'[^A-Za-z0-9_.-]', '_', MODEL)}{ext}"
 def key():
+    """JEV_API_KEY if set. The TypeSafe key is only ever sent to the TypeSafe API."""
+    if os.environ.get("JEV_API_KEY") or API != TYPESAFE_API:
+        return os.environ.get("JEV_API_KEY")
     p = Path.home() / ".typesafe_key"
     k = os.environ.get("TYPESAFE_API_KEY") or (p.read_text().strip() if p.exists() else None)
     if not k:
@@ -126,9 +137,10 @@ def state(acts, query):
 # ---------------------------------------------------------------- client
 def call(body, retries=5):
     data = json.dumps(body).encode()
+    k = key()
+    headers = {"Content-Type": "application/json", **({"Authorization": f"Bearer {k}"} if k else {})}
     for attempt in range(retries):
-        req = urllib.request.Request(API, data=data, method="POST", headers={
-            "Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
+        req = urllib.request.Request(API, data=data, method="POST", headers=headers)
         t0 = time.perf_counter()
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
@@ -201,4 +213,6 @@ if __name__ == "__main__":
                             "median_ms": 1000 * statistics.median(r["latency_s"] for r in rows),
                             "accuracy": sum(r["correct"] for r in rows) / len(rows)}
     print("\n== parallel x8:", results["parallel8"])
-    (OUT / "jev_eval_results.json").write_text(json.dumps({"actions": acts, **results}, indent=1))
+    path = Path(os.environ.get("JEV_RESULTS") or OUT / model_file("jev_eval_results"))
+    path.write_text(json.dumps({"actions": acts, **results}, indent=1))
+    print(f"wrote {path}")

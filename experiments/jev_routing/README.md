@@ -315,8 +315,9 @@ a temporary mode-600 env file; never on the command line).
 
 | File | What |
 | --- | --- |
-| `jev_eval.py` | Extracts the 19 actions from `lib/jido/actions/*.ex`, sends each query with four questions (Noul, Choice, complexity Score, risk Score), reports accuracy by confidence band, thresholds, latency, tokens. Python 3 stdlib only. |
+| `jev_eval.py` | Extracts the 19 actions from `lib/jido/actions/*.ex`, sends each query with four questions (Noul, Choice, complexity Score, risk Score), reports accuracy by confidence band, thresholds, latency, tokens. `JEV_API` and `JEV_MODEL` point it at any System One endpoint. Python 3 stdlib only. |
 | `jev_eval_results.json` | Raw per-query answers, probabilities, latencies for both criteria variants and the 8-way parallel run. |
+| `clm_smoke.py` | Sends CLM's README quickstart to a local CLM server and checks the answers against the published values, so a wrong encoder shows up before the benchmark runs. Stdlib only. |
 | `llm_baseline.py` | Same 19 actions as Anthropic tool definitions, same 34 queries, native tool-calling. `COND=select` switches to the selection-only prompt. Needs the `anthropic` package. |
 | `llm_baseline_default.json`, `llm_baseline_select.json` | Raw per-query results for Haiku 4.5 and Opus 5 under each prompt. |
 | `model_routing.py` | Experiment 2: 42 tasks on three tiers, outcome-based gold, Jev routing and verification, policy scoring. `--regrade` re-scores offline. |
@@ -342,6 +343,55 @@ COND=select .venv/bin/python llm_baseline.py     # selection-only prompt
 
 About 100 Jev requests and 70 Anthropic requests per full run. Neither script
 prints or stores a key.
+
+### Against a local CLM
+
+[CLM](https://github.com/Contrastive-LM/CLM) serves the same `POST /v1/systemone` API from a
+frozen Qwen3-8B encoder and a 75 MB projection head, so the scripts here can point at it with
+two variables: `JEV_API` (the endpoint) and `JEV_MODEL` (`clm-latest`). The TypeSafe key is
+only ever sent to the TypeSafe API; `JEV_API_KEY` covers a CLM server started with
+`CLM_API_KEY`. Any model other than `jev-latest` writes its own files
+(`jev_eval_results_clm-latest.json`, `model_routing_results_clm-latest.json`,
+`../jev_model_routing/jev_routes_clm-latest.jsonl`), so a local run never overwrites Jev's.
+
+On Apple silicon (macOS 15+; the encoder's bf16 weights are about 16 GB):
+
+```sh
+# 1. The encoder: vLLM on Metal with last-token pooling, which is what the head was trained on
+brew tap vllm-project/vllm-metal https://github.com/vllm-project/vllm-metal
+brew install vllm-project/vllm-metal/vllm-metal
+VLLM_ENABLE_V1_MULTIPROCESSING=0 vllm serve Qwen/Qwen3-8B --served-model-name qwen3-8b \
+  --runner pooling --max-model-len 2048 --port 8090
+
+# 2. The CLM API on :8700, in its own venv. --no-deps skips CLM's vllm requirement, which
+#    has no macOS wheel; the heads run on CPU. The 75 MB head downloads on first start.
+git clone https://github.com/Contrastive-LM/CLM && cd CLM
+uv venv -p 3.12 && uv pip install --no-deps -e . && uv pip install numpy requests torch fastapi uvicorn
+.venv/bin/clm-serve --device cpu --emb-url http://127.0.0.1:8090/v1/embeddings
+
+# 3. From this repo: does the stack reproduce CLM's README numbers? Then the benchmark.
+python3 experiments/jev_routing/clm_smoke.py
+export JEV_API=http://127.0.0.1:8700/v1/systemone JEV_MODEL=clm-latest
+python3 experiments/jev_routing/jev_eval.py      # -> jev_eval_results_clm-latest.json
+```
+
+`clm_smoke.py` sends the quickstart request from CLM's README and fails if any answer is more
+than 0.05 off the published value. Off by that much, the encoder isn't producing what the head
+was trained on and the benchmark would measure noise. With the two variables exported,
+`../jev_model_routing/route_jev.py` and `analyze.py` use CLM too, and `analyze.py --pilot`
+computes the Experiment 1 signal AUCs from CLM's answers. `model_routing.py` follows them as
+well, but it also reruns its ~120 model calls.
+
+Reading the results next to Jev's:
+
+- Accuracy, the confidence bands, none-detection and the coverage/precision curve compare
+  directly. Both define confidence as the top probability minus the mean of the rest (Jev's
+  recorded answers match that to within 0.02), but each model calibrates its probabilities
+  differently, so compare the curves rather than a single threshold.
+- Latency is a Mac against a hosted GPU. CLM also caches every text it embeds, so quote the
+  discovery pass: the schema pass reuses its state texts, and the 8-way pass is all cache hits.
+- CLM's `tokens_in` counts only encoder tokens spent on cache misses, so it doesn't compare
+  with Jev's.
 
 ## Sources
 

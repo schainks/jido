@@ -7,23 +7,25 @@
 2. Answer parsing, the cron grader, the ported jido_ai heuristic and the Jev rule
    on fixed cases.
 3. The labeling run, both routers and the analysis end to end on fake clients in a
-   temp directory, including resume after an error.
+   temp directory, including resume after an error; the Jev client's endpoint override.
 4. With `anthropic` installed: the same calls through the real SDK against a mocked
    transport, checking the request bodies the API would receive.
 
 Run: python3 selftest.py              (parts 1-3)
      .venv/bin/python selftest.py     (all four)
 """
-import csv, datetime as dt, heapq, io, itertools, json, re, statistics, subprocess, sys, tempfile, threading, unittest
+import csv, datetime as dt, heapq, io, itertools, json, os, re, statistics, subprocess, sys, tempfile, threading, unittest
 from fractions import Fraction
 from pathlib import Path
 from types import SimpleNamespace
+from unittest import mock
 
 import analyze, jev_eval, label_models, route_jev, route_llm, tasks as T
 from common import CONFIGS, TIERS, TIER_CRITERIA, read_jsonl
 
 TASKS, ACTS = T.load_tasks()
 BY_ID = {t["id"]: t for t in TASKS}
+jev_eval.MODEL = "jev-latest"  # the suite checks Jev's file names, whatever JEV_MODEL is set to
 
 try:
     import anthropic
@@ -344,6 +346,42 @@ class EndToEnd(unittest.TestCase):
             with self.subTest(script=script):
                 r = subprocess.run([sys.executable, script, "--help"], cwd=Path(__file__).parent, capture_output=True, text=True)
                 self.assertEqual(r.returncode, 0, r.stderr)
+
+    def test_other_models_get_their_own_files(self):
+        quiet = lambda *a, **k: None  # noqa: E731
+        self.assertEqual(jev_eval.model_file("jev_routes", ".jsonl"), "jev_routes.jsonl")
+        with mock.patch.object(jev_eval, "MODEL", "clm-latest"), tempfile.TemporaryDirectory() as out:
+            self.assertEqual(jev_eval.model_file("jev_eval_results"), "jev_eval_results_clm-latest.json")
+            label_models.run(TASKS, ACTS, ["haiku", "sonnet", "opus"], 1, out, fake_create(), (FakeAPIError,), log=quiet)
+            route_jev.run(TASKS, out, fake_jev, log=quiet)
+            self.assertEqual(fake_jev.bodies[-1]["model"], "clm-latest")
+            report = []
+            s = analyze.analyze(out, log=report.append)
+            self.assertTrue(report[0].startswith("Every Jev row below is clm-latest, from jev_routes_clm-latest.jsonl."))
+            self.assertIn("Jev choice (argmax)", s["mappings"]["model"]["routers"])
+            self.assertEqual(sorted(p.name for p in Path(out).iterdir()),
+                             ["jev_routes_clm-latest.jsonl", "runs.jsonl", "summary_clm-latest.json"])
+        with mock.patch.object(jev_eval, "MODEL", "org/model:v1"):
+            self.assertEqual(jev_eval.model_file("summary"), "summary_org_model_v1.json")
+
+    def test_typesafe_key_only_goes_to_typesafe(self):
+        sent = []
+        def urlopen(req, timeout):
+            sent.append(req)
+            return io.BytesIO(b'{"answers": {}}')
+        with mock.patch.object(jev_eval.urllib.request, "urlopen", urlopen), \
+                mock.patch.dict(os.environ, {"TYPESAFE_API_KEY": "typesafe-sentinel"}):
+            os.environ.pop("JEV_API_KEY", None)
+            with mock.patch.object(jev_eval, "API", jev_eval.TYPESAFE_API):
+                jev_eval.call({})
+            self.assertEqual(sent[-1].get_header("Authorization"), "Bearer typesafe-sentinel")
+            with mock.patch.object(jev_eval, "API", "http://127.0.0.1:8700/v1/systemone"):
+                jev_eval.call({})
+                self.assertEqual(sent[-1].full_url, "http://127.0.0.1:8700/v1/systemone")
+                self.assertIsNone(sent[-1].get_header("Authorization"))
+                os.environ["JEV_API_KEY"] = "local-sentinel"
+                jev_eval.call({})
+                self.assertEqual(sent[-1].get_header("Authorization"), "Bearer local-sentinel")
 
 
 @unittest.skipUnless(anthropic, "anthropic SDK not installed")

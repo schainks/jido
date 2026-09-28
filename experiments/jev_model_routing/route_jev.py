@@ -11,6 +11,8 @@ available actions, context). It never sees a model's answer. Output: jev_routes.
 one line per task; a rerun skips tasks that already have an answer.
 
 Run: python3 route_jev.py    (stdlib only)
+     JEV_API=http://127.0.0.1:8700/v1/systemone JEV_MODEL=clm-latest python3 route_jev.py
+       (any TypeSafe-compatible endpoint; writes jev_routes_clm-latest.jsonl instead)
 Key: TYPESAFE_API_KEY or ~/.typesafe_key, read by jev_eval.py. Never printed.
 """
 import argparse, time, urllib.error
@@ -60,7 +62,7 @@ def route_one(call, task):
 
 
 def run(tasks, out, call, workers=4, log=print):
-    path = Path(out) / "jev_routes.jsonl"
+    path = Path(out) / jev_eval.model_file("jev_routes", ".jsonl")
     done = {r["task"] for r in read_jsonl(path) if r.get("ok")}
     todo = [t for t in tasks if t["id"] not in done]
     log(f"{len(todo)} tasks to route ({len(done)} already done) -> {path}")
@@ -86,7 +88,7 @@ def main(argv=None):
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--out", default=str(HERE))
     args = ap.parse_args(argv)
-    jev_eval.key()  # exits with a message if no key, before any thread starts
+    jev_eval.key()  # exits with a message if the TypeSafe API has no key, before any thread starts
     tasks, _ = load_tasks()
     run(tasks, args.out, jev_eval.call, args.workers)
 

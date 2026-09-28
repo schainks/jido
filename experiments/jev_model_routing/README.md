@@ -262,6 +262,11 @@ Keys are read as in the tool experiment:
   `ANTHROPIC_AUTH_TOKEN` or an `ant auth login` profile.
 - Jev: `TYPESAFE_API_KEY` or `~/.typesafe_key`.
 
+To route with a local CLM instead of Jev, export `JEV_API` and `JEV_MODEL` before
+`route_jev.py` and `analyze.py`. They then read and write `jev_routes_<model>.jsonl` and
+`summary_<model>.json`, leaving Jev's files alone; setup is in
+[`../jev_routing/README.md`](../jev_routing/README.md#against-a-local-clm).
+
 No script prints or stores a key. `--configs haiku,sonnet,opus` skips the effort
 arm and cuts cost by about 45 %.
 

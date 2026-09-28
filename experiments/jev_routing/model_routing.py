@@ -25,7 +25,7 @@ import json, os, re, statistics, subprocess, sys, tempfile, time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import anthropic
-from jev_eval import call as jev_call, MODEL as JEV_MODEL, OUT
+from jev_eval import call as jev_call, MODEL as JEV_MODEL, OUT, model_file
 
 TIERS = [("fast", "claude-haiku-4-5", 1.0, 5.0),
          ("capable", "claude-sonnet-5", 2.0, 10.0),
@@ -225,7 +225,7 @@ if __name__ == "__main__":
 
     results = {}
     REGRADE = "--regrade" in sys.argv
-    prev = json.loads((OUT / "model_routing_results.json").read_text()) if REGRADE else None
+    prev = json.loads((OUT / model_file("model_routing_results")).read_text()) if REGRADE else None
     for tier, model, pin, pout in TIERS:
         if REGRADE:  # offline: regrade exact/code from stored replies, keep judge verdicts
             results[tier] = prev["results"][tier]
@@ -280,7 +280,7 @@ if __name__ == "__main__":
     print("jev route median latency: %.0f ms; verify: %.0f ms" % (
         1000 * statistics.median(r["latency_s"] for r in routes), 1000 * statistics.median(v["latency_s"] for v in vfast)))
 
-    (OUT / "model_routing_results.json").write_text(json.dumps({
+    (OUT / model_file("model_routing_results")).write_text(json.dumps({
         "tasks": [{"kind": t["kind"], "q": t["q"]} for t in T], "tiers": TIERS, "results": results, "gold": GOLD,
         "routes": routes, "verify_fast": vfast, "verify_capable": vcap, "policies": policies, "summary": summary,
         "verify_quality": verify_quality}, indent=1))
