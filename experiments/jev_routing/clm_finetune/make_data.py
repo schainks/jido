@@ -12,7 +12,7 @@ sequence similarity), so the test split stays unseen.
 
 Run: python3 make_data.py OUT [PER_ACTION]
      PER_ACTION keeps the first N requests of each action (and N/20 of the "none" requests)
-     for a learning curve; the default keeps all of them.
+     for a learning curve (up to 40); the default keeps all of them.
 """
 import difflib, json, re, sys
 from pathlib import Path
@@ -23,6 +23,7 @@ import jev_eval as J  # noqa: E402
 from train_requests import REQUESTS  # noqa: E402
 
 MAX_JACCARD, MAX_RATIO = 0.6, 0.8
+NONE_PER_20 = 57  # "none" requests per 20 per action, as in the first batch
 
 
 def words(s):
@@ -56,7 +57,7 @@ def main(out, per_action=None):
                 "gold": json.dumps({"tool": {"label": sorted(gold)[0], "probabilities": p}})}
 
     def keep(a, reqs):
-        n = len(reqs) if not per_action else -(-len(reqs) * per_action // 20) if a == "none" else per_action
+        n = len(reqs) if not per_action else -(-NONE_PER_20 * per_action // 20) if a == "none" else per_action
         return reqs[:n]
     train = [row(f"train-{a}-{i}", q, {a}) for a, reqs in REQUESTS.items() for i, q in enumerate(keep(a, reqs))]
     test = [row(f"test-{i}", q, ok) for i, (q, ok, _) in enumerate(J.GOLD)]
