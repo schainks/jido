@@ -16,15 +16,17 @@ Tiers here are the Claude models that are byte-identical on Vertex AI and the
 Anthropic API (claude-haiku-4-5, claude-sonnet-5, claude-opus-5). Gemini tiers
 need Google ADC and are not run by this script.
 
-Keys: ANTHROPIC_API_KEY or ~/.anthropic_key; TYPESAFE_API_KEY or ~/.typesafe_key.
+Keys: ANTHROPIC_API_KEY or ~/.anthropic_key (full run only); TYPESAFE_API_KEY or ~/.typesafe_key.
 Run: .venv/bin/python model_routing.py            (needs the anthropic package)
      .venv/bin/python model_routing.py --regrade  (offline: regrade stored replies)
-Cost per full run: ~120 model calls, ~12 judge calls, ~120 Jev calls.
+     JEV_API=http://127.0.0.1:8700/v1/systemone JEV_MODEL=clm-latest python3 model_routing.py --reroute
+       (another System One model, e.g. a local CLM, routes and verifies the Jev run's stored
+        replies; replies and grades stay as stored, no model calls; model_routing_results_clm-latest.json)
+Cost per full run: ~120 model calls, ~12 judge calls, ~120 Jev calls. --reroute: 126 System One calls.
 """
 import json, os, re, statistics, subprocess, sys, tempfile, time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-import anthropic
 from jev_eval import call as jev_call, MODEL as JEV_MODEL, OUT, model_file
 
 TIERS = [("fast", "claude-haiku-4-5", 1.0, 5.0),
@@ -218,20 +220,31 @@ def cascade(results, verify_fast, verify_cap, thr):
 
 # ------------------------------------------------------------------ main
 if __name__ == "__main__":
-    ak = key(".anthropic_key", "ANTHROPIC_API_KEY")
-    if not ak: sys.exit("no Anthropic key")
-    client = anthropic.Anthropic(api_key=ak, timeout=180.0)
+    REROUTE = "--reroute" in sys.argv                 # the Jev run's replies and grades, new routes and verdicts
+    REGRADE = "--regrade" in sys.argv and not REROUTE  # stored replies and routes, exact/code regraded
+    out = OUT / model_file("model_routing_results")
+    src = OUT / "model_routing_results.json" if REROUTE else out
+    if REROUTE and src == out:
+        sys.exit("--reroute asks another System One model about the replies stored in model_routing_results.json; "
+                 "with jev-latest it would overwrite that file. Set JEV_API and JEV_MODEL (see the README).")
+    if not (REGRADE or REROUTE):
+        import anthropic
+        ak = key(".anthropic_key", "ANTHROPIC_API_KEY")
+        if not ak: sys.exit("no Anthropic key")
+        client = anthropic.Anthropic(api_key=ak, timeout=180.0)
     print(f"{len(T)} tasks: {sum(t['kind']=='exact' for t in T)} exact, {sum(t['kind']=='code' for t in T)} code, {sum(t['kind']=='judge' for t in T)} judge")
 
     results = {}
-    REGRADE = "--regrade" in sys.argv
-    prev = json.loads((OUT / model_file("model_routing_results")).read_text()) if REGRADE else None
+    prev = json.loads(src.read_text()) if REGRADE or REROUTE else None
+    if prev and [t["q"] for t in prev["tasks"]] != [t["q"] for t in T]:
+        sys.exit(f"{src.name} holds replies to a different task list; run the models again (no flag)")
     for tier, model, pin, pout in TIERS:
-        if REGRADE:  # offline: regrade exact/code from stored replies, keep judge verdicts
+        if prev:
             results[tier] = prev["results"][tier]
-            for i, r in enumerate(results[tier]):
-                if T[i]["kind"] == "exact": r["pass"] = grade_exact(T[i], r["reply"])
-                elif T[i]["kind"] == "code": r["pass"] = grade_code(T[i], r["reply"])
+            if REGRADE:  # offline: regrade exact/code from stored replies, keep judge verdicts
+                for i, r in enumerate(results[tier]):
+                    if T[i]["kind"] == "exact": r["pass"] = grade_exact(T[i], r["reply"])
+                    elif T[i]["kind"] == "code": r["pass"] = grade_code(T[i], r["reply"])
         else:
             results[tier] = run_tier(client, tier, model, pin, pout)
         rs = results[tier]
@@ -264,6 +277,8 @@ if __name__ == "__main__":
     for thr in (0.3, 0.5, 0.7, 0.9):
         summary[f"jev-cascade>{thr}"] = cascade(results, vfast, vcap, thr)
 
+    if JEV_MODEL != "jev-latest":
+        print(f"\nEvery jev-* row below is {JEV_MODEL}.")
     print(f"\n{'policy':22s} pass   $/task  under  over   mix")
     for name, s in summary.items():
         print(f"{name:22s} {s['pass_rate']:.2f}  {s['cost_per_task_usd']:.4f}  {s['underroute']:.2f}   {s['overroute']:.2f}   {s['mix']}")
@@ -280,7 +295,8 @@ if __name__ == "__main__":
     print("jev route median latency: %.0f ms; verify: %.0f ms" % (
         1000 * statistics.median(r["latency_s"] for r in routes), 1000 * statistics.median(v["latency_s"] for v in vfast)))
 
-    (OUT / model_file("model_routing_results")).write_text(json.dumps({
+    out.write_text(json.dumps({
         "tasks": [{"kind": t["kind"], "q": t["q"]} for t in T], "tiers": TIERS, "results": results, "gold": GOLD,
         "routes": routes, "verify_fast": vfast, "verify_capable": vcap, "policies": policies, "summary": summary,
         "verify_quality": verify_quality}, indent=1))
+    print(f"wrote {out}")

@@ -320,7 +320,7 @@ a temporary mode-600 env file; never on the command line).
 | `clm_smoke.py` | Sends CLM's README quickstart to a local CLM server and checks the answers against the published values, so a wrong encoder shows up before the benchmark runs. Stdlib only. |
 | `llm_baseline.py` | Same 19 actions as Anthropic tool definitions, same 34 queries, native tool-calling. `COND=select` switches to the selection-only prompt. Needs the `anthropic` package. |
 | `llm_baseline_default.json`, `llm_baseline_select.json` | Raw per-query results for Haiku 4.5 and Opus 5 under each prompt. |
-| `model_routing.py` | Experiment 2: 42 tasks on three tiers, outcome-based gold, Jev routing and verification, policy scoring. `--regrade` re-scores offline. |
+| `model_routing.py` | Experiment 2: 42 tasks on three tiers, outcome-based gold, Jev routing and verification, policy scoring. `--regrade` re-scores offline; `--reroute` has another System One model (a local CLM) route and verify the stored replies. |
 | `model_routing_results.json` | Raw replies, grades, Jev answers, and policy summary for experiment 2. |
 | `embed_baseline.py` | Experiment 3: BM25 and local embedding models (fastembed) on the experiment 1 queries. |
 | `embed_baseline_results.json` | Per-query top-2 matches, margins, and summaries for each model. |
@@ -373,14 +373,20 @@ uv venv -p 3.12 && uv pip install --no-deps -e . && uv pip install numpy request
 python3 experiments/jev_routing/clm_smoke.py
 export JEV_API=http://127.0.0.1:8700/v1/systemone JEV_MODEL=clm-latest
 python3 experiments/jev_routing/jev_eval.py      # -> jev_eval_results_clm-latest.json
+python3 experiments/jev_routing/model_routing.py --reroute   # -> model_routing_results_clm-latest.json
 ```
 
 `clm_smoke.py` sends the quickstart request from CLM's README and fails if any answer is more
 than 0.05 off the published value. Off by that much, the encoder isn't producing what the head
 was trained on and the benchmark would measure noise. With the two variables exported,
 `../jev_model_routing/route_jev.py` and `analyze.py` use CLM too, and `analyze.py --pilot`
-computes the Experiment 1 signal AUCs from CLM's answers. `model_routing.py` follows them as
-well, but it also reruns its ~120 model calls.
+computes the Experiment 1 signal AUCs from CLM's answers.
+
+For Experiment 2, `model_routing.py --reroute` keeps the model replies and grades stored in
+`model_routing_results.json` and asks CLM only for the routes and the verification verdicts:
+126 CLM calls, no Anthropic calls or key. Its policy table has the same rows as the Jev run's,
+and only the jev-* rows can differ, because the replies, grades and gold tiers are identical.
+Without the flag the script would rerun the ~120 model calls as well.
 
 Reading the results next to Jev's:
 
