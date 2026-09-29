@@ -10,13 +10,14 @@ clm_smoke.py reports MISMATCH:
   1. stop `vllm serve` (this needs the same ~16 GB) and start this on its port
   2. restart clm-serve, which keeps every embedding it has seen in memory
   3. run clm_smoke.py again
-     - it now matches CLM's README: the vllm serve encoder was the problem. This one
-       is slower but right, so the benchmark can run on it.
-     - the same numbers as before: the encoder was fine and CLM's published values
-       don't match the head.
+     - the same numbers as before: the vllm serve encoder is fine. (On a Mac Studio
+       vllm-metal matched this to cosine 0.9998 or better; CLM's README example
+       doesn't reproduce for anyone, see github.com/Contrastive-LM/CLM issue 15.)
+     - different numbers: the vllm serve encoder is wrong. This one is slower but
+       right, so the benchmark can run on it.
 
-Run (in CLM's venv): uv pip install transformers
-     .venv/bin/python <jido>/experiments/jev_routing/ref_encoder.py      # port 8090, MPS if present
+Run (in a venv with torch and transformers):
+     python ref_encoder.py      # port 8090; CUDA, else Apple MPS, else CPU
 First start loads the weights from the Hugging Face cache, or downloads them. The load
 report lists lm_head.weight as UNEXPECTED: an encoder has no use for the LM head.
 """
