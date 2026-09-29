@@ -1,0 +1,1274 @@
+{
+ "what": "holdout.py's 45 hand-written requests, scored with configurations fixed in advance; nothing was chosen on them",
+ "n": 45,
+ "released_head_correct": 5,
+ "models": {
+  "clm_head_toolace_plus_jido_40": [
+   {
+    "seed": 1234,
+    "selected_epoch": 18,
+    "correct": 37,
+    "predictions": [
+     {
+      "pred": "mark_failed",
+      "confidence": 0.8343
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.9735
+     },
+     {
+      "pred": "mark_idle",
+      "confidence": 0.4779
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.7641
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.5831
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 0.9995
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.9931
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.4145
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.9948
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.9876
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.9359
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.9914
+     },
+     {
+      "pred": "schedule_signal",
+      "confidence": 0.9766
+     },
+     {
+      "pred": "set_status",
+      "confidence": 1.0
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.8004
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.9798
+     },
+     {
+      "pred": "mark_idle",
+      "confidence": 0.5029
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.9983
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9886
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.7868
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 1.0
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.808
+     },
+     {
+      "pred": "mark_failed",
+      "confidence": 0.9394
+     },
+     {
+      "pred": "spawn_child",
+      "confidence": 1.0
+     },
+     {
+      "pred": "none",
+      "confidence": 0.6105
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 1.0
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.794
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.8951
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.5279
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.9981
+     },
+     {
+      "pred": "mark_idle",
+      "confidence": 0.647
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9997
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.8557
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.9105
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.9492
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.9986
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9902
+     },
+     {
+      "pred": "none",
+      "confidence": 0.993
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9242
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9765
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9701
+     },
+     {
+      "pred": "mark_failed",
+      "confidence": 0.7824
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.4296
+     },
+     {
+      "pred": "none",
+      "confidence": 0.7972
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.7261
+     }
+    ]
+   },
+   {
+    "seed": 1,
+    "selected_epoch": 20,
+    "correct": 35,
+    "predictions": [
+     {
+      "pred": "mark_failed",
+      "confidence": 0.7065
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.9714
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.4018
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.6413
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.6265
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 0.9997
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.9926
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.228
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.9952
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.9897
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.9012
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.9965
+     },
+     {
+      "pred": "schedule_signal",
+      "confidence": 0.9936
+     },
+     {
+      "pred": "set_status",
+      "confidence": 1.0
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.8327
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.7818
+     },
+     {
+      "pred": "mark_idle",
+      "confidence": 0.4064
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.9991
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9982
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.5636
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 1.0
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.8449
+     },
+     {
+      "pred": "mark_failed",
+      "confidence": 0.8913
+     },
+     {
+      "pred": "spawn_child",
+      "confidence": 1.0
+     },
+     {
+      "pred": "none",
+      "confidence": 0.67
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 1.0
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.5115
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.9298
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.545
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.9985
+     },
+     {
+      "pred": "mark_idle",
+      "confidence": 0.7599
+     },
+     {
+      "pred": "noop",
+      "confidence": 1.0
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.916
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.9936
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.951
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.999
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9933
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9894
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9785
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9832
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9906
+     },
+     {
+      "pred": "mark_failed",
+      "confidence": 0.7306
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.7867
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9297
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.701
+     }
+    ]
+   },
+   {
+    "seed": 2,
+    "selected_epoch": 6,
+    "correct": 33,
+    "predictions": [
+     {
+      "pred": "mark_failed",
+      "confidence": 0.3468
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.5634
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.427
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.2682
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.2279
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 0.9173
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.7112
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.3577
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.612
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.7354
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.4337
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.7675
+     },
+     {
+      "pred": "schedule_signal",
+      "confidence": 0.6214
+     },
+     {
+      "pred": "set_status",
+      "confidence": 0.9953
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.6645
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.4986
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.3841
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.891
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9389
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.5142
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.9957
+     },
+     {
+      "pred": "none",
+      "confidence": 0.4774
+     },
+     {
+      "pred": "mark_failed",
+      "confidence": 0.4895
+     },
+     {
+      "pred": "spawn_child",
+      "confidence": 0.9864
+     },
+     {
+      "pred": "reply",
+      "confidence": 0.226
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 0.9948
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.4148
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.2274
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.599
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.9315
+     },
+     {
+      "pred": "mark_idle",
+      "confidence": 0.2579
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9587
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.4198
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.8245
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.2493
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.5861
+     },
+     {
+      "pred": "schedule_signal",
+      "confidence": 0.5532
+     },
+     {
+      "pred": "none",
+      "confidence": 0.7935
+     },
+     {
+      "pred": "none",
+      "confidence": 0.4803
+     },
+     {
+      "pred": "none",
+      "confidence": 0.8068
+     },
+     {
+      "pred": "none",
+      "confidence": 0.6369
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.3884
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.4282
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.4758
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.5069
+     }
+    ]
+   }
+  ],
+  "clm_head_jido_40": [
+   {
+    "seed": 1234,
+    "selected_epoch": 20,
+    "correct": 36,
+    "predictions": [
+     {
+      "pred": "mark_failed",
+      "confidence": 0.2824
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.8925
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.5444
+     },
+     {
+      "pred": "none",
+      "confidence": 0.3998
+     },
+     {
+      "pred": "none",
+      "confidence": 0.522
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 0.9942
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.9463
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.22
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.8494
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.9624
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.9162
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.9209
+     },
+     {
+      "pred": "schedule_signal",
+      "confidence": 0.9518
+     },
+     {
+      "pred": "set_status",
+      "confidence": 0.9966
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.7893
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.6328
+     },
+     {
+      "pred": "mark_idle",
+      "confidence": 0.2619
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.9946
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9632
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.4226
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.9995
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.6182
+     },
+     {
+      "pred": "none",
+      "confidence": 0.6659
+     },
+     {
+      "pred": "spawn_child",
+      "confidence": 0.9972
+     },
+     {
+      "pred": "reply",
+      "confidence": 0.8584
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 0.9998
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.322
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.7486
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.7362
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.9913
+     },
+     {
+      "pred": "mark_idle",
+      "confidence": 0.3846
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9771
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.8502
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.9576
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.645
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.9424
+     },
+     {
+      "pred": "none",
+      "confidence": 0.516
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9757
+     },
+     {
+      "pred": "none",
+      "confidence": 0.47
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9941
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9458
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.5799
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.6389
+     },
+     {
+      "pred": "none",
+      "confidence": 0.3604
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.6542
+     }
+    ]
+   },
+   {
+    "seed": 1,
+    "selected_epoch": 19,
+    "correct": 36,
+    "predictions": [
+     {
+      "pred": "mark_failed",
+      "confidence": 0.6983
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.8667
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.3589
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.2792
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.5079
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 0.9874
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.9697
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.4076
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.8636
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.9812
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.9161
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.937
+     },
+     {
+      "pred": "schedule_signal",
+      "confidence": 0.8501
+     },
+     {
+      "pred": "set_status",
+      "confidence": 0.9993
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.8769
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.7367
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.3721
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.9871
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9887
+     },
+     {
+      "pred": "stop_child",
+      "confidence": 0.5666
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.9998
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.7208
+     },
+     {
+      "pred": "mark_failed",
+      "confidence": 0.833
+     },
+     {
+      "pred": "spawn_child",
+      "confidence": 0.9996
+     },
+     {
+      "pred": "reply",
+      "confidence": 0.5682
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 0.9997
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.4775
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.7673
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.6632
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.9979
+     },
+     {
+      "pred": "mark_idle",
+      "confidence": 0.4075
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9954
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.8248
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.967
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.6735
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.9662
+     },
+     {
+      "pred": "none",
+      "confidence": 0.6442
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9197
+     },
+     {
+      "pred": "none",
+      "confidence": 0.5106
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9894
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9317
+     },
+     {
+      "pred": "mark_failed",
+      "confidence": 0.7146
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.6609
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.3931
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.8105
+     }
+    ]
+   },
+   {
+    "seed": 2,
+    "selected_epoch": 20,
+    "correct": 32,
+    "predictions": [
+     {
+      "pred": "mark_failed",
+      "confidence": 0.6
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.7632
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.373
+     },
+     {
+      "pred": "none",
+      "confidence": 0.7777
+     },
+     {
+      "pred": "none",
+      "confidence": 0.7151
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 0.9944
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.9499
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.4139
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.8678
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.9271
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.9372
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.9113
+     },
+     {
+      "pred": "schedule_signal",
+      "confidence": 0.9331
+     },
+     {
+      "pred": "set_status",
+      "confidence": 0.9996
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.8542
+     },
+     {
+      "pred": "none",
+      "confidence": 0.4741
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.3942
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.9864
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9941
+     },
+     {
+      "pred": "none",
+      "confidence": 0.401
+     },
+     {
+      "pred": "schedule_cron",
+      "confidence": 0.9992
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.5949
+     },
+     {
+      "pred": "none",
+      "confidence": 0.5156
+     },
+     {
+      "pred": "spawn_child",
+      "confidence": 0.9993
+     },
+     {
+      "pred": "none",
+      "confidence": 0.3973
+     },
+     {
+      "pred": "broadcast",
+      "confidence": 0.9998
+     },
+     {
+      "pred": "forward",
+      "confidence": 0.4457
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.7705
+     },
+     {
+      "pred": "stop_self",
+      "confidence": 0.599
+     },
+     {
+      "pred": "schedule_timeout",
+      "confidence": 0.9937
+     },
+     {
+      "pred": "mark_idle",
+      "confidence": 0.5309
+     },
+     {
+      "pred": "noop",
+      "confidence": 0.9974
+     },
+     {
+      "pred": "cancel",
+      "confidence": 0.5965
+     },
+     {
+      "pred": "mark_completed",
+      "confidence": 0.9629
+     },
+     {
+      "pred": "mark_working",
+      "confidence": 0.6141
+     },
+     {
+      "pred": "notify_pid",
+      "confidence": 0.9646
+     },
+     {
+      "pred": "none",
+      "confidence": 0.8468
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9772
+     },
+     {
+      "pred": "none",
+      "confidence": 0.7514
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9982
+     },
+     {
+      "pred": "none",
+      "confidence": 0.9836
+     },
+     {
+      "pred": "mark_failed",
+      "confidence": 0.5352
+     },
+     {
+      "pred": "notify_parent",
+      "confidence": 0.6949
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.3934
+     },
+     {
+      "pred": "cancel_cron",
+      "confidence": 0.7641
+     }
+    ]
+   }
+  ],
+  "logistic_regression_jido_40": {
+   "C": 0.1,
+   "correct": 39,
+   "predictions": [
+    {
+     "pred": "mark_failed"
+    },
+    {
+     "pred": "stop_self"
+    },
+    {
+     "pred": "cancel"
+    },
+    {
+     "pred": "spawn_child"
+    },
+    {
+     "pred": "none"
+    },
+    {
+     "pred": "broadcast"
+    },
+    {
+     "pred": "forward"
+    },
+    {
+     "pred": "notify_parent"
+    },
+    {
+     "pred": "notify_pid"
+    },
+    {
+     "pred": "schedule_timeout"
+    },
+    {
+     "pred": "cancel_cron"
+    },
+    {
+     "pred": "schedule_timeout"
+    },
+    {
+     "pred": "schedule_signal"
+    },
+    {
+     "pred": "set_status"
+    },
+    {
+     "pred": "mark_completed"
+    },
+    {
+     "pred": "mark_working"
+    },
+    {
+     "pred": "mark_idle"
+    },
+    {
+     "pred": "cancel"
+    },
+    {
+     "pred": "noop"
+    },
+    {
+     "pred": "stop_child"
+    },
+    {
+     "pred": "schedule_cron"
+    },
+    {
+     "pred": "cancel_cron"
+    },
+    {
+     "pred": "mark_failed"
+    },
+    {
+     "pred": "spawn_child"
+    },
+    {
+     "pred": "reply"
+    },
+    {
+     "pred": "broadcast"
+    },
+    {
+     "pred": "forward"
+    },
+    {
+     "pred": "notify_parent"
+    },
+    {
+     "pred": "stop_self"
+    },
+    {
+     "pred": "schedule_timeout"
+    },
+    {
+     "pred": "mark_idle"
+    },
+    {
+     "pred": "noop"
+    },
+    {
+     "pred": "cancel"
+    },
+    {
+     "pred": "mark_completed"
+    },
+    {
+     "pred": "mark_working"
+    },
+    {
+     "pred": "notify_pid"
+    },
+    {
+     "pred": "none"
+    },
+    {
+     "pred": "spawn_child"
+    },
+    {
+     "pred": "none"
+    },
+    {
+     "pred": "none"
+    },
+    {
+     "pred": "none"
+    },
+    {
+     "pred": "mark_failed"
+    },
+    {
+     "pred": "notify_parent"
+    },
+    {
+     "pred": "none"
+    },
+    {
+     "pred": "none"
+    }
+   ]
+  }
+ }
+}

@@ -43,7 +43,8 @@ def main():
     pred = clf.predict(Xte)
     ok = sum(p in g for p, (_, g) in zip(pred, test))
     print(f"train {len(train)} rows | C={best[1]} (5-fold CV accuracy {best[0]:.3f}) | test {ok}/{len(test)} = {ok/len(test):.2f}")
-    print(json.dumps({"train": len(train), "C": best[1], "cv_acc": round(best[0], 4), "test_correct": int(ok), "test_n": len(test)}))
+    print(json.dumps({"train": len(train), "C": best[1], "cv_acc": round(best[0], 4), "test_correct": int(ok), "test_n": len(test),
+                      "predictions": [{"pred": p, "gold": sorted(g)} for p, (_, g) in zip(pred, test)]}))
 
 
 if __name__ == "__main__":

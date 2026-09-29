@@ -46,7 +46,7 @@ def main():
         for r in pq.read_table(path).to_pylist():
             (qid, (text, keys, cands)), = build_pairs(json.loads(r["state"]), json.loads(r["questions"])).items()
             g = json.loads(r["gold"])["tool"]["probabilities"]
-            out.append({"id": r["id"], "q": emb(text), "c": np.stack([emb(c) for c in cands]), "gold": {keys.index(k) for k, p in g.items() if p > 0}})
+            out.append({"id": r["id"], "keys": keys, "q": emb(text), "c": np.stack([emb(c) for c in cands]), "gold": {keys.index(k) for k, p in g.items() if p > 0}})
         return out
 
     train_all, test = rows(f"{a.data}/all/train.parquet"), rows(f"{a.data}/all/test.parquet")
@@ -102,7 +102,8 @@ def main():
         return {"epoch": None, "val": acc(V), "test": acc(X), "retention": retention()}
     hist = [{**snap(), "epoch": 0}]
     print("epoch 0 (released head):", hist[0], flush=True)
-    best, best_state, bad = (hist[0]["val"], 0), None, 0
+    snapshot = lambda: ({k: v.clone() for k, v in sh.state_dict().items()}, {k: v.clone() for k, v in ah.state_dict().items()}, scale.detach().clone())  # noqa: E731
+    best, best_state, bad = (hist[0]["val"], 0), snapshot(), 0
     n_replay = round(a.batch * a.replay_share / (1 - a.replay_share)) if a.replay_share > 0 else 0
     for ep in range(1, a.epochs + 1):
         sh.train(); ah.train(); perm = torch.randperm(len(T[0]))
@@ -118,16 +119,21 @@ def main():
         h = {**snap(), "epoch": ep}; hist.append(h); print(f"epoch {ep}: {h}", flush=True)
         if h["val"] > best[0]:
             best, bad = (h["val"], ep), 0
-            best_state = ({k: v.clone() for k, v in sh.state_dict().items()}, {k: v.clone() for k, v in ah.state_dict().items()}, scale.detach().clone())
+            best_state = snapshot()
         else:
             bad += 1
             if bad >= a.patience:
                 break
     sel = next(h for h in hist if h["epoch"] == best[1])
     print(f"selected epoch {best[1]} by validation: val {sel['val']:.3f} test {sel['test']:.3f} ({round(sel['test'] * len(X[3]))}/{len(X[3])}) retention {sel['retention']}")
+    sh.load_state_dict(best_state[0]); ah.load_state_dict(best_state[1]); scale.data.copy_(best_state[2]); sh.eval(); ah.eval()
+    with torch.no_grad():
+        P = torch.softmax(tool_logits(X[0], X[1]), dim=-1)
+    preds = [{"id": r["id"], "pred": r["keys"][int(P[i].argmax())], "confidence": round(float(P[i].max()), 4), "gold": sorted(r["keys"][g] for g in r["gold"])}
+             for i, r in enumerate(test)]
     if a.json:
-        json.dump({"replay_share": a.replay_share, "seed": a.seed, "selected_epoch": best[1], "history": hist}, open(a.json, "w"), indent=1)
-    if a.out and best_state:
+        json.dump({"replay_share": a.replay_share, "seed": a.seed, "selected_epoch": best[1], "history": hist, "test_predictions": preds}, open(a.json, "w"), indent=1)
+    if a.out:
         torch.save({"state_head": best_state[0], "action_head": best_state[1], "logit_scale": best_state[2], "cfg": c0,
                     "projection_dim": ck.get("projection_dim", c0.get("projection_dim", 512))}, a.out)
 
