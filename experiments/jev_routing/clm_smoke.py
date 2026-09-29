@@ -66,7 +66,8 @@ def main():
         print(f"  {name:22s} {got:.5f}   README {want:.5f}   diff {got - want:+.5f}")
     if a["department"]["choice"] != "billing" or worst > TOL:
         sys.exit(f"MISMATCH: choice {a['department']['choice']!r}, off by up to {worst:.3f} (tolerance {TOL}). "
-                 "Check that the encoder is Qwen/Qwen3-8B served with --runner pooling and --max-model-len 2048.")
+                 "Check that the encoder is Qwen/Qwen3-8B served with --runner pooling and --max-model-len 2048; "
+                 "ref_encoder.py tells a wrong encoder from wrong published numbers (see the README).")
     print(f"OK: every value within {TOL} of the README; the encoder and head look right")
 
 if __name__ == "__main__":

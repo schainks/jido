@@ -318,6 +318,7 @@ a temporary mode-600 env file; never on the command line).
 | `jev_eval.py` | Extracts the 19 actions from `lib/jido/actions/*.ex`, sends each query with four questions (Noul, Choice, complexity Score, risk Score), reports accuracy by confidence band, thresholds, latency, tokens. `JEV_API` and `JEV_MODEL` point it at any System One endpoint. Python 3 stdlib only. |
 | `jev_eval_results.json` | Raw per-query answers, probabilities, latencies for both criteria variants and the 8-way parallel run. |
 | `clm_smoke.py` | Sends CLM's README quickstart to a local CLM server and checks the answers against the published values, so a wrong encoder shows up before the benchmark runs. Stdlib only. |
+| `ref_encoder.py` | Qwen3-8B through Hugging Face transformers, behind the same `/v1/embeddings` API as `vllm serve`: a reference to check a local encoder against. Needs `torch` and `transformers`. |
 | `llm_baseline.py` | Same 19 actions as Anthropic tool definitions, same 34 queries, native tool-calling. `COND=select` switches to the selection-only prompt. Needs the `anthropic` package. |
 | `llm_baseline_default.json`, `llm_baseline_select.json` | Raw per-query results for Haiku 4.5 and Opus 5 under each prompt. |
 | `model_routing.py` | Experiment 2: 42 tasks on three tiers, outcome-based gold, Jev routing and verification, policy scoring. `--regrade` re-scores offline; `--reroute` has another System One model (a local CLM) route and verify the stored replies. |
@@ -378,7 +379,22 @@ python3 experiments/jev_routing/model_routing.py --reroute   # -> model_routing_
 
 `clm_smoke.py` sends the quickstart request from CLM's README and fails if any answer is more
 than 0.05 off the published value. Off by that much, the encoder isn't producing what the head
-was trained on and the benchmark would measure noise. With the two variables exported,
+was trained on and the benchmark would measure noise.
+
+When it reports MISMATCH, `ref_encoder.py` tells the two possible causes apart. It computes the
+same last-token embedding with Hugging Face transformers instead of vLLM:
+
+```sh
+# stop vllm serve first; this needs the same ~16 GB. In the CLM checkout:
+uv pip install transformers
+.venv/bin/python <jido>/experiments/jev_routing/ref_encoder.py    # serves :8090, on MPS
+# restart clm-serve, which keeps every embedding it has seen, then from this repo:
+python3 experiments/jev_routing/clm_smoke.py
+```
+
+If the smoke check now passes, the vllm serve encoder was wrong, and the benchmark can run on the
+reference encoder instead (slower, one text per forward pass). If it fails with the same numbers,
+the encoder was fine and CLM's published values don't match the head. With the two variables exported,
 `../jev_model_routing/route_jev.py` and `analyze.py` use CLM too, and `analyze.py --pilot`
 computes the Experiment 1 signal AUCs from CLM's answers.
 
