@@ -1,0 +1,107 @@
+{
+ "what": "Jevstiller 0.4.0's LinearStudent trained on gold labels (a perfect teacher) on the Jido rows, three seeds; clm_finetune/jevstiller_student.py. Correct of 34 (benchmark) and 45 (holdout.py).",
+ "at_40_per_action": {
+  "bge-small, request text only": {
+   "benchmark": [
+    31,
+    31,
+    31
+   ],
+   "holdout": [
+    38,
+    40,
+    36
+   ]
+  },
+  "bge-base, request text only": {
+   "benchmark": [
+    31,
+    31,
+    31
+   ],
+   "holdout": [
+    41,
+    41,
+    41
+   ]
+  },
+  "Qwen3-8B, request text only": {
+   "benchmark": [
+    33,
+    33,
+    33
+   ],
+   "holdout": [
+    33,
+    34,
+    34
+   ]
+  },
+  "bge-small, full state JSON (as the proxy embeds it)": {
+   "benchmark": [
+    32,
+    31,
+    32
+   ],
+   "holdout": [
+    33,
+    33,
+    33
+   ]
+  },
+  "bge-base, full state JSON": {
+   "benchmark": [
+    31,
+    31,
+    31
+   ],
+   "holdout": [
+    34,
+    33,
+    34
+   ]
+  }
+ },
+ "at_5_per_action_request_only": {
+  "bge-small": {
+   "benchmark": [
+    31,
+    32,
+    31
+   ],
+   "holdout": [
+    35,
+    35,
+    32
+   ]
+  },
+  "bge-base": {
+   "benchmark": [
+    31,
+    32,
+    30
+   ],
+   "holdout": [
+    35,
+    37,
+    34
+   ]
+  },
+  "Qwen3-8B": {
+   "benchmark": [
+    26,
+    31,
+    29
+   ],
+   "holdout": [
+    23,
+    25,
+    24
+   ]
+  }
+ },
+ "encode_ms_per_request_cpu": {
+  "bge-small": 1.8,
+  "bge-base": 6.3
+ }
+}

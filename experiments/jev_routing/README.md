@@ -319,7 +319,7 @@ a temporary mode-600 env file; never on the command line).
 | `jev_eval_results.json` | Raw per-query answers, probabilities, latencies for both criteria variants and the 8-way parallel run. |
 | `clm_smoke.py` | Sends CLM's README quickstart to a local CLM server and checks the answers against what other stacks get for it, so a wrongly wired encoder shows up before the benchmark runs. It checks wiring, not accuracy. Stdlib only. |
 | `ref_encoder.py` | Qwen3-8B through Hugging Face transformers, behind the same `/v1/embeddings` API as `vllm serve`: a reference to check a local encoder against. Needs `torch` and `transformers`. |
-| `clm_finetune/` | Fine-tuning CLM's head on Jido tool selection. `train_requests.py` (874 training requests) and `make_data.py` (builds the train/test parquet `finetune.py` reads; refuses near-copies of the benchmark requests); `make_external_data.py` (ToolACE rows in the benchmark's shapes); `embed_cache.py` (resumable embedding into `finetune.py`'s cache); `replay_finetune.py` (trainer with optional Nemotron replay); `logreg_baseline.py`; `results/`. |
+| `clm_finetune/` | Fine-tuning CLM's head on Jido tool selection. `train_requests.py` (874 training requests) and `make_data.py` (builds the train/test parquet `finetune.py` reads; refuses near-copies of the benchmark requests); `make_external_data.py` (ToolACE rows in the benchmark's shapes); `embed_cache.py` (resumable embedding into `finetune.py`'s cache); `replay_finetune.py` (trainer with optional Nemotron replay); `logreg_baseline.py`; `results/`. ; `jevstiller_student.py` (Jevstiller's encoders and student on our data); `holdout.py` and `jev_holdout.py` (the 45-request holdout and its Jev scorer)|
 | `llm_baseline.py` | Same 19 actions as Anthropic tool definitions, same 34 queries, native tool-calling. `COND=select` switches to the selection-only prompt. Needs the `anthropic` package. |
 | `llm_baseline_default.json`, `llm_baseline_select.json` | Raw per-query results for Haiku 4.5 and Opus 5 under each prompt. |
 | `model_routing.py` | Experiment 2: 42 tasks on three tiers, outcome-based gold, Jev routing and verification, policy scoring. `--regrade` re-scores offline; `--reroute` has another System One model (a local CLM) route and verify the stored replies. |
@@ -591,6 +591,43 @@ in-domain data: about 20 examples per tool, in the wording your real requests us
 phrasing and the benchmark's is the likely ceiling). Before building anything, fit the logistic regression:
 it needed the same examples, matched the best head and runs with no training infrastructure. To know
 whether any of it holds up, hold out requests from real traffic, not written ones.
+
+#### Jevstiller's student
+
+[Jevstiller](https://github.com/tomerglick57/Jevstiller) (Apache-2.0, alpha) is a proxy in front of Jev's `Choice` calls. It
+distills Jev's own answers, with their probability distributions, into a local student: a frozen sentence
+encoder (bge-small by default, on CPU) plus a numpy logistic regression, with an out-of-distribution gate, a
+permanent audit slice sent to Jev, and a routing threshold set by a finite-sample bound so that the student
+disagrees with Jev on no more than a budget you choose (2% by default). Its teacher is Jev, so its ceiling is
+Jev's accuracy, and it needs a few thousand real Jev calls to take over (Banking77: about 4,000). A new class list is
+a new task, trained from scratch.
+
+That student is the linear probe that did well above, so I ran its own encoders and its own `LinearStudent`
+on our gold labels (a perfect teacher; Jev's answers on our training requests would need a key), three seeds,
+at 40 requests per action. `clm_finetune/jevstiller_student.py`, raw numbers in `results/jevstiller_student.json`:
+
+| Correct | Benchmark (34) | Holdout (45) |
+| --- | --- | --- |
+| bge-small (384-dim, 1.8 ms per request on CPU), request text only | 31, 31, 31 | 38, 40, 36 |
+| bge-base (768-dim, 6.3 ms), request text only | 31, 31, 31 | 41, 41, 41 |
+| Qwen3-8B (16 GB, GPU-class), request text only | 33, 33, 33 | 33, 34, 34 |
+| bge-small, the whole state JSON as the proxy embeds it | 32, 31, 32 | 33, 33, 33 |
+| bge-base, the whole state JSON | 31, 31, 31 | 34, 33, 34 |
+| CLM head, ToolACE plus Jido examples (above) | 30, 32, 33 | 37, 35, 33 |
+
+- **A small CPU encoder does as well as the 8B one, and better on differently-worded requests.** On the
+  holdout bge-small and bge-base score 36-41 against 33-34 for Qwen3-8B through the same student, and at 5
+  examples per action they hold at 31-32 and 35-37 where Qwen3-8B falls to 26-31 and 23-25. Sentence encoders are
+  trained for meaning, not for next-token prediction.
+- **The state must be the request, not the whole object.** Jevstiller embeds the canonical JSON of the state.
+  Ours carried the constant 19-action list, and that costs 5-7 points on the holdout (38-41 down to 33-34).
+  Send the request text alone; the class list is already part of the task's identity.
+- **Not measured: a Jev teacher.** I trained on gold labels. With Jev as teacher the student inherits Jev's
+  errors, so 33 of 34 on the benchmark is its ceiling, and the routing threshold decides how often it answers
+  locally. That needs Jev's answers on the training requests (a key and a few thousand calls) and Jevstiller's own
+  replay tooling (`experiments/run.py`).
+- An earlier version of this section called the teacher Claude. It is Jev; I got that from a summary of the docs page
+  and corrected it from the repository.
 
 The 2,400 ToolACE rows and 2,000 Nemotron pairs are rebuilt from public files by the scripts in
 `clm_finetune/` (`embed_cache.py` embeds them resumably, since a vllm-metal crash once lost a 10-minute run);
