@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
-"""Does a local CLM server give the answers CLM's own README says it should?
+"""Is a local CLM stack wired the way everyone else's is?
 
-Sends the README quickstart request (one support ticket, a Noul, a Choice and a
-Score) and compares the answers with the published values. Run it before pointing
-jev_eval.py at the server: if these are far off, the encoder is not producing the
-embeddings the projection head was trained on (wrong model, pooling or length limit),
-and every benchmark number would be noise. The published values are for the
-reference head, clm-latest.
+Sends CLM's README quickstart request (one support ticket, a Noul, a Choice and a
+Score) and compares the answers with what independent stacks get for it with the
+released head: CUDA with vLLM 0.30 on a DGX Spark, an RTX 4090 (CLM's own
+assets/playground.png), MLX, PyTorch MPS and Hugging Face transformers all land within
+the tolerances below (urgency 0.836-0.848, billing 0.987-0.989, frustration 1.9999-2.0,
+98 encoder tokens on a cold cache; github.com/Contrastive-LM/CLM issues #3 and #15).
+A different encoder, pooling or head moves these a lot, so run it before jev_eval.py.
+
+The README itself says 0.41022 / 0.93878 / 1.98386 / 106 tokens. Nobody reproduces
+that, including with the code at the commit the README shipped in (issue #15), so it is
+not what this checks. It also does not check that CLM is any good at anything: these
+values are the same near-constant answers the head gives for most states.
 
 Run: python3 clm_smoke.py     (stdlib only; http://127.0.0.1:8700/v1/systemone by default)
      JEV_API=http://studio.local:8700/v1/systemone python3 clm_smoke.py
@@ -16,7 +22,6 @@ import json, os, sys, time, urllib.error, urllib.request
 
 API = os.environ.get("JEV_API", "http://127.0.0.1:8700/v1/systemone")
 MODEL = os.environ.get("JEV_MODEL", "clm-latest")
-TOL = 0.05  # Metal and CUDA round differently, which moves these a little; a wrong encoder moves them far more
 BODY = {
     "state": "Customer: my invoice was charged twice and nobody answers the phone!",
     "model": MODEL,
@@ -28,9 +33,10 @@ BODY = {
                         "criteria": ["Calm", "Frustrated", "Very angry"]},
     },
 }
-EXPECTED = [("urgency Noul", lambda a: a["urgency"]["noul"], 0.41022),       # Contrastive-LM/CLM README
-            ("department P(billing)", lambda a: a["department"]["probabilities"]["billing"], 0.93878),
-            ("frustration Score", lambda a: a["frustration"]["score"], 1.98386)]
+# (name, getter, value independent stacks get, tolerance); Metal, CUDA and CPU round differently, by about 0.005
+EXPECTED = [("urgency Noul", lambda a: a["urgency"]["noul"], 0.842, 0.02),
+            ("department P(billing)", lambda a: a["department"]["probabilities"]["billing"], 0.988, 0.01),
+            ("frustration Score", lambda a: a["frustration"]["score"], 1.9999, 0.01)]
 
 def health(base):
     try:
@@ -58,17 +64,18 @@ def main():
     wall_ms = 1000 * (time.perf_counter() - t0)
     a = resp["answers"]
     print(f"model {resp.get('model')}, encoder tokens {(resp.get('usage') or {}).get('input_tokens')}, "
-          f"server {server_ms} ms, wall {wall_ms:.0f} ms (a cold cache embeds the option texts too)")
-    worst = 0.0
-    for name, get, want in EXPECTED:
+          f"server {server_ms} ms, wall {wall_ms:.0f} ms (0 tokens once clm-serve has seen these texts)")
+    bad = []
+    for name, get, want, tol in EXPECTED:
         got = get(a)
-        worst = max(worst, abs(got - want))
-        print(f"  {name:22s} {got:.5f}   README {want:.5f}   diff {got - want:+.5f}")
-    if a["department"]["choice"] != "billing" or worst > TOL:
-        sys.exit(f"MISMATCH: choice {a['department']['choice']!r}, off by up to {worst:.3f} (tolerance {TOL}). "
-                 "Check that the encoder is Qwen/Qwen3-8B served with --runner pooling and --max-model-len 2048; "
-                 "ref_encoder.py tells a wrong encoder from wrong published numbers (see the README).")
-    print(f"OK: every value within {TOL} of the README; the encoder and head look right")
+        print(f"  {name:22s} {got:.5f}   other stacks {want:.4f} +/- {tol}   diff {got - want:+.5f}")
+        if abs(got - want) > tol:
+            bad.append(name)
+    if bad or a["department"]["choice"] != "billing":
+        sys.exit(f"MISMATCH in {bad or ['department choice']}. Check that the encoder is Qwen/Qwen3-8B served with "
+                 "--runner pooling --max-model-len 2048, and that clm-serve was restarted after any encoder change. "
+                 "ref_encoder.py checks an encoder against an independent implementation (see the README).")
+    print("OK: matches what independent stacks get. The wiring is right; this says nothing about accuracy.")
 
 if __name__ == "__main__":
     main()
