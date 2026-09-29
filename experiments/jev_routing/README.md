@@ -319,6 +319,7 @@ a temporary mode-600 env file; never on the command line).
 | `jev_eval_results.json` | Raw per-query answers, probabilities, latencies for both criteria variants and the 8-way parallel run. |
 | `clm_smoke.py` | Sends CLM's README quickstart to a local CLM server and checks the answers against what other stacks get for it, so a wrongly wired encoder shows up before the benchmark runs. It checks wiring, not accuracy. Stdlib only. |
 | `ref_encoder.py` | Qwen3-8B through Hugging Face transformers, behind the same `/v1/embeddings` API as `vllm serve`: a reference to check a local encoder against. Needs `torch` and `transformers`. |
+| `clm_finetune/` | Fine-tuning CLM's head on Jido tool selection: `train_requests.py` (437 training requests), `make_data.py` (builds the train/test parquet `finetune.py` reads, refuses near-copies of the benchmark requests), `results/finetune_runs.json`. |
 | `llm_baseline.py` | Same 19 actions as Anthropic tool definitions, same 34 queries, native tool-calling. `COND=select` switches to the selection-only prompt. Needs the `anthropic` package. |
 | `llm_baseline_default.json`, `llm_baseline_select.json` | Raw per-query results for Haiku 4.5 and Opus 5 under each prompt. |
 | `model_routing.py` | Experiment 2: 42 tasks on three tiers, outcome-based gold, Jev routing and verification, policy scoring. `--regrade` re-scores offline; `--reroute` has another System One model (a local CLM) route and verify the stored replies. |
@@ -465,8 +466,53 @@ This is the released head, not the setup. Checked:
   Neither had a fix or a maintainer reply when checked on 2026-09-29, and no open pull request
   touches the schema, engine or head.
 
-This measures the released `clm-latest` head zero-shot. CLM is meant to be fine-tuned on a
-domain's own decisions (`train/finetune.py`); that was not tried here.
+This is the released `clm-latest` head zero-shot. CLM is meant to be fine-tuned on a domain's own
+decisions, which is the next section.
+
+#### Result: fine-tuned on tool selection
+
+`train/finetune.py --task choice` (defaults, warm-started from the released head) on 437 requests
+I wrote for the 19 actions: 20 per action plus 57 requests no action fits (`clm_finetune/`). The
+34 benchmark requests are the test split. They are not in the training set, and `make_data.py`
+refuses to build if a training request is close to one (closest pair: 0.76 similarity, limit 0.8).
+The test split was scored once per training size and nothing was chosen on it: early stopping used
+a 10% validation split, and the first run's settings are the ones reported. Trained on CPU with the
+Mac's embeddings in 2.6 minutes. The head file is not committed; `make_data.py` and the command
+below rebuild it.
+
+| Tool selection, 34 requests, descriptions only | Jev (zero-shot) | CLM released | CLM fine-tuned |
+| --- | --- | --- | --- |
+| Correct | 33/34 | 8/34 | 28/34 |
+| Requests that need an action | 29/29 | 6/29 | 25/29 |
+| "None of these" detected (5 requests) | 4/5 | 2/5 | 3/5 |
+| Confidence 0.6 or more: share answered, precision | 91%, 97% | 0%, n/a | 32%, 100% |
+| Confidence 0.85 or more: share answered, precision | 71%, 100% | 0%, n/a | 12%, 100% |
+
+| Training requests per action | 0 (released) | 5 | 10 | 20 |
+| --- | --- | --- | --- | --- |
+| Correct of 34 (`finetune.py`'s own metric) | 7 | 15 | 20 | 28 |
+
+- Fine-tuning fixes the collapse. Answers spread over the actions, and confidence now means
+  something: everything above 0.6 is right, where the released head never got past 0.85.
+- It's still climbing at 20 per action, so more data would likely help. I didn't test that.
+- Jev is ahead (33/34 against 28/34), but with 34 requests the gap is not conclusive: 95% intervals
+  are roughly 85-99% and 66-92%.
+- The two are not the same kind of result. Jev needed no examples. The tuned head needed about 440,
+  written by me after seeing the benchmark requests, and it only works for this action list in this
+  request format: on the version with parameter docs, which it never saw, it collapses again (2/34
+  released, 11/34 tuned). Model-tier routing was not retrained; the tuned head does not apply there.
+- Encoder cost is the same as the released head (about 0.3 s per request cold on this Mac). The
+  head itself adds nothing measurable, and nothing here costs per call.
+
+```sh
+python3 experiments/jev_routing/clm_finetune/make_data.py /tmp/tooldata      # needs pyarrow
+cd CLM && python train/finetune.py --task choice --data /tmp/tooldata --workflow all \
+  --init-ckpt "$(clm-download)" --out-dir runs/tools --embed-url http://127.0.0.1:8090/v1/embeddings \
+  --served-model-name qwen3-8b --embed-model Qwen/Qwen3-8B --max-len 2048     # needs torch, transformers, pyarrow
+clm-serve --model clm-tuned=runs/tools/best_head.pt --port 8701 ...          # then JEV_MODEL=clm-tuned
+```
+
+Raw: `jev_eval_results_clm-tuned.json`, `clm_finetune/results/finetune_runs.json`.
 
 ## Sources
 
