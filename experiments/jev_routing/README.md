@@ -319,7 +319,7 @@ a temporary mode-600 env file; never on the command line).
 | `jev_eval_results.json` | Raw per-query answers, probabilities, latencies for both criteria variants and the 8-way parallel run. |
 | `clm_smoke.py` | Sends CLM's README quickstart to a local CLM server and checks the answers against what other stacks get for it, so a wrongly wired encoder shows up before the benchmark runs. It checks wiring, not accuracy. Stdlib only. |
 | `ref_encoder.py` | Qwen3-8B through Hugging Face transformers, behind the same `/v1/embeddings` API as `vllm serve`: a reference to check a local encoder against. Needs `torch` and `transformers`. |
-| `clm_finetune/` | Fine-tuning CLM's head on Jido tool selection: `train_requests.py` (437 training requests), `make_data.py` (builds the train/test parquet `finetune.py` reads, refuses near-copies of the benchmark requests), `results/finetune_runs.json`. |
+| `clm_finetune/` | Fine-tuning CLM's head on Jido tool selection. `train_requests.py` (874 training requests) and `make_data.py` (builds the train/test parquet `finetune.py` reads; refuses near-copies of the benchmark requests); `make_external_data.py` (ToolACE rows in the benchmark's shapes); `embed_cache.py` (resumable embedding into `finetune.py`'s cache); `replay_finetune.py` (trainer with optional Nemotron replay); `logreg_baseline.py`; `results/`. |
 | `llm_baseline.py` | Same 19 actions as Anthropic tool definitions, same 34 queries, native tool-calling. `COND=select` switches to the selection-only prompt. Needs the `anthropic` package. |
 | `llm_baseline_default.json`, `llm_baseline_select.json` | Raw per-query results for Haiku 4.5 and Opus 5 under each prompt. |
 | `model_routing.py` | Experiment 2: 42 tasks on three tiers, outcome-based gold, Jev routing and verification, policy scoring. `--regrade` re-scores offline; `--reroute` has another System One model (a local CLM) route and verify the stored replies. |
@@ -500,16 +500,17 @@ the benchmark's did not: the ceiling looks like my wording against the benchmark
 
 - Fine-tuning fixes the collapse. Answers spread over the actions, and confidence now means
   something: everything above 0.6 is right, where the released head never got past 0.85.
-- Doubling the data to 40 per action did not help (28, 25 and 27 of 34). More requests in my own
-  wording is not what is missing.
-- **A logistic regression on the same frozen embeddings does better than the tuned head**: 31/34 at 20
+- With `finetune.py`'s defaults, doubling the data to 40 per action did not help (28, 25 and 27 of 34).
+  With a differently configured trainer it did (28-30 at 20 per action, 30-31 at 40; see the next section).
+- **A logistic regression on the same frozen embeddings does better than `finetune.py`'s tuned head, and
+  as well as the best head I trained**: 31/34 at 20
   and 40 per action, 30/34 at 10, with no head and no contrastive training, from the state embedding
   alone (`clm_finetune/logreg_baseline.py`, regularization picked by cross-validation on the training
   rows). Its three misses are the same at both sizes ("Spin up three workers for the crawl", "Stop being
   idle, get to work", "Delete the user's account permanently"), and its confidence separates right from
-  wrong (0.93 against 0.71 mean at 20 per action). So the Qwen3-8B encoder carries the signal and
-  CLM's head is what loses it. A third-party benchmark reports the same ordering on Banking77 and
-  CLM's own typed-decisions set ([CLM PR 13](https://github.com/Contrastive-LM/CLM/pull/13), open).
+  wrong (0.93 against 0.71 mean at 20 per action). So the frozen Qwen3-8B encoder carries the signal
+  and CLM's head adds nothing over a linear probe here. A third-party benchmark reports the same ordering
+  on Banking77 and CLM's own typed-decisions set ([CLM PR 13](https://github.com/Contrastive-LM/CLM/pull/13), open).
   The classifier only knows the 19 actions it was trained on, like the tuned head; PR 13 finds the
   fine-tuned head weak on intents it never trained on (0.40-0.46), so neither is a general router.
 - Jev is ahead (33/34 against 28/34), but with 34 requests the gap is not conclusive: 95% intervals
@@ -542,7 +543,58 @@ What CLM's [announcement post](https://contrastive-lm.notion.site/) says that be
   (issues 3 and 15) and this benchmark don't support that for the released head, and its own
   headline results are fine-tuned reward models on DeepSWE and Terminal-Bench, not zero-shot routing.
   Its claim that Jev fails as a long-horizon verifier is a different task from anything measured here.
-Not tried: replay of general question-answer data during fine-tuning (needs the Nemotron data).
+#### More data: the paper's datasets, ToolACE and replay
+
+Of the datasets in CLM's paper, I tried one and skipped the rest:
+- **Nemotron DQA (60M question-answer pairs), as replay.** CLM publishes it as precomputed embeddings
+  (`Contrastive-LM/CLM-v0.1-Pretrain-Nemotron`); I used one chunk of 100,000 pairs, 2,000 held out, for the
+  40% replay the post describes.
+- Not tried: the 30M synthetic hard negatives (a pre-training stage for a whole head, not a fine-tuning
+  add-on); the agent trajectories (ADP, Endless-Terminals, LiteCoder-Terminal-SFT; step data with a
+  different kind of action from choosing among named tools); `LocalLLaMA/typed-decisions` (CLM's own
+  fine-tuning evaluation, a different domain).
+
+Instead I built tool-selection rows from a public tool-calling corpus the paper doesn't use, ToolACE
+(11,300 conversations, Apache-2.0), with `make_external_data.py`: 2,400 rows in the benchmark's shapes
+(same state layout and question, 20 options padded with other rows' tools, 13% with the answer removed so
+"none" is right). No Jido action or request is in it. `replay_finetune.py` trains with or without replay
+(constant learning rate 5e-4, softmax over each row's own options). Test split as before; the test score
+is reported for every run and the epoch is chosen on validation only. Correct of 34, each seed shown:
+
+| In-domain requests per action | 0 | 5 | 10 | 20 | 40 |
+| --- | --- | --- | --- | --- | --- |
+| Jido examples only, this trainer | n/a | 10, 11, 14 | 11, 24, 27 | 28, 28, 30 | 30, 31, 31 |
+| ToolACE plus Jido examples, replay 0.4 | 7 | 20, 24, 25 | 26, 26, 28 | 31, 31, 31 | 30, 32, 33 |
+| Jido examples only, `finetune.py` defaults | n/a | 15 | 20 | 28, 28, 28 | 25, 27, 28 |
+| Logistic regression, Jido examples only | n/a | 25 | 30 | 31 | 31 |
+
+- **ToolACE alone does not transfer.** 81-85% on its own validation split, 7 of 34 on Jido (10 with
+  `finetune.py`). The head learns the training tools, not tool selection: the same thing [CLM PR 13](https://github.com/Contrastive-LM/CLM/pull/13)
+  saw on intents it never trained on.
+- **As a supplement it helps, most where in-domain data is scarce**: 23 against 12 correct on average at 5
+  per action, 27 against 21 at 10, and it removes the unstable runs (Jido-only at 10 had a seed stuck at
+  11). At 20 it's 31 against 29 and at 40 it's 32 against 31, within noise.
+- **The ceiling is about Jev's level.** The best heads (31-33 of 34 at 20-40 per action) match the logistic
+  regression (31) and approach Jev (33). None passed it.
+- **Replay does nothing for tool accuracy** (equal or one apart). It does hold the head's question-answer
+  retrieval, measured as top-1 among 100 answers on held-out Nemotron pairs: 0.826 for the released head,
+  0.809-0.8185 after fine-tuning without replay, 0.816-0.8265 with it. The forgetting the post describes
+  is real and small at this scale, about one point.
+- **The trainer matters and I don't know why.** This trainer beat `finetune.py` on the same rows
+  (30-31 against 25-28 at 40 per action), and `finetune.py` with `--loss softce --targets hard` scored
+  26-28 at 20 and 28 at 40, so it isn't the loss. `finetune.py` uses a OneCycle learning-rate schedule and
+  gradient clipping; this trainer uses neither. I didn't isolate which.
+
+Is a tool-selection dataset worth building? Public tool-calling data is not: alone it teaches nothing that
+transfers, and as a supplement it saves perhaps half of the in-domain examples at small sizes. What pays is
+in-domain data: about 20 examples per tool, in the wording your real requests use (the gap between my
+phrasing and the benchmark's is the likely ceiling). Before building anything, fit the logistic regression:
+it needed the same examples, matched the best head and runs with no training infrastructure. To know
+whether any of it holds up, hold out requests from real traffic, not written ones.
+
+The 2,400 ToolACE rows and 2,000 Nemotron pairs are rebuilt from public files by the scripts in
+`clm_finetune/` (`embed_cache.py` embeds them resumably, since a vllm-metal crash once lost a 10-minute run);
+raw runs are in `clm_finetune/results/external_and_replay_runs.json`.
 
 ## Sources
 
