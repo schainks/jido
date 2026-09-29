@@ -317,7 +317,7 @@ a temporary mode-600 env file; never on the command line).
 | --- | --- |
 | `jev_eval.py` | Extracts the 19 actions from `lib/jido/actions/*.ex`, sends each query with four questions (Noul, Choice, complexity Score, risk Score), reports accuracy by confidence band, thresholds, latency, tokens. `JEV_API` and `JEV_MODEL` point it at any System One endpoint. Python 3 stdlib only. |
 | `jev_eval_results.json` | Raw per-query answers, probabilities, latencies for both criteria variants and the 8-way parallel run. |
-| `clm_smoke.py` | Sends CLM's README quickstart to a local CLM server and checks the answers against the published values, so a wrong encoder shows up before the benchmark runs. Stdlib only. |
+| `clm_smoke.py` | Sends CLM's README quickstart to a local CLM server and checks the answers against what other stacks get for it, so a wrongly wired encoder shows up before the benchmark runs. It checks wiring, not accuracy. Stdlib only. |
 | `ref_encoder.py` | Qwen3-8B through Hugging Face transformers, behind the same `/v1/embeddings` API as `vllm serve`: a reference to check a local encoder against. Needs `torch` and `transformers`. |
 | `llm_baseline.py` | Same 19 actions as Anthropic tool definitions, same 34 queries, native tool-calling. `COND=select` switches to the selection-only prompt. Needs the `anthropic` package. |
 | `llm_baseline_default.json`, `llm_baseline_select.json` | Raw per-query results for Haiku 4.5 and Opus 5 under each prompt. |
@@ -370,19 +370,23 @@ git clone https://github.com/Contrastive-LM/CLM && cd CLM
 uv venv -p 3.12 && uv pip install --no-deps -e . && uv pip install numpy requests torch fastapi uvicorn
 .venv/bin/clm-serve --device cpu --emb-url http://127.0.0.1:8090/v1/embeddings
 
-# 3. From this repo: does the stack reproduce CLM's README numbers? Then the benchmark.
+# 3. From this repo: is the stack wired like everyone else's? Then the benchmark.
 python3 experiments/jev_routing/clm_smoke.py
 export JEV_API=http://127.0.0.1:8700/v1/systemone JEV_MODEL=clm-latest
 python3 experiments/jev_routing/jev_eval.py      # -> jev_eval_results_clm-latest.json
 python3 experiments/jev_routing/model_routing.py --reroute   # -> model_routing_results_clm-latest.json
 ```
 
-`clm_smoke.py` sends the quickstart request from CLM's README and fails if any answer is more
-than 0.05 off the published value. Off by that much, the encoder isn't producing what the head
-was trained on and the benchmark would measure noise.
+`clm_smoke.py` sends the quickstart request from CLM's README and fails if an answer is off from
+what independent stacks get for it (CUDA with vLLM 0.30, an RTX 4090, MLX, PyTorch MPS, Hugging Face
+all agree: urgency 0.84, billing 0.99, frustration 2.0, 98 encoder tokens). The README's own
+numbers (0.41, 0.94, 1.98, 106 tokens) don't reproduce for anyone, including at the commit it
+shipped in ([CLM issue 15](https://github.com/Contrastive-LM/CLM/issues/15)), so they are not the
+check.
 
-When it reports MISMATCH, `ref_encoder.py` tells the two possible causes apart. It computes the
-same last-token embedding with Hugging Face transformers instead of vLLM:
+When it reports MISMATCH, `ref_encoder.py` checks the encoder against an independent
+implementation: the same last-token embedding, computed with Hugging Face transformers instead of
+vLLM.
 
 ```sh
 # stop vllm serve first; this needs the same ~16 GB. In the CLM checkout:
@@ -392,9 +396,10 @@ uv pip install transformers
 python3 experiments/jev_routing/clm_smoke.py
 ```
 
-If the smoke check now passes, the vllm serve encoder was wrong, and the benchmark can run on the
-reference encoder instead (slower, one text per forward pass). If it fails with the same numbers,
-the encoder was fine and CLM's published values don't match the head. With the two variables exported,
+If the smoke check now passes and vllm serve's did not, the vllm serve encoder was wrong, and the
+benchmark can run on the reference encoder instead (slower, one text per forward pass). If the numbers
+are the same, the encoder is fine; on a Mac Studio, vllm-metal matched it to cosine 0.9998 or better.
+With the two variables exported,
 `../jev_model_routing/route_jev.py` and `analyze.py` use CLM too, and `analyze.py --pilot`
 computes the Experiment 1 signal AUCs from CLM's answers.
 
@@ -414,6 +419,54 @@ Reading the results next to Jev's:
   discovery pass: the schema pass reuses its state texts, and the 8-way pass is all cache hits.
 - CLM's `tokens_in` counts only encoder tokens spent on cache misses, so it doesn't compare
   with Jev's.
+
+#### Result: the released CLM head does not do this task
+
+Run on a Mac Studio (M2 Max): Qwen3-8B on vllm-metal, `clm-serve --device cpu`, head
+`CLM_v0.1-8B.pt`. Raw files: `jev_eval_results_clm-latest.json`, `jev_eval_results_clm-raw.json`,
+`model_routing_results_clm-latest.json`, `model_routing_results_clm-raw.json`. `clm-raw` is CLM's own
+ablation: cosine in the encoder's embedding space, no head.
+
+| Tool selection, 34 requests, 19 actions plus none | Jev | CLM head | CLM raw |
+| --- | --- | --- | --- |
+| Correct, action descriptions only | 33/34 | 8/34 | 4/34 |
+| Correct, descriptions plus parameter docs | 33/34 | 2/34 | 1/34 |
+| Requests that need an action, descriptions only | 29/29 | 6/29 | 4/29 |
+| "None of these" detected (5 requests) | 4/5 | 2/5 | 0/5 |
+| Answers at confidence 0.85 or more, descriptions only | 24, all right | 0 | 0 |
+| Most common answer | none (4) | `mark_working` (17) | `mark_working` (24) |
+| Median latency, descriptions only | 134 ms | 306 ms | not measured |
+
+Always answering "none" scores 5/34, a uniform guess 1/20. With parameter docs the head answers
+`stop_child` for 33 of 34 requests, at 0.5 to 0.95 confidence, including "Book me a flight to Denver."
+
+| Model-tier routing, 42 stored tasks | Jev | CLM head | CLM raw |
+| --- | --- | --- | --- |
+| Choice policy: pass rate, $ per task | 0.86, $0.0005 | 0.95, $0.0008 | 0.90, $0.0025 |
+| Tiers picked (fast / capable / reasoning) | 35 / 6 / 1 | 0 / 39 / 3 | 0 / 0 / 42 |
+| Cascade at 0.5: pass rate, $ per task | 0.88, $0.0010 | 0.74, $0.0005 | 0.74, $0.0005 |
+| "Is this answer wrong" ranks a wrong fast answer above a right one | 83% of pairs | 43% | 45% |
+
+CLM's 0.95 in the first row is not routing: 39 of 42 tasks went to the capable tier, which is
+the always-capable policy (0.93) plus three lucky picks. Below 50% on the last row is worse than
+chance, so its cascade never escalates and lands on always-fast (0.74).
+
+This is the released head, not the setup. Checked:
+- **Encoder.** vllm-metal and an independent Hugging Face bf16 run of Qwen3-8B agree to cosine
+  0.9998 or better on every text the smoke check sends, and CLM's own engine gives the same
+  answers on either set of vectors. Token counts match the Qwen3 tokenizer exactly. Texts embedded
+  together or one at a time give identical vectors.
+- **Layout.** Four state layouts, fixed before running (as benchmarked, request last, request
+  only, request plus context without the action list) give 8, 10, 4 and 2 of 34 correct.
+- **Upstream.** [Issue 15](https://github.com/Contrastive-LM/CLM/issues/15) reports the same
+  collapse on CUDA: the state vectors stay 0.947 cosine apart even after the head, so answers
+  barely depend on the request. [Issue 3](https://github.com/Contrastive-LM/CLM/issues/3)
+  reports score questions returning "Very angry" for every state, reproduced on CUDA, MLX and MPS.
+  Neither had a fix or a maintainer reply when checked on 2026-09-29, and no open pull request
+  touches the schema, engine or head.
+
+This measures the released `clm-latest` head zero-shot. CLM is meant to be fine-tuned on a
+domain's own decisions (`train/finetune.py`); that was not tried here.
 
 ## Sources
 
