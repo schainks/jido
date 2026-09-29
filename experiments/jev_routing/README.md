@@ -472,11 +472,12 @@ decisions, which is the next section.
 #### Result: fine-tuned on tool selection
 
 `train/finetune.py --task choice` (defaults, warm-started from the released head) on 437 requests
-I wrote for the 19 actions: 20 per action plus 57 requests no action fits (`clm_finetune/`). The
+I wrote for the 19 actions: 20 per action plus 57 requests no action fits (`clm_finetune/`), later doubled
+to 874 (40 per action, 114 that fit none). The
 34 benchmark requests are the test split. They are not in the training set, and `make_data.py`
 refuses to build if a training request is close to one (closest pair: 0.76 similarity, limit 0.8).
-The test split was scored once per training size and nothing was chosen on it: early stopping used
-a 10% validation split, and the first run's settings are the ones reported. Trained on CPU with the
+Nothing was chosen on the test split: every run used the script's defaults, early stopping used a 10%
+validation split, and every run's test score is reported. Trained on CPU with the
 Mac's embeddings in 2.6 minutes. The head file is not committed; `make_data.py` and the command
 below rebuild it.
 
@@ -488,13 +489,29 @@ below rebuild it.
 | Confidence 0.6 or more: share answered, precision | 91%, 97% | 0%, n/a | 32%, 100% |
 | Confidence 0.85 or more: share answered, precision | 71%, 100% | 0%, n/a | 12%, 100% |
 
-| Training requests per action | 0 (released) | 5 | 10 | 20 |
-| --- | --- | --- | --- | --- |
-| Correct of 34 (`finetune.py`'s own metric) | 7 | 15 | 20 | 28 |
+| Training requests per action | 0 (released) | 5 | 10 | 20 | 40 |
+| --- | --- | --- | --- | --- | --- |
+| Fine-tuned CLM head, correct of 34 (`finetune.py`'s own metric) | 7 | 15 | 20 | 28, 28, 28 | 28, 25, 27 |
+| Logistic regression on the frozen encoder's embeddings, correct of 34 | n/a | 25 | 30 | 31 | 31 |
+
+20 and 40 per action show three seeds each (validation split and initialization change; the test
+split does not). Validation accuracy on my own phrasing rose from 0.82-0.86 to 0.82-0.89 at 40, while
+the benchmark's did not: the ceiling looks like my wording against the benchmark's, not data volume.
 
 - Fine-tuning fixes the collapse. Answers spread over the actions, and confidence now means
   something: everything above 0.6 is right, where the released head never got past 0.85.
-- It's still climbing at 20 per action, so more data would likely help. I didn't test that.
+- Doubling the data to 40 per action did not help (28, 25 and 27 of 34). More requests in my own
+  wording is not what is missing.
+- **A logistic regression on the same frozen embeddings does better than the tuned head**: 31/34 at 20
+  and 40 per action, 30/34 at 10, with no head and no contrastive training, from the state embedding
+  alone (`clm_finetune/logreg_baseline.py`, regularization picked by cross-validation on the training
+  rows). Its three misses are the same at both sizes ("Spin up three workers for the crawl", "Stop being
+  idle, get to work", "Delete the user's account permanently"), and its confidence separates right from
+  wrong (0.93 against 0.71 mean at 20 per action). So the Qwen3-8B encoder carries the signal and
+  CLM's head is what loses it. A third-party benchmark reports the same ordering on Banking77 and
+  CLM's own typed-decisions set ([CLM PR 13](https://github.com/Contrastive-LM/CLM/pull/13), open).
+  The classifier only knows the 19 actions it was trained on, like the tuned head; PR 13 finds the
+  fine-tuned head weak on intents it never trained on (0.40-0.46), so neither is a general router.
 - Jev is ahead (33/34 against 28/34), but with 34 requests the gap is not conclusive: 95% intervals
   are roughly 85-99% and 66-92%.
 - The two are not the same kind of result. Jev needed no examples. The tuned head needed about 440,
@@ -513,6 +530,19 @@ clm-serve --model clm-tuned=runs/tools/best_head.pt --port 8701 ...          # t
 ```
 
 Raw: `jev_eval_results_clm-tuned.json`, `clm_finetune/results/finetune_runs.json`.
+
+What CLM's [announcement post](https://contrastive-lm.notion.site/) says that bears on this:
+- The head is trained mostly on question-answer pairs (60M from Nemotron DQA, then 30M synthetic hard
+  negatives, then 1M agent trajectories), and the post's own numbers say fine-tuning on one narrow
+  domain forgets: with 40% Nemotron data replayed alongside the agentic data, hard-negative accuracy
+  stays at 68.5%, and on agentic data alone it falls to 56.2%. My fine-tune had no replay.
+- It reports the optimal head size growing with data at about 310 tokens per parameter. The 20M-parameter
+  head against a few hundred examples is far from that, which fits a linear probe winning here.
+- It claims zero-shot parity with Jev on tool-calling and computer use. Independent reproductions
+  (issues 3 and 15) and this benchmark don't support that for the released head, and its own
+  headline results are fine-tuned reward models on DeepSWE and Terminal-Bench, not zero-shot routing.
+  Its claim that Jev fails as a long-horizon verifier is a different task from anything measured here.
+Not tried: replay of general question-answer data during fine-tuning (needs the Nemotron data).
 
 ## Sources
 
