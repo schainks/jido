@@ -592,6 +592,33 @@ phrasing and the benchmark's is the likely ceiling). Before building anything, f
 it needed the same examples, matched the best head and runs with no training infrastructure. To know
 whether any of it holds up, hold out requests from real traffic, not written ones.
 
+#### A second test set: 45 requests written after everything else
+
+`clm_finetune/holdout.py`: 45 hand-written requests (36 that need an action, every action at least once, and 9 near-misses
+with none) in a register meant to differ from both the benchmark and the training sets, with a guard against
+near-copies of either. Which models were scored, and how, was fixed before any of them saw it, and nothing was chosen on it.
+It is more independent than the benchmark but I wrote it too, so it is not real traffic. Correct of 45:
+
+| Model | Correct of 45 |
+| --- | --- |
+| Jevstiller's student, bge-base, gold labels, 40 per action | 41, 41, 41 |
+| Jevstiller's student, bge-small | 38, 40, 36 |
+| Jev, zero-shot (the request text as the state) | 39 |
+| Logistic regression on Qwen3-8B embeddings, 40 per action | 39 |
+| CLM head, ToolACE plus Jido examples | 37, 35, 33 |
+| CLM head, Jido examples only | 36, 36, 32 |
+| Jevstiller's student on Qwen3-8B, request text only | 33, 34, 34 |
+| CLM released head | 5 |
+
+- **Jev misses 6 of 45, and the field is within a few requests of it.** Three of Jev's misses send a "none" request to `reply`
+  ("How much memory are you using?", "Explain what a cron expression is"), where `reply` is arguably defensible and my gold label is
+  debatable. The rest ("Kill the worker named 'thumbnailer'", "let it go", "Ping <0.412.0>") are also missed by most other models.
+  Its confidence is informative: 0.87 on right answers against 0.50 on wrong ones.
+- **The tuned CLM heads drop about 10 points from the benchmark to here and the small-encoder students about 5.** The holdout's wording
+  is further from the training data.
+- With 45 requests a difference of two to four is noise. The students trained on gold labels would inherit Jev's errors if taught
+  by Jev instead (see the replay below).
+
 #### Jevstiller's student
 
 [Jevstiller](https://github.com/tomerglick57/Jevstiller) (Apache-2.0, alpha) is a proxy in front of Jev's `Choice` calls. It
@@ -635,22 +662,29 @@ at 40 requests per action. `clm_finetune/jevstiller_student.py`, raw numbers in 
 cache): `record` makes one Jev call per request into its cache format, and `replay` streams the 874 training requests
 through the real `Jevstiller` loop with inline training, then scores the 79 held-out requests (the 34 benchmark and
 the 45 holdout) at checkpoints with `evaluate()`, which never writes to its store, so the held-out rows cannot leak
-into training. The state is the request text alone. A replay needs no key.
+into training. The state is the request text alone. A replay needs no key: Jev's 953 recorded answers
+(`results/jev_answers.jsonl.gz`, gunzip it to replay) cost $0.027, about 3 cents per thousand requests, at a median of 95 ms.
+Jev alone, with the request text as the state, gets 33/34 on the benchmark and 39/45 on the holdout.
 
-With our gold labels as a perfect teacher (0.9 on the gold class) and bge-small on CPU, 874 requests are not enough for
-Jevstiller to take over under its guarantees:
+Replayed on Jev's real answers with bge-small on CPU (raw: `results/jevstiller_replay_jev.json`):
 
 | Target agreement | Library defaults (1000 / 50 per class / 500 calibration rows) | `run.py`'s protocol (500 / 5 / 200) | Small-data (200 / 10 / 100) |
 | --- | --- | --- | --- |
 | 98% | no student | no student | no student |
-| 95% | no student | no student | student: answers 73% of held-out requests (88% benchmark, 62% holdout), 94.9% agreement, 33/34 and 44/45 correct |
+| 95% | no student | no student | student answers 42% of held-out requests (59% benchmark-style, 29% holdout-style), 100% agreement with Jev, system 33/34 and 39/45 |
+| 90% | no student | no student | student answers 73% (88%, 62%), 91% agreement, system 31/34 and 36/45 |
 
-- **Volume, not accuracy, is the limit.** The student's accuracy is not what stops it; the routing threshold has to be
-  certified on calibration rows, and there are too few. Its own Banking77 run took about 4,000 requests to take over.
-  Real traffic, or several thousand more requests, is what this would need.
-- **The small-data column gives up the guarantee's headroom**, so treat its coverage as an optimistic ceiling.
-- **Jev's own answers are not in yet**: recording them needs a TypeSafe key. With them the student inherits Jev's
-  errors, and Jev alone with the request text as the state gets its own score on the benchmark and holdout from the same run.
+- **874 requests are too few for Jevstiller to take over under its guarantees.** With our gold labels as a perfect teacher the
+  result was the same (only the small-data column at 95% produced a student, answering 73%), so volume is the limit, not
+  Jev's noise: the routing threshold has to be certified on calibration rows and there are too few. Its own Banking77 run
+  took about 4,000 requests.
+- **It answers familiar wording and sends unfamiliar wording to Jev**, which is the point of its out-of-distribution gate:
+  at the 95% target it handles 59% of benchmark-style requests and 29% of the differently-worded holdout.
+- **Loosening the target buys coverage at the price of accuracy.** At 90% it answers 73% locally but the system falls to
+  36/45 on the holdout against Jev's 39.
+- **Money is not the reason to do this here.** Jev costs about 3 cents per thousand of these requests. The case for a local
+  student is latency (a bge-small answer is a few milliseconds against Jev's ~95-300 ms), no dependence on one vendor's API
+  and its rate limit, and offline use.
 
 The 2,400 ToolACE rows and 2,000 Nemotron pairs are rebuilt from public files by the scripts in
 `clm_finetune/` (`embed_cache.py` embeds them resumably, since a vllm-metal crash once lost a 10-minute run);
