@@ -629,6 +629,29 @@ at 40 requests per action. `clm_finetune/jevstiller_student.py`, raw numbers in 
 - An earlier version of this section called the teacher Claude. It is Jev; I got that from a summary of the docs page
   and corrected it from the repository.
 
+#### Replaying through Jevstiller
+
+`clm_finetune/jevstiller_replay.py` follows Jevstiller's own protocol (`record_answers.py`, then a replay from its answer
+cache): `record` makes one Jev call per request into its cache format, and `replay` streams the 874 training requests
+through the real `Jevstiller` loop with inline training, then scores the 79 held-out requests (the 34 benchmark and
+the 45 holdout) at checkpoints with `evaluate()`, which never writes to its store, so the held-out rows cannot leak
+into training. The state is the request text alone. A replay needs no key.
+
+With our gold labels as a perfect teacher (0.9 on the gold class) and bge-small on CPU, 874 requests are not enough for
+Jevstiller to take over under its guarantees:
+
+| Target agreement | Library defaults (1000 / 50 per class / 500 calibration rows) | `run.py`'s protocol (500 / 5 / 200) | Small-data (200 / 10 / 100) |
+| --- | --- | --- | --- |
+| 98% | no student | no student | no student |
+| 95% | no student | no student | student: answers 73% of held-out requests (88% benchmark, 62% holdout), 94.9% agreement, 33/34 and 44/45 correct |
+
+- **Volume, not accuracy, is the limit.** The student's accuracy is not what stops it; the routing threshold has to be
+  certified on calibration rows, and there are too few. Its own Banking77 run took about 4,000 requests to take over.
+  Real traffic, or several thousand more requests, is what this would need.
+- **The small-data column gives up the guarantee's headroom**, so treat its coverage as an optimistic ceiling.
+- **Jev's own answers are not in yet**: recording them needs a TypeSafe key. With them the student inherits Jev's
+  errors, and Jev alone with the request text as the state gets its own score on the benchmark and holdout from the same run.
+
 The 2,400 ToolACE rows and 2,000 Nemotron pairs are rebuilt from public files by the scripts in
 `clm_finetune/` (`embed_cache.py` embeds them resumably, since a vllm-metal crash once lost a 10-minute run);
 raw runs are in `clm_finetune/results/external_and_replay_runs.json`.
