@@ -686,6 +686,35 @@ Replayed on Jev's real answers with bge-small on CPU (raw: `results/jevstiller_r
   student is latency (a bge-small answer is a few milliseconds against Jev's ~95-300 ms), no dependence on one vendor's API
   and its rate limit, and offline use.
 
+#### Real traffic: Claude Code's own tool calls
+
+I built a next-tool-prediction dataset from Claude Code session transcripts (`~/.claude/projects`; the Claude Desktop logs
+hold only 6 tool calls): 60,214 calls from 1,274 sessions, 57,557 rows after scrubbing and exact de-duplication, 29 classes (Bash split by
+its first command word, MCP tools by server). The data is private and stays outside the repository; only the code
+(`real_calls/`: `build_real_calls.py` with its scrubber and self-test, `prepare.py`, `local_baselines.py`, `jev_label.py`) and
+aggregate numbers (`real_calls/results.json`) are committed. Scrubbing covers keys and tokens of common formats,
+`key=value` secrets, emails, URL query strings, home paths, IPs, long identifiers, and drops any row with private-key markers or a
+secret from this machine's environment or key files (checked by value, none found). Jev received 1,140 unique scrubbed
+contexts (about 440,000 characters, $0.05), a sample, with the owner's permission.
+
+| Top-1 accuracy | Next tool given the steps so far (3,602 test rows from unseen sessions) | First tool for a user request (2,545 rows) |
+| --- | --- | --- |
+| Majority class | 20.9% | 18.8% |
+| Jev zero-shot | 25.7% (32.3% with the assistant's narration), 300 rows | 20.2% (top-3 37.8%), 1,000 rows |
+| bge-small student trained on the real labels | 29.3% (top-3 62%) | 37.1% (top-3 62.5%), 5-fold CV by session |
+| Same tool as the previous call | **36.4%** | n/a |
+| Student on the previous two tools alone | **38.4%** (top-3 68.8%) | n/a |
+
+- **This is not a tool-selection task in the way the Jido benchmark is.** The labels are one assistant's habits, and many classes overlap in meaning
+  (`cat` through Bash against the Read tool, `grep` against Read), so nothing in the context says which the assistant will pick.
+  Repeating the last tool beats every text model, and the previous two tools alone beat the student with the text added.
+- **Jev zero-shot is close to the majority class** (20.2% against 18.8% on requests). It is right where a request names a domain (git: 67 of
+  169; file reading: 60 of 124) and near zero elsewhere (deferred-tool loads: 0 of 69).
+- **A student trained on your own history roughly doubles it** (37.1%), because the signal is a person's and an agent's habits, which no pretrained model knows.
+  Some of that may be near-identical prompts repeated across sessions.
+- **So Jevstiller's design is the wrong fit for this data**: its teacher is Jev, which is 20-26% here, so a student distilled from it would be too.
+  Training directly on the real labels is the only route that learns anything, and the previous-tool sequence matters more than the text.
+
 The 2,400 ToolACE rows and 2,000 Nemotron pairs are rebuilt from public files by the scripts in
 `clm_finetune/` (`embed_cache.py` embeds them resumably, since a vllm-metal crash once lost a 10-minute run);
 raw runs are in `clm_finetune/results/external_and_replay_runs.json`.

@@ -1,0 +1,63 @@
+{
+ "what": "Claude Code session transcripts (~/.claude/projects) as a next-tool-prediction dataset: aggregates only; the data itself is private and stays outside the repo",
+ "source": {
+  "transcript_files": 1347,
+  "tool_calls": 60214,
+  "rows_kept_after_scrub_and_dedupe": 57557,
+  "classes": 29,
+  "sessions": 1274,
+  "calls_that_are_first_after_a_user_message": 2545,
+  "split": "by session: train 49,245 / val 4,710 / test 3,602"
+ },
+ "next_tool_given_the_steps_so_far_test_3602": {
+  "majority_class": {
+   "class": "Bash_view",
+   "accuracy": 0.2093,
+   "macro_f1": 0.0157
+  },
+  "same_as_previous_tool": {
+   "accuracy": 0.3637,
+   "macro_f1": 0.3545
+  },
+  "bge_small_student": {
+   "accuracy": 0.2929,
+   "macro_f1": 0.254,
+   "top3_accuracy": 0.6197,
+   "epochs": 2000,
+   "seconds": 1583
+  },
+  "bge_small_student_with_narration": {
+   "accuracy": 0.2901,
+   "macro_f1": 0.2556,
+   "top3_accuracy": 0.6235,
+   "epochs": 1975,
+   "seconds": 1546
+  },
+  "jev_zero_shot_300_rows": {
+   "without_narration_top1": 0.257,
+   "without_narration_top3": 0.54,
+   "with_narration_top1": 0.323,
+   "with_narration_top3": 0.6
+  },
+  "student_with_previous_two_tools_as_features": {
+   "text_only": 0.293,
+   "previous_two_labels_only": 0.384,
+   "text_plus_previous_two_labels": 0.367
+  }
+ },
+ "request_to_first_tool_2545_rows": {
+  "majority_class": 0.188,
+  "jev_zero_shot_1000_rows": {
+   "top1": 0.202,
+   "top3": 0.378
+  },
+  "bge_small_student_5fold_cv_by_session": {
+   "top1": 0.371,
+   "top3": 0.625
+  }
+ },
+ "sent_to_jev": {
+  "calls": 1140,
+  "note": "scrubbed context texts, at most ~1k characters each, plus the class descriptions; sample of the data"
+ }
+}
