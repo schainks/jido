@@ -1,0 +1,120 @@
+{
+ "what": "CLM v0.1 head warm-started and fine-tuned on Jido tool selection: train/finetune.py --task choice, defaults, one run per size, test split never used to choose anything",
+ "hyperparameters": {
+  "epochs": 20,
+  "batch": 256,
+  "loss": "infonce",
+  "targets": "soft",
+  "seed": 1234,
+  "val_frac": 0.1,
+  "patience": 5,
+  "weight_decay": 0.0,
+  "proj": 512,
+  "lr": "script default (5e-4 for choice)",
+  "width_depth": "from the released head (1536, 3)"
+ },
+ "test_split": "the 34 jev_eval.py requests; 'test_correct_of_34' is finetune.py's own top-1 metric",
+ "fine_tuned_head_runs": [
+  {
+   "per_action": 5,
+   "seed": 1234,
+   "train_requests": 99,
+   "val_requests": 11,
+   "best_epoch": 4,
+   "val_acc": 0.3636,
+   "test_correct_of_34": 15,
+   "init_test_correct_of_34": 7
+  },
+  {
+   "per_action": 10,
+   "seed": 1234,
+   "train_requests": 197,
+   "val_requests": 22,
+   "best_epoch": 14,
+   "val_acc": 0.5,
+   "test_correct_of_34": 20,
+   "init_test_correct_of_34": 7
+  },
+  {
+   "per_action": 20,
+   "seed": 1234,
+   "train_requests": 393,
+   "val_requests": 44,
+   "best_epoch": 12,
+   "val_acc": 0.75,
+   "test_correct_of_34": 28,
+   "init_test_correct_of_34": 7
+  },
+  {
+   "per_action": 20,
+   "seed": 1,
+   "train_requests": 393,
+   "val_requests": 44,
+   "best_epoch": 12,
+   "val_acc": 0.8636,
+   "test_correct_of_34": 28,
+   "init_test_correct_of_34": 7
+  },
+  {
+   "per_action": 20,
+   "seed": 2,
+   "train_requests": 393,
+   "val_requests": 44,
+   "best_epoch": 14,
+   "val_acc": 0.8182,
+   "test_correct_of_34": 28,
+   "init_test_correct_of_34": 7
+  },
+  {
+   "per_action": 40,
+   "seed": 1234,
+   "train_requests": 787,
+   "val_requests": 87,
+   "best_epoch": 17,
+   "val_acc": 0.8851,
+   "test_correct_of_34": 28,
+   "init_test_correct_of_34": 7
+  },
+  {
+   "per_action": 40,
+   "seed": 1,
+   "train_requests": 787,
+   "val_requests": 87,
+   "best_epoch": 8,
+   "val_acc": 0.8736,
+   "test_correct_of_34": 25,
+   "init_test_correct_of_34": 7
+  },
+  {
+   "per_action": 40,
+   "seed": 2,
+   "train_requests": 787,
+   "val_requests": 87,
+   "best_epoch": 9,
+   "val_acc": 0.8161,
+   "test_correct_of_34": 27,
+   "init_test_correct_of_34": 7
+  }
+ ],
+ "logistic_regression_on_frozen_qwen3_embeddings": {
+  "note": "clm_finetune/logreg_baseline.py, standardized state embeddings, C chosen by 5-fold CV on the training rows (0.1 at every size)",
+  "runs": [
+   {
+    "per_action": 5,
+    "test_correct_of_34": 25
+   },
+   {
+    "per_action": 10,
+    "test_correct_of_34": 30
+   },
+   {
+    "per_action": 20,
+    "test_correct_of_34": 31
+   },
+   {
+    "per_action": 40,
+    "test_correct_of_34": 31
+   }
+  ]
+ }
+}
