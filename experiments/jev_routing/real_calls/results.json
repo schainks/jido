@@ -59,5 +59,90 @@
  "sent_to_jev": {
   "calls": 1140,
   "note": "scrubbed context texts, at most ~1k characters each, plus the class descriptions; sample of the data"
- }
+ },
+ "right_tool_labels": {
+  "what": "567 real requests (first call after a user message) labelled with the right tool by two independent Claude labellers (TAXONOMY.md), disagreements adjudicated; aggregates only",
+  "pool": {
+   "self_contained_requests": 1639,
+   "sampled": 600,
+   "artifacts_removed": 33,
+   "artifact_share_of_all_2545_first_call_rows": 0.109
+  },
+  "labeller_agreement": {
+   "exact": "501/600 = 83.5%",
+   "kappa": 0.813,
+   "soft_disagreements": 86,
+   "hard_disagreements": 13,
+   "hard_that_were_artifacts": 9
+  },
+  "final": {
+   "rows": 567,
+   "main_thread": 370,
+   "subagent": 197,
+   "agreed": 486,
+   "two_acceptable_answers": 77,
+   "adjudicated": 4,
+   "share_with_more_than_one_acceptable": 0.143
+  },
+  "top1_vs_acceptable_labels": {
+   "majority_class_read_file": 0.2628,
+   "habit_label": {
+    "all": 0.3827,
+    "main_thread": 0.2514,
+    "subagent": 0.6294
+   },
+   "jev_zero_shot_request_only": {
+    "top1": 0.5538,
+    "top1_main_thread": 0.5432,
+    "top1_subagent": 0.5736,
+    "top3": 0.8219,
+    "mean_confidence_right": 0.722,
+    "mean_confidence_wrong": 0.483
+   },
+   "jev_zero_shot_with_session_task": {
+    "top1": 0.4885,
+    "top3": 0.7566
+   },
+   "bge_small_student_5fold_cv_by_session": {
+    "top1": 0.478,
+    "top3": 0.7108,
+    "majority_in_folds": 0.2628
+   }
+  },
+  "jev_confidence_gate_request_only": {
+   ">=0.5": {
+    "answers": 0.64,
+    "right": 0.71
+   },
+   ">=0.6": {
+    "answers": 0.51,
+    "right": 0.78
+   },
+   ">=0.7": {
+    "answers": 0.38,
+    "right": 0.87
+   },
+   ">=0.8": {
+    "answers": 0.28,
+    "right": 0.87
+   }
+  },
+  "jev_recall_by_label": {
+   "git": "53/62",
+   "github": "39/52",
+   "web_search": "9/12",
+   "web_fetch": "5/6",
+   "browser_or_app_ui": "12/17",
+   "answer_directly": "55/97",
+   "read_file": "65/127",
+   "search_files": "16/25",
+   "run_code": "13/33",
+   "edit_file": "8/40",
+   "write_file": "7/20",
+   "ask_user": "7/15",
+   "remote_or_http": "3/14",
+   "shell_ops": "4/11"
+  }
+ },
+ "correction": "The first-tool-for-a-request rows measured earlier included injected text that is not a request (10.9% of the 2,545: session-continuation summaries and skill bodies); the right-tool set removes them."
 }

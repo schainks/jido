@@ -705,15 +705,45 @@ contexts (about 440,000 characters, $0.05), a sample, with the owner's permissio
 | Same tool as the previous call | **36.4%** | n/a |
 | Student on the previous two tools alone | **38.4%** (top-3 68.8%) | n/a |
 
-- **This is not a tool-selection task in the way the Jido benchmark is.** The labels are one assistant's habits, and many classes overlap in meaning
+- **With habit labels this is not a tool-selection task in the way the Jido benchmark is.** The labels are one assistant's habits, and many classes overlap in meaning
   (`cat` through Bash against the Read tool, `grep` against Read), so nothing in the context says which the assistant will pick.
   Repeating the last tool beats every text model, and the previous two tools alone beat the student with the text added.
 - **Jev zero-shot is close to the majority class** (20.2% against 18.8% on requests). It is right where a request names a domain (git: 67 of
   169; file reading: 60 of 124) and near zero elsewhere (deferred-tool loads: 0 of 69).
 - **A student trained on your own history roughly doubles it** (37.1%), because the signal is a person's and an agent's habits, which no pretrained model knows.
   Some of that may be near-identical prompts repeated across sessions.
-- **So Jevstiller's design is the wrong fit for this data**: its teacher is Jev, which is 20-26% here, so a student distilled from it would be too.
-  Training directly on the real labels is the only route that learns anything, and the previous-tool sequence matters more than the text.
+##### Labelling the right tool instead of the habit
+
+The habit labels above are the wrong target, so I relabelled 600 sampled requests (self-contained first-call requests: at least 25 characters, no bare
+"yes" or "continue") with the tool that is **right for the request**, using the rubric in `real_calls/TAXONOMY.md` (17 function classes, overlapping
+habits merged: reading a file is `read_file` whether Read or `cat`). Two Claude labellers worked independently from the rubric, one framed as a
+careful engineer deciding what to do first, neither seeing the habit label; disagreements were adjudicated. Raw labels are private data, outside the repo.
+
+- **Labeller agreement:** 83.5% exact on 600 (kappa 0.81). 86 of the 99 disagreements were soft (one's second choice is the other's first) and 13 hard; 9 of the 13 were not
+  requests at all: **injected text** (session-continuation summaries, skill bodies). Those are 5.5% of the sample and 10.9% of all 2,545 first-call rows, so the
+  first-tool numbers above were partly measuring skill prompts. They are removed.
+- **Final set:** 567 rows (486 agreed, 77 with two acceptable answers, 4 adjudicated); 14% have more than one acceptable label, scored like the Jido gold sets
+  (a prediction counts if it is any acceptable label).
+- **Habit against the right tool:** the tool the assistant actually called first is an acceptable answer **38%** of the time, **25% for requests you typed** and 63% for
+  delegations written by other agents. The habit labels were a poor stand-in for correctness.
+
+| Top-1, acceptable labels (567 requests) | Accuracy |
+| --- | --- |
+| Majority class (`read_file`) | 26.3% |
+| The assistant's habitual first tool | 38.3% |
+| bge-small student, 5-fold CV by session (about 450 training rows per fold) | 47.8% (top-3 71%) |
+| **Jev zero-shot, request alone** | **55.4%** (top-3 82%; typed requests 54%, delegations 57%) |
+| Jev zero-shot, request plus the session's opening task | 48.9% |
+
+- **With right-tool labels Jev is useful**, roughly double the majority class, and its confidence separates right from wrong (0.72 against 0.48): at 0.7 or more it answers 38% of
+  requests at 87% right, at 0.6 or more 51% at 78%. More context hurt it (48.9%).
+- **Where it wins and loses:** strong on git (53 of 62), GitHub (39 of 52), web search (9 of 12), web fetch (5 of 6) and browser (12 of 17); weak on `edit_file` (8 of 40),
+  `write_file` (7 of 20) and `run_code` (13 of 33). It over-uses `ask_user` (91 predictions against 15 true), mostly on requests that just needed a direct answer.
+- **Caveats:** the labellers are the same model family, not independent humans, and judged each request without the whole session, so a human check of a sample (50 would do)
+  is the next step. 567 rows is small; the student had few rows to learn from, so its 48% is a floor. `answer_directly` (17% of rows) is a label the assistant never produces,
+  since it always called a tool, which also caps the habit score.
+- **For tool selection this is the right dataset to build on.** Jev zero-shot is usable here, so a Jev-taught student (Jevstiller) is worth trying again once there are a few
+  thousand such requests, with the confidence gate doing the routing.
 
 The 2,400 ToolACE rows and 2,000 Nemotron pairs are rebuilt from public files by the scripts in
 `clm_finetune/` (`embed_cache.py` embeds them resumably, since a vllm-metal crash once lost a 10-minute run);
