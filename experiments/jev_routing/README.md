@@ -742,8 +742,44 @@ careful engineer deciding what to do first, neither seeing the habit label; disa
 - **Caveats:** the labellers are the same model family, not independent humans, and judged each request without the whole session, so a human check of a sample (50 would do)
   is the next step. 567 rows is small; the student had few rows to learn from, so its 48% is a floor. `answer_directly` (17% of rows) is a label the assistant never produces,
   since it always called a tool, which also caps the habit score.
-- **For tool selection this is the right dataset to build on.** Jev zero-shot is usable here, so a Jev-taught student (Jevstiller) is worth trying again once there are a few
-  thousand such requests, with the confidence gate doing the routing.
+- **For tool selection this is the right kind of dataset.** The next section scales it up and tries the Jev-taught student.
+
+##### Scaling to 2,114 labels
+
+Transcripts contain only 3,657 user messages in all; after dropping short, injected and repeated ones, 1,574 new requests remained (Claude Code's separate prompt history has 268
+entries and adds nothing). That is this source's ceiling: about 2,100 labelled requests, not a few thousand more, and the rest would have to come from other machines' transcripts.
+The new set includes 248 requests the assistant answered without any tool, which the first sample could not contain. Same protocol (200 requests per agent):
+
+- **Labeller agreement was higher:** 89.6% exact on 1,574 (kappa 0.88); 137 soft and 27 hard disagreements. Sixteen of the hard ones were not usable requests (workflow-harness relays,
+  dev-server error text, and replies that only make sense in context) and were dropped; 11 were adjudicated. Final: 1,547 new rows, **2,114 in all** (1,302 typed, 812 delegated), 10.8% with
+  more than one acceptable label. Read-file (23%) and answer-directly (21%) are the biggest classes; 17% of requests are under 60 characters and need context.
+- **Habit against the right tool:** the assistant's actual first tool is an acceptable answer 28% of the time (22% for typed requests, 38% for delegations).
+
+| Top-1, acceptable labels (2,114 requests) | All | 60+ characters | Under 60 |
+| --- | --- | --- | --- |
+| Majority class (`read_file`) | 25.8% | | |
+| The assistant's habitual first tool | 28.3% | | |
+| **Jev zero-shot, request alone** | **58.6%** (top-3 82.7%) | 61.3% | 46.0% |
+| **bge-small student, 5-fold CV by session** (about 1,700 training rows per fold) | **57.7%** (top-3 80.6%) | 62.0% | 37.4% |
+
+- **The student has caught up with Jev.** With about 450 training rows it scored 47.8%; with about 1,700 it matches Jev overall and edges it on substantial requests, with no per-call cost. Labels like these
+  can train a router that replaces Jev's zero-shot answers.
+- **Jev's confidence gate holds:** at 0.7 or more it answers 39.5% of requests at 83.3% right; at 0.8, 28.7% at 86.3%.
+- **Jev's blind spots are specific.** Strong: git (195 of 227), web search (36 of 41), browser (31 of 43), `search_files` (60 of 86), external services (34 of 52). Weak: `edit_file` (30 of 214, 14%),
+  `remote_or_http` (11 of 63), `run_code` (36 of 92), `write_file` (26 of 56). A student trained on the labels does not share those holes.
+
+Jevstiller with Jev as the teacher, replayed on Jev's recorded answers (`real_calls/replay_jevstiller.py`): 1,908 requests streamed, 206 held out from sessions it never saw, where Jev alone is 66.5% right:
+
+| Target agreement | `run.py` protocol thresholds | Small-data thresholds |
+| --- | --- | --- |
+| 98% | answers 15%, agrees with Jev 98.1%, system 66.0% | answers 23%, agrees 98.1%, system 66.0% |
+| 95% | answers 32%, agrees 94.7%, system 64.1% | answers 32%, agrees 94.7%, system 64.6% |
+| 90% | answers 40%, agrees 92.7%, system 63.6% | answers 52%, agrees 88.3%, system 63.1% |
+
+- **The library's default thresholds still do not engage** at 1,900 requests. With relaxed thresholds it takes about a fifth of traffic at the 98% guarantee with a loss of half a point, and more traffic
+  at lower targets for two to three points. That is far below Banking77's 72%, because coverage tracks how consistent Jev is, and on these fuzzy classes it is not.
+- **Caveats:** Claude labellers, not humans, mostly one developer's sessions; the held-out set is 206 requests, so the replay numbers carry about three points of noise; the 17% of short requests are
+  partly guesswork without their context.
 
 The 2,400 ToolACE rows and 2,000 Nemotron pairs are rebuilt from public files by the scripts in
 `clm_finetune/` (`embed_cache.py` embeds them resumably, since a vllm-metal crash once lost a 10-minute run);

@@ -54,7 +54,7 @@ def main():
     pairs = collections.Counter(tuple(sorted((A[i]["label"], B[i]["label"]))) for i in ids if A[i]["label"] != B[i]["label"])
     print("most confused pairs:", pairs.most_common(8))
     if key:
-        hab = {i: HABIT_TO_RUBRIC.get(key[i]["habit_label"], "run_code") for i in ids}
+        hab = {i: ("answer_directly" if key[i]["habit_label"] is None else HABIT_TO_RUBRIC.get(key[i]["habit_label"], "run_code")) for i in ids}
         ha = sum(hab[i] == A[i]["label"] for i in ids); hb = sum(hab[i] == B[i]["label"] for i in ids)
         hs = sum(hab[i] in (A[i]["label"], B[i]["label"]) for i in ids)
         print(f"habit (mapped to the rubric) equals A: {ha / len(ids):.1%}, B: {hb / len(ids):.1%}, either: {hs / len(ids):.1%}")

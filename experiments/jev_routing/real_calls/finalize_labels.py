@@ -44,8 +44,8 @@ def main():
             why["hard disagreement not adjudicated"] += 1; continue
         prim = acc[0] if kind != "soft" else (la["label"] if RANK[la["conf"]] >= RANK[lb["conf"]] else lb["label"])
         why[kind] += 1
-        habit = HABIT_TO_RUBRIC.get(key[i]["habit_label"], "run_code")
-        out.append({"id": i, "request": items[i]["request"], "session_task": items[i]["session_task"], "sidechain": key[i]["sidechain"], "prepared_id": key[i]["prepared_id"],
+        habit = "answer_directly" if key[i]["habit_label"] is None else HABIT_TO_RUBRIC.get(key[i]["habit_label"], "run_code")
+        out.append({"id": i, "request": items[i]["request"], "session_task": items[i]["session_task"], "sidechain": key[i]["sidechain"], "prepared_id": key[i]["prepared_id"], "session": key[i].get("session"),
                     "label": prim, "acceptable": acc, "kind": kind, "habit": habit, "habit_in_acceptable": habit in acc})
     p = d / "final_labels.jsonl"
     p.write_text("\n".join(json.dumps(r) for r in out) + "\n"); p.chmod(0o600)
