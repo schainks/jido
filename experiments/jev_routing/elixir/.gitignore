@@ -1,0 +1,7 @@
+/_build/
+/deps/
+/typesafe_client/_build/
+/typesafe_client/deps/
+erl_crash.dump
+bench_results.json
+bench_run.log

@@ -1,0 +1,252 @@
+{
+ "encoder": "onnx:Xenova/bge-small-en-v1.5/onnx/model.onnx:cls:256:828e1496",
+ "teacher_vs_gold": {
+  "benchmark": 34,
+  "holdout": 45
+ },
+ "streamed": 874,
+ "held_out": 79,
+ "seed": 0,
+ "runs": [
+  {
+   "target": 0.98,
+   "arm": "library defaults",
+   "thresholds": {},
+   "checkpoints": [
+    {
+     "streamed": 200,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 400,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 600,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 800,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 874,
+     "production": null,
+     "stream_student_share": 0.0
+    }
+   ]
+  },
+  {
+   "target": 0.98,
+   "arm": "run.py protocol",
+   "thresholds": {
+    "min_train_samples": 500,
+    "min_samples_per_class": 5,
+    "min_calib_samples": 200,
+    "min_new_samples": 1000,
+    "shadow_min_samples": 300
+   },
+   "checkpoints": [
+    {
+     "streamed": 200,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 400,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 600,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 800,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 874,
+     "production": null,
+     "stream_student_share": 0.0
+    }
+   ]
+  },
+  {
+   "target": 0.98,
+   "arm": "small-data",
+   "thresholds": {
+    "min_train_samples": 200,
+    "min_samples_per_class": 10,
+    "min_calib_samples": 100,
+    "min_new_samples": 150,
+    "shadow_min_samples": 100
+   },
+   "checkpoints": [
+    {
+     "streamed": 200,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 400,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 600,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 800,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 874,
+     "production": null,
+     "stream_student_share": 0.0
+    }
+   ]
+  },
+  {
+   "target": 0.95,
+   "arm": "library defaults",
+   "thresholds": {},
+   "checkpoints": [
+    {
+     "streamed": 200,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 400,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 600,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 800,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 874,
+     "production": null,
+     "stream_student_share": 0.0
+    }
+   ]
+  },
+  {
+   "target": 0.95,
+   "arm": "run.py protocol",
+   "thresholds": {
+    "min_train_samples": 500,
+    "min_samples_per_class": 5,
+    "min_calib_samples": 200,
+    "min_new_samples": 1000,
+    "shadow_min_samples": 300
+   },
+   "checkpoints": [
+    {
+     "streamed": 200,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 400,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 600,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 800,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 874,
+     "production": null,
+     "stream_student_share": 0.0
+    }
+   ]
+  },
+  {
+   "target": 0.95,
+   "arm": "small-data",
+   "thresholds": {
+    "min_train_samples": 200,
+    "min_samples_per_class": 10,
+    "min_calib_samples": 100,
+    "min_new_samples": 150,
+    "shadow_min_samples": 100
+   },
+   "checkpoints": [
+    {
+     "streamed": 200,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 400,
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "streamed": 600,
+     "production": "student:v1",
+     "stream_student_share": 0.0617,
+     "coverage": 0.7342,
+     "system_agreement_with_teacher": 0.9494,
+     "accepted": 58,
+     "coverage_benchmark": 0.8824,
+     "coverage_holdout": 0.6222,
+     "system_correct_benchmark": 33,
+     "system_correct_holdout": 44,
+     "student_correct_on_accepted": 56
+    },
+    {
+     "streamed": 800,
+     "production": "student:v1",
+     "stream_student_share": 0.2025,
+     "coverage": 0.7342,
+     "system_agreement_with_teacher": 0.9494,
+     "accepted": 58,
+     "coverage_benchmark": 0.8824,
+     "coverage_holdout": 0.6222,
+     "system_correct_benchmark": 33,
+     "system_correct_holdout": 44,
+     "student_correct_on_accepted": 56
+    },
+    {
+     "streamed": 874,
+     "production": "student:v1",
+     "stream_student_share": 0.2346,
+     "coverage": 0.7342,
+     "system_agreement_with_teacher": 0.9494,
+     "accepted": 58,
+     "coverage_benchmark": 0.8824,
+     "coverage_holdout": 0.6222,
+     "system_correct_benchmark": 33,
+     "system_correct_holdout": 44,
+     "student_correct_on_accepted": 56
+    }
+   ]
+  }
+ ]
+}

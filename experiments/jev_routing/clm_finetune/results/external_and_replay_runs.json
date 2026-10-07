@@ -1,0 +1,364 @@
+{
+ "what": "replay_finetune.py runs (constant lr 5e-4, per-row softmax over the row's options, replay 0 or 0.4 of each step from one Nemotron chunk), one per (training set, replay, seed); selection by tool validation accuracy, test split (34 Jido requests) picks nothing",
+ "runs": [
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 5,
+   "replay_share": 0.0,
+   "seed": 1,
+   "selected_epoch": 2,
+   "val_acc": 0.4545,
+   "test_correct_of_34": 10,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 5,
+   "replay_share": 0.0,
+   "seed": 2,
+   "selected_epoch": 1,
+   "val_acc": 0.2727,
+   "test_correct_of_34": 11,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 5,
+   "replay_share": 0.0,
+   "seed": 1234,
+   "selected_epoch": 4,
+   "val_acc": 0.3636,
+   "test_correct_of_34": 14,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 10,
+   "replay_share": 0.0,
+   "seed": 1,
+   "selected_epoch": 2,
+   "val_acc": 0.5,
+   "test_correct_of_34": 11,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 10,
+   "replay_share": 0.0,
+   "seed": 2,
+   "selected_epoch": 19,
+   "val_acc": 0.8182,
+   "test_correct_of_34": 27,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 10,
+   "replay_share": 0.0,
+   "seed": 1234,
+   "selected_epoch": 18,
+   "val_acc": 0.6818,
+   "test_correct_of_34": 24,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 20,
+   "replay_share": 0.0,
+   "seed": 1,
+   "selected_epoch": 11,
+   "val_acc": 0.8409,
+   "test_correct_of_34": 28,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 20,
+   "replay_share": 0.0,
+   "seed": 2,
+   "selected_epoch": 20,
+   "val_acc": 0.8864,
+   "test_correct_of_34": 30,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 20,
+   "replay_share": 0.0,
+   "seed": 1234,
+   "selected_epoch": 13,
+   "val_acc": 0.7727,
+   "test_correct_of_34": 28,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 40,
+   "replay_share": 0.0,
+   "seed": 1,
+   "selected_epoch": 19,
+   "val_acc": 0.9195,
+   "test_correct_of_34": 30,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 40,
+   "replay_share": 0.0,
+   "seed": 2,
+   "selected_epoch": 20,
+   "val_acc": 0.8621,
+   "test_correct_of_34": 31,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "in_domain_only",
+   "in_domain_per_action": 40,
+   "replay_share": 0.0,
+   "seed": 1234,
+   "selected_epoch": 20,
+   "val_acc": 0.9195,
+   "test_correct_of_34": 31,
+   "nemotron_retention": null,
+   "released_head_retention": null
+  },
+  {
+   "training": "toolace_only",
+   "in_domain_per_action": 0,
+   "replay_share": 0.0,
+   "seed": 1234,
+   "selected_epoch": 10,
+   "val_acc": 0.85,
+   "test_correct_of_34": 7,
+   "nemotron_retention": 0.809,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_only",
+   "in_domain_per_action": 0,
+   "replay_share": 0.4,
+   "seed": 1234,
+   "selected_epoch": 10,
+   "val_acc": 0.8458,
+   "test_correct_of_34": 7,
+   "nemotron_retention": 0.816,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 5,
+   "replay_share": 0.0,
+   "seed": 1,
+   "selected_epoch": 19,
+   "val_acc": 0.7968,
+   "test_correct_of_34": 25,
+   "nemotron_retention": 0.814,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 5,
+   "replay_share": 0.0,
+   "seed": 2,
+   "selected_epoch": 11,
+   "val_acc": 0.8287,
+   "test_correct_of_34": 20,
+   "nemotron_retention": 0.8135,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 5,
+   "replay_share": 0.0,
+   "seed": 1234,
+   "selected_epoch": 18,
+   "val_acc": 0.757,
+   "test_correct_of_34": 23,
+   "nemotron_retention": 0.8185,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 5,
+   "replay_share": 0.4,
+   "seed": 1,
+   "selected_epoch": 19,
+   "val_acc": 0.7968,
+   "test_correct_of_34": 25,
+   "nemotron_retention": 0.8235,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 5,
+   "replay_share": 0.4,
+   "seed": 2,
+   "selected_epoch": 11,
+   "val_acc": 0.8287,
+   "test_correct_of_34": 20,
+   "nemotron_retention": 0.817,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 5,
+   "replay_share": 0.4,
+   "seed": 1234,
+   "selected_epoch": 14,
+   "val_acc": 0.749,
+   "test_correct_of_34": 24,
+   "nemotron_retention": 0.824,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 10,
+   "replay_share": 0.0,
+   "seed": 1234,
+   "selected_epoch": 15,
+   "val_acc": 0.813,
+   "test_correct_of_34": 29,
+   "nemotron_retention": 0.816,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 10,
+   "replay_share": 0.4,
+   "seed": 1,
+   "selected_epoch": 14,
+   "val_acc": 0.8206,
+   "test_correct_of_34": 26,
+   "nemotron_retention": 0.8235,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 10,
+   "replay_share": 0.4,
+   "seed": 2,
+   "selected_epoch": 8,
+   "val_acc": 0.8168,
+   "test_correct_of_34": 26,
+   "nemotron_retention": 0.817,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 10,
+   "replay_share": 0.4,
+   "seed": 1234,
+   "selected_epoch": 20,
+   "val_acc": 0.8168,
+   "test_correct_of_34": 28,
+   "nemotron_retention": 0.8265,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 20,
+   "replay_share": 0.0,
+   "seed": 1234,
+   "selected_epoch": 12,
+   "val_acc": 0.8556,
+   "test_correct_of_34": 31,
+   "nemotron_retention": 0.8175,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 20,
+   "replay_share": 0.4,
+   "seed": 1,
+   "selected_epoch": 11,
+   "val_acc": 0.7852,
+   "test_correct_of_34": 31,
+   "nemotron_retention": 0.8225,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 20,
+   "replay_share": 0.4,
+   "seed": 2,
+   "selected_epoch": 13,
+   "val_acc": 0.8451,
+   "test_correct_of_34": 31,
+   "nemotron_retention": 0.8245,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 20,
+   "replay_share": 0.4,
+   "seed": 1234,
+   "selected_epoch": 12,
+   "val_acc": 0.8556,
+   "test_correct_of_34": 31,
+   "nemotron_retention": 0.823,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 40,
+   "replay_share": 0.4,
+   "seed": 1,
+   "selected_epoch": 20,
+   "val_acc": 0.8379,
+   "test_correct_of_34": 32,
+   "nemotron_retention": 0.8245,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 40,
+   "replay_share": 0.4,
+   "seed": 2,
+   "selected_epoch": 6,
+   "val_acc": 0.8043,
+   "test_correct_of_34": 30,
+   "nemotron_retention": 0.819,
+   "released_head_retention": 0.826
+  },
+  {
+   "training": "toolace_plus_in_domain",
+   "in_domain_per_action": 40,
+   "replay_share": 0.4,
+   "seed": 1234,
+   "selected_epoch": 18,
+   "val_acc": 0.8226,
+   "test_correct_of_34": 33,
+   "nemotron_retention": 0.821,
+   "released_head_retention": 0.826
+  }
+ ],
+ "finetune_py_reference_runs": {
+  "toolace_only_finetune_py_infonce": {
+   "test_correct_of_34": 10,
+   "val_acc": 0.8083
+  },
+  "in_domain_finetune_py_softce_hard": {
+   "20": [
+    26,
+    28,
+    27
+   ],
+   "40": [
+    28,
+    28,
+    28
+   ]
+  }
+ }
+}

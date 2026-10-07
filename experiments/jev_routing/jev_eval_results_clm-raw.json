@@ -1,0 +1,4691 @@
+{
+ "actions": [
+  {
+   "name": "cancel",
+   "description": "Handle cancellation requests",
+   "params": [],
+   "file": "control.ex"
+  },
+  {
+   "name": "noop",
+   "description": "No-operation, acknowledges signal without changes",
+   "params": [],
+   "file": "control.ex"
+  },
+  {
+   "name": "forward",
+   "description": "Forward a signal to another agent",
+   "params": [
+    [
+     "target_pid",
+     "Target process PID"
+    ],
+    [
+     "signal_type",
+     "New signal type (optional)"
+    ],
+    [
+     "payload",
+     "New payload (optional)"
+    ]
+   ],
+   "file": "control.ex"
+  },
+  {
+   "name": "broadcast",
+   "description": "Broadcast a signal via PubSub",
+   "params": [
+    [
+     "topic",
+     "PubSub topic"
+    ],
+    [
+     "signal_type",
+     "Signal type to broadcast"
+    ],
+    [
+     "payload",
+     "Signal payload"
+    ]
+   ],
+   "file": "control.ex"
+  },
+  {
+   "name": "reply",
+   "description": "Reply to the signal source",
+   "params": [
+    [
+     "signal_type",
+     "Reply signal type"
+    ]
+   ],
+   "file": "control.ex"
+  },
+  {
+   "name": "notify_parent",
+   "description": "Emit a signal back to the parent agent",
+   "params": [
+    [
+     "signal_type",
+     "Signal type to emit to parent"
+    ],
+    [
+     "payload",
+     "Signal payload data"
+    ]
+   ],
+   "file": "lifecycle.ex"
+  },
+  {
+   "name": "notify_pid",
+   "description": "Emit a signal to a specific process",
+   "params": [
+    [
+     "target_pid",
+     "Target process PID"
+    ],
+    [
+     "signal_type",
+     "Signal type to emit"
+    ],
+    [
+     "payload",
+     "Signal payload data"
+    ],
+    [
+     "source",
+     "Signal source path"
+    ],
+    [
+     "delivery_mode",
+     ""
+    ]
+   ],
+   "file": "lifecycle.ex"
+  },
+  {
+   "name": "spawn_child",
+   "description": "Spawn a child agent with hierarchy tracking",
+   "params": [
+    [
+     "agent_module",
+     "Agent module to spawn"
+    ],
+    [
+     "tag",
+     "Tag for tracking this child"
+    ],
+    [
+     "initial_state",
+     "Initial state for child"
+    ],
+    [
+     "meta",
+     "Metadata to pass to child"
+    ]
+   ],
+   "file": "lifecycle.ex"
+  },
+  {
+   "name": "stop_self",
+   "description": "Request graceful termination of this agent",
+   "params": [],
+   "file": "lifecycle.ex"
+  },
+  {
+   "name": "stop_child",
+   "description": "Request graceful termination of a child agent",
+   "params": [
+    [
+     "tag",
+     "Tag of child to stop"
+    ]
+   ],
+   "file": "lifecycle.ex"
+  },
+  {
+   "name": "schedule_signal",
+   "description": "Schedule a signal to be delivered after a delay",
+   "params": [
+    [
+     "delay_ms",
+     "Delay in milliseconds"
+    ],
+    [
+     "signal_type",
+     "Signal type to schedule"
+    ],
+    [
+     "payload",
+     "Signal payload data"
+    ]
+   ],
+   "file": "scheduling.ex"
+  },
+  {
+   "name": "schedule_timeout",
+   "description": "Schedule a timeout signal for deadline handling",
+   "params": [
+    [
+     "timeout_ms",
+     "Timeout in milliseconds"
+    ],
+    [
+     "timeout_id",
+     "Identifier for this timeout"
+    ]
+   ],
+   "file": "scheduling.ex"
+  },
+  {
+   "name": "schedule_cron",
+   "description": "Schedule a recurring signal using cron expression",
+   "params": [
+    [
+     "cron",
+     "Cron expression"
+    ],
+    [
+     "job_id",
+     "Job identifier for cancellation"
+    ],
+    [
+     "signal_type",
+     "Signal type to schedule"
+    ],
+    [
+     "payload",
+     "Signal payload data"
+    ]
+   ],
+   "file": "scheduling.ex"
+  },
+  {
+   "name": "cancel_cron",
+   "description": "Cancel a scheduled cron job",
+   "params": [],
+   "file": "scheduling.ex"
+  },
+  {
+   "name": "set_status",
+   "description": "Set the agent's status field",
+   "params": [],
+   "file": "status.ex"
+  },
+  {
+   "name": "mark_completed",
+   "description": "Mark agent as completed with optional result",
+   "params": [],
+   "file": "status.ex"
+  },
+  {
+   "name": "mark_failed",
+   "description": "Mark agent as failed with error reason",
+   "params": [],
+   "file": "status.ex"
+  },
+  {
+   "name": "mark_working",
+   "description": "Mark agent as actively working",
+   "params": [],
+   "file": "status.ex"
+  },
+  {
+   "name": "mark_idle",
+   "description": "Mark agent as idle and ready",
+   "params": [],
+   "file": "status.ex"
+  }
+ ],
+ "discovery": {
+  "summary": {
+   "n": 34,
+   "accuracy": 0.11764705882352941,
+   "by_band": {
+    "<0.6": [
+     4,
+     34
+    ]
+   },
+   "thresholds": [
+    {
+     "t": 0.5,
+     "coverage": 0.0,
+     "precision": null
+    },
+    {
+     "t": 0.6,
+     "coverage": 0.0,
+     "precision": null
+    },
+    {
+     "t": 0.7,
+     "coverage": 0.0,
+     "precision": null
+    },
+    {
+     "t": 0.8,
+     "coverage": 0.0,
+     "precision": null
+    },
+    {
+     "t": 0.85,
+     "coverage": 0.0,
+     "precision": null
+    },
+    {
+     "t": 0.9,
+     "coverage": 0.0,
+     "precision": null
+    }
+   ],
+   "none_detected_by_choice": 0.0,
+   "none_noul_mean": 0.9836517827742268,
+   "tool_noul_mean": 0.9856057059687302,
+   "latency_ms": {
+    "median": 0.8224789999076165,
+    "p95": 1.0186250001424924,
+    "min": 0.7440839981427416,
+    "max": 15.150915998674463
+   },
+   "tokens_in_mean": 0,
+   "model": "clm-raw",
+   "misses": [
+    {
+     "q": "Shut yourself down gracefully.",
+     "gold": [
+      "stop_self"
+     ],
+     "got": "mark_working",
+     "conf": 0.19,
+     "top3": [
+      [
+       "mark_working",
+       0.23109157504877129
+      ],
+      [
+       "schedule_cron",
+       0.20084171790143798
+      ],
+      [
+       "stop_child",
+       0.11611683676066996
+      ]
+     ]
+    },
+    {
+     "q": "Terminate the worker child you spawned earlier.",
+     "gold": [
+      "stop_child"
+     ],
+     "got": "schedule_cron",
+     "conf": 0.19,
+     "top3": [
+      [
+       "schedule_cron",
+       0.23205538237464982
+      ],
+      [
+       "mark_working",
+       0.16653351497903934
+      ],
+      [
+       "mark_failed",
+       0.13135847545757193
+      ]
+     ]
+    },
+    {
+     "q": "Start a new child agent to handle the import job.",
+     "gold": [
+      "spawn_child"
+     ],
+     "got": "schedule_cron",
+     "conf": 0.16,
+     "top3": [
+      [
+       "schedule_cron",
+       0.20396239526057186
+      ],
+      [
+       "mark_failed",
+       0.16415743875230668
+      ],
+      [
+       "mark_working",
+       0.13298236476564793
+      ]
+     ]
+    },
+    {
+     "q": "Let your parent know the batch finished.",
+     "gold": [
+      "notify_parent"
+     ],
+     "got": "mark_working",
+     "conf": 0.2,
+     "top3": [
+      [
+       "mark_working",
+       0.2391364785562292
+      ],
+      [
+       "schedule_cron",
+       0.20587661719209696
+      ],
+      [
+       "mark_failed",
+       0.12354853048957397
+      ]
+     ]
+    },
+    {
+     "q": "Send this event to process <0.123.0>.",
+     "gold": [
+      "notify_pid"
+     ],
+     "got": "mark_working",
+     "conf": 0.23,
+     "top3": [
+      [
+       "mark_working",
+       0.2728085177121419
+      ],
+      [
+       "schedule_cron",
+       0.1532256433758481
+      ],
+      [
+       "mark_failed",
+       0.12838574628355331
+      ]
+     ]
+    },
+    {
+     "q": "Pass this signal along to the billing agent.",
+     "gold": [
+      "forward"
+     ],
+     "got": "mark_working",
+     "conf": 0.17,
+     "top3": [
+      [
+       "mark_working",
+       0.21109149322700319
+      ],
+      [
+       "schedule_cron",
+       0.20208217227943653
+      ],
+      [
+       "mark_failed",
+       0.1532792535368006
+      ]
+     ]
+    },
+    {
+     "q": "Announce the deploy to everyone subscribed on the topic.",
+     "gold": [
+      "broadcast"
+     ],
+     "got": "mark_working",
+     "conf": 0.18,
+     "top3": [
+      [
+       "mark_working",
+       0.22167021077891405
+      ],
+      [
+       "schedule_cron",
+       0.1838159308274479
+      ],
+      [
+       "mark_failed",
+       0.11960035721108864
+      ]
+     ]
+    },
+    {
+     "q": "Answer the caller who sent this request.",
+     "gold": [
+      "reply"
+     ],
+     "got": "mark_working",
+     "conf": 0.29,
+     "top3": [
+      [
+       "mark_working",
+       0.32111644827824865
+      ],
+      [
+       "schedule_cron",
+       0.11823402772428156
+      ],
+      [
+       "mark_failed",
+       0.08445808904512747
+      ]
+     ]
+    },
+    {
+     "q": "Abort the current operation, the user cancelled.",
+     "gold": [
+      "cancel"
+     ],
+     "got": "mark_working",
+     "conf": 0.21,
+     "top3": [
+      [
+       "mark_working",
+       0.24495673988556313
+      ],
+      [
+       "schedule_cron",
+       0.17302842556704698
+      ],
+      [
+       "mark_failed",
+       0.14062282664672493
+      ]
+     ]
+    },
+    {
+     "q": "Ignore this signal, there is nothing to do.",
+     "gold": [
+      "noop"
+     ],
+     "got": "mark_working",
+     "conf": 0.13,
+     "top3": [
+      [
+       "mark_working",
+       0.1716395574200871
+      ],
+      [
+       "schedule_cron",
+       0.1640922927520217
+      ],
+      [
+       "mark_failed",
+       0.14315223500845375
+      ]
+     ]
+    },
+    {
+     "q": "Remind yourself in 5 minutes to check the queue.",
+     "gold": [
+      "schedule_signal"
+     ],
+     "got": "mark_working",
+     "conf": 0.22,
+     "top3": [
+      [
+       "mark_working",
+       0.26056772628288266
+      ],
+      [
+       "schedule_cron",
+       0.20989664744383488
+      ],
+      [
+       "mark_failed",
+       0.10567480226010473
+      ]
+     ]
+    },
+    {
+     "q": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+     "gold": [
+      "schedule_timeout"
+     ],
+     "got": "mark_working",
+     "conf": 0.26,
+     "top3": [
+      [
+       "mark_working",
+       0.29400639184401783
+      ],
+      [
+       "schedule_cron",
+       0.13457923640203087
+      ],
+      [
+       "mark_failed",
+       0.09206540175664056
+      ]
+     ]
+    },
+    {
+     "q": "Stop the nightly cleanup job.",
+     "gold": [
+      "cancel_cron"
+     ],
+     "got": "schedule_cron",
+     "conf": 0.21,
+     "top3": [
+      [
+       "schedule_cron",
+       0.24594667272945805
+      ],
+      [
+       "mark_working",
+       0.18264380413709086
+      ],
+      [
+       "mark_failed",
+       0.14524242234891824
+      ]
+     ]
+    },
+    {
+     "q": "Set your status to 'paused'.",
+     "gold": [
+      "set_status"
+     ],
+     "got": "schedule_cron",
+     "conf": 0.22,
+     "top3": [
+      [
+       "schedule_cron",
+       0.26053641565165797
+      ],
+      [
+       "mark_working",
+       0.12715465236537446
+      ],
+      [
+       "mark_failed",
+       0.12336481017835252
+      ]
+     ]
+    },
+    {
+     "q": "You're done, record the final result.",
+     "gold": [
+      "mark_completed"
+     ],
+     "got": "mark_working",
+     "conf": 0.23,
+     "top3": [
+      [
+       "mark_working",
+       0.26770719729885367
+      ],
+      [
+       "schedule_cron",
+       0.15627021338478897
+      ],
+      [
+       "mark_failed",
+       0.12922876482153026
+      ]
+     ]
+    },
+    {
+     "q": "This failed because the API returned 500, record that.",
+     "gold": [
+      "mark_failed"
+     ],
+     "got": "mark_working",
+     "conf": 0.18,
+     "top3": [
+      [
+       "mark_working",
+       0.22364332383459778
+      ],
+      [
+       "schedule_cron",
+       0.1876324228872665
+      ],
+      [
+       "mark_failed",
+       0.13986915601531724
+      ]
+     ]
+    },
+    {
+     "q": "You're free now, mark yourself available.",
+     "gold": [
+      "mark_idle"
+     ],
+     "got": "mark_working",
+     "conf": 0.25,
+     "top3": [
+      [
+       "mark_working",
+       0.28564823698235325
+      ],
+      [
+       "schedule_cron",
+       0.1675413060649141
+      ],
+      [
+       "mark_failed",
+       0.13070547871580163
+      ]
+     ]
+    },
+    {
+     "q": "Tell the parent we hit an unrecoverable error.",
+     "gold": [
+      "mark_failed",
+      "notify_parent"
+     ],
+     "got": "schedule_cron",
+     "conf": 0.15,
+     "top3": [
+      [
+       "schedule_cron",
+       0.19585165710986968
+      ],
+      [
+       "mark_working",
+       0.18166600033144664
+      ],
+      [
+       "mark_failed",
+       0.1284642130488492
+      ]
+     ]
+    },
+    {
+     "q": "Give up on waiting for the reply after two minutes.",
+     "gold": [
+      "schedule_timeout"
+     ],
+     "got": "mark_working",
+     "conf": 0.2,
+     "top3": [
+      [
+       "mark_working",
+       0.24134990380634447
+      ],
+      [
+       "schedule_cron",
+       0.18692382739161023
+      ],
+      [
+       "mark_failed",
+       0.1248520094109894
+      ]
+     ]
+    },
+    {
+     "q": "Relay this to the agent named 'audit'.",
+     "gold": [
+      "forward"
+     ],
+     "got": "mark_working",
+     "conf": 0.21,
+     "top3": [
+      [
+       "mark_working",
+       0.2500788466950567
+      ],
+      [
+       "mark_failed",
+       0.11007378897262042
+      ],
+      [
+       "schedule_cron",
+       0.1094774750550925
+      ]
+     ]
+    },
+    {
+     "q": "Reply to whoever asked with the totals.",
+     "gold": [
+      "reply"
+     ],
+     "got": "mark_working",
+     "conf": 0.23,
+     "top3": [
+      [
+       "mark_working",
+       0.27028832147431375
+      ],
+      [
+       "schedule_cron",
+       0.1571426098900092
+      ],
+      [
+       "mark_failed",
+       0.11346657379358484
+      ]
+     ]
+    },
+    {
+     "q": "Cancel the recurring health check.",
+     "gold": [
+      "cancel_cron"
+     ],
+     "got": "schedule_cron",
+     "conf": 0.18,
+     "top3": [
+      [
+       "schedule_cron",
+       0.2236105937886235
+      ],
+      [
+       "mark_working",
+       0.18473305845142263
+      ],
+      [
+       "mark_failed",
+       0.1440514757038368
+      ]
+     ]
+    },
+    {
+     "q": "Spin up three workers for the crawl.",
+     "gold": [
+      "spawn_child"
+     ],
+     "got": "schedule_cron",
+     "conf": 0.22,
+     "top3": [
+      [
+       "schedule_cron",
+       0.25492133296116865
+      ],
+      [
+       "mark_working",
+       0.1740960821581708
+      ],
+      [
+       "mark_failed",
+       0.12713258421110502
+      ]
+     ]
+    },
+    {
+     "q": "Set a 10 second timer then ping yourself.",
+     "gold": [
+      "schedule_signal",
+      "schedule_timeout"
+     ],
+     "got": "mark_working",
+     "conf": 0.17,
+     "top3": [
+      [
+       "mark_working",
+       0.21514631239928034
+      ],
+      [
+       "schedule_cron",
+       0.18770263256463957
+      ],
+      [
+       "mark_failed",
+       0.13713981277600487
+      ]
+     ]
+    },
+    {
+     "q": "Kill it.",
+     "gold": [
+      "cancel",
+      "stop_child",
+      "stop_self"
+     ],
+     "got": "mark_working",
+     "conf": 0.21,
+     "top3": [
+      [
+       "mark_working",
+       0.24528559923166182
+      ],
+      [
+       "schedule_cron",
+       0.18449700009822673
+      ],
+      [
+       "mark_failed",
+       0.11838182992184137
+      ]
+     ]
+    },
+    {
+     "q": "What's the weather in Paris today?",
+     "gold": [
+      "none"
+     ],
+     "got": "mark_working",
+     "conf": 0.27,
+     "top3": [
+      [
+       "mark_working",
+       0.3053575387228293
+      ],
+      [
+       "schedule_cron",
+       0.15077593665602776
+      ],
+      [
+       "mark_failed",
+       0.11051304360620408
+      ]
+     ]
+    },
+    {
+     "q": "Summarize this article for me.",
+     "gold": [
+      "none"
+     ],
+     "got": "mark_working",
+     "conf": 0.3,
+     "top3": [
+      [
+       "mark_working",
+       0.33866849756941075
+      ],
+      [
+       "mark_failed",
+       0.10275280250464962
+      ],
+      [
+       "schedule_cron",
+       0.09954585221687198
+      ]
+     ]
+    },
+    {
+     "q": "Translate 'hello' to French.",
+     "gold": [
+      "none"
+     ],
+     "got": "mark_working",
+     "conf": 0.2,
+     "top3": [
+      [
+       "mark_working",
+       0.23677606042109703
+      ],
+      [
+       "schedule_cron",
+       0.16244957896943069
+      ],
+      [
+       "mark_failed",
+       0.11849573255121401
+      ]
+     ]
+    },
+    {
+     "q": "Delete the user's account permanently.",
+     "gold": [
+      "none"
+     ],
+     "got": "schedule_cron",
+     "conf": 0.2,
+     "top3": [
+      [
+       "schedule_cron",
+       0.23753436314915705
+      ],
+      [
+       "mark_working",
+       0.18477472367355588
+      ],
+      [
+       "mark_failed",
+       0.12784624771653713
+      ]
+     ]
+    },
+    {
+     "q": "Book me a flight to Denver.",
+     "gold": [
+      "none"
+     ],
+     "got": "mark_working",
+     "conf": 0.31,
+     "top3": [
+      [
+       "mark_working",
+       0.34154260036448075
+      ],
+      [
+       "schedule_cron",
+       0.1568834316049143
+      ],
+      [
+       "mark_failed",
+       0.11705913848336721
+      ]
+     ]
+    }
+   ]
+  },
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.19062271057765398,
+    "probs": {
+     "cancel": 0.04898424682876339,
+     "noop": 0.005907340402184095,
+     "forward": 0.004689609461631458,
+     "broadcast": 0.000205731326910354,
+     "reply": 0.0063337116183321916,
+     "notify_parent": 0.018491248215837624,
+     "notify_pid": 0.002776975795270977,
+     "spawn_child": 0.02152621027260438,
+     "stop_self": 0.022491735329690284,
+     "stop_child": 0.11611683676066996,
+     "schedule_signal": 0.003915984301211402,
+     "schedule_timeout": 0.02748197006685123,
+     "schedule_cron": 0.20084171790143798,
+     "cancel_cron": 0.03974650876868894,
+     "set_status": 0.07910208002804649,
+     "mark_completed": 0.0028960700988765837,
+     "mark_failed": 0.1154904285624308,
+     "mark_working": 0.23109157504877129,
+     "mark_idle": 0.025300391997977414,
+     "none": 0.026609627213813197
+    },
+    "needs_tool": 0.9811152022869444,
+    "complexity": 1.0024213389950252,
+    "complexity_conf": 0.08538497688061392,
+    "risk": 1.6083700869398323,
+    "latency_s": 0.015150915998674463,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.19163724460489456,
+    "probs": {
+     "cancel": 0.028918880202902016,
+     "noop": 0.008710757559779871,
+     "forward": 0.0057306828971757364,
+     "broadcast": 0.00014287990340895328,
+     "reply": 0.006044477813796221,
+     "notify_parent": 0.02493305679482671,
+     "notify_pid": 0.0035269502628428005,
+     "spawn_child": 0.02877231094844562,
+     "stop_self": 0.026596033045869664,
+     "stop_child": 0.11164932148761285,
+     "schedule_signal": 0.006338957812672716,
+     "schedule_timeout": 0.04094583550924195,
+     "schedule_cron": 0.23205538237464982,
+     "cancel_cron": 0.04061386635750594,
+     "set_status": 0.0749120717851575,
+     "mark_completed": 0.005798344967345271,
+     "mark_failed": 0.13135847545757193,
+     "mark_working": 0.16653351497903934,
+     "mark_idle": 0.028059094142214358,
+     "none": 0.028359105697940652
+    },
+    "needs_tool": 0.9808801131290026,
+    "complexity": 1.1025957911949207,
+    "complexity_conf": 0.07755733830523354,
+    "risk": 1.333857682484086,
+    "latency_s": 0.0011209580043214373,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.1620656792216546,
+    "probs": {
+     "cancel": 0.02563643126879653,
+     "noop": 0.008306373937058291,
+     "forward": 0.005759256647412321,
+     "broadcast": 0.0001500060321317382,
+     "reply": 0.005339543044662141,
+     "notify_parent": 0.024928570575115692,
+     "notify_pid": 0.00434403266448615,
+     "spawn_child": 0.045755607981438726,
+     "stop_self": 0.02131928304524726,
+     "stop_child": 0.11380400257849767,
+     "schedule_signal": 0.006767475652409971,
+     "schedule_timeout": 0.03530489985861275,
+     "schedule_cron": 0.20396239526057186,
+     "cancel_cron": 0.04050012601928236,
+     "set_status": 0.10340807102703267,
+     "mark_completed": 0.006427243857615784,
+     "mark_failed": 0.16415743875230668,
+     "mark_working": 0.13298236476564793,
+     "mark_idle": 0.034367028372374646,
+     "none": 0.016779848659298793
+    },
+    "needs_tool": 0.9904177473067464,
+    "complexity": 0.9912160787620716,
+    "complexity_conf": 0.0950425812773873,
+    "risk": 1.5959555644164476,
+    "latency_s": 0.0010146249987883493,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.1990910300591886,
+    "probs": {
+     "cancel": 0.02915476998853018,
+     "noop": 0.013428618354127834,
+     "forward": 0.0076914293193671894,
+     "broadcast": 8.019626179416372e-05,
+     "reply": 0.007095522372405901,
+     "notify_parent": 0.01968966376639765,
+     "notify_pid": 0.002677974036145507,
+     "spawn_child": 0.03144983327511303,
+     "stop_self": 0.01929763852403531,
+     "stop_child": 0.06091507725187778,
+     "schedule_signal": 0.007293942393477024,
+     "schedule_timeout": 0.05223716394603384,
+     "schedule_cron": 0.20587661719209696,
+     "cancel_cron": 0.03627760790094393,
+     "set_status": 0.04256452863799889,
+     "mark_completed": 0.007379470657421091,
+     "mark_failed": 0.12354853048957397,
+     "mark_working": 0.2391364785562292,
+     "mark_idle": 0.04206253909457362,
+     "none": 0.05214239798185701
+    },
+    "needs_tool": 0.9842019212972426,
+    "complexity": 1.096430142568257,
+    "complexity_conf": 0.11573321862431901,
+    "risk": 1.5350992453191123,
+    "latency_s": 0.0009011250003823079,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.2345352818022546,
+    "probs": {
+     "cancel": 0.027242463762058435,
+     "noop": 0.023314339738356112,
+     "forward": 0.010442022868506451,
+     "broadcast": 3.317994591788726e-05,
+     "reply": 0.013186566415115359,
+     "notify_parent": 0.014961958375368201,
+     "notify_pid": 0.0021312240357437544,
+     "spawn_child": 0.04161180063818189,
+     "stop_self": 0.01653221631663233,
+     "stop_child": 0.04710057285218984,
+     "schedule_signal": 0.01037056878642158,
+     "schedule_timeout": 0.0658100839727133,
+     "schedule_cron": 0.1532256433758481,
+     "cancel_cron": 0.025768453420627713,
+     "set_status": 0.02088465324125587,
+     "mark_completed": 0.010086145272097745,
+     "mark_failed": 0.12838574628355331,
+     "mark_working": 0.2728085177121419,
+     "mark_idle": 0.055993516544649576,
+     "none": 0.06011032644262061
+    },
+    "needs_tool": 0.9892264455077303,
+    "complexity": 0.8674788594012921,
+    "complexity_conf": 0.06674854513922507,
+    "risk": 1.6622808873834916,
+    "latency_s": 0.0010186250001424924,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.16956999287052965,
+    "probs": {
+     "cancel": 0.036938889914689514,
+     "noop": 0.016282596409354144,
+     "forward": 0.007332816690259232,
+     "broadcast": 0.00014015808087211218,
+     "reply": 0.009971669442482749,
+     "notify_parent": 0.0184190940762069,
+     "notify_pid": 0.0025284950864833725,
+     "spawn_child": 0.03074186470821492,
+     "stop_self": 0.016775766829886678,
+     "stop_child": 0.06506166288184494,
+     "schedule_signal": 0.006443156664965842,
+     "schedule_timeout": 0.041554330499644944,
+     "schedule_cron": 0.20208217227943653,
+     "cancel_cron": 0.03279502693872193,
+     "set_status": 0.07082341071779684,
+     "mark_completed": 0.007642103421736086,
+     "mark_failed": 0.1532792535368006,
+     "mark_working": 0.21109149322700319,
+     "mark_idle": 0.03271630661654146,
+     "none": 0.0373797319770581
+    },
+    "needs_tool": 0.9842073771493379,
+    "complexity": 1.132417627059492,
+    "complexity_conf": 0.17315284361193,
+    "risk": 1.3879166553420088,
+    "latency_s": 0.000872374999744352,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.18070548503043585,
+    "probs": {
+     "cancel": 0.033094708930357986,
+     "noop": 0.015466273479192239,
+     "forward": 0.009464302648475758,
+     "broadcast": 0.0001445358130680799,
+     "reply": 0.00954624917598858,
+     "notify_parent": 0.022854008561734765,
+     "notify_pid": 0.003273097023810646,
+     "spawn_child": 0.035606623813197895,
+     "stop_self": 0.02176987837007276,
+     "stop_child": 0.08419881029250527,
+     "schedule_signal": 0.007584095910008766,
+     "schedule_timeout": 0.046670308014060614,
+     "schedule_cron": 0.1838159308274479,
+     "cancel_cron": 0.03768794018922893,
+     "set_status": 0.06702116663067877,
+     "mark_completed": 0.008062763906411474,
+     "mark_failed": 0.11960035721108864,
+     "mark_working": 0.22167021077891405,
+     "mark_idle": 0.042551221525167784,
+     "none": 0.02991751689858901
+    },
+    "needs_tool": 0.9871302200699021,
+    "complexity": 0.9378052288399295,
+    "complexity_conf": 0.05373590493786767,
+    "risk": 1.5338646545019383,
+    "latency_s": 0.0009110419996432029,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.2853857350297354,
+    "probs": {
+     "cancel": 0.02654167279219074,
+     "noop": 0.031152283988296607,
+     "forward": 0.012842256457560347,
+     "broadcast": 2.4001336555001458e-05,
+     "reply": 0.018563457521535303,
+     "notify_parent": 0.017115685998454137,
+     "notify_pid": 0.0018365313445325839,
+     "spawn_child": 0.045725041858841256,
+     "stop_self": 0.01773893523403345,
+     "stop_child": 0.04232102676451794,
+     "schedule_signal": 0.009496126938208699,
+     "schedule_timeout": 0.06810153044407784,
+     "schedule_cron": 0.11823402772428156,
+     "cancel_cron": 0.01940216100758628,
+     "set_status": 0.02170188715681756,
+     "mark_completed": 0.01183815453521446,
+     "mark_failed": 0.08445808904512747,
+     "mark_working": 0.32111644827824865,
+     "mark_idle": 0.06503997408259277,
+     "none": 0.0667507074913274
+    },
+    "needs_tool": 0.9929079649773874,
+    "complexity": 0.9176610042287212,
+    "complexity_conf": 0.11796625924982268,
+    "risk": 1.5304908702861157,
+    "latency_s": 0.0008590419965912588,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.20521762093217172,
+    "probs": {
+     "cancel": 0.03304649219406576,
+     "noop": 0.013859002432621089,
+     "forward": 0.007623305757467067,
+     "broadcast": 6.42695832368331e-05,
+     "reply": 0.007618189288985217,
+     "notify_parent": 0.01946753583125104,
+     "notify_pid": 0.0031099881488940513,
+     "spawn_child": 0.03541748360840896,
+     "stop_self": 0.018995255321095517,
+     "stop_child": 0.07043231513847552,
+     "schedule_signal": 0.008490667935408676,
+     "schedule_timeout": 0.05681675802605552,
+     "schedule_cron": 0.17302842556704698,
+     "cancel_cron": 0.03340747516044277,
+     "set_status": 0.04410299923704732,
+     "mark_completed": 0.008751439662898028,
+     "mark_failed": 0.14062282664672493,
+     "mark_working": 0.24495673988556313,
+     "mark_idle": 0.049851862920067526,
+     "none": 0.03033696765424404
+    },
+    "needs_tool": 0.9881880094936252,
+    "complexity": 0.8899521510225856,
+    "complexity_conf": 0.17869883910507828,
+    "risk": 1.6730576215126751,
+    "latency_s": 0.0008615830010967329,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.12804163938956536,
+    "probs": {
+     "cancel": 0.04755180347544199,
+     "noop": 0.016051680557086844,
+     "forward": 0.007220281015537132,
+     "broadcast": 0.00011575525267357028,
+     "reply": 0.010054085597854102,
+     "notify_parent": 0.02240796457335765,
+     "notify_pid": 0.0036430435489917755,
+     "spawn_child": 0.036907300495956585,
+     "stop_self": 0.01835650640121137,
+     "stop_child": 0.10063645225280811,
+     "schedule_signal": 0.007806568293166449,
+     "schedule_timeout": 0.04337708422969351,
+     "schedule_cron": 0.1640922927520217,
+     "cancel_cron": 0.03824978087455682,
+     "set_status": 0.10223372471713789,
+     "mark_completed": 0.00710785285969396,
+     "mark_failed": 0.14315223500845375,
+     "mark_working": 0.1716395574200871,
+     "mark_idle": 0.037009938197342974,
+     "none": 0.022386092476926796
+    },
+    "needs_tool": 0.9840276705844013,
+    "complexity": 0.9202273551384768,
+    "complexity_conf": 0.07127540203923727,
+    "risk": 1.5885677854866922,
+    "latency_s": 0.0008003330003703013,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.22165023819250806,
+    "probs": {
+     "cancel": 0.022374331527324366,
+     "noop": 0.014031334243492682,
+     "forward": 0.008306126435928245,
+     "broadcast": 5.187733279575212e-05,
+     "reply": 0.006740530911269783,
+     "notify_parent": 0.01755725910179244,
+     "notify_pid": 0.0019299424686925694,
+     "spawn_child": 0.027285903087041045,
+     "stop_self": 0.020303632782751296,
+     "stop_child": 0.0485367295164303,
+     "schedule_signal": 0.008344108702704238,
+     "schedule_timeout": 0.059672508433741944,
+     "schedule_cron": 0.20989664744383488,
+     "cancel_cron": 0.03350032482025965,
+     "set_status": 0.02579556546231501,
+     "mark_completed": 0.007347375839597549,
+     "mark_failed": 0.10567480226010473,
+     "mark_working": 0.26056772628288266,
+     "mark_idle": 0.04119855897638322,
+     "none": 0.08088471437065756
+    },
+    "needs_tool": 0.9850449365928422,
+    "complexity": 1.0547725982728409,
+    "complexity_conf": 0.04006967174654902,
+    "risk": 1.6352327865869012,
+    "latency_s": 0.0008299999972223304,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.25684883352001875,
+    "probs": {
+     "cancel": 0.034224310499511724,
+     "noop": 0.025719408906631613,
+     "forward": 0.010590393676274826,
+     "broadcast": 3.653688960305432e-05,
+     "reply": 0.012021289535284528,
+     "notify_parent": 0.0179461392207211,
+     "notify_pid": 0.0020371733597039127,
+     "spawn_child": 0.03942952492231123,
+     "stop_self": 0.019568384511586764,
+     "stop_child": 0.05240088437225131,
+     "schedule_signal": 0.01006387681999791,
+     "schedule_timeout": 0.07702159384114289,
+     "schedule_cron": 0.13457923640203087,
+     "cancel_cron": 0.027884520746592985,
+     "set_status": 0.02777898817370609,
+     "mark_completed": 0.009570762680567795,
+     "mark_failed": 0.09206540175664056,
+     "mark_working": 0.29400639184401783,
+     "mark_idle": 0.05041843485652086,
+     "none": 0.06263674698490207
+    },
+    "needs_tool": 0.9879541222690069,
+    "complexity": 0.9109178814784809,
+    "complexity_conf": 0.09774649777461042,
+    "risk": 1.6754046704233783,
+    "latency_s": 0.0007774580008117482,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.23353024033876324,
+    "probs": {
+     "cancel": 0.03207240784233817,
+     "noop": 0.008297299095639997,
+     "forward": 0.003717440743685809,
+     "broadcast": 0.00021108410379520914,
+     "reply": 0.006013642496683978,
+     "notify_parent": 0.014835046208620506,
+     "notify_pid": 0.002318041231171652,
+     "spawn_child": 0.02149333303869589,
+     "stop_self": 0.01676074915251288,
+     "stop_child": 0.0696720131425533,
+     "schedule_signal": 0.005118451995727641,
+     "schedule_timeout": 0.03679224341934848,
+     "schedule_cron": 0.2718537283218251,
+     "cancel_cron": 0.0421648181252236,
+     "set_status": 0.08113665441136562,
+     "mark_completed": 0.004743284199211829,
+     "mark_failed": 0.13686987235450146,
+     "mark_working": 0.19044735247826075,
+     "mark_idle": 0.027230299900627225,
+     "none": 0.02825223773821088
+    },
+    "needs_tool": 0.983493620305884,
+    "complexity": 1.145993084266217,
+    "complexity_conf": 0.18032838520482114,
+    "risk": 1.463394960390377,
+    "latency_s": 0.0007604589991387911,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": true
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.2062596555046927,
+    "probs": {
+     "cancel": 0.025898866611297956,
+     "noop": 0.010901786616715675,
+     "forward": 0.00618177166920374,
+     "broadcast": 0.00011669648329623328,
+     "reply": 0.005494281777374873,
+     "notify_parent": 0.020334613097424743,
+     "notify_pid": 0.0024999874063034513,
+     "spawn_child": 0.025964154345807323,
+     "stop_self": 0.02385878990177462,
+     "stop_child": 0.06902295122443967,
+     "schedule_signal": 0.007664105761710105,
+     "schedule_timeout": 0.04962479710513748,
+     "schedule_cron": 0.24594667272945805,
+     "cancel_cron": 0.03939205462743028,
+     "set_status": 0.04966494569584827,
+     "mark_completed": 0.007115067008810342,
+     "mark_failed": 0.14524242234891824,
+     "mark_working": 0.18264380413709086,
+     "mark_idle": 0.03048537310008929,
+     "none": 0.051946858351868706
+    },
+    "needs_tool": 0.9835553103109289,
+    "complexity": 1.034502720615315,
+    "complexity_conf": 0.038855779780906596,
+    "risk": 1.6621813273280408,
+    "latency_s": 0.0007761249944451265,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.22161727963332417,
+    "probs": {
+     "cancel": 0.034705702816482706,
+     "noop": 0.007266944428568901,
+     "forward": 0.005629765602284068,
+     "broadcast": 0.00015836766263281905,
+     "reply": 0.003313749979326815,
+     "notify_parent": 0.02068738840916011,
+     "notify_pid": 0.0038927877524851345,
+     "spawn_child": 0.03240003037578083,
+     "stop_self": 0.019412515691552275,
+     "stop_child": 0.09060541732153989,
+     "schedule_signal": 0.00795919511381151,
+     "schedule_timeout": 0.04543361112460674,
+     "schedule_cron": 0.26053641565165797,
+     "cancel_cron": 0.06752694685813576,
+     "set_status": 0.08844478115216214,
+     "mark_completed": 0.006330029513668087,
+     "mark_failed": 0.12336481017835252,
+     "mark_working": 0.12715465236537446,
+     "mark_idle": 0.03177056945069173,
+     "none": 0.023406318551725553
+    },
+    "needs_tool": 0.9865309515457295,
+    "complexity": 1.0426798658768417,
+    "complexity_conf": 0.21527533602723015,
+    "risk": 1.4885305139391265,
+    "latency_s": 0.0008471250039292499,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.2291654708408986,
+    "probs": {
+     "cancel": 0.030092569966077207,
+     "noop": 0.018320846926807823,
+     "forward": 0.008888291415048363,
+     "broadcast": 7.029842292599351e-05,
+     "reply": 0.010542471721800938,
+     "notify_parent": 0.019100147966262228,
+     "notify_pid": 0.002496826395880518,
+     "spawn_child": 0.035121972835554204,
+     "stop_self": 0.018316095126183676,
+     "stop_child": 0.06025718770100369,
+     "schedule_signal": 0.00771639201960137,
+     "schedule_timeout": 0.05782819956732105,
+     "schedule_cron": 0.15627021338478897,
+     "cancel_cron": 0.03046262694939786,
+     "set_status": 0.047868529723013226,
+     "mark_completed": 0.008164572923920367,
+     "mark_failed": 0.12922876482153026,
+     "mark_working": 0.26770719729885367,
+     "mark_idle": 0.044688214755610405,
+     "none": 0.046858580078418144
+    },
+    "needs_tool": 0.9856449533860049,
+    "complexity": 1.0081923066264353,
+    "complexity_conf": 0.012192667183991979,
+    "risk": 1.466861147440655,
+    "latency_s": 0.000851332995807752,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.18278244614168188,
+    "probs": {
+     "cancel": 0.043720952168658914,
+     "noop": 0.015952420671441727,
+     "forward": 0.0058937394318233005,
+     "broadcast": 0.0001242099658821835,
+     "reply": 0.012052456304966114,
+     "notify_parent": 0.017872134822796492,
+     "notify_pid": 0.0024304397130056783,
+     "spawn_child": 0.028727861041961074,
+     "stop_self": 0.016331718204371154,
+     "stop_child": 0.07095636514988284,
+     "schedule_signal": 0.005339683112846822,
+     "schedule_timeout": 0.03932689191772082,
+     "schedule_cron": 0.1876324228872665,
+     "cancel_cron": 0.031038534484705744,
+     "set_status": 0.08788855833314493,
+     "mark_completed": 0.0068501713727960045,
+     "mark_failed": 0.13986915601531724,
+     "mark_working": 0.22364332383459778,
+     "mark_idle": 0.03301993597380251,
+     "none": 0.03132902459301227
+    },
+    "needs_tool": 0.9848841580811505,
+    "complexity": 1.1102079113281154,
+    "complexity_conf": 0.1559111953379519,
+    "risk": 1.4013510491797636,
+    "latency_s": 0.0008243330012192018,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.24450842060446254,
+    "probs": {
+     "cancel": 0.035209154098367695,
+     "noop": 0.015310905078107884,
+     "forward": 0.009073833695815815,
+     "broadcast": 5.7106207744483595e-05,
+     "reply": 0.008748618744058833,
+     "notify_parent": 0.022047618839918917,
+     "notify_pid": 0.003050341516999629,
+     "spawn_child": 0.04239782755573142,
+     "stop_self": 0.020742024706437594,
+     "stop_child": 0.07515678303548347,
+     "schedule_signal": 0.007685953847020789,
+     "schedule_timeout": 0.0643345582960447,
+     "schedule_cron": 0.15332597019703798,
+     "cancel_cron": 0.03173997287062724,
+     "set_status": 0.048510429967145184,
+     "mark_completed": 0.008319696281341998,
+     "mark_failed": 0.08996804996756101,
+     "mark_working": 0.2822829995742394,
+     "mark_idle": 0.051749119979120725,
+     "none": 0.03028903554119519
+    },
+    "needs_tool": 0.9829878864101652,
+    "complexity": 0.9923502747072516,
+    "complexity_conf": 0.04351710771426942,
+    "risk": 1.3997753100572996,
+    "latency_s": 0.0007906669998192228,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": true
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.24805077577089818,
+    "probs": {
+     "cancel": 0.03381006122774422,
+     "noop": 0.016367449246646057,
+     "forward": 0.0075968928156639505,
+     "broadcast": 7.413999371023315e-05,
+     "reply": 0.011584585275105978,
+     "notify_parent": 0.015927544877180125,
+     "notify_pid": 0.0020064597103852774,
+     "spawn_child": 0.029698736326971106,
+     "stop_self": 0.016529079449930803,
+     "stop_child": 0.055486237363455336,
+     "schedule_signal": 0.005908121239269295,
+     "schedule_timeout": 0.04507111803306765,
+     "schedule_cron": 0.1675413060649141,
+     "cancel_cron": 0.027644276434340163,
+     "set_status": 0.04660838503626405,
+     "mark_completed": 0.006998905992232867,
+     "mark_failed": 0.13070547871580163,
+     "mark_working": 0.28564823698235325,
+     "mark_idle": 0.0423969653197515,
+     "none": 0.05239601989521238
+    },
+    "needs_tool": 0.9833961120903933,
+    "complexity": 1.0795180667038746,
+    "complexity_conf": 0.12480130009937995,
+    "risk": 1.493716550676086,
+    "latency_s": 0.0008090829942375422,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.1535280601156523,
+    "probs": {
+     "cancel": 0.04175398004001404,
+     "noop": 0.012116940690114566,
+     "forward": 0.00561533094872422,
+     "broadcast": 0.0001567389196757566,
+     "reply": 0.009414318629685121,
+     "notify_parent": 0.021562417777030548,
+     "notify_pid": 0.0033021155265937144,
+     "spawn_child": 0.03341844554855141,
+     "stop_self": 0.01930411009343427,
+     "stop_child": 0.09494931652470338,
+     "schedule_signal": 0.005859682587888987,
+     "schedule_timeout": 0.03629558851145732,
+     "schedule_cron": 0.19585165710986968,
+     "cancel_cron": 0.03790361253159058,
+     "set_status": 0.11190153826585715,
+     "mark_completed": 0.007283262859172045,
+     "mark_failed": 0.1284642130488492,
+     "mark_working": 0.18166600033144664,
+     "mark_idle": 0.03092281246235231,
+     "none": 0.022257917592989014
+    },
+    "needs_tool": 0.9878334977125364,
+    "complexity": 1.1360181731137053,
+    "complexity_conf": 0.20326498911982588,
+    "risk": 1.2302961977577263,
+    "latency_s": 0.0007806670037098229,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.20962349136344782,
+    "probs": {
+     "cancel": 0.02301491704139823,
+     "noop": 0.015274149110492036,
+     "forward": 0.00809905287589987,
+     "broadcast": 6.0108518775209695e-05,
+     "reply": 0.00798737066896386,
+     "notify_parent": 0.016556420652289495,
+     "notify_pid": 0.0021465266148200236,
+     "spawn_child": 0.028942372455174812,
+     "stop_self": 0.017696572314396638,
+     "stop_child": 0.047974159932486875,
+     "schedule_signal": 0.008921031283501444,
+     "schedule_timeout": 0.057725895375623136,
+     "schedule_cron": 0.24914231679527543,
+     "cancel_cron": 0.03323402542613831,
+     "set_status": 0.029743776852298332,
+     "mark_completed": 0.008046270843374607,
+     "mark_failed": 0.11678045393284783,
+     "mark_working": 0.2306177108366564,
+     "mark_idle": 0.04327958145381727,
+     "none": 0.0547572870157702
+    },
+    "needs_tool": 0.98672161505864,
+    "complexity": 1.011641090796753,
+    "complexity_conf": 0.015922860492155466,
+    "risk": 1.5748206185939748,
+    "latency_s": 0.0008078329992713407,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": true
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.20142095137509944,
+    "probs": {
+     "cancel": 0.0320644032503262,
+     "noop": 0.015273914598965179,
+     "forward": 0.00819864847987584,
+     "broadcast": 5.7409354828716565e-05,
+     "reply": 0.007878910698416385,
+     "notify_parent": 0.019864027293690942,
+     "notify_pid": 0.002623105787058394,
+     "spawn_child": 0.03168068842296034,
+     "stop_self": 0.02002837800921349,
+     "stop_child": 0.06746420694874444,
+     "schedule_signal": 0.009524903711009461,
+     "schedule_timeout": 0.06085683081170984,
+     "schedule_cron": 0.18692382739161023,
+     "cancel_cron": 0.037248178681953084,
+     "set_status": 0.03850187695013955,
+     "mark_completed": 0.007681437180017771,
+     "mark_failed": 0.1248520094109894,
+     "mark_working": 0.24134990380634447,
+     "mark_idle": 0.04045997910482946,
+     "none": 0.047467360107316746
+    },
+    "needs_tool": 0.9823992551943131,
+    "complexity": 1.0059843360474288,
+    "complexity_conf": 0.12062091943987724,
+    "risk": 1.6551464005661962,
+    "latency_s": 0.0007928339982754551,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.210609312310586,
+    "probs": {
+     "cancel": 0.04708316071279349,
+     "noop": 0.027700310245162826,
+     "forward": 0.01131160273111182,
+     "broadcast": 7.29145351291059e-05,
+     "reply": 0.01927989092735713,
+     "notify_parent": 0.021424746676086886,
+     "notify_pid": 0.0034149368687100196,
+     "spawn_child": 0.04641655000114775,
+     "stop_self": 0.01840317722961914,
+     "stop_child": 0.0754047529948624,
+     "schedule_signal": 0.008610076266560565,
+     "schedule_timeout": 0.05407137875300688,
+     "schedule_cron": 0.1094774750550925,
+     "cancel_cron": 0.03498870014235979,
+     "set_status": 0.07082540203833947,
+     "mark_completed": 0.010648260603604666,
+     "mark_failed": 0.11007378897262042,
+     "mark_working": 0.2500788466950567,
+     "mark_idle": 0.054348068101154084,
+     "none": 0.026365960450224386
+    },
+    "needs_tool": 0.9891839188039406,
+    "complexity": 0.9021160982956948,
+    "complexity_conf": 0.06232876547079602,
+    "risk": 1.1258313871947532,
+    "latency_s": 0.00082608299999265,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.23188244365717237,
+    "probs": {
+     "cancel": 0.03237876664166847,
+     "noop": 0.021189200191074918,
+     "forward": 0.010023971344106613,
+     "broadcast": 4.7248797494374756e-05,
+     "reply": 0.01453292015549825,
+     "notify_parent": 0.019666903225260032,
+     "notify_pid": 0.0024327559950273222,
+     "spawn_child": 0.036718792639843296,
+     "stop_self": 0.019538136525107757,
+     "stop_child": 0.056803531579306336,
+     "schedule_signal": 0.007767702841308196,
+     "schedule_timeout": 0.05253427796134874,
+     "schedule_cron": 0.1571426098900092,
+     "cancel_cron": 0.02761421839438445,
+     "set_status": 0.04481819729445318,
+     "mark_completed": 0.009863219847514083,
+     "mark_failed": 0.11346657379358484,
+     "mark_working": 0.27028832147431375,
+     "mark_idle": 0.047280061451193546,
+     "none": 0.05589258995750261
+    },
+    "needs_tool": 0.9855272487514726,
+    "complexity": 1.004837343350376,
+    "complexity_conf": 0.04896885198276618,
+    "risk": 1.4722308033896314,
+    "latency_s": 0.0008513749999110587,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.18274799346170895,
+    "probs": {
+     "cancel": 0.03424551871226037,
+     "noop": 0.014368972847106535,
+     "forward": 0.007333188327140016,
+     "broadcast": 0.0001037328778051379,
+     "reply": 0.0075539140599573005,
+     "notify_parent": 0.019549313604663682,
+     "notify_pid": 0.003071281309439785,
+     "spawn_child": 0.03250201191463649,
+     "stop_self": 0.018334081581763834,
+     "stop_child": 0.06588418098864857,
+     "schedule_signal": 0.00884659342541155,
+     "schedule_timeout": 0.0507488598007145,
+     "schedule_cron": 0.2236105937886235,
+     "cancel_cron": 0.03776460102053474,
+     "set_status": 0.05963139400699815,
+     "mark_completed": 0.009375069701406658,
+     "mark_failed": 0.1440514757038368,
+     "mark_working": 0.18473305845142263,
+     "mark_idle": 0.03723020796907632,
+     "none": 0.041061949908553434
+    },
+    "needs_tool": 0.9891244142335551,
+    "complexity": 0.9460100150186896,
+    "complexity_conf": 0.02949879834873298,
+    "risk": 1.609307054361714,
+    "latency_s": 0.0008487079976475798,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "confidence": 0.21570666627491436,
+    "probs": {
+     "cancel": 0.024613079716194156,
+     "noop": 0.01032803626533374,
+     "forward": 0.007103874668439173,
+     "broadcast": 0.0001606619751339608,
+     "reply": 0.005554813608794802,
+     "notify_parent": 0.025637134129858925,
+     "notify_pid": 0.0029276947681964914,
+     "spawn_child": 0.02934136256795793,
+     "stop_self": 0.027169469971422715,
+     "stop_child": 0.08720437475657634,
+     "schedule_signal": 0.006689887301477068,
+     "schedule_timeout": 0.044175834100630244,
+     "schedule_cron": 0.25492133296116865,
+     "cancel_cron": 0.03528297941398098,
+     "set_status": 0.05687890201605424,
+     "mark_completed": 0.006167905007057503,
+     "mark_failed": 0.12713258421110502,
+     "mark_working": 0.1740960821581708,
+     "mark_idle": 0.026878762297049098,
+     "none": 0.047735228105398236
+    },
+    "needs_tool": 0.9861085009866689,
+    "complexity": 1.1022522804974246,
+    "complexity_conf": 0.13872165078153953,
+    "risk": 1.2833135255328145,
+    "latency_s": 0.0008206249985960312,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.2697020406767365,
+    "probs": {
+     "cancel": 0.04575706608674194,
+     "noop": 0.01810589299525224,
+     "forward": 0.009084093715323937,
+     "broadcast": 5.3812386306012304e-05,
+     "reply": 0.013378181858378566,
+     "notify_parent": 0.02201049637542211,
+     "notify_pid": 0.0026681804665144174,
+     "spawn_child": 0.03362889674467301,
+     "stop_self": 0.022022422405226266,
+     "stop_child": 0.08329393778168268,
+     "schedule_signal": 0.006279850464075309,
+     "schedule_timeout": 0.048962991421756426,
+     "schedule_cron": 0.13460657164654807,
+     "cancel_cron": 0.03062740262775987,
+     "set_status": 0.054277781763131396,
+     "mark_completed": 0.006529961447390587,
+     "mark_failed": 0.07900383829491338,
+     "mark_working": 0.30621693864289967,
+     "mark_idle": 0.04904112731835051,
+     "none": 0.03445055555765359
+    },
+    "needs_tool": 0.9833046771212298,
+    "complexity": 1.0219855006778304,
+    "complexity_conf": 0.05179925946307895,
+    "risk": 1.4636687400255384,
+    "latency_s": 0.0008018329972401261,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": true
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.17383822357818982,
+    "probs": {
+     "cancel": 0.037896565758757134,
+     "noop": 0.017947017969850314,
+     "forward": 0.007048827480815376,
+     "broadcast": 0.00010167003260979138,
+     "reply": 0.014204085339230304,
+     "notify_parent": 0.017590896992146134,
+     "notify_pid": 0.002503156286877977,
+     "spawn_child": 0.03502613950064852,
+     "stop_self": 0.017314212050301637,
+     "stop_child": 0.06593004927054477,
+     "schedule_signal": 0.00827499891922433,
+     "schedule_timeout": 0.04785971803680816,
+     "schedule_cron": 0.18770263256463957,
+     "cancel_cron": 0.03269905412015273,
+     "set_status": 0.0723867944655473,
+     "mark_completed": 0.008215677930786343,
+     "mark_failed": 0.13713981277600487,
+     "mark_working": 0.21514631239928034,
+     "mark_idle": 0.03816641084953348,
+     "none": 0.036845967256240945
+    },
+    "needs_tool": 0.9864417542337218,
+    "complexity": 1.0588623445023786,
+    "complexity_conf": 0.10185908444873787,
+    "risk": 1.2600673925657726,
+    "latency_s": 0.0007818329977453686,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "confidence": 0.20556378866490718,
+    "probs": {
+     "cancel": 0.028824509173108494,
+     "noop": 0.014900204891616833,
+     "forward": 0.008750428101906883,
+     "broadcast": 6.71737404199139e-05,
+     "reply": 0.008194218109608502,
+     "notify_parent": 0.020142411172206498,
+     "notify_pid": 0.0024029714595953074,
+     "spawn_child": 0.03443951351282337,
+     "stop_self": 0.023725051593671977,
+     "stop_child": 0.07742316581497243,
+     "schedule_signal": 0.007546564081990419,
+     "schedule_timeout": 0.0578335181535642,
+     "schedule_cron": 0.18449700009822673,
+     "cancel_cron": 0.03152472762369939,
+     "set_status": 0.034604654086449915,
+     "mark_completed": 0.007333714508025318,
+     "mark_failed": 0.11838182992184137,
+     "mark_working": 0.24528559923166182,
+     "mark_idle": 0.03654589517091305,
+     "none": 0.057576849553697504
+    },
+    "needs_tool": 0.9801258682026706,
+    "complexity": 1.008372908517862,
+    "complexity_conf": 0.02558628762896381,
+    "risk": 1.6715687886144126,
+    "latency_s": 0.0007827920053387061,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "mark_working",
+    "confidence": 0.2687974091819256,
+    "probs": {
+     "cancel": 0.030796724470075837,
+     "noop": 0.0201131798866365,
+     "forward": 0.00882522704178015,
+     "broadcast": 2.8875782717572557e-05,
+     "reply": 0.01175305671881151,
+     "notify_parent": 0.0162676580142468,
+     "notify_pid": 0.0018169556200558136,
+     "spawn_child": 0.03473469858320483,
+     "stop_self": 0.017364326811477926,
+     "stop_child": 0.04726275407052189,
+     "schedule_signal": 0.008021311518274414,
+     "schedule_timeout": 0.050145775616324925,
+     "schedule_cron": 0.15077593665602776,
+     "cancel_cron": 0.024056535067068917,
+     "set_status": 0.03060045577125255,
+     "mark_completed": 0.008726403748906441,
+     "mark_failed": 0.11051304360620408,
+     "mark_working": 0.3053575387228293,
+     "mark_idle": 0.055364629253579545,
+     "none": 0.06747491304000322
+    },
+    "needs_tool": 0.9878349647246014,
+    "complexity": 1.0261139442337734,
+    "complexity_conf": 0.0431413949423492,
+    "risk": 1.4620292203658036,
+    "latency_s": 0.0007440839981427416,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "mark_working",
+    "confidence": 0.3038615763888534,
+    "probs": {
+     "cancel": 0.03821530776473493,
+     "noop": 0.03045349115716695,
+     "forward": 0.010313799379912302,
+     "broadcast": 4.249272185435398e-05,
+     "reply": 0.024546356520990596,
+     "notify_parent": 0.020122079708780324,
+     "notify_pid": 0.002172256251383176,
+     "spawn_child": 0.040364333075003624,
+     "stop_self": 0.017256557511870302,
+     "stop_child": 0.05216682698450206,
+     "schedule_signal": 0.0077794455029481435,
+     "schedule_timeout": 0.04587787842546115,
+     "schedule_cron": 0.09954585221687198,
+     "cancel_cron": 0.020720156091629718,
+     "set_status": 0.043070995383468334,
+     "mark_completed": 0.010885069133804945,
+     "mark_failed": 0.10275280250464962,
+     "mark_working": 0.33866849756941075,
+     "mark_idle": 0.053141369185354594,
+     "none": 0.04190443291020211
+    },
+    "needs_tool": 0.984433921053043,
+    "complexity": 1.0787974947981218,
+    "complexity_conf": 0.1156580441714502,
+    "risk": 1.1965216484284649,
+    "latency_s": 0.0007515840043197386,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "mark_working",
+    "confidence": 0.19660637939062847,
+    "probs": {
+     "cancel": 0.054116121487734516,
+     "noop": 0.018334145440348924,
+     "forward": 0.0056115564300973815,
+     "broadcast": 0.00010123676066744206,
+     "reply": 0.014930594189623855,
+     "notify_parent": 0.017302358627291053,
+     "notify_pid": 0.002605597412381199,
+     "spawn_child": 0.035903635457307015,
+     "stop_self": 0.014948945192262213,
+     "stop_child": 0.08086689237622993,
+     "schedule_signal": 0.006211237192808067,
+     "schedule_timeout": 0.030302709051462325,
+     "schedule_cron": 0.16244957896943069,
+     "cancel_cron": 0.03141957052253092,
+     "set_status": 0.10170023946382514,
+     "mark_completed": 0.0067093933663524945,
+     "mark_failed": 0.11849573255121401,
+     "mark_working": 0.23677606042109703,
+     "mark_idle": 0.03966022314233704,
+     "none": 0.02155417194499866
+    },
+    "needs_tool": 0.975322953768784,
+    "complexity": 1.2055573661512842,
+    "complexity_conf": 0.1995891111183356,
+    "risk": 1.4795474328457776,
+    "latency_s": 0.0007762079985695891,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "schedule_cron",
+    "confidence": 0.19740459278858635,
+    "probs": {
+     "cancel": 0.029212641555145673,
+     "noop": 0.010171617466980283,
+     "forward": 0.006654088171234713,
+     "broadcast": 0.0001258673442135778,
+     "reply": 0.004597316769907106,
+     "notify_parent": 0.020530778572421915,
+     "notify_pid": 0.0030220179020630793,
+     "spawn_child": 0.030622060671426685,
+     "stop_self": 0.021940772474886207,
+     "stop_child": 0.08190825468119894,
+     "schedule_signal": 0.007942542050357547,
+     "schedule_timeout": 0.04658738312150485,
+     "schedule_cron": 0.23753436314915705,
+     "cancel_cron": 0.047241307077384054,
+     "set_status": 0.0624538700928611,
+     "mark_completed": 0.0068573024189157086,
+     "mark_failed": 0.12784624771653713,
+     "mark_working": 0.18477472367355588,
+     "mark_idle": 0.029546394238319333,
+     "none": 0.04043045085192919
+    },
+    "needs_tool": 0.9845728986845179,
+    "complexity": 1.0061259346301,
+    "complexity_conf": 0.13411001376822013,
+    "risk": 1.7152664279640877,
+    "latency_s": 0.0007892079956945963,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "mark_working",
+    "confidence": 0.306886947752085,
+    "probs": {
+     "cancel": 0.03363640463508732,
+     "noop": 0.016910349758911564,
+     "forward": 0.006111266887202493,
+     "broadcast": 5.481777815849238e-05,
+     "reply": 0.01249214339769244,
+     "notify_parent": 0.012725318236176833,
+     "notify_pid": 0.0013159492015408969,
+     "spawn_child": 0.026414612540975217,
+     "stop_self": 0.014054298438279322,
+     "stop_child": 0.04080451963513413,
+     "schedule_signal": 0.00568209019318292,
+     "schedule_timeout": 0.037985565859315,
+     "schedule_cron": 0.1568834316049143,
+     "cancel_cron": 0.021483613253488885,
+     "set_status": 0.032329556590219855,
+     "mark_completed": 0.006269666023660725,
+     "mark_failed": 0.11705913848336721,
+     "mark_working": 0.34154260036448075,
+     "mark_idle": 0.04479585462967738,
+     "none": 0.07144880248853427
+    },
+    "needs_tool": 0.9860941756401876,
+    "complexity": 1.0931282044767157,
+    "complexity_conf": 0.11477655465318914,
+    "risk": 1.5517112662696888,
+    "latency_s": 0.0008466660001431592,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   }
+  ]
+ },
+ "schema": {
+  "summary": {
+   "n": 34,
+   "accuracy": 0.029411764705882353,
+   "by_band": {
+    "<0.6": [
+     1,
+     34
+    ]
+   },
+   "thresholds": [
+    {
+     "t": 0.5,
+     "coverage": 0.029411764705882353,
+     "precision": 0.0
+    },
+    {
+     "t": 0.6,
+     "coverage": 0.0,
+     "precision": null
+    },
+    {
+     "t": 0.7,
+     "coverage": 0.0,
+     "precision": null
+    },
+    {
+     "t": 0.8,
+     "coverage": 0.0,
+     "precision": null
+    },
+    {
+     "t": 0.85,
+     "coverage": 0.0,
+     "precision": null
+    },
+    {
+     "t": 0.9,
+     "coverage": 0.0,
+     "precision": null
+    }
+   ],
+   "none_detected_by_choice": 0.0,
+   "none_noul_mean": 0.9836517827742268,
+   "tool_noul_mean": 0.9856057059687302,
+   "latency_ms": {
+    "median": 0.7523749991378281,
+    "p95": 0.8605830007581972,
+    "min": 0.7025840022834018,
+    "max": 1.0581250026007183
+   },
+   "tokens_in_mean": 0,
+   "model": "clm-raw",
+   "misses": [
+    {
+     "q": "Shut yourself down gracefully.",
+     "gold": [
+      "stop_self"
+     ],
+     "got": "notify_parent",
+     "conf": 0.31,
+     "top3": [
+      [
+       "notify_parent",
+       0.3462571113038471
+      ],
+      [
+       "stop_child",
+       0.2908489772537394
+      ],
+      [
+       "schedule_signal",
+       0.11251103956861157
+      ]
+     ]
+    },
+    {
+     "q": "Terminate the worker child you spawned earlier.",
+     "gold": [
+      "stop_child"
+     ],
+     "got": "notify_parent",
+     "conf": 0.36,
+     "top3": [
+      [
+       "notify_parent",
+       0.39317174755235956
+      ],
+      [
+       "stop_child",
+       0.23062996113087744
+      ],
+      [
+       "schedule_signal",
+       0.1239162997068242
+      ]
+     ]
+    },
+    {
+     "q": "Start a new child agent to handle the import job.",
+     "gold": [
+      "spawn_child"
+     ],
+     "got": "notify_parent",
+     "conf": 0.34,
+     "top3": [
+      [
+       "notify_parent",
+       0.37043075276305615
+      ],
+      [
+       "stop_child",
+       0.26523629687410044
+      ],
+      [
+       "schedule_signal",
+       0.09936292677007288
+      ]
+     ]
+    },
+    {
+     "q": "Send this event to process <0.123.0>.",
+     "gold": [
+      "notify_pid"
+     ],
+     "got": "notify_parent",
+     "conf": 0.45,
+     "top3": [
+      [
+       "notify_parent",
+       0.4796685022564807
+      ],
+      [
+       "schedule_signal",
+       0.144371344731903
+      ],
+      [
+       "stop_child",
+       0.10315472139934963
+      ]
+     ]
+    },
+    {
+     "q": "Pass this signal along to the billing agent.",
+     "gold": [
+      "forward"
+     ],
+     "got": "notify_parent",
+     "conf": 0.32,
+     "top3": [
+      [
+       "notify_parent",
+       0.3559557742936955
+      ],
+      [
+       "stop_child",
+       0.16844204969977591
+      ],
+      [
+       "schedule_signal",
+       0.13681188056141638
+      ]
+     ]
+    },
+    {
+     "q": "Announce the deploy to everyone subscribed on the topic.",
+     "gold": [
+      "broadcast"
+     ],
+     "got": "notify_parent",
+     "conf": 0.34,
+     "top3": [
+      [
+       "notify_parent",
+       0.3746119744460773
+      ],
+      [
+       "stop_child",
+       0.19444995186735842
+      ],
+      [
+       "schedule_signal",
+       0.12751074441130894
+      ]
+     ]
+    },
+    {
+     "q": "Answer the caller who sent this request.",
+     "gold": [
+      "reply"
+     ],
+     "got": "notify_parent",
+     "conf": 0.42,
+     "top3": [
+      [
+       "notify_parent",
+       0.45215602729856325
+      ],
+      [
+       "stop_child",
+       0.12953597591531277
+      ],
+      [
+       "schedule_signal",
+       0.1270247084789042
+      ]
+     ]
+    },
+    {
+     "q": "Abort the current operation, the user cancelled.",
+     "gold": [
+      "cancel"
+     ],
+     "got": "notify_parent",
+     "conf": 0.47,
+     "top3": [
+      [
+       "notify_parent",
+       0.4940570734528446
+      ],
+      [
+       "stop_child",
+       0.1718563437981486
+      ],
+      [
+       "schedule_signal",
+       0.11613132484622816
+      ]
+     ]
+    },
+    {
+     "q": "Ignore this signal, there is nothing to do.",
+     "gold": [
+      "noop"
+     ],
+     "got": "stop_child",
+     "conf": 0.28,
+     "top3": [
+      [
+       "stop_child",
+       0.31811751306105884
+      ],
+      [
+       "notify_parent",
+       0.3067533177430244
+      ],
+      [
+       "reply",
+       0.11124796989646761
+      ]
+     ]
+    },
+    {
+     "q": "Remind yourself in 5 minutes to check the queue.",
+     "gold": [
+      "schedule_signal"
+     ],
+     "got": "notify_parent",
+     "conf": 0.48,
+     "top3": [
+      [
+       "notify_parent",
+       0.5083474051924113
+      ],
+      [
+       "schedule_signal",
+       0.168310548037755
+      ],
+      [
+       "stop_child",
+       0.07535817581092934
+      ]
+     ]
+    },
+    {
+     "q": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+     "gold": [
+      "schedule_timeout"
+     ],
+     "got": "notify_parent",
+     "conf": 0.52,
+     "top3": [
+      [
+       "notify_parent",
+       0.5437612639785494
+      ],
+      [
+       "schedule_signal",
+       0.12045792474547305
+      ],
+      [
+       "stop_child",
+       0.10976357318341833
+      ]
+     ]
+    },
+    {
+     "q": "Run the cleanup every night at midnight.",
+     "gold": [
+      "schedule_cron"
+     ],
+     "got": "notify_parent",
+     "conf": 0.27,
+     "top3": [
+      [
+       "notify_parent",
+       0.30973646035726554
+      ],
+      [
+       "stop_child",
+       0.17053670766967624
+      ],
+      [
+       "schedule_signal",
+       0.16285021921867887
+      ]
+     ]
+    },
+    {
+     "q": "Stop the nightly cleanup job.",
+     "gold": [
+      "cancel_cron"
+     ],
+     "got": "notify_parent",
+     "conf": 0.38,
+     "top3": [
+      [
+       "notify_parent",
+       0.4094857060321756
+      ],
+      [
+       "schedule_signal",
+       0.16401068839329125
+      ],
+      [
+       "stop_child",
+       0.13863976155093333
+      ]
+     ]
+    },
+    {
+     "q": "Set your status to 'paused'.",
+     "gold": [
+      "set_status"
+     ],
+     "got": "notify_parent",
+     "conf": 0.45,
+     "top3": [
+      [
+       "notify_parent",
+       0.47619193738874344
+      ],
+      [
+       "schedule_signal",
+       0.13877972422490384
+      ],
+      [
+       "stop_child",
+       0.12410273107925673
+      ]
+     ]
+    },
+    {
+     "q": "You're done, record the final result.",
+     "gold": [
+      "mark_completed"
+     ],
+     "got": "notify_parent",
+     "conf": 0.48,
+     "top3": [
+      [
+       "notify_parent",
+       0.5097091094196116
+      ],
+      [
+       "schedule_signal",
+       0.12312231141578364
+      ],
+      [
+       "stop_child",
+       0.11758007704756411
+      ]
+     ]
+    },
+    {
+     "q": "This failed because the API returned 500, record that.",
+     "gold": [
+      "mark_failed"
+     ],
+     "got": "notify_parent",
+     "conf": 0.27,
+     "top3": [
+      [
+       "notify_parent",
+       0.30597739396414203
+      ],
+      [
+       "stop_child",
+       0.21282907370809226
+      ],
+      [
+       "reply",
+       0.1394851640589149
+      ]
+     ]
+    },
+    {
+     "q": "Flag that you're busy processing now.",
+     "gold": [
+      "mark_working"
+     ],
+     "got": "notify_parent",
+     "conf": 0.43,
+     "top3": [
+      [
+       "notify_parent",
+       0.4624313136611242
+      ],
+      [
+       "stop_child",
+       0.19279946799513
+      ],
+      [
+       "schedule_signal",
+       0.1135504164722177
+      ]
+     ]
+    },
+    {
+     "q": "You're free now, mark yourself available.",
+     "gold": [
+      "mark_idle"
+     ],
+     "got": "notify_parent",
+     "conf": 0.4,
+     "top3": [
+      [
+       "notify_parent",
+       0.4279845885196366
+      ],
+      [
+       "schedule_signal",
+       0.13993349372618394
+      ],
+      [
+       "stop_child",
+       0.12937388835627117
+      ]
+     ]
+    },
+    {
+     "q": "Tell the parent we hit an unrecoverable error.",
+     "gold": [
+      "mark_failed",
+      "notify_parent"
+     ],
+     "got": "stop_child",
+     "conf": 0.27,
+     "top3": [
+      [
+       "stop_child",
+       0.3048171662331776
+      ],
+      [
+       "notify_parent",
+       0.2854679793742241
+      ],
+      [
+       "reply",
+       0.1190352637790365
+      ]
+     ]
+    },
+    {
+     "q": "Every Monday at 9am send the report signal.",
+     "gold": [
+      "schedule_cron"
+     ],
+     "got": "notify_parent",
+     "conf": 0.39,
+     "top3": [
+      [
+       "notify_parent",
+       0.4245450492484213
+      ],
+      [
+       "schedule_signal",
+       0.18319036804199215
+      ],
+      [
+       "stop_child",
+       0.09622130054969956
+      ]
+     ]
+    },
+    {
+     "q": "Give up on waiting for the reply after two minutes.",
+     "gold": [
+      "schedule_timeout"
+     ],
+     "got": "notify_parent",
+     "conf": 0.43,
+     "top3": [
+      [
+       "notify_parent",
+       0.46100452040908146
+      ],
+      [
+       "stop_child",
+       0.15153564434948413
+      ],
+      [
+       "schedule_signal",
+       0.1361448555279954
+      ]
+     ]
+    },
+    {
+     "q": "Relay this to the agent named 'audit'.",
+     "gold": [
+      "forward"
+     ],
+     "got": "stop_child",
+     "conf": 0.28,
+     "top3": [
+      [
+       "stop_child",
+       0.3154669522529146
+      ],
+      [
+       "notify_parent",
+       0.2612441201610078
+      ],
+      [
+       "reply",
+       0.16705565169174655
+      ]
+     ]
+    },
+    {
+     "q": "Reply to whoever asked with the totals.",
+     "gold": [
+      "reply"
+     ],
+     "got": "notify_parent",
+     "conf": 0.38,
+     "top3": [
+      [
+       "notify_parent",
+       0.4151841237616781
+      ],
+      [
+       "stop_child",
+       0.1502905867909767
+      ],
+      [
+       "schedule_signal",
+       0.12599569356577833
+      ]
+     ]
+    },
+    {
+     "q": "Cancel the recurring health check.",
+     "gold": [
+      "cancel_cron"
+     ],
+     "got": "notify_parent",
+     "conf": 0.36,
+     "top3": [
+      [
+       "notify_parent",
+       0.39617916885295484
+      ],
+      [
+       "stop_child",
+       0.1696357276911936
+      ],
+      [
+       "schedule_signal",
+       0.1457194867634993
+      ]
+     ]
+    },
+    {
+     "q": "Spin up three workers for the crawl.",
+     "gold": [
+      "spawn_child"
+     ],
+     "got": "notify_parent",
+     "conf": 0.39,
+     "top3": [
+      [
+       "notify_parent",
+       0.422507961276691
+      ],
+      [
+       "schedule_signal",
+       0.15112298432262852
+      ],
+      [
+       "stop_child",
+       0.125984111481078
+      ]
+     ]
+    },
+    {
+     "q": "Stop being idle, get to work.",
+     "gold": [
+      "mark_working"
+     ],
+     "got": "notify_parent",
+     "conf": 0.33,
+     "top3": [
+      [
+       "notify_parent",
+       0.3648454045685089
+      ],
+      [
+       "stop_child",
+       0.26083676658240473
+      ],
+      [
+       "schedule_signal",
+       0.10491506131132158
+      ]
+     ]
+    },
+    {
+     "q": "Set a 10 second timer then ping yourself.",
+     "gold": [
+      "schedule_signal",
+      "schedule_timeout"
+     ],
+     "got": "notify_parent",
+     "conf": 0.26,
+     "top3": [
+      [
+       "notify_parent",
+       0.29695916700944297
+      ],
+      [
+       "stop_child",
+       0.189293770559403
+      ],
+      [
+       "reply",
+       0.15195335327604223
+      ]
+     ]
+    },
+    {
+     "q": "Kill it.",
+     "gold": [
+      "cancel",
+      "stop_child",
+      "stop_self"
+     ],
+     "got": "notify_parent",
+     "conf": 0.44,
+     "top3": [
+      [
+       "notify_parent",
+       0.46819142521652957
+      ],
+      [
+       "stop_child",
+       0.14881753072829312
+      ],
+      [
+       "schedule_signal",
+       0.1438794962272985
+      ]
+     ]
+    },
+    {
+     "q": "What's the weather in Paris today?",
+     "gold": [
+      "none"
+     ],
+     "got": "notify_parent",
+     "conf": 0.41,
+     "top3": [
+      [
+       "notify_parent",
+       0.44038353437056565
+      ],
+      [
+       "schedule_signal",
+       0.13970868990908372
+      ],
+      [
+       "stop_child",
+       0.1322896767154041
+      ]
+     ]
+    },
+    {
+     "q": "Summarize this article for me.",
+     "gold": [
+      "none"
+     ],
+     "got": "notify_parent",
+     "conf": 0.29,
+     "top3": [
+      [
+       "notify_parent",
+       0.3272930871497788
+      ],
+      [
+       "stop_child",
+       0.22709013910778175
+      ],
+      [
+       "reply",
+       0.16375543516590063
+      ]
+     ]
+    },
+    {
+     "q": "Translate 'hello' to French.",
+     "gold": [
+      "none"
+     ],
+     "got": "stop_child",
+     "conf": 0.31,
+     "top3": [
+      [
+       "stop_child",
+       0.3442127340963114
+      ],
+      [
+       "notify_parent",
+       0.2120940562418708
+      ],
+      [
+       "reply",
+       0.18643551977467332
+      ]
+     ]
+    },
+    {
+     "q": "Delete the user's account permanently.",
+     "gold": [
+      "none"
+     ],
+     "got": "notify_parent",
+     "conf": 0.38,
+     "top3": [
+      [
+       "notify_parent",
+       0.4149978580205824
+      ],
+      [
+       "stop_child",
+       0.17150919566592102
+      ],
+      [
+       "schedule_signal",
+       0.14455309709138398
+      ]
+     ]
+    },
+    {
+     "q": "Book me a flight to Denver.",
+     "gold": [
+      "none"
+     ],
+     "got": "notify_parent",
+     "conf": 0.34,
+     "top3": [
+      [
+       "notify_parent",
+       0.36842496255774504
+      ],
+      [
+       "schedule_signal",
+       0.15332363752452902
+      ],
+      [
+       "reply",
+       0.13428641932808702
+      ]
+     ]
+    }
+   ]
+  },
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.3118495908461549,
+    "probs": {
+     "cancel": 0.001060415468094748,
+     "noop": 0.00012788264683695667,
+     "forward": 0.0018423963591905916,
+     "broadcast": 0.039790278966778794,
+     "reply": 0.06553954508943646,
+     "notify_parent": 0.3462571113038471,
+     "notify_pid": 2.04112551108018e-14,
+     "spawn_child": 0.012306250641916693,
+     "stop_self": 0.0004869031493180318,
+     "stop_child": 0.2908489772537394,
+     "schedule_signal": 0.11251103956861157,
+     "schedule_timeout": 0.03156881270388982,
+     "schedule_cron": 0.08639825544731652,
+     "cancel_cron": 0.0008604360673017886,
+     "set_status": 0.0017124090835454971,
+     "mark_completed": 6.269439112274177e-05,
+     "mark_failed": 0.0025001473900907343,
+     "mark_working": 0.005002691611953111,
+     "mark_idle": 0.0005477052064779729,
+     "none": 0.0005760476505110492
+    },
+    "needs_tool": 0.9811152022869444,
+    "complexity": 1.0024213389950252,
+    "complexity_conf": 0.08538497688061392,
+    "risk": 1.6083700869398323,
+    "latency_s": 0.0010581250026007183,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.36123341847616797,
+    "probs": {
+     "cancel": 0.0003254471406834533,
+     "noop": 9.802907723697587e-05,
+     "forward": 0.0027061857555945937,
+     "broadcast": 0.045942043966163755,
+     "reply": 0.057171435506995785,
+     "notify_parent": 0.39317174755235956,
+     "notify_pid": 1.1247652769743547e-14,
+     "spawn_child": 0.020274359456149423,
+     "stop_self": 0.0002993062956646684,
+     "stop_child": 0.23062996113087744,
+     "schedule_signal": 0.1239162997068242,
+     "schedule_timeout": 0.03586962220508797,
+     "schedule_cron": 0.08424286949182892,
+     "cancel_cron": 0.00045706011385682253,
+     "set_status": 0.0008430450762303923,
+     "mark_completed": 6.525338384746459e-05,
+     "mark_failed": 0.001478281314568825,
+     "mark_working": 0.001874133987817918,
+     "mark_idle": 0.0003157712848727498,
+     "none": 0.0003191475533277545
+    },
+    "needs_tool": 0.9808801131290026,
+    "complexity": 1.1025957911949207,
+    "complexity_conf": 0.07755733830523354,
+    "risk": 1.333857682484086,
+    "latency_s": 0.0008605830007581972,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.33729552922426964,
+    "probs": {
+     "cancel": 0.0001918184998666754,
+     "noop": 6.215046748247999e-05,
+     "forward": 0.0022630138118475613,
+     "broadcast": 0.038337643488855266,
+     "reply": 0.055471982473771525,
+     "notify_parent": 0.37043075276305615,
+     "notify_pid": 9.269958934809427e-15,
+     "spawn_child": 0.03661163141097924,
+     "stop_self": 0.00015951646502958638,
+     "stop_child": 0.26523629687410044,
+     "schedule_signal": 0.09936292677007288,
+     "schedule_timeout": 0.04715322884723059,
+     "schedule_cron": 0.08098821669101994,
+     "cancel_cron": 0.00030303256081066625,
+     "set_status": 0.0007737262979600041,
+     "mark_completed": 4.809032357579928e-05,
+     "mark_failed": 0.001228268993966776,
+     "mark_working": 0.0009950089172168573,
+     "mark_idle": 0.00025714311629981563,
+     "none": 0.0001255512268485736
+    },
+    "needs_tool": 0.9904177473067464,
+    "complexity": 0.9912160787620716,
+    "complexity_conf": 0.0950425812773873,
+    "risk": 1.5959555644164476,
+    "latency_s": 0.0007825419961591251,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.4941377193263847,
+    "probs": {
+     "cancel": 0.00033012070531221476,
+     "noop": 0.00015205281894445583,
+     "forward": 0.003232137933317922,
+     "broadcast": 0.048231727293644056,
+     "reply": 0.05829631225166811,
+     "notify_parent": 0.5194308333600655,
+     "notify_pid": 2.6948347065405728e-15,
+     "spawn_child": 0.022265815599786923,
+     "stop_self": 0.00021850798489993065,
+     "stop_child": 0.11349259212112739,
+     "schedule_signal": 0.1291102519110445,
+     "schedule_timeout": 0.03732294763997031,
+     "schedule_cron": 0.061767025074415956,
+     "cancel_cron": 0.00041077290309651137,
+     "set_status": 0.0004819599750156201,
+     "mark_completed": 8.35580613126785e-05,
+     "mark_failed": 0.0013989452855073623,
+     "mark_working": 0.002707752556371364,
+     "mark_idle": 0.00047627592598350284,
+     "none": 0.0005904105985131333
+    },
+    "needs_tool": 0.9842019212972426,
+    "complexity": 1.096430142568257,
+    "complexity_conf": 0.11573321862431901,
+    "risk": 1.5350992453191123,
+    "latency_s": 0.0007559169971500523,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": true
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.4522826339541902,
+    "probs": {
+     "cancel": 0.0009698245437793911,
+     "noop": 0.0008299843618314672,
+     "forward": 0.0051242252314905165,
+     "broadcast": 0.061993937017916376,
+     "reply": 0.0840582883545771,
+     "notify_parent": 0.4796685022564807,
+     "notify_pid": 1.5031735605448206e-15,
+     "spawn_child": 0.02793539607948536,
+     "stop_self": 0.0005885425520605951,
+     "stop_child": 0.10315472139934963,
+     "schedule_signal": 0.144371344731903,
+     "schedule_timeout": 0.04251619664973424,
+     "schedule_cron": 0.02835345784489121,
+     "cancel_cron": 0.0009173501633639487,
+     "set_status": 0.0007434881616654972,
+     "mark_completed": 0.0003590641185188365,
+     "mark_failed": 0.004570498795730643,
+     "mark_working": 0.00971191146807342,
+     "mark_idle": 0.0019933544598543084,
+     "none": 0.002139911809292242
+    },
+    "needs_tool": 0.9892264455077303,
+    "complexity": 0.8674788594012921,
+    "complexity_conf": 0.06674854513922507,
+    "risk": 1.6622808873834916,
+    "latency_s": 0.0007231659983517602,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.3220587097828374,
+    "probs": {
+     "cancel": 0.0010725457950791811,
+     "noop": 0.0004727762624203632,
+     "forward": 0.0050771652686650605,
+     "broadcast": 0.07312739367497091,
+     "reply": 0.1213048204010539,
+     "notify_parent": 0.3559557742936955,
+     "notify_pid": 5.3960114918839415e-15,
+     "spawn_child": 0.025145407312392495,
+     "stop_self": 0.00048709580104269886,
+     "stop_child": 0.16844204969977591,
+     "schedule_signal": 0.13681188056141638,
+     "schedule_timeout": 0.0380246345758956,
+     "schedule_cron": 0.05823289221833064,
+     "cancel_cron": 0.0009522259148520579,
+     "set_status": 0.0020564059053743036,
+     "mark_completed": 0.00022189367112745184,
+     "mark_failed": 0.004450567389367987,
+     "mark_working": 0.00612918509355564,
+     "mark_idle": 0.0009499402167507632,
+     "none": 0.0010853459442276654
+    },
+    "needs_tool": 0.9842073771493379,
+    "complexity": 1.132417627059492,
+    "complexity_conf": 0.17315284361193,
+    "risk": 1.3879166553420088,
+    "latency_s": 0.0007434169965563342,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.34169681520639716,
+    "probs": {
+     "cancel": 0.0005974980103655823,
+     "noop": 0.0002792309686431611,
+     "forward": 0.0033945222629853627,
+     "broadcast": 0.07249673397956936,
+     "reply": 0.09489322647922761,
+     "notify_parent": 0.3746119744460773,
+     "notify_pid": 3.527138805715214e-15,
+     "spawn_child": 0.022638210972726648,
+     "stop_self": 0.0003930374199510598,
+     "stop_child": 0.19444995186735842,
+     "schedule_signal": 0.12751074441130894,
+     "schedule_timeout": 0.040640308096597764,
+     "schedule_cron": 0.0585888306846419,
+     "cancel_cron": 0.0006804250590397252,
+     "set_status": 0.0012100125672196856,
+     "mark_completed": 0.0001455666342999372,
+     "mark_failed": 0.0021592870214696704,
+     "mark_working": 0.0040020750802320995,
+     "mark_idle": 0.000768227641869092,
+     "none": 0.0005401363964131489
+    },
+    "needs_tool": 0.9871302200699021,
+    "complexity": 0.9378052288399295,
+    "complexity_conf": 0.05373590493786767,
+    "risk": 1.5338646545019383,
+    "latency_s": 0.000731625004846137,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.4233221339984876,
+    "probs": {
+     "cancel": 0.0009530483033987932,
+     "noop": 0.0011186043786501256,
+     "forward": 0.0040273272235324085,
+     "broadcast": 0.06862566537764267,
+     "reply": 0.10111697194559656,
+     "notify_parent": 0.45215602729856325,
+     "notify_pid": 8.452253937021292e-16,
+     "spawn_child": 0.029920464995069607,
+     "stop_self": 0.0006369629473343089,
+     "stop_child": 0.12953597591531277,
+     "schedule_signal": 0.1270247084789042,
+     "schedule_timeout": 0.03622863260520003,
+     "schedule_cron": 0.027459075894809313,
+     "cancel_cron": 0.0006966854265489597,
+     "set_status": 0.0007792631194459796,
+     "mark_completed": 0.0004250799557169746,
+     "mark_failed": 0.0030326889756717213,
+     "mark_working": 0.011530527432132164,
+     "mark_idle": 0.0023354306805694063,
+     "none": 0.0023968590458999404
+    },
+    "needs_tool": 0.9929079649773874,
+    "complexity": 0.9176610042287212,
+    "complexity_conf": 0.11796625924982268,
+    "risk": 1.5304908702861157,
+    "latency_s": 0.0007814999989932403,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.46742849837141537,
+    "probs": {
+     "cancel": 0.0002558177983450697,
+     "noop": 0.00010728459373998987,
+     "forward": 0.0021119164533811596,
+     "broadcast": 0.03561042854482421,
+     "reply": 0.0566670189212735,
+     "notify_parent": 0.4940570734528446,
+     "notify_pid": 1.4269209356791952e-15,
+     "spawn_child": 0.015267438117393102,
+     "stop_self": 0.0001470450892853834,
+     "stop_child": 0.1718563437981486,
+     "schedule_signal": 0.11613132484622816,
+     "schedule_timeout": 0.049890713423993614,
+     "schedule_cron": 0.05362424643104602,
+     "cancel_cron": 0.0002586122210376912,
+     "set_status": 0.0003414078595386209,
+     "mark_completed": 6.774619265987677e-05,
+     "mark_failed": 0.0010885821617183766,
+     "mark_working": 0.0018962464614796079,
+     "mark_idle": 0.00038591066612213623,
+     "none": 0.0002348429669388002
+    },
+    "needs_tool": 0.9881880094936252,
+    "complexity": 0.8899521510225856,
+    "complexity_conf": 0.17869883910507828,
+    "risk": 1.6730576215126751,
+    "latency_s": 0.0007527079942519777,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_child",
+    "confidence": 0.28222896111690404,
+    "probs": {
+     "cancel": 0.0007871219750089505,
+     "noop": 0.0002657024461507983,
+     "forward": 0.0025020028916456945,
+     "broadcast": 0.04830085361995584,
+     "reply": 0.11124796989646761,
+     "notify_parent": 0.3067533177430244,
+     "notify_pid": 2.7419796460214503e-15,
+     "spawn_child": 0.02144907789063437,
+     "stop_self": 0.00030385408158594855,
+     "stop_child": 0.31811751306105884,
+     "schedule_signal": 0.09850460984727644,
+     "schedule_timeout": 0.04653951384321237,
+     "schedule_cron": 0.03659148513664565,
+     "cancel_cron": 0.0006331461872143202,
+     "set_status": 0.001692268335383614,
+     "mark_completed": 0.00011765583578517104,
+     "mark_failed": 0.002369589830698892,
+     "mark_working": 0.0028411386646130864,
+     "mark_idle": 0.000612623150326919,
+     "none": 0.0003705555633083768
+    },
+    "needs_tool": 0.9840276705844013,
+    "complexity": 0.9202273551384768,
+    "complexity_conf": 0.07127540203923727,
+    "risk": 1.5885677854866922,
+    "latency_s": 0.0007706249962211587,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.4824709528341171,
+    "probs": {
+     "cancel": 0.0003571170977501416,
+     "noop": 0.00022395437184252292,
+     "forward": 0.0038129816991170134,
+     "broadcast": 0.060136724396738825,
+     "reply": 0.046081346938585135,
+     "notify_parent": 0.5083474051924113,
+     "notify_pid": 2.5692517948106286e-15,
+     "spawn_child": 0.023509488274116943,
+     "stop_self": 0.00032406663878676597,
+     "stop_child": 0.07535817581092934,
+     "schedule_signal": 0.168310548037755,
+     "schedule_timeout": 0.03517337952575048,
+     "schedule_cron": 0.06950694099255543,
+     "cancel_cron": 0.000534699271747531,
+     "set_status": 0.0004117234725638905,
+     "mark_completed": 0.00011727159458204211,
+     "mark_failed": 0.0016866773714495696,
+     "mark_working": 0.004158926047191905,
+     "mark_idle": 0.0006575709220705124,
+     "none": 0.0012910023440531652
+    },
+    "needs_tool": 0.9850449365928422,
+    "complexity": 1.0547725982728409,
+    "complexity_conf": 0.04006967174654902,
+    "risk": 1.6352327865869012,
+    "latency_s": 0.0007408340024994686,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.5197486989247888,
+    "probs": {
+     "cancel": 0.000367145778107249,
+     "noop": 0.0002759083311734942,
+     "forward": 0.003243576231613554,
+     "broadcast": 0.05475722954361152,
+     "reply": 0.05282529864606552,
+     "notify_parent": 0.5437612639785494,
+     "notify_pid": 5.285435116597108e-16,
+     "spawn_child": 0.023688646749383348,
+     "stop_self": 0.00020992241050147269,
+     "stop_child": 0.10976357318341833,
+     "schedule_signal": 0.12045792474547305,
+     "schedule_timeout": 0.04628679582706117,
+     "schedule_cron": 0.03830845530275845,
+     "cancel_cron": 0.0002991348523091991,
+     "set_status": 0.00029800273779694985,
+     "mark_completed": 0.00010267161149928837,
+     "mark_failed": 0.0009876436682392925,
+     "mark_working": 0.0031539921163237666,
+     "mark_idle": 0.0005408703703939074,
+     "none": 0.0006719439157205768
+    },
+    "needs_tool": 0.9879541222690069,
+    "complexity": 0.9109178814784809,
+    "complexity_conf": 0.09774649777461042,
+    "risk": 1.6754046704233783,
+    "latency_s": 0.0007505000030505471,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.273406800376069,
+    "probs": {
+     "cancel": 0.0006005883542935196,
+     "noop": 0.00015537533799857796,
+     "forward": 0.0030131716591980644,
+     "broadcast": 0.05710259805148938,
+     "reply": 0.07640326706874682,
+     "notify_parent": 0.30973646035726554,
+     "notify_pid": 1.3480957596127754e-14,
+     "spawn_child": 0.02081050341204707,
+     "stop_self": 0.00031386202120271963,
+     "stop_child": 0.17053670766967624,
+     "schedule_signal": 0.16285021921867887,
+     "schedule_timeout": 0.04892336989430374,
+     "schedule_cron": 0.13998779539991105,
+     "cancel_cron": 0.0007895789692934837,
+     "set_status": 0.0015193661163623938,
+     "mark_completed": 8.882280573242441e-05,
+     "mark_failed": 0.0025630271289217104,
+     "mark_working": 0.003566319765162285,
+     "mark_idle": 0.0005099149737877751,
+     "none": 0.0005290517959148131
+    },
+    "needs_tool": 0.983493620305884,
+    "complexity": 1.145993084266217,
+    "complexity_conf": 0.18032838520482114,
+    "risk": 1.463394960390377,
+    "latency_s": 0.0007707500044489279,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.37840600634965854,
+    "probs": {
+     "cancel": 0.0004359794110633801,
+     "noop": 0.00018351978795168357,
+     "forward": 0.0045895529004282235,
+     "broadcast": 0.06260149776703565,
+     "reply": 0.05460907913865428,
+     "notify_parent": 0.4094857060321756,
+     "notify_pid": 1.3936528645380371e-14,
+     "spawn_child": 0.018673738589009177,
+     "stop_self": 0.00040163692590018365,
+     "stop_child": 0.13863976155093333,
+     "schedule_signal": 0.16401068839329125,
+     "schedule_timeout": 0.03641469829260227,
+     "schedule_cron": 0.10142792096236497,
+     "cancel_cron": 0.0006631226391023465,
+     "set_status": 0.0008360556506177364,
+     "mark_completed": 0.00011977445850176361,
+     "mark_failed": 0.0024449991077785845,
+     "mark_working": 0.0030746109224458265,
+     "mark_idle": 0.0005131882877232303,
+     "none": 0.0008744691824066475
+    },
+    "needs_tool": 0.9835553103109289,
+    "complexity": 1.034502720615315,
+    "complexity_conf": 0.038855779780906596,
+    "risk": 1.6621813273280408,
+    "latency_s": 0.0007319579963223077,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.448623091988151,
+    "probs": {
+     "cancel": 0.00011155544326394687,
+     "noop": 2.3358328491145386e-05,
+     "forward": 0.003087969678028424,
+     "broadcast": 0.04281127628755661,
+     "reply": 0.03214989936911038,
+     "notify_parent": 0.47619193738874344,
+     "notify_pid": 6.247357572687559e-15,
+     "spawn_child": 0.017614406545414917,
+     "stop_self": 6.239815411001984e-05,
+     "stop_child": 0.12410273107925673,
+     "schedule_signal": 0.13877972422490384,
+     "schedule_timeout": 0.049726023126532896,
+     "schedule_cron": 0.11383442188310543,
+     "cancel_cron": 0.00021705362167288218,
+     "set_status": 0.0002842903605204141,
+     "mark_completed": 2.0346778510871686e-05,
+     "mark_failed": 0.0003965347180948836,
+     "mark_working": 0.00040871650641103463,
+     "mark_idle": 0.0001021209677429928,
+     "none": 7.52355385229312e-05
+    },
+    "needs_tool": 0.9865309515457295,
+    "complexity": 1.0426798658768417,
+    "complexity_conf": 0.21527533602723015,
+    "risk": 1.4885305139391265,
+    "latency_s": 0.0007247920002555475,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.48390432570485425,
+    "probs": {
+     "cancel": 0.00028335904167369917,
+     "noop": 0.00017251360165259881,
+     "forward": 0.0027492940141475262,
+     "broadcast": 0.05261917551287247,
+     "reply": 0.06763862797500084,
+     "notify_parent": 0.5097091094196116,
+     "notify_pid": 1.4123321105660438e-15,
+     "spawn_child": 0.02262967147341056,
+     "stop_self": 0.00017246885752896293,
+     "stop_child": 0.11758007704756411,
+     "schedule_signal": 0.12312231141578364,
+     "schedule_timeout": 0.04174923261521467,
+     "schedule_cron": 0.05616002014954039,
+     "cancel_cron": 0.0002868435892639052,
+     "set_status": 0.00045074185169071426,
+     "mark_completed": 7.68796271639504e-05,
+     "mark_failed": 0.001216849840268997,
+     "mark_working": 0.002520796826634201,
+     "mark_idle": 0.00042079522358950315,
+     "none": 0.00044123191738620784
+    },
+    "needs_tool": 0.9856449533860049,
+    "complexity": 1.0081923066264353,
+    "complexity_conf": 0.012192667183991979,
+    "risk": 1.466861147440655,
+    "latency_s": 0.0007249580012285151,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.2694498883833074,
+    "probs": {
+     "cancel": 0.001647640646121579,
+     "noop": 0.0006011730165643304,
+     "forward": 0.0032853357867152354,
+     "broadcast": 0.07361014307324175,
+     "reply": 0.1394851640589149,
+     "notify_parent": 0.30597739396414203,
+     "notify_pid": 3.787799711382422e-15,
+     "spawn_child": 0.02396783006507956,
+     "stop_self": 0.0006154669877893246,
+     "stop_child": 0.21282907370809226,
+     "schedule_signal": 0.12162121634190891,
+     "schedule_timeout": 0.03898682418754122,
+     "schedule_cron": 0.05650865383520225,
+     "cancel_cron": 0.0011696989309786148,
+     "set_status": 0.0033121136172903896,
+     "mark_completed": 0.0002581513033654353,
+     "mark_failed": 0.005271022133748422,
+     "mark_working": 0.008428083385790474,
+     "mark_idle": 0.001244368796747501,
+     "none": 0.0011806461607620773
+    },
+    "needs_tool": 0.9848841580811505,
+    "complexity": 1.1102079113281154,
+    "complexity_conf": 0.1559111953379519,
+    "risk": 1.4013510491797636,
+    "latency_s": 0.0007025840022834018,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.43413822490644655,
+    "probs": {
+     "cancel": 0.0003002042179792698,
+     "noop": 0.00013054554712353336,
+     "forward": 0.0016754141908870335,
+     "broadcast": 0.04375855168549993,
+     "reply": 0.06528118385124075,
+     "notify_parent": 0.4624313136611242,
+     "notify_pid": 1.0006126001308158e-15,
+     "spawn_child": 0.018325670647133627,
+     "stop_self": 0.00017685296525176867,
+     "stop_child": 0.19279946799513,
+     "schedule_signal": 0.1135504164722177,
+     "schedule_timeout": 0.04622317854206491,
+     "schedule_cron": 0.05071861265790851,
+     "cancel_cron": 0.0002706248979367451,
+     "set_status": 0.0004136150403227125,
+     "mark_completed": 7.093632266732312e-05,
+     "mark_failed": 0.0007670956254209938,
+     "mark_working": 0.0024068328054480514,
+     "mark_idle": 0.00044122912044534355,
+     "none": 0.00025825375419662123
+    },
+    "needs_tool": 0.9829878864101652,
+    "complexity": 0.9923502747072516,
+    "complexity_conf": 0.04351710771426942,
+    "risk": 1.3997753100572996,
+    "latency_s": 0.0007551660019089468,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.3978785142311964,
+    "probs": {
+     "cancel": 0.0007555060691011105,
+     "noop": 0.0003657404569086764,
+     "forward": 0.0036333075353547567,
+     "broadcast": 0.06770563017990298,
+     "reply": 0.09465484729166644,
+     "notify_parent": 0.4279845885196366,
+     "notify_pid": 2.314510263611858e-15,
+     "spawn_child": 0.025842274211265396,
+     "stop_self": 0.00036935218061154464,
+     "stop_child": 0.12937388835627117,
+     "schedule_signal": 0.13993349372618394,
+     "schedule_timeout": 0.03677329863542926,
+     "schedule_cron": 0.059370578706310684,
+     "cancel_cron": 0.0006177279148170965,
+     "set_status": 0.0010414922803216777,
+     "mark_completed": 0.00015639474648040597,
+     "mark_failed": 0.002920692209617231,
+     "mark_working": 0.006382980948023523,
+     "mark_idle": 0.0009473855842726805,
+     "none": 0.0011708204478225548
+    },
+    "needs_tool": 0.9833961120903933,
+    "complexity": 1.0795180667038746,
+    "complexity_conf": 0.12480130009937995,
+    "risk": 1.493716550676086,
+    "latency_s": 0.0007369999948423356,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_child",
+    "confidence": 0.2682285960349238,
+    "probs": {
+     "cancel": 0.0010718788783203022,
+     "noop": 0.00031105759937488496,
+     "forward": 0.0029867268365200567,
+     "broadcast": 0.05805964649232205,
+     "reply": 0.1190352637790365,
+     "notify_parent": 0.2854679793742241,
+     "notify_pid": 6.606414011699901e-15,
+     "spawn_child": 0.02138145005712739,
+     "stop_self": 0.0004955615693184825,
+     "stop_child": 0.3048171662331776,
+     "schedule_signal": 0.10344488141280031,
+     "schedule_timeout": 0.037545373237928656,
+     "schedule_cron": 0.05202368738009369,
+     "cancel_cron": 0.0009730349453085336,
+     "set_status": 0.0028726577730740087,
+     "mark_completed": 0.0001869708137169149,
+     "mark_failed": 0.0032978431386694344,
+     "mark_working": 0.004663602092006489,
+     "mark_idle": 0.0007938287441075309,
+     "none": 0.0005713896428665048
+    },
+    "needs_tool": 0.9878334977125364,
+    "complexity": 1.1360181731137053,
+    "complexity_conf": 0.20326498911982588,
+    "risk": 1.2302961977577263,
+    "latency_s": 0.0007086670011631213,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.3942579465772856,
+    "probs": {
+     "cancel": 0.00043427244205733765,
+     "noop": 0.0002882105559029338,
+     "forward": 0.004632252587144768,
+     "broadcast": 0.06242065536059222,
+     "reply": 0.06909073142671941,
+     "notify_parent": 0.4245450492484213,
+     "notify_pid": 2.404468427228467e-15,
+     "spawn_child": 0.025309470295259113,
+     "stop_self": 0.0003339196774506559,
+     "stop_child": 0.09622130054969956,
+     "schedule_signal": 0.18319036804199215,
+     "schedule_timeout": 0.044181899043736636,
+     "schedule_cron": 0.079606714751616,
+     "cancel_cron": 0.0006270985619997659,
+     "set_status": 0.0005612404592387515,
+     "mark_completed": 0.00015182647333995155,
+     "mark_failed": 0.0022035505417099333,
+     "mark_working": 0.004351565390679471,
+     "mark_idle": 0.000816649892561456,
+     "none": 0.0010332246998761452
+    },
+    "needs_tool": 0.98672161505864,
+    "complexity": 1.011641090796753,
+    "complexity_conf": 0.015922860492155466,
+    "risk": 1.5748206185939748,
+    "latency_s": 0.0007064160017762333,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.43263633727271733,
+    "probs": {
+     "cancel": 0.0003988392495181403,
+     "noop": 0.0001899875256775117,
+     "forward": 0.0034459974240974773,
+     "broadcast": 0.049601190885804274,
+     "reply": 0.06462062168834079,
+     "notify_parent": 0.46100452040908146,
+     "notify_pid": 1.58648220182489e-15,
+     "spawn_child": 0.021248090669843782,
+     "stop_self": 0.00024912683363845445,
+     "stop_child": 0.15153564434948413,
+     "schedule_signal": 0.1361448555279954,
+     "schedule_timeout": 0.04651786239881239,
+     "schedule_cron": 0.05835671027298461,
+     "cancel_cron": 0.000463318637663298,
+     "set_status": 0.00047891300480314483,
+     "mark_completed": 9.554703439141224e-05,
+     "mark_failed": 0.0015529957425234231,
+     "mark_working": 0.0030020772179634595,
+     "mark_idle": 0.0005032692352235078,
+     "none": 0.0005904318921518344
+    },
+    "needs_tool": 0.9823992551943131,
+    "complexity": 1.0059843360474288,
+    "complexity_conf": 0.12062091943987724,
+    "risk": 1.6551464005661962,
+    "latency_s": 0.000723625002137851,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_child",
+    "confidence": 0.27943889710833114,
+    "probs": {
+     "cancel": 0.0015457062586362081,
+     "noop": 0.0009093812366016179,
+     "forward": 0.00273171962360029,
+     "broadcast": 0.056435536183038724,
+     "reply": 0.16705565169174655,
+     "notify_parent": 0.2612441201610078,
+     "notify_pid": 2.0932791631580162e-15,
+     "spawn_child": 0.021425416754799042,
+     "stop_self": 0.0006041630551553924,
+     "stop_child": 0.3154669522529146,
+     "schedule_signal": 0.09043866717969329,
+     "schedule_timeout": 0.04111309045396046,
+     "schedule_cron": 0.022732884560239783,
+     "cancel_cron": 0.0011486538280956109,
+     "set_status": 0.0023251469430628138,
+     "mark_completed": 0.0003495747271297532,
+     "mark_failed": 0.0036136432208670626,
+     "mark_working": 0.008209908439389044,
+     "mark_idle": 0.0017842079362763441,
+     "none": 0.0008655754937835523
+    },
+    "needs_tool": 0.9891839188039406,
+    "complexity": 0.9021160982956948,
+    "complexity_conf": 0.06232876547079602,
+    "risk": 1.1258313871947532,
+    "latency_s": 0.0007445420051226392,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.38440434080176644,
+    "probs": {
+     "cancel": 0.0008475673599562111,
+     "noop": 0.0005546620927315092,
+     "forward": 0.0034677195197916973,
+     "broadcast": 0.0679815064619392,
+     "reply": 0.1185952116861171,
+     "notify_parent": 0.4151841237616781,
+     "notify_pid": 2.1853319640045053e-15,
+     "spawn_child": 0.02823337900012501,
+     "stop_self": 0.0005114427913921392,
+     "stop_child": 0.1502905867909767,
+     "schedule_signal": 0.12599569356577833,
+     "schedule_timeout": 0.037036271850655285,
+     "schedule_cron": 0.03640148406122166,
+     "cancel_cron": 0.0007228474895539326,
+     "set_status": 0.0011731898740692385,
+     "mark_completed": 0.00025818596796293655,
+     "mark_failed": 0.0029701738011769325,
+     "mark_working": 0.00707524043748366,
+     "mark_idle": 0.0012376332090174571,
+     "none": 0.0014630802783708015
+    },
+    "needs_tool": 0.9855272487514726,
+    "complexity": 1.004837343350376,
+    "complexity_conf": 0.04896885198276618,
+    "risk": 1.4722308033896314,
+    "latency_s": 0.0007520420040236786,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.3643991251083735,
+    "probs": {
+     "cancel": 0.0007051474498920302,
+     "noop": 0.0002958706698484761,
+     "forward": 0.003533647868564734,
+     "broadcast": 0.059694665074095946,
+     "reply": 0.08546626558447463,
+     "notify_parent": 0.39617916885295484,
+     "notify_pid": 6.285879460211491e-15,
+     "spawn_child": 0.0179925042320517,
+     "stop_self": 0.00037751598923408097,
+     "stop_child": 0.1696357276911936,
+     "schedule_signal": 0.1457194867634993,
+     "schedule_timeout": 0.04238155980118492,
+     "schedule_cron": 0.06743783126195826,
+     "cancel_cron": 0.0007776086655182204,
+     "set_status": 0.0012278665062967068,
+     "mark_completed": 0.00019304150560698564,
+     "mark_failed": 0.002966155414354349,
+     "mark_working": 0.0038038274780501334,
+     "mark_idle": 0.0007666050098095097,
+     "none": 0.0008455041814053334
+    },
+    "needs_tool": 0.9891244142335551,
+    "complexity": 0.9460100150186896,
+    "complexity_conf": 0.02949879834873298,
+    "risk": 1.609307054361714,
+    "latency_s": 0.0007866669984650798,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.3921136434491484,
+    "probs": {
+     "cancel": 0.0003431672797780279,
+     "noop": 0.0001439984005045687,
+     "forward": 0.004515792354934667,
+     "broadcast": 0.0621789917080716,
+     "reply": 0.052362357516487885,
+     "notify_parent": 0.422507961276691,
+     "notify_pid": 1.598682960283949e-14,
+     "spawn_child": 0.029658152261118165,
+     "stop_self": 0.0003788096902383753,
+     "stop_child": 0.125984111481078,
+     "schedule_signal": 0.15112298432262852,
+     "schedule_timeout": 0.03570421159398123,
+     "schedule_cron": 0.10848832407900673,
+     "cancel_cron": 0.0004919321030758125,
+     "set_status": 0.0007930327413991931,
+     "mark_completed": 8.59958691722991e-05,
+     "mark_failed": 0.0017725430380080038,
+     "mark_working": 0.0024273304935067902,
+     "mark_idle": 0.00037475650538805553,
+     "none": 0.0006655472849151502
+    },
+    "needs_tool": 0.9861085009866689,
+    "complexity": 1.1022522804974246,
+    "complexity_conf": 0.13872165078153953,
+    "risk": 1.2833135255328145,
+    "latency_s": 0.0008240839961217716,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.3314162153352725,
+    "probs": {
+     "cancel": 0.00109659231877539,
+     "noop": 0.0004339173133505525,
+     "forward": 0.0022535832505862735,
+     "broadcast": 0.05227542247376871,
+     "reply": 0.10030254423769208,
+     "notify_parent": 0.3648454045685089,
+     "notify_pid": 1.3243200906054844e-15,
+     "spawn_child": 0.021860410627136527,
+     "stop_self": 0.0005277790146032876,
+     "stop_child": 0.26083676658240473,
+     "schedule_signal": 0.10491506131132158,
+     "schedule_timeout": 0.036854228380765956,
+     "schedule_cron": 0.04037405593339698,
+     "cancel_cron": 0.0007340019222817721,
+     "set_status": 0.0013007957819844323,
+     "mark_completed": 0.0001564939839353632,
+     "mark_failed": 0.0018933688201018073,
+     "mark_working": 0.007338651087422208,
+     "mark_idle": 0.0011752965852190262,
+     "none": 0.0008256258067431894
+    },
+    "needs_tool": 0.9833046771212298,
+    "complexity": 1.0219855006778304,
+    "complexity_conf": 0.05179925946307895,
+    "risk": 1.4636687400255384,
+    "latency_s": 0.0007888750042184256,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.2599570179046768,
+    "probs": {
+     "cancel": 0.001814705391384081,
+     "noop": 0.0008594063767276435,
+     "forward": 0.003788379880616631,
+     "broadcast": 0.06955763856429885,
+     "reply": 0.15195335327604223,
+     "notify_parent": 0.29695916700944297,
+     "notify_pid": 4.969377866495404e-15,
+     "spawn_child": 0.028929867870413753,
+     "stop_self": 0.0008291039920415224,
+     "stop_child": 0.189293770559403,
+     "schedule_signal": 0.1446247909770213,
+     "schedule_timeout": 0.04282118942337342,
+     "schedule_cron": 0.04268158997777586,
+     "cancel_cron": 0.0015658186597367052,
+     "set_status": 0.0034662957856883177,
+     "mark_completed": 0.0003934138816108425,
+     "mark_failed": 0.00656704249145613,
+     "mark_working": 0.010302442061182231,
+     "mark_idle": 0.0018276271253530017,
+     "none": 0.0017643966964265279
+    },
+    "needs_tool": 0.9864417542337218,
+    "complexity": 1.0588623445023786,
+    "complexity_conf": 0.10185908444873787,
+    "risk": 1.2600673925657726,
+    "latency_s": 0.0008564579984522425,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "confidence": 0.44020150022792587,
+    "probs": {
+     "cancel": 0.0004354920645629761,
+     "noop": 0.00022511817813416013,
+     "forward": 0.003808137330581532,
+     "broadcast": 0.05488366380615037,
+     "reply": 0.05459258422748906,
+     "notify_parent": 0.46819142521652957,
+     "notify_pid": 2.5941655470835624e-15,
+     "spawn_child": 0.024088192531491106,
+     "stop_self": 0.00035844744617648266,
+     "stop_child": 0.14881753072829312,
+     "schedule_signal": 0.1438794962272985,
+     "schedule_timeout": 0.0364148102963946,
+     "schedule_cron": 0.056278717802394726,
+     "cancel_cron": 0.00047628803096631513,
+     "set_status": 0.0005228207759268678,
+     "mark_completed": 0.0001108006541528552,
+     "mark_failed": 0.0017885594238497167,
+     "mark_working": 0.0037058716724522626,
+     "mark_idle": 0.0005521498126369196,
+     "none": 0.0008698937745161798
+    },
+    "needs_tool": 0.9801258682026706,
+    "complexity": 1.008372908517862,
+    "complexity_conf": 0.02558628762896381,
+    "risk": 1.6715687886144126,
+    "latency_s": 0.0007752079982310534,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "notify_parent",
+    "confidence": 0.4109300361795428,
+    "probs": {
+     "cancel": 0.0006811396724075808,
+     "noop": 0.0004448487621587827,
+     "forward": 0.0031843993752286226,
+     "broadcast": 0.062339221072669475,
+     "reply": 0.0983055899479987,
+     "notify_parent": 0.44038353437056565,
+     "notify_pid": 2.4184857459008132e-15,
+     "spawn_child": 0.03030647015579198,
+     "stop_self": 0.00038405161845834183,
+     "stop_child": 0.1322896767154041,
+     "schedule_signal": 0.13970868990908372,
+     "schedule_timeout": 0.039852607076233997,
+     "schedule_cron": 0.03880310244150513,
+     "cancel_cron": 0.000532065039279304,
+     "set_status": 0.0006767987433146101,
+     "mark_completed": 0.00019300428513434637,
+     "mark_failed": 0.00244424754950276,
+     "mark_working": 0.00675367713520804,
+     "mark_idle": 0.0012245148171323517,
+     "none": 0.0014923613129199976
+    },
+    "needs_tool": 0.9878349647246014,
+    "complexity": 1.0261139442337734,
+    "complexity_conf": 0.0431413949423492,
+    "risk": 1.4620292203658036,
+    "latency_s": 0.0008940830011852086,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "notify_parent",
+    "confidence": 0.29188746015766187,
+    "probs": {
+     "cancel": 0.0015908559395409238,
+     "noop": 0.001267741125765393,
+     "forward": 0.0026160032773997577,
+     "broadcast": 0.07025752365550811,
+     "reply": 0.16375543516590063,
+     "notify_parent": 0.3272930871497788,
+     "notify_pid": 1.2545995605310507e-15,
+     "spawn_child": 0.029212933918258525,
+     "stop_self": 0.0007183691201126933,
+     "stop_child": 0.22709013910778175,
+     "schedule_signal": 0.09194682028402841,
+     "schedule_timeout": 0.03272991632955575,
+     "schedule_cron": 0.0260800351888996,
+     "cancel_cron": 0.0008625544399514746,
+     "set_status": 0.0017929922022232225,
+     "mark_completed": 0.00045313194886282984,
+     "mark_failed": 0.0042774719276196084,
+     "mark_working": 0.014098350174504606,
+     "mark_idle": 0.002212209393270204,
+     "none": 0.001744429651036504
+    },
+    "needs_tool": 0.984433921053043,
+    "complexity": 1.0787974947981218,
+    "complexity_conf": 0.1156580441714502,
+    "risk": 1.1965216484284649,
+    "latency_s": 0.0008160829966072924,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "stop_child",
+    "confidence": 0.30969761483822256,
+    "probs": {
+     "cancel": 0.0020238290038306944,
+     "noop": 0.0006856584374960864,
+     "forward": 0.001977988050156758,
+     "broadcast": 0.053501135205410666,
+     "reply": 0.18643551977467332,
+     "notify_parent": 0.2120940562418708,
+     "notify_pid": 4.65973271287278e-15,
+     "spawn_child": 0.024543054103961667,
+     "stop_self": 0.0005590590756514731,
+     "stop_child": 0.3442127340963114,
+     "schedule_signal": 0.08509760925343039,
+     "schedule_timeout": 0.03999719464510508,
+     "schedule_cron": 0.028067137778027985,
+     "cancel_cron": 0.0011750257846141886,
+     "set_status": 0.0038033748292561308,
+     "mark_completed": 0.00025091718548253794,
+     "mark_failed": 0.004431490908336183,
+     "mark_working": 0.008854926135118443,
+     "mark_idle": 0.001483208842157162,
+     "none": 0.0008060806491043359
+    },
+    "needs_tool": 0.975322953768784,
+    "complexity": 1.2055573661512842,
+    "complexity_conf": 0.1995891111183356,
+    "risk": 1.4795474328457776,
+    "latency_s": 0.000754166001570411,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "notify_parent",
+    "confidence": 0.38420827160061305,
+    "probs": {
+     "cancel": 0.0002620741593742476,
+     "noop": 9.125220983878185e-05,
+     "forward": 0.0038478035722877063,
+     "broadcast": 0.0518073212679286,
+     "reply": 0.0475363553637228,
+     "notify_parent": 0.4149978580205824,
+     "notify_pid": 5.317958657359824e-15,
+     "spawn_child": 0.019300581717555464,
+     "stop_self": 0.00019683634194883607,
+     "stop_child": 0.17150919566592102,
+     "schedule_signal": 0.14455309709138398,
+     "schedule_timeout": 0.03925029046805503,
+     "schedule_cron": 0.10216932777620182,
+     "cancel_cron": 0.00042381397850223897,
+     "set_status": 0.0005602898140299116,
+     "mark_completed": 6.15186327337034e-05,
+     "mark_failed": 0.0011469417387747838,
+     "mark_working": 0.0016576618136002238,
+     "mark_idle": 0.0002650683409759532,
+     "none": 0.00036271202657723277
+    },
+    "needs_tool": 0.9845728986845179,
+    "complexity": 1.0061259346301,
+    "complexity_conf": 0.13411001376822013,
+    "risk": 1.7152664279640877,
+    "latency_s": 0.0007428329990943894,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "notify_parent",
+    "confidence": 0.3351841711134158,
+    "probs": {
+     "cancel": 0.002065098486312028,
+     "noop": 0.0010382066118240045,
+     "forward": 0.003979427645981999,
+     "broadcast": 0.0740870523277825,
+     "reply": 0.13428641932808702,
+     "notify_parent": 0.36842496255774504,
+     "notify_pid": 8.171094563876092e-15,
+     "spawn_child": 0.030046906347479155,
+     "stop_self": 0.0008628600691999253,
+     "stop_child": 0.11374589632368817,
+     "schedule_signal": 0.15332363752452902,
+     "schedule_timeout": 0.03296308122757666,
+     "schedule_cron": 0.04619513324899721,
+     "cancel_cron": 0.001318980958030616,
+     "set_status": 0.0019848648838038563,
+     "mark_completed": 0.0003849245469486875,
+     "mark_failed": 0.007186815960669757,
+     "mark_working": 0.020968920866412104,
+     "mark_idle": 0.0027502300734098747,
+     "none": 0.00438658101151411
+    },
+    "needs_tool": 0.9860941756401876,
+    "complexity": 1.0931282044767157,
+    "complexity_conf": 0.11477655465318914,
+    "risk": 1.5517112662696888,
+    "latency_s": 0.000751958999899216,
+    "usage": {
+     "billing_units": 4,
+     "input_tokens": 0,
+     "output_tokens": 0
+    },
+    "model": "clm-raw",
+    "correct": false
+   }
+  ]
+ },
+ "parallel8": {
+  "wall_s": 0.027768958003434818,
+  "n": 34,
+  "rps": 1224.3887579719212,
+  "median_ms": 6.129896002676105,
+  "accuracy": 0.029411764705882353
+ }
+}

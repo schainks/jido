@@ -1,0 +1,325 @@
+{
+ "what": "Claude Code session transcripts (~/.claude/projects) as a next-tool-prediction dataset: aggregates only; the data itself is private and stays outside the repo",
+ "source": {
+  "transcript_files": 1347,
+  "tool_calls": 60214,
+  "rows_kept_after_scrub_and_dedupe": 57557,
+  "classes": 29,
+  "sessions": 1274,
+  "calls_that_are_first_after_a_user_message": 2545,
+  "split": "by session: train 49,245 / val 4,710 / test 3,602"
+ },
+ "next_tool_given_the_steps_so_far_test_3602": {
+  "majority_class": {
+   "class": "Bash_view",
+   "accuracy": 0.2093,
+   "macro_f1": 0.0157
+  },
+  "same_as_previous_tool": {
+   "accuracy": 0.3637,
+   "macro_f1": 0.3545
+  },
+  "bge_small_student": {
+   "accuracy": 0.2929,
+   "macro_f1": 0.254,
+   "top3_accuracy": 0.6197,
+   "epochs": 2000,
+   "seconds": 1583
+  },
+  "bge_small_student_with_narration": {
+   "accuracy": 0.2901,
+   "macro_f1": 0.2556,
+   "top3_accuracy": 0.6235,
+   "epochs": 1975,
+   "seconds": 1546
+  },
+  "jev_zero_shot_300_rows": {
+   "without_narration_top1": 0.257,
+   "without_narration_top3": 0.54,
+   "with_narration_top1": 0.323,
+   "with_narration_top3": 0.6
+  },
+  "student_with_previous_two_tools_as_features": {
+   "text_only": 0.293,
+   "previous_two_labels_only": 0.384,
+   "text_plus_previous_two_labels": 0.367
+  }
+ },
+ "request_to_first_tool_2545_rows": {
+  "majority_class": 0.188,
+  "jev_zero_shot_1000_rows": {
+   "top1": 0.202,
+   "top3": 0.378
+  },
+  "bge_small_student_5fold_cv_by_session": {
+   "top1": 0.371,
+   "top3": 0.625
+  }
+ },
+ "sent_to_jev": {
+  "calls": 1140,
+  "note": "scrubbed context texts, at most ~1k characters each, plus the class descriptions; sample of the data"
+ },
+ "right_tool_labels": {
+  "what": "567 real requests (first call after a user message) labelled with the right tool by two independent Claude labellers (TAXONOMY.md), disagreements adjudicated; aggregates only",
+  "pool": {
+   "self_contained_requests": 1639,
+   "sampled": 600,
+   "artifacts_removed": 33,
+   "artifact_share_of_all_2545_first_call_rows": 0.109
+  },
+  "labeller_agreement": {
+   "exact": "501/600 = 83.5%",
+   "kappa": 0.813,
+   "soft_disagreements": 86,
+   "hard_disagreements": 13,
+   "hard_that_were_artifacts": 9
+  },
+  "final": {
+   "rows": 567,
+   "main_thread": 370,
+   "subagent": 197,
+   "agreed": 486,
+   "two_acceptable_answers": 77,
+   "adjudicated": 4,
+   "share_with_more_than_one_acceptable": 0.143
+  },
+  "top1_vs_acceptable_labels": {
+   "majority_class_read_file": 0.2628,
+   "habit_label": {
+    "all": 0.3827,
+    "main_thread": 0.2514,
+    "subagent": 0.6294
+   },
+   "jev_zero_shot_request_only": {
+    "top1": 0.5538,
+    "top1_main_thread": 0.5432,
+    "top1_subagent": 0.5736,
+    "top3": 0.8219,
+    "mean_confidence_right": 0.722,
+    "mean_confidence_wrong": 0.483
+   },
+   "jev_zero_shot_with_session_task": {
+    "top1": 0.4885,
+    "top3": 0.7566
+   },
+   "bge_small_student_5fold_cv_by_session": {
+    "top1": 0.478,
+    "top3": 0.7108,
+    "majority_in_folds": 0.2628
+   }
+  },
+  "jev_confidence_gate_request_only": {
+   ">=0.5": {
+    "answers": 0.64,
+    "right": 0.71
+   },
+   ">=0.6": {
+    "answers": 0.51,
+    "right": 0.78
+   },
+   ">=0.7": {
+    "answers": 0.38,
+    "right": 0.87
+   },
+   ">=0.8": {
+    "answers": 0.28,
+    "right": 0.87
+   }
+  },
+  "jev_recall_by_label": {
+   "git": "53/62",
+   "github": "39/52",
+   "web_search": "9/12",
+   "web_fetch": "5/6",
+   "browser_or_app_ui": "12/17",
+   "answer_directly": "55/97",
+   "read_file": "65/127",
+   "search_files": "16/25",
+   "run_code": "13/33",
+   "edit_file": "8/40",
+   "write_file": "7/20",
+   "ask_user": "7/15",
+   "remote_or_http": "3/14",
+   "shell_ops": "4/11"
+  }
+ },
+ "correction": "The first-tool-for-a-request rows measured earlier included injected text that is not a request (10.9% of the 2,545: session-continuation summaries and skill bodies); the right-tool set removes them.",
+ "right_tool_labels_2114": {
+  "pool": {
+   "user_messages_in_all_transcripts": 3657,
+   "dropped_short_or_injected": 763,
+   "duplicates_or_already_labelled": 1318,
+   "new_requests_labelled": 1574,
+   "claude_code_prompt_history_entries": 268
+  },
+  "labeller_agreement_new_set": {
+   "exact": "1410/1574 = 89.6%",
+   "kappa": 0.878,
+   "soft": 137,
+   "hard": 27,
+   "hard_dropped_as_injected_or_context_only": 16,
+   "adjudicated": 11
+  },
+  "final": {
+   "new_rows": 1547,
+   "combined_rows": 2114,
+   "typed": 1302,
+   "delegated": 812,
+   "at_least_60_chars": 1742,
+   "multi_acceptable_share": 0.108
+  },
+  "top1_vs_acceptable": {
+   "majority_class": 0.2578,
+   "habit_label": {
+    "all": 0.2833,
+    "main_thread": 0.222,
+    "subagent": 0.3818
+   },
+   "jev_zero_shot": {
+    "errors": 0,
+    "top1": 0.5856,
+    "top1_main_thread": 0.5384,
+    "top1_subagent": 0.6613,
+    "top3": 0.8269,
+    "top1_at_least_60_chars": 0.6125,
+    "top1_under_60_chars": 0.4597,
+    "mean_confidence_right": 0.719,
+    "mean_confidence_wrong": 0.504,
+    "gate": {
+     "0.5": {
+      "answers": 0.668,
+      "right": 0.707
+     },
+     "0.6": {
+      "answers": 0.545,
+      "right": 0.773
+     },
+     "0.7": {
+      "answers": 0.395,
+      "right": 0.833
+     },
+     "0.8": {
+      "answers": 0.287,
+      "right": 0.863
+     }
+    }
+   },
+   "bge_small_student_5fold_cv": {
+    "top1": 0.5766,
+    "top3": 0.8056,
+    "majority_in_folds": 0.1991,
+    "top1_at_least_60_chars": 0.62,
+    "top1_under_60_chars": 0.3737
+   }
+  },
+  "jev_recall_by_label": {
+   "git": "195/227",
+   "web_search": "36/41",
+   "browser_or_app_ui": "31/43",
+   "web_fetch": "17/23",
+   "search_files": "60/86",
+   "external_service": "34/52",
+   "use_skill": "37/58",
+   "read_file": "316/495",
+   "answer_directly": "285/454",
+   "github": "95/152",
+   "run_code": "36/92",
+   "write_file": "26/56",
+   "edit_file": "30/214",
+   "remote_or_http": "11/63"
+  },
+  "jevstiller_replay_on_jev_answers": {
+   "streamed": 1908,
+   "held_out_unseen_sessions": 206,
+   "jev_alone_correct": 0.665,
+   "runs": [
+    {
+     "target": 0.98,
+     "arm": "library defaults",
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "target": 0.98,
+     "arm": "run.py protocol",
+     "production": "student:v1",
+     "stream_student_share": 0.0341,
+     "coverage": 0.1456,
+     "agreement_with_jev": 0.9806,
+     "system_correct": 0.6602,
+     "jev_alone_correct": 0.665,
+     "student_correct_when_it_answers": 0.8667
+    },
+    {
+     "target": 0.98,
+     "arm": "small-data",
+     "production": "student:v3",
+     "stream_student_share": 0.0928,
+     "coverage": 0.233,
+     "agreement_with_jev": 0.9806,
+     "system_correct": 0.6602,
+     "jev_alone_correct": 0.665,
+     "student_correct_when_it_answers": 0.8958
+    },
+    {
+     "target": 0.95,
+     "arm": "library defaults",
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "target": 0.95,
+     "arm": "run.py protocol",
+     "production": "student:v1",
+     "stream_student_share": 0.0781,
+     "coverage": 0.3204,
+     "agreement_with_jev": 0.9466,
+     "system_correct": 0.6408,
+     "jev_alone_correct": 0.665,
+     "student_correct_when_it_answers": 0.8182
+    },
+    {
+     "target": 0.95,
+     "arm": "small-data",
+     "production": "student:v3",
+     "stream_student_share": 0.1431,
+     "coverage": 0.3155,
+     "agreement_with_jev": 0.9466,
+     "system_correct": 0.6456,
+     "jev_alone_correct": 0.665,
+     "student_correct_when_it_answers": 0.8615
+    },
+    {
+     "target": 0.9,
+     "arm": "library defaults",
+     "production": null,
+     "stream_student_share": 0.0
+    },
+    {
+     "target": 0.9,
+     "arm": "run.py protocol",
+     "production": "student:v1",
+     "stream_student_share": 0.0985,
+     "coverage": 0.3981,
+     "agreement_with_jev": 0.9272,
+     "system_correct": 0.6359,
+     "jev_alone_correct": 0.665,
+     "student_correct_when_it_answers": 0.7805
+    },
+    {
+     "target": 0.9,
+     "arm": "small-data",
+     "production": "student:v6",
+     "stream_student_share": 0.2159,
+     "coverage": 0.5243,
+     "agreement_with_jev": 0.8835,
+     "system_correct": 0.6311,
+     "jev_alone_correct": 0.665,
+     "student_correct_when_it_answers": 0.7222
+    }
+   ]
+  },
+  "jev_texts_sent_in_total_across_all_real_calls_experiments": "about 3,800 unique scrubbed texts, under $0.20"
+ }
+}

@@ -1,0 +1,1403 @@
+{
+ "claude-haiku-4-5": {
+  "summary": {
+   "n": 34,
+   "accuracy": 0.7941176470588235,
+   "none_correct": 1.0,
+   "latency_ms": {
+    "median": 1099.8876779340208,
+    "p95": 1778.9218677207828
+   },
+   "tokens_in_mean": 1890.4411764705883,
+   "tokens_out_mean": 81.11764705882354,
+   "cost_per_call_usd": 0.002296029411764706,
+   "misses": [
+    {
+     "q": "Terminate the worker child you spawned earlier.",
+     "gold": [
+      "stop_child"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Send this event to process <0.123.0>.",
+     "gold": [
+      "notify_pid"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Pass this signal along to the billing agent.",
+     "gold": [
+      "forward"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Announce the deploy to everyone subscribed on the topic.",
+     "gold": [
+      "broadcast"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Answer the caller who sent this request.",
+     "gold": [
+      "reply"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Relay this to the agent named 'audit'.",
+     "gold": [
+      "forward"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Reply to whoever asked with the totals.",
+     "gold": [
+      "reply"
+     ],
+     "got": "none",
+     "calls": []
+    }
+   ]
+  },
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_self",
+    "all_calls": [
+     "stop_self"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.9465547949075699,
+    "usage": {
+     "input_tokens": 1888,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002073
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 1.7290305579081178,
+    "usage": {
+     "input_tokens": 1891,
+     "output_tokens": 88
+    },
+    "cost_usd": 0.002331
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "all_calls": [
+     "spawn_child"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.2352652847766876,
+    "usage": {
+     "input_tokens": 1892,
+     "output_tokens": 89
+    },
+    "cost_usd": 0.002337
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "all_calls": [
+     "notify_parent"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.20752755086869,
+    "usage": {
+     "input_tokens": 1889,
+     "output_tokens": 58
+    },
+    "cost_usd": 0.002179
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 1.1142794424667954,
+    "usage": {
+     "input_tokens": 1893,
+     "output_tokens": 94
+    },
+    "cost_usd": 0.002363
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 1.7789218677207828,
+    "usage": {
+     "input_tokens": 1890,
+     "output_tokens": 122
+    },
+    "cost_usd": 0.0025
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 1.636333690956235,
+    "usage": {
+     "input_tokens": 1893,
+     "output_tokens": 117
+    },
+    "cost_usd": 0.002478
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 1.2267899923026562,
+    "usage": {
+     "input_tokens": 1889,
+     "output_tokens": 85
+    },
+    "cost_usd": 0.002314
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel",
+    "all_calls": [
+     "cancel"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.8061298113316298,
+    "usage": {
+     "input_tokens": 1891,
+     "output_tokens": 35
+    },
+    "cost_usd": 0.002066
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool_gold": true,
+    "choice": "noop",
+    "all_calls": [
+     "noop"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.2191527411341667,
+    "usage": {
+     "input_tokens": 1892,
+     "output_tokens": 46
+    },
+    "cost_usd": 0.002122
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_signal",
+    "all_calls": [
+     "schedule_signal"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.9851542627438903,
+    "usage": {
+     "input_tokens": 1894,
+     "output_tokens": 95
+    },
+    "cost_usd": 0.002369
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.0217376509681344,
+    "usage": {
+     "input_tokens": 1898,
+     "output_tokens": 99
+    },
+    "cost_usd": 0.002393
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "all_calls": [
+     "schedule_cron"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.238171836361289,
+    "usage": {
+     "input_tokens": 1889,
+     "output_tokens": 142
+    },
+    "cost_usd": 0.002599
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "all_calls": [
+     "cancel_cron"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.7014938518404961,
+    "usage": {
+     "input_tokens": 1888,
+     "output_tokens": 38
+    },
+    "cost_usd": 0.002078
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool_gold": true,
+    "choice": "set_status",
+    "all_calls": [
+     "set_status"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.8654983872547746,
+    "usage": {
+     "input_tokens": 1890,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002075
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_completed",
+    "all_calls": [
+     "mark_completed"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.6688888156786561,
+    "usage": {
+     "input_tokens": 1890,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002075
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_failed",
+    "all_calls": [
+     "mark_failed"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.976242583245039,
+    "usage": {
+     "input_tokens": 1893,
+     "output_tokens": 57
+    },
+    "cost_usd": 0.002178
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "all_calls": [
+     "mark_working"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.7289524897933006,
+    "usage": {
+     "input_tokens": 1889,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002074
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_idle",
+    "all_calls": [
+     "mark_idle"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.6625271961092949,
+    "usage": {
+     "input_tokens": 1890,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002075
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "all_calls": [
+     "notify_parent"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.085495913401246,
+    "usage": {
+     "input_tokens": 1893,
+     "output_tokens": 77
+    },
+    "cost_usd": 0.002278
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "all_calls": [
+     "schedule_cron"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.9713628552854061,
+    "usage": {
+     "input_tokens": 1892,
+     "output_tokens": 106
+    },
+    "cost_usd": 0.002422
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.1212205858901143,
+    "usage": {
+     "input_tokens": 1892,
+     "output_tokens": 99
+    },
+    "cost_usd": 0.002387
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 1.6130916867405176,
+    "usage": {
+     "input_tokens": 1892,
+     "output_tokens": 104
+    },
+    "cost_usd": 0.002412
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 1.5656686667352915,
+    "usage": {
+     "input_tokens": 1890,
+     "output_tokens": 88
+    },
+    "cost_usd": 0.00233
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "all_calls": [
+     "cancel_cron"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.6451667984947562,
+    "usage": {
+     "input_tokens": 1887,
+     "output_tokens": 51
+    },
+    "cost_usd": 0.002142
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "all_calls": [
+     "spawn_child",
+     "spawn_child",
+     "spawn_child"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 2.0203533936291933,
+    "usage": {
+     "input_tokens": 1891,
+     "output_tokens": 209
+    },
+    "cost_usd": 0.002936
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "all_calls": [
+     "mark_working"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.7297220649197698,
+    "usage": {
+     "input_tokens": 1889,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.002074
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.8316644197329879,
+    "usage": {
+     "input_tokens": 1892,
+     "output_tokens": 79
+    },
+    "cost_usd": 0.002287
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_self",
+    "all_calls": [
+     "stop_self"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 0.7798757506534457,
+    "usage": {
+     "input_tokens": 1884,
+     "output_tokens": 45
+    },
+    "cost_usd": 0.002109
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "stop_reason": "end_turn",
+    "latency_s": 1.7434583567082882,
+    "usage": {
+     "input_tokens": 1889,
+     "output_tokens": 123
+    },
+    "cost_usd": 0.002504
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "stop_reason": "end_turn",
+    "latency_s": 1.2388560762628913,
+    "usage": {
+     "input_tokens": 1889,
+     "output_tokens": 83
+    },
+    "cost_usd": 0.002304
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "stop_reason": "end_turn",
+    "latency_s": 1.0721974344924092,
+    "usage": {
+     "input_tokens": 1890,
+     "output_tokens": 58
+    },
+    "cost_usd": 0.00218
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "stop_reason": "end_turn",
+    "latency_s": 2.2168554235249758,
+    "usage": {
+     "input_tokens": 1888,
+     "output_tokens": 145
+    },
+    "cost_usd": 0.002613
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "stop_reason": "end_turn",
+    "latency_s": 1.6229362851008773,
+    "usage": {
+     "input_tokens": 1888,
+     "output_tokens": 104
+    },
+    "cost_usd": 0.002408
+   }
+  ]
+ },
+ "claude-opus-5": {
+  "summary": {
+   "n": 34,
+   "accuracy": 0.8235294117647058,
+   "none_correct": 1.0,
+   "latency_ms": {
+    "median": 1968.566614203155,
+    "p95": 5476.056982763112
+   },
+   "tokens_in_mean": 2165.5882352941176,
+   "tokens_out_mean": 141.97058823529412,
+   "cost_per_call_usd": 0.014377205882352941,
+   "misses": [
+    {
+     "q": "Send this event to process <0.123.0>.",
+     "gold": [
+      "notify_pid"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Pass this signal along to the billing agent.",
+     "gold": [
+      "forward"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Announce the deploy to everyone subscribed on the topic.",
+     "gold": [
+      "broadcast"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Relay this to the agent named 'audit'.",
+     "gold": [
+      "forward"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Reply to whoever asked with the totals.",
+     "gold": [
+      "reply"
+     ],
+     "got": "none",
+     "calls": []
+    },
+    {
+     "q": "Kill it.",
+     "gold": [
+      "cancel",
+      "stop_child",
+      "stop_self"
+     ],
+     "got": "none",
+     "calls": []
+    }
+   ]
+  },
+  "rows": [
+   {
+    "query": "Shut yourself down gracefully.",
+    "gold": [
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_self",
+    "all_calls": [
+     "stop_self"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.5503232600167394,
+    "usage": {
+     "input_tokens": 2164,
+     "output_tokens": 40
+    },
+    "cost_usd": 0.01182
+   },
+   {
+    "query": "Terminate the worker child you spawned earlier.",
+    "gold": [
+     "stop_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "stop_child",
+    "all_calls": [
+     "stop_child"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.5190373761579394,
+    "usage": {
+     "input_tokens": 2168,
+     "output_tokens": 83
+    },
+    "cost_usd": 0.012915
+   },
+   {
+    "query": "Start a new child agent to handle the import job.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "all_calls": [
+     "spawn_child"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 5.434431015513837,
+    "usage": {
+     "input_tokens": 2166,
+     "output_tokens": 322
+    },
+    "cost_usd": 0.01888
+   },
+   {
+    "query": "Let your parent know the batch finished.",
+    "gold": [
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "all_calls": [
+     "notify_parent"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.7239283500239253,
+    "usage": {
+     "input_tokens": 2164,
+     "output_tokens": 104
+    },
+    "cost_usd": 0.01342
+   },
+   {
+    "query": "Send this event to process <0.123.0>.",
+    "gold": [
+     "notify_pid"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 3.0903249736875296,
+    "usage": {
+     "input_tokens": 2166,
+     "output_tokens": 198
+    },
+    "cost_usd": 0.01578
+   },
+   {
+    "query": "Pass this signal along to the billing agent.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 2.5271155536174774,
+    "usage": {
+     "input_tokens": 2166,
+     "output_tokens": 144
+    },
+    "cost_usd": 0.01443
+   },
+   {
+    "query": "Announce the deploy to everyone subscribed on the topic.",
+    "gold": [
+     "broadcast"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 5.214093039743602,
+    "usage": {
+     "input_tokens": 2172,
+     "output_tokens": 332
+    },
+    "cost_usd": 0.01916
+   },
+   {
+    "query": "Answer the caller who sent this request.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "reply",
+    "all_calls": [
+     "reply"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 2.1002501100301743,
+    "usage": {
+     "input_tokens": 2164,
+     "output_tokens": 144
+    },
+    "cost_usd": 0.01442
+   },
+   {
+    "query": "Abort the current operation, the user cancelled.",
+    "gold": [
+     "cancel"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel",
+    "all_calls": [
+     "cancel"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.5710186958312988,
+    "usage": {
+     "input_tokens": 2167,
+     "output_tokens": 38
+    },
+    "cost_usd": 0.011785
+   },
+   {
+    "query": "Ignore this signal, there is nothing to do.",
+    "gold": [
+     "noop"
+    ],
+    "needs_tool_gold": true,
+    "choice": "noop",
+    "all_calls": [
+     "noop"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.0746151693165302,
+    "usage": {
+     "input_tokens": 2168,
+     "output_tokens": 25
+    },
+    "cost_usd": 0.011465
+   },
+   {
+    "query": "Remind yourself in 5 minutes to check the queue.",
+    "gold": [
+     "schedule_signal"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_signal",
+    "all_calls": [
+     "schedule_signal"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.978609174489975,
+    "usage": {
+     "input_tokens": 2171,
+     "output_tokens": 121
+    },
+    "cost_usd": 0.01388
+   },
+   {
+    "query": "If no response arrives within 30 seconds, treat it as a deadline miss.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.958524053916335,
+    "usage": {
+     "input_tokens": 2177,
+     "output_tokens": 123
+    },
+    "cost_usd": 0.01396
+   },
+   {
+    "query": "Run the cleanup every night at midnight.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "all_calls": [
+     "schedule_cron"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 3.177040663547814,
+    "usage": {
+     "input_tokens": 2166,
+     "output_tokens": 169
+    },
+    "cost_usd": 0.015055
+   },
+   {
+    "query": "Stop the nightly cleanup job.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "all_calls": [
+     "cancel_cron"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.6735119987279177,
+    "usage": {
+     "input_tokens": 2165,
+     "output_tokens": 70
+    },
+    "cost_usd": 0.012575
+   },
+   {
+    "query": "Set your status to 'paused'.",
+    "gold": [
+     "set_status"
+    ],
+    "needs_tool_gold": true,
+    "choice": "set_status",
+    "all_calls": [
+     "set_status"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.921506179496646,
+    "usage": {
+     "input_tokens": 2163,
+     "output_tokens": 58
+    },
+    "cost_usd": 0.012265
+   },
+   {
+    "query": "You're done, record the final result.",
+    "gold": [
+     "mark_completed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_completed",
+    "all_calls": [
+     "mark_completed"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.6914122998714447,
+    "usage": {
+     "input_tokens": 2161,
+     "output_tokens": 28
+    },
+    "cost_usd": 0.011505
+   },
+   {
+    "query": "This failed because the API returned 500, record that.",
+    "gold": [
+     "mark_failed"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_failed",
+    "all_calls": [
+     "mark_failed"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.487048389390111,
+    "usage": {
+     "input_tokens": 2166,
+     "output_tokens": 37
+    },
+    "cost_usd": 0.011755
+   },
+   {
+    "query": "Flag that you're busy processing now.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "all_calls": [
+     "mark_working"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.3383508631959558,
+    "usage": {
+     "input_tokens": 2164,
+     "output_tokens": 41
+    },
+    "cost_usd": 0.011845
+   },
+   {
+    "query": "You're free now, mark yourself available.",
+    "gold": [
+     "mark_idle"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_idle",
+    "all_calls": [
+     "mark_idle"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.574248873628676,
+    "usage": {
+     "input_tokens": 2164,
+     "output_tokens": 28
+    },
+    "cost_usd": 0.01152
+   },
+   {
+    "query": "Tell the parent we hit an unrecoverable error.",
+    "gold": [
+     "mark_failed",
+     "notify_parent"
+    ],
+    "needs_tool_gold": true,
+    "choice": "notify_parent",
+    "all_calls": [
+     "notify_parent"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.714067074470222,
+    "usage": {
+     "input_tokens": 2170,
+     "output_tokens": 123
+    },
+    "cost_usd": 0.013925
+   },
+   {
+    "query": "Every Monday at 9am send the report signal.",
+    "gold": [
+     "schedule_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_cron",
+    "all_calls": [
+     "schedule_cron"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 2.217442530207336,
+    "usage": {
+     "input_tokens": 2167,
+     "output_tokens": 162
+    },
+    "cost_usd": 0.014885
+   },
+   {
+    "query": "Give up on waiting for the reply after two minutes.",
+    "gold": [
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.7692515682429075,
+    "usage": {
+     "input_tokens": 2169,
+     "output_tokens": 110
+    },
+    "cost_usd": 0.013595
+   },
+   {
+    "query": "Relay this to the agent named 'audit'.",
+    "gold": [
+     "forward"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 4.618836029432714,
+    "usage": {
+     "input_tokens": 2167,
+     "output_tokens": 232
+    },
+    "cost_usd": 0.016635
+   },
+   {
+    "query": "Reply to whoever asked with the totals.",
+    "gold": [
+     "reply"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 5.476056982763112,
+    "usage": {
+     "input_tokens": 2166,
+     "output_tokens": 370
+    },
+    "cost_usd": 0.02008
+   },
+   {
+    "query": "Cancel the recurring health check.",
+    "gold": [
+     "cancel_cron"
+    ],
+    "needs_tool_gold": true,
+    "choice": "cancel_cron",
+    "all_calls": [
+     "cancel_cron"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.7674903376027942,
+    "usage": {
+     "input_tokens": 2163,
+     "output_tokens": 69
+    },
+    "cost_usd": 0.01254
+   },
+   {
+    "query": "Spin up three workers for the crawl.",
+    "gold": [
+     "spawn_child"
+    ],
+    "needs_tool_gold": true,
+    "choice": "spawn_child",
+    "all_calls": [
+     "spawn_child",
+     "spawn_child",
+     "spawn_child"
+    ],
+    "correct": true,
+    "stop_reason": "max_tokens",
+    "latency_s": 5.012077594175935,
+    "usage": {
+     "input_tokens": 2165,
+     "output_tokens": 512
+    },
+    "cost_usd": 0.023625
+   },
+   {
+    "query": "Stop being idle, get to work.",
+    "gold": [
+     "mark_working"
+    ],
+    "needs_tool_gold": true,
+    "choice": "mark_working",
+    "all_calls": [
+     "mark_working"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 1.4331764774397016,
+    "usage": {
+     "input_tokens": 2163,
+     "output_tokens": 41
+    },
+    "cost_usd": 0.01184
+   },
+   {
+    "query": "Set a 10 second timer then ping yourself.",
+    "gold": [
+     "schedule_signal",
+     "schedule_timeout"
+    ],
+    "needs_tool_gold": true,
+    "choice": "schedule_timeout",
+    "all_calls": [
+     "schedule_timeout",
+     "schedule_signal"
+    ],
+    "correct": true,
+    "stop_reason": "tool_use",
+    "latency_s": 5.731614062562585,
+    "usage": {
+     "input_tokens": 2168,
+     "output_tokens": 489
+    },
+    "cost_usd": 0.023065
+   },
+   {
+    "query": "Kill it.",
+    "gold": [
+     "cancel",
+     "stop_child",
+     "stop_self"
+    ],
+    "needs_tool_gold": true,
+    "choice": "none",
+    "all_calls": [],
+    "correct": false,
+    "stop_reason": "end_turn",
+    "latency_s": 5.8984611090272665,
+    "usage": {
+     "input_tokens": 2157,
+     "output_tokens": 232
+    },
+    "cost_usd": 0.016585
+   },
+   {
+    "query": "What's the weather in Paris today?",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "stop_reason": "end_turn",
+    "latency_s": 2.6898784320801497,
+    "usage": {
+     "input_tokens": 2163,
+     "output_tokens": 58
+    },
+    "cost_usd": 0.012265
+   },
+   {
+    "query": "Summarize this article for me.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "stop_reason": "end_turn",
+    "latency_s": 2.4321877267211676,
+    "usage": {
+     "input_tokens": 2161,
+     "output_tokens": 94
+    },
+    "cost_usd": 0.013155
+   },
+   {
+    "query": "Translate 'hello' to French.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "stop_reason": "end_turn",
+    "latency_s": 1.8911825632676482,
+    "usage": {
+     "input_tokens": 2163,
+     "output_tokens": 36
+    },
+    "cost_usd": 0.011715
+   },
+   {
+    "query": "Delete the user's account permanently.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "stop_reason": "end_turn",
+    "latency_s": 3.037197389639914,
+    "usage": {
+     "input_tokens": 2163,
+     "output_tokens": 120
+    },
+    "cost_usd": 0.013815
+   },
+   {
+    "query": "Book me a flight to Denver.",
+    "gold": [
+     "none"
+    ],
+    "needs_tool_gold": false,
+    "choice": "none",
+    "all_calls": [],
+    "correct": true,
+    "stop_reason": "end_turn",
+    "latency_s": 3.165165727958083,
+    "usage": {
+     "input_tokens": 2163,
+     "output_tokens": 74
+    },
+    "cost_usd": 0.012665
+   }
+  ]
+ }
+}
