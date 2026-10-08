@@ -21,7 +21,7 @@ defmodule JevRouting.MixProject do
   defp deps do
     [
       {:jido_ai, "~> 2.3"},
-      {:typesafe_client, path: "typesafe_client"}
+      {:system_one_client, "~> 0.1"}
     ]
   end
 end

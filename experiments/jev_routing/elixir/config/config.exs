@@ -16,5 +16,5 @@ config :jido_ai,
 config :logger, level: :warning
 
 if config_env() == :test do
-  config :typesafe_client, client: TypesafeClient.Stub
+  config :system_one_client, client: SystemOneClient.Stub
 end

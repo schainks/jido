@@ -214,8 +214,8 @@ baseline. The margin between the top two scores stands in for confidence.
 `request_transformer` change what a whole `Jido.AI.Agent` ReAct run costs and returns?
 
 **Setup.** `elixir/` holds two Mix projects run in the `hexpm/elixir:1.20.4` image via
-`run.sh`: `typesafe_client` (a standalone, publishable client for TypeSafe System One with
-typed answers, a stub, and Req-based HTTP with retry) and `jev_routing` (the transformer,
+`run.sh`: originally `typesafe_client` (a vendored client, since published as
+[`system_one_client`](https://hex.pm/packages/system_one_client), which this project now depends on) and `jev_routing` (the transformer,
 24 pure tools, 30 graded tasks, and the bench). Resolved deps: jido_ai 2.3.0, jido 2.3.3,
 jido_action 2.3.2, req_llm 1.25.0. Design in `elixir/SPEC.md`, plan in `elixir/PLAN.md`.
 
@@ -326,7 +326,7 @@ a temporary mode-600 env file; never on the command line).
 | `model_routing_results.json` | Raw replies, grades, Jev answers, and policy summary for experiment 2. |
 | `embed_baseline.py` | Experiment 3: BM25 and local embedding models (fastembed) on the experiment 1 queries. |
 | `embed_baseline_results.json` | Per-query top-2 matches, margins, and summaries for each model. |
-| `elixir/` | Experiment 4: `typesafe_client` package, `jev_routing` transformer + bench, `SPEC.md`, `PLAN.md`, `run.sh`. |
+| `elixir/` | Experiment 4: `jev_routing` transformer + bench (depends on `system_one_client` from Hex), `SPEC.md`, `PLAN.md`, `run.sh`. |
 | `bench_results_elixir.json` | Raw per-run rows for experiment 4 including every per-turn Jev decision. |
 
 ## Running

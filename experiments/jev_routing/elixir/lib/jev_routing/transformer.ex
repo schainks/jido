@@ -8,7 +8,7 @@ defmodule JevRouting.Transformer do
   @behaviour Jido.AI.Reasoning.ReAct.RequestTransformer
   require Logger
   alias JevRouting.Decisions
-  alias TypesafeClient.Answer.{Choice, Noul, Score}
+  alias SystemOneClient.Answer.{Choice, Noul, Score}
 
   @impl true
   def transform_request(request, state, _config, ctx) do
@@ -116,7 +116,7 @@ defmodule JevRouting.Transformer do
 
   # Never let the client take the agent down: any raise becomes a fail-open.
   defp safe_evaluate(state, questions, opts) do
-    TypesafeClient.evaluate(state, questions, opts)
+    SystemOneClient.evaluate(state, questions, opts)
   rescue
     e -> {:error, {:raised, Exception.message(e)}}
   catch

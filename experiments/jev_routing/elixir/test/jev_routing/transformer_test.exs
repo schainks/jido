@@ -2,7 +2,7 @@ defmodule JevRouting.TransformerTest do
   use ExUnit.Case, async: false
   @moduletag capture_log: true
   alias JevRouting.{Transformer, Decisions}
-  alias TypesafeClient.Answer.{Choice, Noul, Score}
+  alias SystemOneClient.Answer.{Choice, Noul, Score}
 
   @tools %{
     "add" => Jido.Tools.Arithmetic.Add,
@@ -38,7 +38,7 @@ defmodule JevRouting.TransformerTest do
     ctx =
       @ctx
       |> Map.merge(Map.new(opts))
-      |> Map.put(:client_opts, client: TypesafeClient.Stub, answers: answers_or_fun)
+      |> Map.put(:client_opts, client: SystemOneClient.Stub, answers: answers_or_fun)
 
     Transformer.transform_request(@request, %{iteration: 0}, %{}, ctx)
   end

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Runs mix commands for the Jev routing prototype inside the hexpm/elixir image.
-# Usage: ./run.sh <project-dir> <mix args...>     e.g. ./run.sh typesafe_client test
+# Usage: ./run.sh <project-dir> <mix args...>     e.g. ./run.sh . test
 #        ./run.sh . test          (jev_routing project)
 #        ./run.sh . bench         (alias for the bench)
 # Keys are read from ~/.typesafe_key and ~/.anthropic_key into the container env; nothing is echoed.
@@ -21,8 +21,6 @@ sudo -n docker run --rm \
   -v "$REPO:/work" -w "/work/$REL" \
   -v jev_routing_deps:/work/$BASE/deps \
   -v jev_routing_build:/work/$BASE/_build \
-  -v jev_routing_tc_deps:/work/$BASE/typesafe_client/deps \
-  -v jev_routing_tc_build:/work/$BASE/typesafe_client/_build \
   -v jev_routing_mix:/root/.mix \
   -v jev_routing_hex:/root/.hex \
   --env-file "$ENVFILE" -e MIX_ENV="${MIX_ENV:-dev}" \
