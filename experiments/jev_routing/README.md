@@ -302,7 +302,6 @@ crashes to a failed row instead of losing the batch, and closed two fail-open ga
 
 ```sh
 cd experiments/jev_routing/elixir
-./run.sh typesafe_client test          # client suite (20 tests, Req.Test, no network)
 ./run.sh . test                         # transformer, tools, tasks, bench helpers (28 tests, stubbed Jev)
 ./run.sh . run -e 'JevRouting.Bench.main([])'                       # full bench, ~90 runs
 ./run.sh . run -e 'JevRouting.Bench.main(["--tasks","t01,t15","--conditions","jev"])'
